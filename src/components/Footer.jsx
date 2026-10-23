@@ -53,7 +53,7 @@ const Footer = () => (
     <div className='border-t border-white/10 px-6 py-5 text-center text-sm text-slate-400'>
       © {new Date().getFullYear()} EYEPEK COLLEGE. All rights reserved.
       <p className='mx-auto mt-2 max-w-4xl text-xs leading-5 text-slate-500'>
-        Patna photos: <a href='https://commons.wikimedia.org/wiki/File:Golghar-patna.jpg' className='underline hover:text-slate-300'>Golghar by JhhonyG</a> and <a href='https://commons.wikimedia.org/wiki/File:River_Ganges_with_Gandhi_Bridge_and_parts_of_Patna_skyline.jpg' className='underline hover:text-slate-300'>Ganges &amp; Gandhi Setu by WeeKeeEditor</a>. Cropped for this site; <a href='https://creativecommons.org/licenses/by-sa/4.0/' className='underline hover:text-slate-300'>CC BY-SA 4.0</a>.
+        Illustrative student photos: <a href='https://www.pexels.com/photo/indian-students-doing-homework-in-campus-meadow-4622108/' className='underline hover:text-slate-300'>Kiran Pokuri Photography</a>, <a href='https://www.pexels.com/photo/students-studying-in-classroom-8197511/' className='underline hover:text-slate-300'>Yan Krukau</a>, and <a href='https://www.pexels.com/photo/a-group-of-students-sitting-in-a-library-and-studying-16420473/' className='underline hover:text-slate-300'>Ludovic Delot</a> via <a href='https://www.pexels.com/license/' className='underline hover:text-slate-300'>Pexels</a>.
       </p>
     </div>
   </footer>

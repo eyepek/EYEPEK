@@ -50,8 +50,8 @@ const HomePage = () => (
     <section className='relative isolate min-h-[610px] overflow-hidden bg-blue-950 text-white md:min-h-[680px]'>
       <img
         className='absolute inset-0 -z-20 h-full w-full object-cover'
-        src='/images/golghar-patna.jpg'
-        alt='Golghar, a historic landmark in Patna, Bihar'
+        src='/images/students-campus.jpg'
+        alt='Students studying together outdoors in a campus setting (illustrative photo)'
       />
       <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-red-950/45' />
       <div className='mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10'>
@@ -125,9 +125,9 @@ const HomePage = () => (
     <section id='about' className='bg-blue-50'>
       <div className='mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:px-10 md:py-24'>
         <div className='relative min-h-[340px] overflow-hidden rounded-2xl bg-blue-900'>
-          <img className='absolute inset-0 h-full w-full object-cover' src='/images/ganga-patna.jpg' alt='The Ganges, Gandhi Setu, and Patna skyline' loading='lazy' />
+          <img className='absolute inset-0 h-full w-full object-cover' src='/images/students-classroom.jpg' alt='College students studying together in a classroom (illustrative photo)' loading='lazy' />
           <div className='absolute inset-0 bg-gradient-to-t from-blue-950/70 to-transparent' />
-          <p className='absolute bottom-6 left-6 text-sm font-bold uppercase tracking-[0.18em] text-white'>Patna, Bihar</p>
+          <p className='absolute bottom-6 left-6 text-sm font-bold uppercase tracking-[0.18em] text-white'>Students learning together</p>
         </div>
         <div>
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>About EYEPEK</p>
@@ -140,24 +140,26 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='campus' className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
-      <div className='flex flex-col justify-between gap-5 md:flex-row md:items-end'>
-        <div>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-600'>Our home city</p>
-          <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Rooted in Patna, Bihar.</h2>
+    <section id='campus' className='bg-slate-50'>
+      <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+        <div className='flex flex-col justify-between gap-5 md:flex-row md:items-end'>
+          <div>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-600'>Student life</p>
+            <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Learn, discuss, move forward.</h2>
+          </div>
+          <p className='max-w-xl leading-7 text-slate-600'>Illustrative photos of students learning together. These photos do not show the EYEPEK College campus.</p>
         </div>
-        <p className='max-w-xl leading-7 text-slate-600'>EYEPEK College is based in Patna. Here are a couple of familiar landmarks from the city we call home.</p>
-      </div>
-      <div className='mt-10 grid gap-5 sm:grid-cols-2'>
-        <div className='group relative min-h-[300px] overflow-hidden rounded-xl bg-blue-900'>
-          <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='/images/golghar-patna.jpg' alt='Golghar and its gardens in Patna' loading='lazy' />
-          <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/10 to-transparent' />
-          <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Golghar, Patna</h3>
-        </div>
-        <div className='group relative min-h-[300px] overflow-hidden rounded-xl bg-red-900'>
-          <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='/images/ganga-patna.jpg' alt='The Ganges and Gandhi Setu beside Patna city' loading='lazy' />
-          <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/10 to-transparent' />
-          <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Ganga &amp; Gandhi Setu</h3>
+        <div className='mt-10 grid gap-5 sm:grid-cols-2'>
+          <article className='group relative min-h-[300px] overflow-hidden rounded-xl bg-blue-900'>
+            <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='/images/students-library.jpg' alt='College students studying together in a library (illustrative photo)' loading='lazy' />
+            <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/10 to-transparent' />
+            <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Collaborative study</h3>
+          </article>
+          <article className='group relative min-h-[300px] overflow-hidden rounded-xl bg-red-900'>
+            <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='/images/students-lecture.jpg' alt='Students taking part in a college lecture (illustrative photo)' loading='lazy' />
+            <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/10 to-transparent' />
+            <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Active learning</h3>
+          </article>
         </div>
       </div>
     </section>
