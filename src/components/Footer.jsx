@@ -8,9 +8,9 @@ const Footer = () => {
 
         {/* Brand / About */}
         <div>
-          <h2 className='text-2xl font-bold text-yellow-500 mb-4'>Eye<span className='text-blue-500'>Pek</span></h2>
+          <h2 className='text-2xl font-bold text-yellow-500 mb-4'>EYEPEK College</h2>
           <p className='text-gray-400'>
-            EyePek provides cutting-edge IT and educational solutions. Our goal is to empower individuals and businesses through technology and learning.
+            EYEPEK College for Higher Education supports learners through student-focused higher education and personal growth.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ const Footer = () => {
       </div>
 
       <div className='mt-10 text-center text-gray-500 text-sm'>
-        &copy; {new Date().getFullYear()} EyePek. All rights reserved.
+        &copy; {new Date().getFullYear()} EYEPEK College for Higher Education. All rights reserved.
       </div>
     </footer>
   );
