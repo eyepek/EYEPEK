@@ -139,11 +139,24 @@ const HomePage = () => (
         </div>
         <div>
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>About EYEPEK</p>
-          <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Knowledge that moves you forward.</h2>
+          <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Practical guidance for students and colleges.</h2>
           <p className='mt-6 leading-8 text-slate-600'>
-            EYEPEK College is committed to helping students learn, discover their potential, and prepare for the opportunities ahead. We believe every student deserves a supportive place to grow.
+            Based in Patna, Bihar, EYEPEK College helps people take clearer next steps in education. Students can get guidance on course choices—including BBA, BCA, MBA, MCA, ANM, GNM, and B.Sc. (Nursing)—as well as eligibility, applications, admission documents, and career planning.
           </p>
-          <a href='tel:7004374250' className='mt-8 inline-flex items-center gap-3 font-bold text-blue-900 hover:text-red-600'>Talk to our team <span aria-hidden='true'>→</span></a>
+          <p className='mt-4 leading-8 text-slate-600'>
+            We also guide colleges through State University affiliation processes and AICTE-related documentation and compliance work. Our role is to explain processes and help organise next steps; course availability and all affiliation or approval decisions must be confirmed with the relevant institution or authority.
+          </p>
+          <div className='mt-7 grid gap-3 sm:grid-cols-2'>
+            <div className='rounded-lg border border-blue-100 bg-white p-4'>
+              <h3 className='font-bold text-blue-950'>For students</h3>
+              <p className='mt-1 text-sm leading-6 text-slate-600'>Course, admission, document, and career guidance.</p>
+            </div>
+            <div className='rounded-lg border border-blue-100 bg-white p-4'>
+              <h3 className='font-bold text-blue-950'>For colleges</h3>
+              <p className='mt-1 text-sm leading-6 text-slate-600'>Affiliation process and AICTE-related support.</p>
+            </div>
+          </div>
+          <a href='tel:7004374250' className='mt-7 inline-flex items-center gap-3 font-bold text-blue-900 hover:text-red-600'>Talk to our team: 7004374250 <span aria-hidden='true'>→</span></a>
         </div>
       </div>
     </section>
