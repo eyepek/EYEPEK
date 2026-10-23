@@ -1,12 +1,21 @@
-# React + Vite
+# EYEPEK College
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mobile-friendly college website and installable Progressive Web App (PWA) for EYEPEK College, Patna, Bihar.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```sh
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Build for deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+npm run build
+npm run preview
+```
+
+The production build includes the web app manifest and service worker. Deploy the site over HTTPS to enable app installation and offline access. On Android, open the site in a supported browser and choose **Install App** when it appears. On iPhone, use Safari's **Share → Add to Home Screen**.
+
+The service worker caches the app shell and same-origin assets for offline reopening. Enquiry submissions still require an internet connection.

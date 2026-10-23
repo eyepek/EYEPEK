@@ -11,6 +11,16 @@ node_modules
 dist
 dist-ssr
 *.local
+/work/
+
+# Android build outputs and local signing/configuration files
+android-twa/.gradle/
+android-twa/build/
+android-twa/app/build/
+android-twa/work/
+android-twa/local.properties
+android-twa/*.jks
+android-twa/*.keystore
 
 # Editor directories and files
 .vscode/*

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IoMdMenu } from 'react-icons/io';
 import { FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import InstallAppButton from './InstallAppButton';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ const NavBar = () => {
         <div className='mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2'>
           <span>Admissions &amp; enquiries</span>
           <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
+            <InstallAppButton />
             <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-orange-300'>
               <FaYoutube aria-hidden='true' className='h-4 w-4' /> YouTube
             </a>
