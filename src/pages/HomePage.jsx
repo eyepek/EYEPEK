@@ -21,6 +21,30 @@ const highlights = [
   },
 ];
 
+const studentSupport = [
+  {
+    number: '01',
+    title: 'College Affiliation Support',
+    description: 'Guidance on affiliation-related requirements, processes, and where to find the right information for your institution.',
+    color: 'border-blue-700',
+    label: 'Institutional guidance',
+  },
+  {
+    number: '02',
+    title: 'Document Support',
+    description: 'Help understanding common admission documents, preparing a checklist, and organising your paperwork.',
+    color: 'border-orange-500',
+    label: 'Paperwork made clearer',
+  },
+  {
+    number: '03',
+    title: 'Admission & Career Support',
+    description: 'Personal guidance to help you explore admission next steps and think through your education and career goals.',
+    color: 'border-red-600',
+    label: 'Guidance for your next step',
+  },
+];
+
 const HomePage = () => (
   <main className='bg-white text-slate-900'>
     <section className='relative isolate min-h-[610px] overflow-hidden bg-blue-950 text-white md:min-h-[680px]'>
@@ -74,6 +98,27 @@ const HomePage = () => (
             <p className='mt-3 leading-7 text-slate-600'>{item.description}</p>
           </article>
         ))}
+      </div>
+    </section>
+
+    <section id='student-support' className='bg-white'>
+      <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+        <div className='max-w-3xl'>
+          <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Here to help you move forward</p>
+          <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Support for your college journey.</h2>
+          <p className='mt-5 text-lg leading-8 text-slate-600'>Get practical guidance with college affiliation processes, important documents, admissions, and career planning.</p>
+        </div>
+        <div className='mt-10 grid gap-5 md:grid-cols-3'>
+          {studentSupport.map((item) => (
+            <article key={item.number} className={`rounded-xl border border-slate-200 border-t-4 ${item.color} bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg`}>
+              <p className='text-xs font-black uppercase tracking-[0.16em] text-orange-700'>{item.label}</p>
+              <h3 className='mt-4 text-xl font-bold text-blue-950'>{item.title}</h3>
+              <p className='mt-3 leading-7 text-slate-600'>{item.description}</p>
+              <a href='/contact' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 hover:text-red-600'>Ask us about this <span aria-hidden='true'>→</span></a>
+            </article>
+          ))}
+        </div>
+        <p className='mt-6 text-sm leading-6 text-slate-500'>Affiliation support means process guidance and information. It does not represent or guarantee approval, accreditation, or affiliation by any authority.</p>
       </div>
     </section>
 
