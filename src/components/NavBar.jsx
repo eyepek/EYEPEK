@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IoMdMenu } from 'react-icons/io';
+import { FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -9,9 +10,17 @@ const NavBar = () => {
   return (
     <header className='relative z-50 bg-white shadow-sm'>
       <div className='bg-blue-950 px-6 py-2 text-xs font-semibold text-blue-50 md:px-10 md:text-sm'>
-        <div className='mx-auto flex max-w-7xl items-center justify-between gap-4'>
+        <div className='mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2'>
           <span>Admissions &amp; enquiries</span>
-          <a href='tel:7004374250' className='text-orange-300 transition hover:text-white'>Call us: 7004374250</a>
+          <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
+            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-orange-300'>
+              <FaYoutube aria-hidden='true' className='h-4 w-4' /> YouTube
+            </a>
+            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-orange-300'>
+              <FaFacebookF aria-hidden='true' className='h-3.5 w-3.5' /> Facebook
+            </a>
+            <a href='tel:7004374250' className='text-orange-300 transition hover:text-white'>Call us: 7004374250</a>
+          </div>
         </div>
       </div>
       <div className='mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10'>
