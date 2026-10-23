@@ -4,21 +4,24 @@ import { courses } from '../courses';
 const highlights = [
   {
     number: '01',
-    title: 'Learn with purpose',
-    description: 'Build a strong foundation through focused learning and practical curiosity.',
+    title: 'Explore your options',
+    description: 'Compare course paths and understand which direction fits your interests and goals.',
     color: 'border-orange-500',
+    accent: 'bg-orange-500',
   },
   {
     number: '02',
-    title: 'Grow with guidance',
-    description: 'Get support as you develop confidence, ideas, and the skills to move forward.',
+    title: 'Get the details right',
+    description: 'Get clear on eligibility, applications, and the documents you may need.',
     color: 'border-red-600',
+    accent: 'bg-red-600',
   },
   {
     number: '03',
-    title: 'Prepare for what’s next',
-    description: 'Connect your education with your ambitions and the opportunities ahead.',
+    title: 'Take your next step',
+    description: 'Move ahead with practical admission guidance and a plan for what comes next.',
     color: 'border-blue-700',
+    accent: 'bg-blue-700',
   },
 ];
 
@@ -88,24 +91,30 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='learning' className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
-      <div className='grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-end'>
-        <div>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>The EYEPEK experience</p>
-          <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>A college experience built around you.</h2>
+    <section id='learning' className='overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50/60'>
+      <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+        <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end'>
+          <div>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Your next step, made clearer</p>
+            <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>A clearer path from course choice to admission.</h2>
+          </div>
+          <p className='max-w-2xl text-lg leading-8 text-slate-600'>
+            Choosing what to study can feel like a big decision. Get straightforward information and practical guidance at each step of your college journey.
+          </p>
         </div>
-        <p className='max-w-2xl text-lg leading-8 text-slate-600'>
-          Great learning is more than a classroom. It’s the encouragement to ask questions, the guidance to find your strengths, and the confidence to take your next step.
-        </p>
-      </div>
-      <div className='mt-12 grid gap-5 md:grid-cols-3'>
-        {highlights.map((item) => (
-          <article key={item.number} className={`rounded-xl border border-slate-200 border-t-4 ${item.color} bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg`}>
-            <p className='text-sm font-black tracking-widest text-orange-600'>{item.number}</p>
-            <h3 className='mt-5 text-xl font-bold text-blue-950'>{item.title}</h3>
-            <p className='mt-3 leading-7 text-slate-600'>{item.description}</p>
-          </article>
-        ))}
+        <div className='mt-12 grid gap-5 md:grid-cols-3'>
+          {highlights.map((item) => (
+            <article key={item.number} className={`group relative overflow-hidden rounded-2xl border border-white/80 border-t-4 ${item.color} bg-white p-7 shadow-md shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-950/10`}>
+              <div className='flex items-center justify-between'>
+                <span className={`h-1.5 w-12 rounded-full ${item.accent}`} aria-hidden='true' />
+                <p className='text-sm font-black tracking-[0.18em] text-slate-400'>{item.number}</p>
+              </div>
+              <h3 className='mt-8 text-xl font-bold text-blue-950'>{item.title}</h3>
+              <p className='mt-3 min-h-14 leading-7 text-slate-600'>{item.description}</p>
+              <a href='#admissions' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 transition group-hover:text-orange-600'>Explore courses <span aria-hidden='true'>→</span></a>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -161,23 +170,21 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='campus' className='bg-slate-50'>
+    <section id='campus' className='bg-blue-950 text-white'>
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
-        <div className='flex flex-col justify-between gap-5 md:flex-row md:items-end'>
-          <div>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-600'>Ideas in action</p>
-            <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Learning starts with a conversation.</h2>
+        <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-center'>
+          <div className='py-2'>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Student life · shared ideas</p>
+            <h2 className='mt-4 text-3xl font-extrabold leading-tight md:text-5xl'>Learn together. Grow together.</h2>
+            <p className='mt-5 max-w-xl text-lg leading-8 text-blue-100'>College is shaped by the questions you ask, the people you meet, and the ideas you share along the way.</p>
+            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-orange-500 px-6 py-3.5 font-bold text-white transition hover:bg-orange-400'>Explore courses <span aria-hidden='true'>→</span></a>
           </div>
-          <p className='max-w-xl leading-7 text-slate-600'>Good guidance grows through open conversations, shared ideas, and thoughtful planning.</p>
+          <figure className='group relative overflow-hidden rounded-3xl bg-blue-900 shadow-2xl shadow-black/20'>
+            <img className='block aspect-[4/3] max-h-[34rem] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/students-library.jpg' alt='Students sharing ideas and studying together (representative photo)' loading='lazy' />
+            <div className='absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent' aria-hidden='true' />
+            <figcaption className='absolute inset-x-0 bottom-0 px-6 py-6 text-sm font-semibold text-white sm:px-8 sm:py-8'>Good conversations can open new possibilities.</figcaption>
+          </figure>
         </div>
-        <figure className='group relative mt-10 overflow-hidden rounded-3xl bg-blue-950 shadow-xl shadow-blue-950/15'>
-          <img className='block aspect-[16/9] max-h-[34rem] w-full object-cover object-center transition duration-700 group-hover:scale-[1.02]' src='/images/students-campus.jpg' alt='Students studying together outdoors with a laptop (representative photo)' loading='lazy' />
-          <div className='absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/10 to-transparent' aria-hidden='true' />
-          <figcaption className='absolute inset-x-0 bottom-0 flex flex-col gap-2 px-6 py-6 text-white sm:px-10 sm:py-9'>
-            <span className='w-fit rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] backdrop-blur-sm'>Learn · Connect · Grow</span>
-            <span className='text-xl font-bold sm:text-2xl'>A brighter future begins with shared learning.</span>
-          </figcaption>
-        </figure>
       </div>
     </section>
 
