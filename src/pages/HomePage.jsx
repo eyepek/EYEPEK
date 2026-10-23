@@ -44,6 +44,13 @@ const studentSupport = [
     color: 'border-red-600',
     label: 'Guidance for your next step',
   },
+  {
+    number: '04',
+    title: 'Admission Consultancy',
+    description: 'One-to-one guidance on course and college options, eligibility, application steps, and the documents you may need. Admission decisions remain with the institution.',
+    color: 'border-orange-500',
+    label: 'Personal admission guidance',
+  },
 ];
 
 const HomePage = () => (
@@ -107,9 +114,9 @@ const HomePage = () => (
         <div className='max-w-3xl'>
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Here to help you move forward</p>
           <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Support for your college journey.</h2>
-          <p className='mt-5 text-lg leading-8 text-slate-600'>Get practical guidance with college affiliation processes, important documents, admissions, and career planning.</p>
+          <p className='mt-5 text-lg leading-8 text-slate-600'>Get practical guidance with college affiliation processes, important documents, admission consultancy, and career planning.</p>
         </div>
-        <div className='mt-10 grid gap-5 md:grid-cols-3'>
+        <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
           {studentSupport.map((item) => (
             <article key={item.number} className={`rounded-xl border border-slate-200 border-t-4 ${item.color} bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg`}>
               <p className='text-xs font-black uppercase tracking-[0.16em] text-orange-700'>{item.label}</p>
@@ -173,6 +180,7 @@ const HomePage = () => (
           {[
             ['How can I get course and fee details?', 'Call EYEPEK College on 7004374250 to confirm current course availability and fees.'],
             ['How do I ask about admission?', 'Call the admissions team or send an enquiry through the admissions page.'],
+            ['What does admission consultancy cover?', 'Get guidance on course and college options, eligibility, application steps, and required documents. Final admission decisions are made by the institution.'],
             ['Can I ask about a course not listed here?', 'Yes. Add the course you are interested in to the enquiry form, and ask the team for guidance.'],
             ['What should I share when I enquire?', 'Your name, phone number, course of interest, and any questions you have are a good start.'],
           ].map(([question, answer]) => (
