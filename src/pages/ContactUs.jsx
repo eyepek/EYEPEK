@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { courses } from '../courses';
 
 export default function ContactUs() {
   const [form, setForm] = useState({ name: '', phone: '', course: '', message: '' });
@@ -46,7 +47,10 @@ export default function ContactUs() {
               </label>
             </div>
             <label className='block text-sm font-semibold text-slate-700'>Course you are interested in
-              <input value={form.course} onChange={(e) => setForm({ ...form, course: e.target.value })} className='mt-2 w-full rounded-md border border-slate-300 px-4 py-3 font-normal outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-100' placeholder='Type a course or ask for guidance' />
+              <input list='course-options' value={form.course} onChange={(e) => setForm({ ...form, course: e.target.value })} className='mt-2 w-full rounded-md border border-slate-300 px-4 py-3 font-normal outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-100' placeholder='Choose or type a course' />
+              <datalist id='course-options'>
+                {courses.map((course) => <option key={course} value={course} />)}
+              </datalist>
             </label>
             <label className='block text-sm font-semibold text-slate-700'>Your question (optional)
               <textarea rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className='mt-2 w-full rounded-md border border-slate-300 px-4 py-3 font-normal outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-100' placeholder='What would you like to know?' />

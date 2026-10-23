@@ -1,4 +1,5 @@
 import React from 'react';
+import { courses } from '../courses';
 
 const highlights = [
   {
@@ -25,7 +26,7 @@ const studentSupport = [
   {
     number: '01',
     title: 'College Affiliation Support',
-    description: 'Guidance on affiliation-related requirements, processes, and where to find the right information for your institution.',
+    description: 'Guidance on State University affiliation processes and AICTE-related work, including application and compliance documentation.',
     color: 'border-blue-700',
     label: 'Institutional guidance',
   },
@@ -189,7 +190,15 @@ const HomePage = () => (
         <div>
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Take your next step</p>
           <h2 className='mt-3 text-3xl font-extrabold md:text-5xl'>Let’s talk about your future.</h2>
-          <p className='mt-4 text-blue-100'>Call EYEPEK College for admissions and course information.</p>
+          <p className='mt-4 text-blue-100'>Ask the admissions team about course availability, eligibility, and fees.</p>
+          <div className='mt-6'>
+            <p className='text-sm font-bold text-orange-200'>Courses to enquire about</p>
+            <ul className='mt-3 flex flex-wrap gap-2'>
+              {courses.map((course) => <li key={course} className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-sm font-semibold'>{course}</li>)}
+              <li className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-sm font-semibold'>And more</li>
+            </ul>
+            <p className='mt-3 text-sm text-blue-200'>Confirm current availability and admission details with the college team.</p>
+          </div>
         </div>
         <div className='flex flex-wrap gap-3'>
           <a href='/contact' className='shrink-0 rounded-md border border-white/60 px-6 py-4 text-center font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
