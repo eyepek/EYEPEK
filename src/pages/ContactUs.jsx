@@ -4,7 +4,7 @@ import { courses } from '../courses';
 export default function ContactUs() {
   const [form, setForm] = useState({ name: '', phone: '', course: '', message: '' });
   const [status, setStatus] = useState('');
-  const [whatsappUrl, setWhatsappUrl] = useState('');
+  const [emailUrl, setEmailUrl] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,10 +15,10 @@ export default function ContactUs() {
       `Course of interest: ${form.course || 'Not specified'}`,
       `Message: ${form.message || 'None'}`,
     ].join('\n');
-    const url = `https://wa.me/917004374250?text=${encodeURIComponent(enquiry)}`;
-    setWhatsappUrl(url);
-    setStatus('Your enquiry is ready in WhatsApp. Press Send there to share it with +91 7004374250.');
-    window.open(url, '_blank', 'noopener,noreferrer');
+    const url = `mailto:info.eyepek@gmail.com?subject=${encodeURIComponent('EYEPEK College admission enquiry')}&body=${encodeURIComponent(enquiry)}`;
+    setEmailUrl(url);
+    setStatus('Your enquiry is ready in your email app. Press Send there to email info.eyepek@gmail.com.');
+    window.location.href = url;
   };
 
   return (
@@ -34,7 +34,7 @@ export default function ContactUs() {
 
         <section className='rounded-2xl bg-white p-8 shadow-sm md:p-10'>
           <h2 className='text-2xl font-bold text-blue-950'>Send an enquiry</h2>
-          <p className='mt-2 text-slate-600'>Fill this in, then continue to WhatsApp to share your enquiry.</p>
+          <p className='mt-2 text-slate-600'>Fill this in to prepare an email to the EYEPEK College team.</p>
           <form className='mt-7 space-y-5' onSubmit={handleSubmit}>
             <div className='grid gap-5 sm:grid-cols-2'>
               <label className='block text-sm font-semibold text-slate-700'>Your name
@@ -53,10 +53,10 @@ export default function ContactUs() {
             <label className='block text-sm font-semibold text-slate-700'>Your question (optional)
               <textarea rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className='mt-2 w-full rounded-md border border-slate-300 px-4 py-3 font-normal outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-100' placeholder='What would you like to know?' />
             </label>
-            <button type='submit' className='rounded-md bg-blue-800 px-6 py-3 font-bold text-white transition hover:bg-blue-900'>Continue to WhatsApp</button>
-            {status && <p role='status' className='rounded-md bg-blue-50 p-4 text-sm leading-6 text-blue-950'>{status} <a href={whatsappUrl} target='_blank' rel='noreferrer' className='ml-1 font-bold underline'>Open WhatsApp</a></p>}
+            <button type='submit' className='rounded-md bg-blue-800 px-6 py-3 font-bold text-white transition hover:bg-blue-900'>Send enquiry by email</button>
+            {status && <p role='status' className='rounded-md bg-blue-50 p-4 text-sm leading-6 text-blue-950'>{status} <a href={emailUrl} className='ml-1 font-bold underline'>Open email</a></p>}
           </form>
-          <p className='mt-5 text-xs leading-5 text-slate-500'>Your enquiry is prepared as a WhatsApp message to +91 7004374250. It is shared only when you press Send in WhatsApp.</p>
+          <p className='mt-5 text-xs leading-5 text-slate-500'>Your enquiry will be addressed to info.eyepek@gmail.com. It is sent only after you press Send in your email app.</p>
         </section>
       </div>
     </main>
