@@ -50,14 +50,14 @@ const HomePage = () => (
     <section className='relative isolate min-h-[610px] overflow-hidden bg-blue-950 text-white md:min-h-[680px]'>
       <img
         className='absolute inset-0 -z-20 h-full w-full object-cover'
-        src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=85&w=2000&auto=format&fit=crop&crop=faces'
-        alt='Students learning and collaborating on campus'
+        src='/images/golghar-patna.jpg'
+        alt='Golghar, a historic landmark in Patna, Bihar'
       />
       <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-red-950/45' />
       <div className='mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10'>
         <div className='max-w-3xl'>
           <p className='mb-5 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>
-            <span className='h-1 w-10 bg-orange-400' /> EYEPEK COLLEGE
+            <span className='h-1 w-10 bg-orange-400' /> EYEPEK COLLEGE · PATNA, BIHAR
           </p>
           <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
             Learn with confidence.<br />
@@ -125,9 +125,9 @@ const HomePage = () => (
     <section id='about' className='bg-blue-50'>
       <div className='mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:px-10 md:py-24'>
         <div className='relative min-h-[340px] overflow-hidden rounded-2xl bg-blue-900'>
-          <img className='absolute inset-0 h-full w-full object-cover' src='https://images.unsplash.com/photo-1562774053-701939374585?q=85&w=1200&auto=format&fit=crop' alt='University campus building' loading='lazy' />
+          <img className='absolute inset-0 h-full w-full object-cover' src='/images/ganga-patna.jpg' alt='The Ganges, Gandhi Setu, and Patna skyline' loading='lazy' />
           <div className='absolute inset-0 bg-gradient-to-t from-blue-950/70 to-transparent' />
-          <p className='absolute bottom-6 left-6 text-sm font-bold uppercase tracking-[0.18em] text-white'>Your next chapter starts here</p>
+          <p className='absolute bottom-6 left-6 text-sm font-bold uppercase tracking-[0.18em] text-white'>Patna, Bihar</p>
         </div>
         <div>
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>About EYEPEK</p>
@@ -143,21 +143,21 @@ const HomePage = () => (
     <section id='campus' className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
       <div className='flex flex-col justify-between gap-5 md:flex-row md:items-end'>
         <div>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-600'>Learning beyond the lecture</p>
-          <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Find your place to thrive.</h2>
+          <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-600'>Our home city</p>
+          <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Rooted in Patna, Bihar.</h2>
         </div>
-        <p className='max-w-xl leading-7 text-slate-600'>A welcoming college community gives students space to learn together, build confidence, and explore new ideas.</p>
+        <p className='max-w-xl leading-7 text-slate-600'>EYEPEK College is based in Patna. Here are a couple of familiar landmarks from the city we call home.</p>
       </div>
       <div className='mt-10 grid gap-5 sm:grid-cols-2'>
         <div className='group relative min-h-[300px] overflow-hidden rounded-xl bg-blue-900'>
-          <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='https://images.unsplash.com/photo-1529390079861-591de354faf5?q=85&w=1200&auto=format&fit=crop' alt='Students taking part in a campus activity' loading='lazy' />
+          <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='/images/golghar-patna.jpg' alt='Golghar and its gardens in Patna' loading='lazy' />
           <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/10 to-transparent' />
-          <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Learn together</h3>
+          <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Golghar, Patna</h3>
         </div>
         <div className='group relative min-h-[300px] overflow-hidden rounded-xl bg-red-900'>
-          <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=85&w=1200&auto=format&fit=crop' alt='Students collaborating on a project' loading='lazy' />
+          <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='/images/ganga-patna.jpg' alt='The Ganges and Gandhi Setu beside Patna city' loading='lazy' />
           <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/10 to-transparent' />
-          <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Create what’s next</h3>
+          <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Ganga &amp; Gandhi Setu</h3>
         </div>
       </div>
     </section>
