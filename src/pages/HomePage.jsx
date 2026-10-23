@@ -165,23 +165,15 @@ const HomePage = () => (
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
         <div className='flex flex-col justify-between gap-5 md:flex-row md:items-end'>
           <div>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-600'>Student life</p>
-            <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Learn, discuss, move forward.</h2>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-600'>Ideas in action</p>
+            <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Learning starts with a conversation.</h2>
           </div>
-          <p className='max-w-xl leading-7 text-slate-600'>Illustrative photos of students learning together. These photos do not show the EYEPEK College campus.</p>
+          <p className='max-w-xl leading-7 text-slate-600'>Good guidance grows through open conversations, shared ideas, and thoughtful planning.</p>
         </div>
-        <div className='mt-10 grid gap-5 sm:grid-cols-2'>
-          <article className='group relative min-h-[300px] overflow-hidden rounded-xl bg-blue-900'>
-            <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='/images/students-library.jpg' alt='College students studying together in a library (illustrative photo)' loading='lazy' />
-            <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/10 to-transparent' />
-            <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Collaborative study</h3>
-          </article>
-          <article className='group relative min-h-[300px] overflow-hidden rounded-xl bg-red-900'>
-            <img className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105' src='/images/students-lecture.jpg' alt='Students taking part in a college lecture (illustrative photo)' loading='lazy' />
-            <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/10 to-transparent' />
-            <h3 className='absolute bottom-6 left-6 text-2xl font-bold text-white'>Active learning</h3>
-          </article>
-        </div>
+        <figure className='mt-10 overflow-hidden rounded-2xl bg-blue-100 shadow-sm'>
+          <img className='block h-auto w-full' src='/images/college-meeting-illustration.svg' alt='Stylized illustration of a college team meeting around a table' loading='lazy' />
+          <figcaption className='border-t border-blue-100 bg-white px-6 py-4 text-sm font-medium text-slate-600'>A college team sharing ideas and planning next steps.</figcaption>
+        </figure>
       </div>
     </section>
 
