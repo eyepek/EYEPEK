@@ -15,8 +15,9 @@ const NavBar = () => {
 
   return (
     <div className='py-4 px-6 flex items-center justify-between bg-black relative z-50'>
-      <h1 className='text-white text-3xl font-bold'>
-        EYE<span className='text-white'>PEK</span>
+      <h1 className='text-white text-xl md:text-2xl font-bold leading-tight'>
+        EYEPEK
+        <span className='block text-xs md:text-sm font-normal text-gray-300'>College for Higher Education</span>
       </h1>
 
       <IoMdMenu
