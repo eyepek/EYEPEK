@@ -64,28 +64,28 @@ const HomePage = () => (
       <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-red-950/45' />
       <div className='mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10'>
         <div className='max-w-3xl'>
-          <p className='mb-5 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>
-            <span className='h-1 w-10 bg-orange-400' /> EYEPEK COLLEGE · PATNA, BIHAR
+          <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur-sm sm:text-sm'>
+            <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK COLLEGE · PATNA, BIHAR
           </p>
           <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
             Learn with confidence.<br />
             <span className='text-orange-300'>Build what’s next.</span>
           </h1>
           <p className='mt-6 max-w-2xl text-lg leading-8 text-blue-50 md:text-xl'>
-            A student-focused college experience shaped around learning, personal growth, and your future ambitions.
+            Explore your next step with course information, admission consultancy, and practical guidance for your college journey.
           </p>
           <div className='mt-9 flex flex-wrap gap-4'>
-            <a href='tel:7004374250' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Call Admissions</a>
-            <a href='#learning' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950'>Explore EYEPEK</a>
+            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Courses</a>
+            <a href='/contact' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
+            <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Call 7004374250</a>
           </div>
-          <div className='mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/25 pt-5 text-sm font-semibold text-blue-100'>
-            <span>Student-first learning</span><span className='text-orange-300'>◆</span>
-            <span>Academic guidance</span><span className='text-red-300'>◆</span>
-            <span>Room to grow</span>
+          <div className='mt-10 flex flex-wrap gap-2 border-t border-white/25 pt-5 text-sm font-semibold text-blue-50'>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Course information</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Admission consultancy</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>College support</span>
           </div>
         </div>
       </div>
-      <div className='absolute bottom-0 right-0 hidden h-36 w-1/3 bg-orange-500/90 md:block' />
     </section>
 
     <section id='learning' className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>

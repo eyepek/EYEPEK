@@ -8,7 +8,7 @@ const NavBar = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className='relative z-50 bg-white shadow-sm'>
+    <header className='sticky top-0 z-50 bg-white shadow-sm'>
       <div className='bg-blue-950 px-6 py-2 text-xs font-semibold text-blue-50 md:px-10 md:text-sm'>
         <div className='mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2'>
           <span>Admissions &amp; enquiries</span>
@@ -24,13 +24,14 @@ const NavBar = () => {
         </div>
       </div>
       <div className='mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10'>
-        <Link to='/' onClick={closeMenu} className='text-xl font-black tracking-tight text-blue-950 md:text-2xl'>
-          EYEPEK <span className='text-orange-500'>COLLEGE</span>
+        <Link to='/' onClick={closeMenu} className='leading-tight text-blue-950'>
+          <span className='block text-lg font-black tracking-tight sm:text-xl md:text-2xl'>EYEPEK <span className='text-orange-500'>COLLEGE</span></span>
+          <span className='mt-1 block text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500'>Patna, Bihar</span>
         </Link>
-        <button type='button' aria-label='Toggle navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='rounded-md p-2 text-blue-950 md:hidden'>
+        <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='rounded-md p-2 text-blue-950 md:hidden'>
           <IoMdMenu className='h-8 w-8' />
         </button>
-        <nav className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-5 font-semibold text-blue-950 shadow-lg md:static md:flex md:w-auto md:flex-row md:items-center md:gap-8 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}>
+        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-5 font-semibold text-blue-950 shadow-lg md:static md:flex md:w-auto md:flex-row md:items-center md:gap-8 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}>
           <Link to='/' onClick={closeMenu} className='hover:text-red-600'>Home</Link>
           <a href='/#about' onClick={closeMenu} className='hover:text-red-600'>About</a>
           <a href='/#learning' onClick={closeMenu} className='hover:text-red-600'>Learning</a>
