@@ -25,7 +25,7 @@ const NavBar = () => {
       </div>
       <div className='mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10'>
         <Link to='/' onClick={closeMenu} aria-label='EYEPEK College home' className='shrink-0'>
-          <img src='/images/eyepek-college-logo.svg' alt='EYEPEK College, Patna, Bihar' className='h-11 w-auto sm:h-12' />
+          <img src='/images/eyepek-college-logo.svg' alt='EYEPEK College, Patna, Bihar' className='block h-auto w-[190px] sm:w-[220px]' />
         </Link>
         <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='rounded-md p-2 text-blue-950 md:hidden'>
           <IoMdMenu className='h-8 w-8' />
