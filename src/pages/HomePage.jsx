@@ -170,9 +170,13 @@ const HomePage = () => (
           </div>
           <p className='max-w-xl leading-7 text-slate-600'>Good guidance grows through open conversations, shared ideas, and thoughtful planning.</p>
         </div>
-        <figure className='mt-10 overflow-hidden rounded-2xl bg-blue-100 shadow-sm'>
-          <img className='block h-auto w-full' src='/images/college-meeting-illustration.svg' alt='Stylized illustration of a college team meeting around a table' loading='lazy' />
-          <figcaption className='border-t border-blue-100 bg-white px-6 py-4 text-sm font-medium text-slate-600'>A college team sharing ideas and planning next steps.</figcaption>
+        <figure className='group relative mt-10 overflow-hidden rounded-3xl bg-blue-950 shadow-xl shadow-blue-950/15'>
+          <img className='block aspect-[16/9] max-h-[34rem] w-full object-cover object-center transition duration-700 group-hover:scale-[1.02]' src='/images/students-campus.jpg' alt='Students studying together outdoors with a laptop (representative photo)' loading='lazy' />
+          <div className='absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/10 to-transparent' aria-hidden='true' />
+          <figcaption className='absolute inset-x-0 bottom-0 flex flex-col gap-2 px-6 py-6 text-white sm:px-10 sm:py-9'>
+            <span className='w-fit rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] backdrop-blur-sm'>Learn · Connect · Grow</span>
+            <span className='text-xl font-bold sm:text-2xl'>A brighter future begins with shared learning.</span>
+          </figcaption>
         </figure>
       </div>
     </section>
