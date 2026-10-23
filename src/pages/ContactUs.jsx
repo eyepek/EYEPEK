@@ -4,8 +4,9 @@ import { courses } from '../courses';
 export default function ContactUs() {
   const [form, setForm] = useState({ name: '', phone: '', course: '', message: '' });
   const [status, setStatus] = useState('');
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const enquiry = [
       'EYEPEK College admission enquiry',
@@ -14,13 +15,10 @@ export default function ContactUs() {
       `Course of interest: ${form.course || 'Not specified'}`,
       `Message: ${form.message || 'None'}`,
     ].join('\n');
-
-    try {
-      await navigator.clipboard.writeText(enquiry);
-      setStatus('Enquiry details copied. Please call 7004374250 and share them with the admissions team.');
-    } catch {
-      setStatus('Please call 7004374250 and share your name, phone number, and course of interest.');
-    }
+    const url = `https://wa.me/917004374250?text=${encodeURIComponent(enquiry)}`;
+    setWhatsappUrl(url);
+    setStatus('Your enquiry is ready in WhatsApp. Press Send there to share it with +91 7004374250.');
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -36,7 +34,7 @@ export default function ContactUs() {
 
         <section className='rounded-2xl bg-white p-8 shadow-sm md:p-10'>
           <h2 className='text-2xl font-bold text-blue-950'>Send an enquiry</h2>
-          <p className='mt-2 text-slate-600'>Fill this in, then call us to share your enquiry.</p>
+          <p className='mt-2 text-slate-600'>Fill this in, then continue to WhatsApp to share your enquiry.</p>
           <form className='mt-7 space-y-5' onSubmit={handleSubmit}>
             <div className='grid gap-5 sm:grid-cols-2'>
               <label className='block text-sm font-semibold text-slate-700'>Your name
@@ -55,10 +53,10 @@ export default function ContactUs() {
             <label className='block text-sm font-semibold text-slate-700'>Your question (optional)
               <textarea rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className='mt-2 w-full rounded-md border border-slate-300 px-4 py-3 font-normal outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-100' placeholder='What would you like to know?' />
             </label>
-            <button type='submit' className='rounded-md bg-blue-800 px-6 py-3 font-bold text-white transition hover:bg-blue-900'>Prepare my enquiry</button>
-            {status && <p role='status' className='rounded-md bg-blue-50 p-4 text-sm leading-6 text-blue-950'>{status}</p>}
+            <button type='submit' className='rounded-md bg-blue-800 px-6 py-3 font-bold text-white transition hover:bg-blue-900'>Continue to WhatsApp</button>
+            {status && <p role='status' className='rounded-md bg-blue-50 p-4 text-sm leading-6 text-blue-950'>{status} <a href={whatsappUrl} target='_blank' rel='noreferrer' className='ml-1 font-bold underline'>Open WhatsApp</a></p>}
           </form>
-          <p className='mt-5 text-xs leading-5 text-slate-500'>This page does not send or store your details. It prepares a message for you to share when you call.</p>
+          <p className='mt-5 text-xs leading-5 text-slate-500'>Your enquiry is prepared as a WhatsApp message to +91 7004374250. It is shared only when you press Send in WhatsApp.</p>
         </section>
       </div>
     </main>
