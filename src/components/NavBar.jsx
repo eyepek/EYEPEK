@@ -27,10 +27,10 @@ const NavBar = () => {
         <Link to='/' onClick={closeMenu} aria-label='EYEPEK College home' className='shrink-0'>
           <img src='/images/eyepek-college-logo.svg' alt='EYEPEK College, Patna, Bihar' className='block h-auto w-[190px] sm:w-[220px]' />
         </Link>
-        <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='rounded-md p-2 text-blue-950 md:hidden'>
+        <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='rounded-md p-2 text-blue-950 lg:hidden'>
           <IoMdMenu className='h-8 w-8' />
         </button>
-        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-5 font-semibold text-blue-950 shadow-lg md:static md:flex md:w-auto md:flex-row md:items-center md:gap-8 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}>
+        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-5 font-semibold text-blue-950 shadow-lg lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}>
           <Link to='/' onClick={closeMenu} className='hover:text-red-600'>Home</Link>
           <a href='/#about' onClick={closeMenu} className='hover:text-red-600'>About</a>
           <a href='/#learning' onClick={closeMenu} className='hover:text-red-600'>Learning</a>
