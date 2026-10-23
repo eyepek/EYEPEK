@@ -14,10 +14,10 @@ const NavBar = () => {
   };
 
   return (
-    <div className='py-4 px-6 flex items-center justify-between bg-black relative z-50'>
-      <h1 className='text-white text-xl md:text-2xl font-bold leading-tight'>
+    <div className='py-4 px-6 flex items-center justify-between bg-blue-900 relative z-50'>
+      <h1 className='text-orange-300 text-xl md:text-2xl font-bold leading-tight'>
         EYEPEK
-        <span className='block text-xs md:text-sm font-normal text-gray-300'>College for Higher Education</span>
+        <span className='block text-xs md:text-sm font-normal text-green-200'>College for Higher Education</span>
       </h1>
 
       <IoMdMenu
@@ -27,19 +27,19 @@ const NavBar = () => {
 
       {/* Desktop Menu */}
       <div className='hidden md:flex space-x-6 text-white font-bold'>
-        <Link to='/' className='hover:text-yellow-600'>Home</Link>
-        <Link to='/services' className='hover:text-yellow-600'>Services</Link>
-        <Link to='/contact' className='hover:text-yellow-600'>Contact Us</Link>
-        <Link to='/profile' className='hover:text-yellow-600'>Profile</Link>
+        <Link to='/' className='hover:text-red-300'>Home</Link>
+        <Link to='/services' className='hover:text-red-300'>Services</Link>
+        <Link to='/contact' className='hover:text-red-300'>Contact Us</Link>
+        <Link to='/profile' className='hover:text-red-300'>Profile</Link>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className='absolute top-full left-0 w-full bg-black flex flex-col items-start p-4 space-y-3 text-white md:hidden z-40'>
-          <Link to='/' onClick={handleLinkClick} className='hover:text-yellow-600'>Home</Link>
-          <Link to='/services' onClick={handleLinkClick} className='hover:text-yellow-600'>Services</Link>
-          <Link to='/contact' onClick={handleLinkClick} className='hover:text-yellow-600'>Contact Us</Link>
-          <Link to='/profile' onClick={handleLinkClick} className='hover:text-yellow-600'>Profile</Link>
+        <div className='absolute top-full left-0 w-full bg-blue-900 flex flex-col items-start p-4 space-y-3 text-white md:hidden z-40'>
+          <Link to='/' onClick={handleLinkClick} className='hover:text-red-300'>Home</Link>
+          <Link to='/services' onClick={handleLinkClick} className='hover:text-red-300'>Services</Link>
+          <Link to='/contact' onClick={handleLinkClick} className='hover:text-red-300'>Contact Us</Link>
+          <Link to='/profile' onClick={handleLinkClick} className='hover:text-red-300'>Profile</Link>
         </div>
       )}
     </div>
