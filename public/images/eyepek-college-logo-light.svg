@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 128" role="img" aria-labelledby="title desc">
+  <title id="title">EYEPEK College</title>
+  <desc id="desc">An eye above an open book, representing focus, learning, and new possibilities.</desc>
+  <circle cx="56" cy="64" r="48" fill="#fff" stroke="#fff" stroke-width="4"/>
+  <path d="M25 52Q56 25 87 52 56 79 25 52Z" fill="#dbeafe" stroke="#172554" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="56" cy="51" r="11" fill="#f97316"/>
+  <path d="m50 55 6-9 6 9z" fill="#fff"/>
+  <path d="M17 79q20-8 39 5v26q-19-13-39-6zM56 84q19-13 39-5v25q-20-7-39 6z" fill="#fff" stroke="#172554" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M56 84v26" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+  <text x="126" y="66" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="800" letter-spacing="-1.8" fill="#fff">EYEPEK</text>
+  <text x="310" y="66" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="800" letter-spacing="-1.8" fill="#fb923c">COLLEGE</text>
+  <path d="M128 81h372" stroke="#475569" stroke-width="2"/>
+  <text x="129" y="105" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="4" fill="#cbd5e1">PATNA · BIHAR</text>
+</svg>
