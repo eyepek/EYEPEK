@@ -255,21 +255,21 @@ const HomePage = () => (
             </p>
             <h2 className='mt-5 text-3xl font-black leading-tight text-blue-950 sm:text-4xl md:text-5xl'>Your goals matter. <span className='text-orange-500'>Let’s move forward together.</span></h2>
             <p className='mt-6 text-base leading-8 text-slate-600 sm:text-lg'>
-              EYEPEK brings education guidance and everyday support together in one place. We help students explore course options, understand admission steps, organise document checklists, and plan their next move with greater clarity.
+              EYEPEK College helps students and families make more informed decisions about education. From comparing courses to understanding eligibility, applications, admission documents, and career options, we make the next step easier to understand—with practical guidance tailored to your questions.
             </p>
             <p className='mt-4 text-base leading-8 text-slate-600 sm:text-lg'>
-              We also provide information and process support for colleges, including guidance on affiliation and AICTE-related documentation. Requirements and decisions vary by authority, so official eligibility, course availability, approvals, and affiliation should always be confirmed with the relevant institution or regulator.
+              For colleges, we help organise documentation and understand the steps involved in State University affiliation processes and AICTE-related documentation and compliance. We explain processes and help you plan the work; course availability and all affiliation, approval, and compliance decisions must be confirmed with the relevant institution or authority.
             </p>
             <div className='mt-7 grid gap-4 sm:grid-cols-2'>
               <div className='rounded-2xl border border-blue-100 bg-white/90 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md'>
                 <div className='flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-800'><FaGraduationCap aria-hidden='true' /></div>
                 <h3 className='mt-4 font-extrabold text-blue-950'>For students</h3>
-                <p className='mt-2 text-sm leading-6 text-slate-600'>Course exploration, admission guidance, document checklists, and career direction.</p>
+                <p className='mt-2 text-sm leading-6 text-slate-600'>Guidance on BBA, BCA, MBA, MCA, ANM, GNM, and B.Sc. (Nursing), plus eligibility, applications, documents, and career planning.</p>
               </div>
               <div className='rounded-2xl border border-orange-100 bg-white/90 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md'>
                 <div className='flex h-11 w-11 items-center justify-center rounded-xl bg-orange-50 text-xl text-orange-700'><FaFileAlt aria-hidden='true' /></div>
                 <h3 className='mt-4 font-extrabold text-blue-950'>For colleges</h3>
-                <p className='mt-2 text-sm leading-6 text-slate-600'>Documentation organisation and guidance through affiliation and compliance processes.</p>
+                <p className='mt-2 text-sm leading-6 text-slate-600'>Documentation support for State University affiliation processes and AICTE-related compliance requirements.</p>
               </div>
             </div>
             <div className='mt-8 flex flex-wrap items-center gap-4'>
