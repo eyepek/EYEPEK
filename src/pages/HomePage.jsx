@@ -174,8 +174,8 @@ const HomePage = () => (
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-center'>
           <div className='py-2'>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Student life · shared ideas</p>
-            <h2 className='mt-4 text-3xl font-extrabold leading-tight md:text-5xl'>Learn together. Grow together.</h2>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Your journey · your future</p>
+            <h2 className='mt-4 text-3xl font-extrabold leading-tight md:text-5xl'>Explore your options. Move forward with confidence.</h2>
             <p className='mt-5 max-w-xl text-lg leading-8 text-blue-100'>College is shaped by the questions you ask, the people you meet, and the ideas you share along the way.</p>
             <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-orange-500 px-6 py-3.5 font-bold text-white transition hover:bg-orange-400'>Explore courses <span aria-hidden='true'>→</span></a>
           </div>
