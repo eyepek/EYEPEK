@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaUniversity, FaFileAlt, FaGraduationCap, FaTools, FaArrowRight } from 'react-icons/fa';
 import { courses } from '../courses';
 
 const highlights = [
@@ -118,22 +119,49 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='student-support' className='bg-white'>
-      <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
-        <div className='max-w-3xl'>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Here to help you move forward</p>
-          <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Services for students, homes, and businesses.</h2>
-          <p className='mt-5 text-lg leading-8 text-slate-600'>From education and college documentation to home maintenance and IT support, explore practical services for your everyday needs.</p>
+    <section id='student-support' className='relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50/60'>
+      <div className='pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-200/25 blur-3xl' aria-hidden='true' />
+      <div className='pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl' aria-hidden='true' />
+      <div className='relative mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+        <div className='flex flex-col gap-6 md:flex-row md:items-end md:justify-between'>
+          <div className='max-w-3xl'>
+            <p className='inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-orange-700'>
+              <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' />
+              One team · many solutions
+            </p>
+            <h2 className='mt-5 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Services for students, homes, and businesses.</h2>
+            <p className='mt-5 max-w-2xl text-lg leading-8 text-slate-600'>From college guidance and documentation to home maintenance and technical support, find practical help for the things that matter every day.</p>
+          </div>
+          <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
+            Request a service <FaArrowRight aria-hidden='true' />
+          </a>
         </div>
-        <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
+        <div className='mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
           {studentSupport.map((item) => (
-            <article key={item.number} className={`rounded-xl border border-slate-200 border-t-4 ${item.color} bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg`}>
-              <p className='text-xs font-black uppercase tracking-[0.16em] text-orange-700'>{item.label}</p>
-              <h3 className='mt-4 text-xl font-bold text-blue-950'>{item.title}</h3>
-              <p className='mt-3 leading-7 text-slate-600'>{item.description}</p>
-              <a href='/contact' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 hover:text-red-600'>Ask us about this <span aria-hidden='true'>→</span></a>
+            <article key={item.number} className={`group flex h-full flex-col rounded-2xl border border-slate-200 border-t-4 ${item.color} bg-white/95 p-6 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10 sm:p-7`}>
+              <div className='flex items-start justify-between gap-3'>
+                <div className='flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-2xl text-blue-800 ring-1 ring-blue-100 transition group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:ring-orange-100'>
+                  {item.number === '01' ? <FaUniversity aria-hidden='true' /> : item.number === '02' ? <FaFileAlt aria-hidden='true' /> : item.number === '03' ? <FaGraduationCap aria-hidden='true' /> : <FaTools aria-hidden='true' />}
+                </div>
+                <span className='rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-slate-500'>{item.number}</span>
+              </div>
+              <p className='mt-6 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-700'>{item.label}</p>
+              <h3 className='mt-3 text-xl font-bold leading-snug text-blue-950'>{item.title}</h3>
+              <p className='mt-3 flex-1 leading-7 text-slate-600'>{item.description}</p>
+              <a href='/contact' className='mt-6 inline-flex items-center gap-2 border-t border-slate-100 pt-5 font-bold text-blue-900 transition group-hover:text-orange-600'>
+                Ask about this service <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
+              </a>
             </article>
           ))}
+        </div>
+        <div className='mt-8 flex flex-col gap-3 rounded-2xl border border-blue-100 bg-white/80 p-5 sm:flex-row sm:items-center sm:justify-between sm:px-6'>
+          <div>
+            <p className='font-bold text-blue-950'>Not sure which service you need?</p>
+            <p className='mt-1 text-sm leading-6 text-slate-600'>Tell us what you need and our team will guide you to the right next step.</p>
+          </div>
+          <a href='tel:7004374250' className='inline-flex shrink-0 items-center justify-center rounded-xl border border-blue-200 px-5 py-3 font-bold text-blue-900 transition hover:border-orange-300 hover:bg-orange-50'>
+            Call 7004374250
+          </a>
         </div>
         <p className='mt-6 text-sm leading-6 text-slate-500'>Affiliation support means process guidance and information. It does not represent or guarantee approval, accreditation, or affiliation by any authority.</p>
       </div>
