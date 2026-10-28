@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { IoMdMenu } from 'react-icons/io';
-import { FaFacebookF, FaYoutube } from 'react-icons/fa';
+import { FaFacebookF, FaYoutube, FaChevronDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import InstallAppButton from './InstallAppButton';
 
+const serviceLinks = [
+  { label: 'Education Services', to: '/services/education' },
+  { label: 'IT & Computer Support', to: '/services/it-support' },
+  { label: 'Home Services', to: '/services/home-services' },
+  { label: 'Business & Institution Support', to: '/services/business-support' },
+];
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const closeMenu = () => setIsOpen(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+    setServicesOpen(false);
+  };
 
   return (
     <header className='sticky top-0 z-50 bg-white shadow-sm'>
@@ -36,7 +47,35 @@ const NavBar = () => {
           <Link to='/' onClick={closeMenu} className='hover:text-red-600'>Home</Link>
           <a href='/#about' onClick={closeMenu} className='hover:text-red-600'>About</a>
           <a href='/#learning' onClick={closeMenu} className='hover:text-red-600'>Guidance &amp; Support</a>
-          <a href='/#student-support' onClick={closeMenu} className='hover:text-red-600'>Services</a>
+          <div className='relative'>
+            <button
+              type='button'
+              onClick={() => setServicesOpen(!servicesOpen)}
+              aria-expanded={servicesOpen}
+              aria-controls='services-dropdown'
+              className='inline-flex items-center gap-2 text-left transition hover:text-red-600'
+            >
+              Services <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <div
+              id='services-dropdown'
+              className={`${servicesOpen ? 'block' : 'hidden'} mt-3 min-w-64 overflow-hidden rounded-lg border border-slate-100 bg-white py-2 shadow-lg lg:absolute lg:left-0 lg:top-full lg:mt-3 lg:w-72`}
+            >
+              {serviceLinks.map((service) => (
+                <Link
+                  key={service.to}
+                  to={service.to}
+                  onClick={closeMenu}
+                  className='block px-4 py-3 text-sm font-medium text-blue-950 transition hover:bg-orange-50 hover:text-red-600'
+                >
+                  {service.label}
+                </Link>
+              ))}
+              <a href='/#student-support' onClick={closeMenu} className='block border-t border-slate-100 px-4 py-3 text-sm font-semibold text-orange-600 transition hover:bg-orange-50'>
+                All services on homepage
+              </a>
+            </div>
+          </div>
           <a href='/#campus' onClick={closeMenu} className='hover:text-red-600'>Student Journey</a>
           <a href='/#admissions' onClick={closeMenu} className='rounded-md bg-orange-500 px-5 py-2.5 text-center text-white transition hover:bg-orange-600'>Admissions</a>
         </nav>
