@@ -74,6 +74,10 @@ const HomePage = () => (
         alt='Students studying together outdoors in a campus setting (illustrative photo)'
       />
       <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-red-950/45' />
+      <div className='absolute right-5 top-5 z-10 rounded-xl border border-white/30 bg-white/95 px-4 py-2 shadow-lg sm:right-8 sm:top-8'>
+        <span className='text-lg font-black tracking-tight'><span className='text-orange-600'>EYE</span><span className='text-blue-800'>PEK</span></span>
+        <span className='block text-[9px] font-bold tracking-[0.12em] text-blue-950'>EDUCATION · IT · HOME SERVICES</span>
+      </div>
       <div className='mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10'>
         <div className='max-w-3xl'>
           <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur-sm sm:text-sm'>
@@ -150,6 +154,7 @@ const HomePage = () => (
               <div className='relative h-44 overflow-hidden bg-blue-50 sm:h-48'>
                 <img src={item.image} alt={item.imageAlt} loading='lazy' className='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
                 <div className='absolute inset-0 bg-gradient-to-t from-blue-950/35 via-transparent to-transparent' />
+                <span className='absolute left-3 top-3 rounded-md border border-white/60 bg-white/95 px-2.5 py-1 text-xs font-black tracking-tight shadow-sm'><span className='text-orange-600'>EYE</span><span className='text-blue-800'>PEK</span></span>
                 <span className='absolute bottom-3 left-4 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-blue-950 shadow-sm'>{item.number}</span>
               </div>
               <div className='flex flex-1 flex-col p-6 sm:p-7'>
@@ -187,6 +192,7 @@ const HomePage = () => (
         <div className='relative min-h-[340px] overflow-hidden rounded-2xl bg-blue-900'>
           <img className='absolute inset-0 h-full w-full object-cover' src='/images/students-classroom.jpg' alt='College students studying together in a classroom (illustrative photo)' loading='lazy' />
           <div className='absolute inset-0 bg-gradient-to-t from-blue-950/70 to-transparent' />
+          <span className='absolute right-4 top-4 rounded-lg border border-white/30 bg-white/95 px-3 py-1.5 text-sm font-black shadow'><span className='text-orange-600'>EYE</span><span className='text-blue-800'>PEK</span></span>
           <p className='absolute bottom-6 left-6 text-sm font-bold uppercase tracking-[0.18em] text-white'>Students learning together</p>
         </div>
         <div>
@@ -225,6 +231,7 @@ const HomePage = () => (
           <figure className='group relative overflow-hidden rounded-3xl bg-blue-900 shadow-2xl shadow-black/20'>
             <img className='block aspect-[4/3] max-h-[34rem] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/students-library.jpg' alt='Students sharing ideas and studying together (representative photo)' loading='lazy' />
             <div className='absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent' aria-hidden='true' />
+            <span className='absolute right-4 top-4 rounded-lg border border-white/30 bg-white/95 px-3 py-1.5 text-sm font-black shadow'><span className='text-orange-600'>EYE</span><span className='text-blue-800'>PEK</span></span>
             <figcaption className='absolute inset-x-0 bottom-0 px-6 py-6 text-sm font-semibold text-white sm:px-8 sm:py-8'>Good conversations can open new possibilities.</figcaption>
           </figure>
         </div>
