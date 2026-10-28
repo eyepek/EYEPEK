@@ -29,6 +29,8 @@ const highlights = [
 const studentSupport = [
   {
     number: '01',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Students learning together',
     title: 'College Affiliation Support',
     description: 'Guidance on State University affiliation processes and AICTE-related work, including application and compliance documentation.',
     color: 'border-blue-700',
@@ -36,6 +38,8 @@ const studentSupport = [
   },
   {
     number: '02',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Documents and paperwork arranged on a desk',
     title: 'Document Support',
     description: 'Help understanding common admission documents, preparing a checklist, and organising your paperwork.',
     color: 'border-orange-500',
@@ -43,6 +47,8 @@ const studentSupport = [
   },
   {
     number: '03',
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Professionals discussing plans together',
     title: 'Admission & Career Support',
     description: 'Personal guidance to help you explore admission next steps and think through your education and career goals.',
     color: 'border-red-600',
@@ -50,6 +56,8 @@ const studentSupport = [
   },
   {
     number: '04',
+    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Technician working with computer equipment',
     title: 'Home & IT Services',
     description: 'Find help for everyday home and technical needs, including plumbing, electrical work, computer and IT support, Wi-Fi and networking, printer setup, CCTV, and general troubleshooting.',
     color: 'border-orange-500',
@@ -138,7 +146,13 @@ const HomePage = () => (
         </div>
         <div className='mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
           {studentSupport.map((item) => (
-            <article key={item.number} className={`group flex h-full flex-col rounded-2xl border border-slate-200 border-t-4 ${item.color} bg-white/95 p-6 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10 sm:p-7`}>
+            <article key={item.number} className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 border-t-4 ${item.color} bg-white/95 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10`}>
+              <div className='relative h-44 overflow-hidden bg-blue-50 sm:h-48'>
+                <img src={item.image} alt={item.imageAlt} loading='lazy' className='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
+                <div className='absolute inset-0 bg-gradient-to-t from-blue-950/35 via-transparent to-transparent' />
+                <span className='absolute bottom-3 left-4 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-blue-950 shadow-sm'>{item.number}</span>
+              </div>
+              <div className='flex flex-1 flex-col p-6 sm:p-7'>
               <div className='flex items-start justify-between gap-3'>
                 <div className='flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-2xl text-blue-800 ring-1 ring-blue-100 transition group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:ring-orange-100'>
                   {item.number === '01' ? <FaUniversity aria-hidden='true' /> : item.number === '02' ? <FaFileAlt aria-hidden='true' /> : item.number === '03' ? <FaGraduationCap aria-hidden='true' /> : <FaTools aria-hidden='true' />}
@@ -151,6 +165,7 @@ const HomePage = () => (
               <a href='/contact' className='mt-6 inline-flex items-center gap-2 border-t border-slate-100 pt-5 font-bold text-blue-900 transition group-hover:text-orange-600'>
                 Ask about this service <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
               </a>
+              </div>
             </article>
           ))}
         </div>
