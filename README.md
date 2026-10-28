@@ -20,6 +20,10 @@ The production build includes the web app manifest and service worker. Deploy th
 
 The service worker caches the app shell and same-origin assets for offline reopening. Enquiry submissions still require an internet connection.
 
+## Recent website update
+
+The homepage About section was refreshed on 28 October 2026. The latest source is on `main` in `src/pages/HomePage.jsx`.
+
 ## Production hosting
 
 The production website is served at [www.eyepek.com](https://www.eyepek.com/) through Vercel. The Vercel project is connected to the `main` branch of this repository; pushes to `main` should trigger a production deployment when the Git integration is active.
