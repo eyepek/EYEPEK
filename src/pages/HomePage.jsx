@@ -229,33 +229,54 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='about' className='bg-blue-50'>
-      <div className='mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:px-10 md:py-24'>
-        <div className='relative min-h-[340px] overflow-hidden rounded-2xl bg-blue-900'>
-          <img className='absolute inset-0 h-full w-full object-cover' src='/images/students-classroom.jpg' alt='College students studying together in a classroom (illustrative photo)' loading='lazy' />
-          <div className='absolute inset-0 bg-gradient-to-t from-blue-950/70 to-transparent' />
-          <p className='absolute bottom-6 left-6 text-sm font-bold uppercase tracking-[0.18em] text-white'>Students learning together</p>
-        </div>
-        <div>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>About EYEPEK</p>
-          <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Practical guidance for students and colleges.</h2>
-          <p className='mt-6 leading-8 text-slate-600'>
-            EYEPEK College helps people take clearer next steps in education. Students can get guidance on course choices—including BBA, BCA, MBA, MCA, ANM, GNM, and B.Sc. (Nursing)—as well as eligibility, applications, admission documents, and career planning.
-          </p>
-          <p className='mt-4 leading-8 text-slate-600'>
-            We also guide colleges through State University affiliation processes and AICTE-related documentation and compliance work. Our role is to explain processes and help organise next steps; course availability and all affiliation or approval decisions must be confirmed with the relevant institution or authority.
-          </p>
-          <div className='mt-7 grid gap-3 sm:grid-cols-2'>
-            <div className='rounded-lg border border-blue-100 bg-white p-4'>
-              <h3 className='font-bold text-blue-950'>For students</h3>
-              <p className='mt-1 text-sm leading-6 text-slate-600'>Course, admission, document, and career guidance.</p>
+    <section id='about' className='relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50/70'>
+      <div className='pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-200/30 blur-3xl' aria-hidden='true' />
+      <div className='pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl' aria-hidden='true' />
+      <div className='relative mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+        <div className='grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]'>
+          <div className='group relative'>
+            <div className='absolute -inset-3 rounded-[2rem] border border-orange-200/70 transition-transform duration-500 group-hover:rotate-1' aria-hidden='true' />
+            <div className='relative min-h-[340px] overflow-hidden rounded-3xl bg-blue-950 shadow-xl shadow-blue-950/15 sm:min-h-[440px]'>
+              <img className='absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105' src='/images/students-classroom.jpg' alt='Students learning together in a classroom' loading='lazy' />
+              <div className='absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/15 to-transparent' />
+              <div className='absolute inset-x-0 bottom-0 p-6 sm:p-8'>
+                <span className='inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur'>Life Begins Here...</span>
+                <p className='mt-3 max-w-md text-2xl font-extrabold leading-snug text-white sm:text-3xl'>Helping you take the next step with confidence.</p>
+              </div>
             </div>
-            <div className='rounded-lg border border-blue-100 bg-white p-4'>
-              <h3 className='font-bold text-blue-950'>For colleges</h3>
-              <p className='mt-1 text-sm leading-6 text-slate-600'>Affiliation process and AICTE-related support.</p>
+            <div className='absolute -right-3 -top-4 rounded-2xl border border-blue-100 bg-white px-5 py-4 shadow-lg sm:-right-5 sm:top-8'>
+              <p className='text-xs font-bold uppercase tracking-wider text-slate-500'>Our approach</p>
+              <p className='mt-1 text-lg font-extrabold text-blue-950'>Practical. Clear. Supportive.</p>
             </div>
           </div>
-          <a href='tel:7004374250' className='mt-7 inline-flex items-center gap-3 font-bold text-blue-900 hover:text-red-600'>Talk to our team: 7004374250 <span aria-hidden='true'>→</span></a>
+          <div>
+            <p className='inline-flex items-center gap-2 rounded-full border border-red-100 bg-red-50 px-4 py-2 text-sm font-extrabold uppercase tracking-[0.16em] text-red-700'>
+              <span className='h-2 w-2 rounded-full bg-red-600' aria-hidden='true' /> About EYEPEK
+            </p>
+            <h2 className='mt-5 text-3xl font-black leading-tight text-blue-950 sm:text-4xl md:text-5xl'>Your goals matter. <span className='text-orange-500'>Let’s move forward together.</span></h2>
+            <p className='mt-6 text-base leading-8 text-slate-600 sm:text-lg'>
+              EYEPEK brings education guidance and everyday support together in one place. We help students explore course options, understand admission steps, organise document checklists, and plan their next move with greater clarity.
+            </p>
+            <p className='mt-4 text-base leading-8 text-slate-600 sm:text-lg'>
+              We also provide information and process support for colleges, including guidance on affiliation and AICTE-related documentation. Requirements and decisions vary by authority, so official eligibility, course availability, approvals, and affiliation should always be confirmed with the relevant institution or regulator.
+            </p>
+            <div className='mt-7 grid gap-4 sm:grid-cols-2'>
+              <div className='rounded-2xl border border-blue-100 bg-white/90 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md'>
+                <div className='flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-800'><FaGraduationCap aria-hidden='true' /></div>
+                <h3 className='mt-4 font-extrabold text-blue-950'>For students</h3>
+                <p className='mt-2 text-sm leading-6 text-slate-600'>Course exploration, admission guidance, document checklists, and career direction.</p>
+              </div>
+              <div className='rounded-2xl border border-orange-100 bg-white/90 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md'>
+                <div className='flex h-11 w-11 items-center justify-center rounded-xl bg-orange-50 text-xl text-orange-700'><FaFileAlt aria-hidden='true' /></div>
+                <h3 className='mt-4 font-extrabold text-blue-950'>For colleges</h3>
+                <p className='mt-2 text-sm leading-6 text-slate-600'>Documentation organisation and guidance through affiliation and compliance processes.</p>
+              </div>
+            </div>
+            <div className='mt-8 flex flex-wrap items-center gap-4'>
+              <a href='/contact' className='inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>Talk to our team <FaArrowRight aria-hidden='true' /></a>
+              <a href='tel:7004374250' className='font-bold text-blue-950 transition hover:text-red-600'>7004374250</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
