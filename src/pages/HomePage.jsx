@@ -6,15 +6,15 @@ const highlights = [
     number: '01',
     title: 'Explore your options',
     description: 'Compare course paths and understand which direction fits your interests and goals.',
-    color: 'border-orange-500',
-    accent: 'bg-orange-500',
+    color: 'border-blue-600',
+    accent: 'bg-blue-600',
   },
   {
     number: '02',
     title: 'Get the details right',
     description: 'Get clear on eligibility, applications, and the documents you may need.',
-    color: 'border-red-600',
-    accent: 'bg-red-600',
+    color: 'border-blue-700',
+    accent: 'bg-blue-700',
   },
   {
     number: '03',
@@ -37,21 +37,21 @@ const studentSupport = [
     number: '02',
     title: 'Document Support',
     description: 'Help understanding common admission documents, preparing a checklist, and organising your paperwork.',
-    color: 'border-orange-500',
+    color: 'border-blue-600',
     label: 'Paperwork made clearer',
   },
   {
     number: '03',
     title: 'Admission & Career Support',
     description: 'Personal guidance to help you explore admission next steps and think through your education and career goals.',
-    color: 'border-red-600',
+    color: 'border-blue-700',
     label: 'Guidance for your next step',
   },
   {
     number: '04',
     title: 'Admission Consultancy',
     description: 'One-to-one guidance on course and college options, eligibility, application steps, and the documents you may need. Admission decisions remain with the institution.',
-    color: 'border-orange-500',
+    color: 'border-blue-600',
     label: 'Personal admission guidance',
   },
 ];
@@ -64,23 +64,23 @@ const HomePage = () => (
         src='/images/students-campus.jpg'
         alt='Students studying together outdoors in a campus setting (illustrative photo)'
       />
-      <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-red-950/45' />
+      <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-blue-900/35' />
       <div className='mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10'>
         <div className='max-w-3xl'>
-          <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur-sm sm:text-sm'>
-            <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK COLLEGE · PATNA, BIHAR
+          <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-100 backdrop-blur-sm sm:text-sm'>
+            <span className='h-2 w-2 rounded-full bg-blue-500' /> EYEPEK COLLEGE · PATNA, BIHAR
           </p>
           <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
             Learn with confidence.<br />
-            <span className='text-orange-300'>Build what’s next.</span>
+            <span className='text-blue-200'>Build what’s next.</span>
           </h1>
           <p className='mt-6 max-w-2xl text-lg leading-8 text-blue-50 md:text-xl'>
             Explore your next step with course information, admission consultancy, and practical guidance for your college journey.
           </p>
           <div className='mt-9 flex flex-wrap gap-4'>
-            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Courses</a>
-            <a href='/contact' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
-            <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Call 7004374250</a>
+            <a href='#admissions' className='rounded-xl bg-blue-600 px-7 py-3.5 font-bold text-white shadow-lg shadow-blue-950/20 transition duration-200 hover:-translate-y-0.5 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300'>Explore Courses</a>
+            <a href='/contact' className='rounded-xl border border-white/70 px-7 py-3.5 font-bold text-white transition duration-200 hover:bg-white hover:text-blue-950 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50'>Send an enquiry</a>
+            <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-blue-100'>Call 7004374250</a>
           </div>
           <div className='mt-10 flex flex-wrap gap-2 border-t border-white/25 pt-5 text-sm font-semibold text-blue-50'>
             <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Course information</span>
@@ -91,11 +91,11 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='learning' className='overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50/60'>
+    <section id='learning' className='overflow-hidden bg-gradient-to-br from-blue-50 via-white to-sky-50'>
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end'>
           <div>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Your next step, made clearer</p>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-blue-700'>Your next step, made clearer</p>
             <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>A clearer path from course choice to admission.</h2>
           </div>
           <p className='max-w-2xl text-lg leading-8 text-slate-600'>
@@ -111,7 +111,7 @@ const HomePage = () => (
               </div>
               <h3 className='mt-8 text-xl font-bold text-blue-950'>{item.title}</h3>
               <p className='mt-3 min-h-14 leading-7 text-slate-600'>{item.description}</p>
-              <a href='#admissions' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 transition group-hover:text-orange-600'>Explore courses <span aria-hidden='true'>→</span></a>
+              <a href='#admissions' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 transition group-hover:text-blue-700'>Explore courses <span aria-hidden='true'>→</span></a>
             </article>
           ))}
         </div>
@@ -121,17 +121,17 @@ const HomePage = () => (
     <section id='student-support' className='bg-white'>
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
         <div className='max-w-3xl'>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Here to help you move forward</p>
+          <p className='text-sm font-bold uppercase tracking-[0.2em] text-blue-700'>Here to help you move forward</p>
           <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Support for your college journey.</h2>
           <p className='mt-5 text-lg leading-8 text-slate-600'>Get practical guidance with college affiliation processes, important documents, admission consultancy, and career planning.</p>
         </div>
         <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
           {studentSupport.map((item) => (
             <article key={item.number} className={`rounded-xl border border-slate-200 border-t-4 ${item.color} bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg`}>
-              <p className='text-xs font-black uppercase tracking-[0.16em] text-orange-700'>{item.label}</p>
+              <p className='text-xs font-black uppercase tracking-[0.16em] text-blue-800'>{item.label}</p>
               <h3 className='mt-4 text-xl font-bold text-blue-950'>{item.title}</h3>
               <p className='mt-3 leading-7 text-slate-600'>{item.description}</p>
-              <a href='/contact' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 hover:text-red-600'>Ask us about this <span aria-hidden='true'>→</span></a>
+              <a href='/contact' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 hover:text-blue-700'>Ask us about this <span aria-hidden='true'>→</span></a>
             </article>
           ))}
         </div>
@@ -147,7 +147,7 @@ const HomePage = () => (
           <p className='absolute bottom-6 left-6 text-sm font-bold uppercase tracking-[0.18em] text-white'>Students learning together</p>
         </div>
         <div>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>About EYEPEK</p>
+          <p className='text-sm font-bold uppercase tracking-[0.2em] text-blue-700'>About EYEPEK</p>
           <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Practical guidance for students and colleges.</h2>
           <p className='mt-6 leading-8 text-slate-600'>
             Based in Patna, Bihar, EYEPEK College helps people take clearer next steps in education. Students can get guidance on course choices—including BBA, BCA, MBA, MCA, ANM, GNM, and B.Sc. (Nursing)—as well as eligibility, applications, admission documents, and career planning.
@@ -165,7 +165,7 @@ const HomePage = () => (
               <p className='mt-1 text-sm leading-6 text-slate-600'>Affiliation process and AICTE-related support.</p>
             </div>
           </div>
-          <a href='tel:7004374250' className='mt-7 inline-flex items-center gap-3 font-bold text-blue-900 hover:text-red-600'>Talk to our team: 7004374250 <span aria-hidden='true'>→</span></a>
+          <a href='tel:7004374250' className='mt-7 inline-flex items-center gap-3 font-bold text-blue-900 hover:text-blue-700'>Talk to our team: 7004374250 <span aria-hidden='true'>→</span></a>
         </div>
       </div>
     </section>
@@ -174,10 +174,10 @@ const HomePage = () => (
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-center'>
           <div className='py-2'>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Student life · shared ideas</p>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-blue-200'>Student life · shared ideas</p>
             <h2 className='mt-4 text-3xl font-extrabold leading-tight md:text-5xl'>Learn together. Grow together.</h2>
             <p className='mt-5 max-w-xl text-lg leading-8 text-blue-100'>College is shaped by the questions you ask, the people you meet, and the ideas you share along the way.</p>
-            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-orange-500 px-6 py-3.5 font-bold text-white transition hover:bg-orange-400'>Explore courses <span aria-hidden='true'>→</span></a>
+            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-blue-600 px-6 py-3.5 font-bold text-white transition hover:bg-blue-500'>Explore courses <span aria-hidden='true'>→</span></a>
           </div>
           <figure className='group relative overflow-hidden rounded-3xl bg-blue-900 shadow-2xl shadow-black/20'>
             <img className='block aspect-[4/3] max-h-[34rem] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/students-library.jpg' alt='Students sharing ideas and studying together (representative photo)' loading='lazy' />
@@ -190,7 +190,7 @@ const HomePage = () => (
 
     <section id='faq' className='bg-slate-50'>
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
-        <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Quick answers</p>
+        <p className='text-sm font-bold uppercase tracking-[0.2em] text-blue-700'>Quick answers</p>
         <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Frequently asked questions</h2>
         <div className='mt-9 grid gap-4 md:grid-cols-2'>
           {[
@@ -201,7 +201,7 @@ const HomePage = () => (
             ['What should I share when I enquire?', 'Your name, phone number, course of interest, and any questions you have are a good start.'],
           ].map(([question, answer]) => (
             <details key={question} className='group rounded-xl border border-slate-200 bg-white p-6 open:border-blue-200 open:shadow-sm'>
-              <summary className='cursor-pointer list-none pr-8 font-bold text-blue-950 marker:hidden'>{question}<span className='float-right text-xl text-orange-600 transition group-open:rotate-45' aria-hidden='true'>+</span></summary>
+              <summary className='cursor-pointer list-none pr-8 font-bold text-blue-950 marker:hidden'>{question}<span className='float-right text-xl text-blue-700 transition group-open:rotate-45' aria-hidden='true'>+</span></summary>
               <p className='mt-4 leading-7 text-slate-600'>{answer}</p>
             </details>
           ))}
@@ -212,11 +212,11 @@ const HomePage = () => (
     <section id='admissions' className='bg-blue-950 text-white'>
       <div className='mx-auto flex max-w-7xl flex-col gap-8 px-6 py-16 md:flex-row md:items-center md:justify-between md:px-10 md:py-20'>
         <div>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Take your next step</p>
+          <p className='text-sm font-bold uppercase tracking-[0.2em] text-blue-200'>Take your next step</p>
           <h2 className='mt-3 text-3xl font-extrabold md:text-5xl'>Let’s talk about your future.</h2>
           <p className='mt-4 text-blue-100'>Ask the admissions team about course availability, eligibility, and fees.</p>
           <div className='mt-6'>
-            <p className='text-sm font-bold text-orange-200'>Courses to enquire about</p>
+            <p className='text-sm font-bold text-blue-100'>Courses to enquire about</p>
             <ul className='mt-3 flex flex-wrap gap-2'>
               {courses.map((course) => <li key={course} className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-sm font-semibold'>{course}</li>)}
               <li className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-sm font-semibold'>And more</li>
@@ -225,8 +225,8 @@ const HomePage = () => (
           </div>
         </div>
         <div className='flex flex-wrap gap-3'>
-          <a href='/contact' className='shrink-0 rounded-md border border-white/60 px-6 py-4 text-center font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
-          <a href='tel:7004374250' className='shrink-0 rounded-md bg-orange-500 px-8 py-4 text-center font-bold text-white transition hover:bg-orange-400'>Call 7004374250</a>
+          <a href='/contact' className='shrink-0 rounded-xl border border-white/60 px-6 py-4 text-center font-bold text-white transition hover:bg-white hover:text-blue-950 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50'>Send an enquiry</a>
+          <a href='tel:7004374250' className='shrink-0 rounded-xl bg-blue-600 px-8 py-4 text-center font-bold text-white shadow-lg shadow-blue-950/20 transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300'>Call 7004374250</a>
         </div>
       </div>
     </section>

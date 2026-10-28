@@ -13,7 +13,7 @@ const Footer = () => (
             target='_blank'
             rel='noreferrer'
             aria-label='Visit EYEPEK on YouTube (opens in a new tab)'
-            className='inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-red-500 hover:bg-red-600 hover:text-white'
+            className='inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-blue-600 hover:bg-blue-700 hover:text-white'
           >
             <svg aria-hidden='true' viewBox='0 0 24 24' className='h-5 w-5 fill-current'>
               <path d='M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z' />
@@ -37,17 +37,17 @@ const Footer = () => (
       <div>
         <h3 className='font-bold text-white'>Explore</h3>
         <ul className='mt-4 space-y-3 text-slate-300'>
-          <li><a href='/#about' className='hover:text-orange-300'>About EYEPEK</a></li>
-          <li><a href='/#learning' className='hover:text-orange-300'>Learning</a></li>
-          <li><a href='/#campus' className='hover:text-orange-300'>Campus Life</a></li>
-          <li><a href='/#admissions' className='hover:text-orange-300'>Admissions</a></li>
+          <li><a href='/#about' className='hover:text-blue-200'>About EYEPEK</a></li>
+          <li><a href='/#learning' className='hover:text-blue-200'>Learning</a></li>
+          <li><a href='/#campus' className='hover:text-blue-200'>Campus Life</a></li>
+          <li><a href='/#admissions' className='hover:text-blue-200'>Admissions</a></li>
         </ul>
       </div>
       <div>
         <h3 className='font-bold text-white'>Contact</h3>
         <p className='mt-4 text-slate-300'>Admissions &amp; enquiries</p>
-        <a href='tel:7004374250' className='mt-2 inline-block font-bold text-orange-300 hover:text-white'>7004374250</a>
-        <p className='mt-5'><Link to='/contact' className='font-semibold text-slate-300 hover:text-orange-300'>Send us a message →</Link></p>
+        <a href='tel:7004374250' className='mt-2 inline-block font-bold text-blue-200 hover:text-white'>7004374250</a>
+        <p className='mt-5'><Link to='/contact' className='font-semibold text-slate-300 hover:text-blue-200'>Send us a message →</Link></p>
       </div>
     </div>
     <div className='border-t border-white/10 px-6 py-5 text-center text-sm text-slate-400'>
