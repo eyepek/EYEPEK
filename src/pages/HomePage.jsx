@@ -49,10 +49,10 @@ const studentSupport = [
   },
   {
     number: '04',
-    title: 'Admission Consultancy',
-    description: 'One-to-one guidance on course and college options, eligibility, application steps, and the documents you may need. Admission decisions remain with the institution.',
+    title: 'Home & IT Services',
+    description: 'Find help for everyday home and technical needs, including plumbing, electrical work, computer and IT support, Wi-Fi and networking, printer setup, CCTV, and general troubleshooting.',
     color: 'border-orange-500',
-    label: 'Personal admission guidance',
+    label: 'Practical help at home and work',
   },
 ];
 
@@ -122,8 +122,8 @@ const HomePage = () => (
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
         <div className='max-w-3xl'>
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Here to help you move forward</p>
-          <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Support for your college journey.</h2>
-          <p className='mt-5 text-lg leading-8 text-slate-600'>Get practical guidance with college affiliation processes, important documents, admission consultancy, and career planning.</p>
+          <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Services for students, homes, and businesses.</h2>
+          <p className='mt-5 text-lg leading-8 text-slate-600'>From education and college documentation to home maintenance and IT support, explore practical services for your everyday needs.</p>
         </div>
         <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
           {studentSupport.map((item) => (
