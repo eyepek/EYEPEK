@@ -68,7 +68,7 @@ const HomePage = () => (
       <div className='mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10'>
         <div className='max-w-3xl'>
           <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur-sm sm:text-sm'>
-            <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK COLLEGE · PATNA, BIHAR
+            <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK COLLEGE
           </p>
           <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
             Learn with confidence.<br />
@@ -150,7 +150,7 @@ const HomePage = () => (
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>About EYEPEK</p>
           <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Practical guidance for students and colleges.</h2>
           <p className='mt-6 leading-8 text-slate-600'>
-            Based in Patna, Bihar, EYEPEK College helps people take clearer next steps in education. Students can get guidance on course choices—including BBA, BCA, MBA, MCA, ANM, GNM, and B.Sc. (Nursing)—as well as eligibility, applications, admission documents, and career planning.
+            EYEPEK College helps people take clearer next steps in education. Students can get guidance on course choices—including BBA, BCA, MBA, MCA, ANM, GNM, and B.Sc. (Nursing)—as well as eligibility, applications, admission documents, and career planning.
           </p>
           <p className='mt-4 leading-8 text-slate-600'>
             We also guide colleges through State University affiliation processes and AICTE-related documentation and compliance work. Our role is to explain processes and help organise next steps; course availability and all affiliation or approval decisions must be confirmed with the relevant institution or authority.
