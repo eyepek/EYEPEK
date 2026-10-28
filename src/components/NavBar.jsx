@@ -35,8 +35,8 @@ const NavBar = () => {
         <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-5 font-semibold text-blue-950 shadow-lg lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}>
           <Link to='/' onClick={closeMenu} className='hover:text-red-600'>Home</Link>
           <a href='/#about' onClick={closeMenu} className='hover:text-red-600'>About</a>
-          <a href='/#learning' onClick={closeMenu} className='hover:text-red-600'>Learning</a>
-          <a href='/#campus' onClick={closeMenu} className='hover:text-red-600'>Campus Life</a>
+          <a href='/#learning' onClick={closeMenu} className='hover:text-red-600'>Guidance &amp; Support</a>
+          <a href='/#campus' onClick={closeMenu} className='hover:text-red-600'>Student Journey</a>
           <a href='/#admissions' onClick={closeMenu} className='rounded-md bg-orange-500 px-5 py-2.5 text-center text-white transition hover:bg-orange-600'>Admissions</a>
         </nav>
       </div>
