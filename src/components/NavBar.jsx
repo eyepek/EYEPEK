@@ -70,9 +70,16 @@ const NavBar = () => {
               Guidance &amp; Support <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${guidanceOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='guidance-dropdown' className={`${guidanceOpen ? 'block' : 'hidden'} mt-3 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl lg:absolute lg:left-0 lg:top-full lg:mt-4 lg:w-80`}>
-              <div className='bg-blue-950 px-5 py-4 text-white'><p className='text-xs font-semibold uppercase tracking-widest text-orange-300'>EYEPEK Support</p><p className='mt-1 text-base font-bold'>Guidance for your next step</p><p className='mt-1 text-xs font-normal leading-relaxed text-blue-100'>Explore learning, career and admission support.</p></div>
+              <div className='bg-blue-950 px-5 py-4 text-white'>
+                <p className='text-xs font-semibold uppercase tracking-widest text-orange-300'>EYEPEK Support</p>
+                <p className='mt-1 text-base font-bold'>Guidance for your next step</p>
+                <p className='mt-1 text-xs font-normal leading-relaxed text-blue-100'>Explore learning, career and admission support.</p>
+              </div>
               <div className='p-2'>
-                {guidanceLinks.map((item) => { const Icon = item.icon; return <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg px-3 py-3 transition hover:bg-orange-50'><span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'><Icon aria-hidden='true' className='h-4 w-4' /></span><span className='min-w-0'><span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{item.label}</span><span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{item.detail}</span></span></a>; })}
+                {guidanceLinks.map((item) => {
+                  const Icon = item.icon;
+                  return <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg px-3 py-3 transition hover:bg-orange-50'><span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'><Icon aria-hidden='true' className='h-4 w-4' /></span><span className='min-w-0'><span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{item.label}</span><span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{item.detail}</span></span></a>;
+                })}
               </div>
               <a href='/#learning' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>Explore all guidance <span aria-hidden='true'>→</span></a>
             </div>
@@ -91,9 +98,16 @@ const NavBar = () => {
               Student Resources <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${journeyOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='journey-dropdown' className={`${journeyOpen ? 'block' : 'hidden'} mt-3 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl lg:absolute lg:right-0 lg:top-full lg:mt-4 lg:w-80`}>
-              <div className='bg-blue-950 px-5 py-4 text-white'><p className='text-xs font-semibold uppercase tracking-widest text-orange-300'>Your future starts here</p><p className='mt-1 text-base font-bold'>Student Resources</p><p className='mt-1 text-xs font-normal leading-relaxed text-blue-100'>Find your next step with EYEPEK.</p></div>
+              <div className='bg-blue-950 px-5 py-4 text-white'>
+                <p className='text-xs font-semibold uppercase tracking-widest text-orange-300'>Your future starts here</p>
+                <p className='mt-1 text-base font-bold'>Student Resources</p>
+                <p className='mt-1 text-xs font-normal leading-relaxed text-blue-100'>Find your next step with EYEPEK.</p>
+              </div>
               <div className='p-2'>
-                {journeyLinks.map((item) => { const Icon = item.icon; return <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg px-3 py-3 transition hover:bg-orange-50'><span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'><Icon aria-hidden='true' className='h-4 w-4' /></span><span className='min-w-0'><span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{item.label}</span><span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{item.detail}</span></span></a>; })}
+                {journeyLinks.map((item) => {
+                  const Icon = item.icon;
+                  return <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg px-3 py-3 transition hover:bg-orange-50'><span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'><Icon aria-hidden='true' className='h-4 w-4' /></span><span className='min-w-0'><span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{item.label}</span><span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{item.detail}</span></span></a>;
+                })}
               </div>
               <a href='/#admissions' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>Contact EYEPEK <span aria-hidden='true'>→</span></a>
             </div>
