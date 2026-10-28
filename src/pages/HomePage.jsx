@@ -104,33 +104,33 @@ const HomePage = () => (
             <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK
           </p>
           <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
-            Your Goals.<br />
-            <span className='text-orange-300'>Our Support.</span><br />A Brighter Tomorrow.
+            College Affiliation.<br />
+            <span className='text-orange-300'>Admissions.</span><br />Documentation Support.
           </h1>
           <p className='mt-6 max-w-2xl text-lg leading-8 text-blue-50 md:text-xl'>
-            Education, IT, home services, and business support—practical solutions for students, families, and businesses, all in one place.
+            Support for college course affiliation processes, student admissions, and institutional documentation in Patna, Bihar.
           </p>
           <div className='mt-9 flex flex-wrap gap-4'>
-            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Our Services <span aria-hidden='true'>→</span></a>
+            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Education Services <span aria-hidden='true'>→</span></a>
             <a href='/contact' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
             <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Call 7004374250</a>
           </div>
           <div className='mt-10 flex flex-wrap gap-2 border-t border-white/25 pt-5 text-sm font-semibold text-blue-50'>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Education</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>IT &amp; Computer Support</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Home &amp; Business Services</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Course Affiliation</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Admission Guidance</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>College Documentation</span>
           </div>
         </div>
         <aside className='hidden md:block'>
           <div className='relative overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-7 shadow-2xl shadow-blue-950/30 backdrop-blur-md lg:p-8'>
             <div className='absolute -right-10 -top-10 h-36 w-36 rounded-full bg-orange-400/20 blur-2xl' aria-hidden='true' />
             <p className='relative text-xs font-extrabold uppercase tracking-[0.2em] text-orange-200'>How EYEPEK helps</p>
-            <h2 className='relative mt-3 text-2xl font-extrabold leading-snug text-white lg:text-3xl'>One place for your everyday needs.</h2>
+            <h2 className='relative mt-3 text-2xl font-extrabold leading-snug text-white lg:text-3xl'>College and Education Support</h2>
             <div className='relative mt-7 space-y-3'>
               {[
-                ['01', 'Education & career guidance', 'Course choices and admission steps'],
-                ['02', 'IT & computer support', 'Setup, troubleshooting and maintenance'],
-                ['03', 'Home & business services', 'Practical help for homes and workplaces'],
+                ['01', 'Course affiliation support', 'Affiliation process and paperwork guidance'],
+                ['02', 'Admission guidance', 'Course options, eligibility and document checklists'],
+                ['03', 'College documentation', 'Compliance and renewal paperwork support'],
               ].map(([number, title, description]) => (
                 <div key={number} className='flex gap-4 rounded-2xl border border-white/15 bg-blue-950/35 p-4'>
                   <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-500 font-black text-white'>{number}</span>
@@ -152,10 +152,10 @@ const HomePage = () => (
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end'>
           <div>
             <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Your next step, made clearer</p>
-            <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>A clearer path from course choice to admission.</h2>
+            <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>College affiliation, admission, and documentation support.</h2>
           </div>
           <p className='max-w-2xl text-lg leading-8 text-slate-600'>
-            Choosing what to study can feel like a big decision. Get straightforward information and practical guidance at each step of your college journey.
+            EYEPEK helps students understand course options and admission steps, and helps institutions organise affiliation, compliance, and renewal documentation. Official approvals remain the decision of the relevant university or regulatory authority.
           </p>
         </div>
         <div className='mt-12 grid gap-5 md:grid-cols-3'>
