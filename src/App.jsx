@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import Footer from './components/Footer'
 import ContactUs from './pages/ContactUs'
 import Profile from './pages/Profile'
+import ServiceDetailPage from './pages/ServiceDetailPage'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path='/' element={<HomePage/>}/>
       <Route path='/contact' element={<ContactUs/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      <Route path='/services/:serviceSlug' element={<ServiceDetailPage/>}/>
      </Routes>
      <Footer/>
     </div>
