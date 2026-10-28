@@ -259,7 +259,7 @@ const HomePage = () => (
               Good guidance. <span className='text-orange-500'>Practical solutions.</span> A better way forward.
             </h2>
             <p className='mt-6 text-base leading-8 text-slate-600 sm:text-lg'>
-              At EYEPEK, our goal is to make everyday decisions easier. We bring education guidance and useful support services together, helping students, families, and organisations understand their options and take the next step with greater confidence.
+              EYEPEK (EYEPEK Educational and Technology Services, also known as EYEPEK College) is an education, student guidance, and technical support organisation based in Patna, Bihar, India. EYEPEK provides course and admission guidance, college documentation process support, computer and laptop troubleshooting, software installation, printer support, Wi-Fi and networking, CCTV installation, home maintenance, office IT setup, and business documentation assistance.
             </p>
             <p className='mt-4 text-base leading-8 text-slate-600 sm:text-lg'>
               Whether you are exploring courses and admissions, looking for IT or computer assistance, or seeking help organising business and college documentation, we focus on clear information, practical next steps, and support shaped around your needs.
