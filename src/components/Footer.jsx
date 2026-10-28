@@ -38,8 +38,8 @@ const Footer = () => (
         <h3 className='font-bold text-white'>Explore</h3>
         <ul className='mt-4 space-y-3 text-slate-300'>
           <li><a href='/#about' className='hover:text-orange-300'>About EYEPEK</a></li>
-          <li><a href='/#learning' className='hover:text-orange-300'>Learning</a></li>
-          <li><a href='/#campus' className='hover:text-orange-300'>Campus Life</a></li>
+          <li><a href='/#learning' className='hover:text-orange-300'>Guidance &amp; Support</a></li>
+          <li><a href='/#campus' className='hover:text-orange-300'>Student Journey</a></li>
           <li><a href='/#admissions' className='hover:text-orange-300'>Admissions</a></li>
         </ul>
       </div>
