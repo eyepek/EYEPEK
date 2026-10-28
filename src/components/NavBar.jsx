@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IoMdMenu } from 'react-icons/io';
-import { FaFacebookF, FaYoutube, FaChevronDown } from 'react-icons/fa';
+import { FaFacebookF, FaYoutube, FaChevronDown, FaGraduationCap, FaUserTie, FaBookOpen, FaLaptopCode, FaClipboardCheck } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import InstallAppButton from './InstallAppButton';
 
@@ -11,12 +11,22 @@ const serviceLinks = [
   { label: 'Business & Institution Support', to: '/services/business-support' },
 ];
 
+const guidanceLinks = [
+  { label: 'Student Guidance', detail: 'Plan your next education step', href: '/#learning', icon: FaGraduationCap },
+  { label: 'Career & Job Support', detail: 'Explore skills and career options', href: '/#student-support', icon: FaUserTie },
+  { label: 'Courses & Learning', detail: 'Build knowledge and practical skills', href: '/#campus', icon: FaBookOpen },
+  { label: 'Computer Learning', detail: 'Get support with digital skills', href: '/#student-support', icon: FaLaptopCode },
+  { label: 'Admission & Documentation', detail: 'Get help understanding the process', href: '/#admissions', icon: FaClipboardCheck },
+];
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [guidanceOpen, setGuidanceOpen] = useState(false);
   const closeMenu = () => {
     setIsOpen(false);
     setServicesOpen(false);
+    setGuidanceOpen(false);
   };
 
   return (
@@ -46,11 +56,50 @@ const NavBar = () => {
         <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-5 font-semibold text-blue-950 shadow-lg lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}>
           <Link to='/' onClick={closeMenu} className='hover:text-red-600'>Home</Link>
           <a href='/#about' onClick={closeMenu} className='hover:text-red-600'>About</a>
-          <a href='/#learning' onClick={closeMenu} className='hover:text-red-600'>Guidance &amp; Support</a>
           <div className='relative'>
             <button
               type='button'
-              onClick={() => setServicesOpen(!servicesOpen)}
+              onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); }}
+              aria-expanded={guidanceOpen}
+              aria-controls='guidance-dropdown'
+              className='inline-flex items-center gap-2 text-left transition hover:text-red-600'
+            >
+              Guidance &amp; Support <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${guidanceOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <div
+              id='guidance-dropdown'
+              className={`${guidanceOpen ? 'block' : 'hidden'} mt-3 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl lg:absolute lg:left-0 lg:top-full lg:mt-4 lg:w-80`}
+            >
+              <div className='bg-blue-950 px-5 py-4 text-white'>
+                <p className='text-xs font-semibold uppercase tracking-widest text-orange-300'>EYEPEK Support</p>
+                <p className='mt-1 text-base font-bold'>Guidance for your next step</p>
+                <p className='mt-1 text-xs font-normal leading-relaxed text-blue-100'>Explore learning, career and admission support.</p>
+              </div>
+              <div className='p-2'>
+                {guidanceLinks.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg px-3 py-3 transition hover:bg-orange-50'>
+                      <span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'>
+                        <Icon aria-hidden='true' className='h-4 w-4' />
+                      </span>
+                      <span className='min-w-0'>
+                        <span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{item.label}</span>
+                        <span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{item.detail}</span>
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
+              <a href='/#learning' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>
+                Explore all guidance <span aria-hidden='true'>→</span>
+              </a>
+            </div>
+          </div>
+          <div className='relative'>
+            <button
+              type='button'
+              onClick={() => { setServicesOpen(!servicesOpen); setGuidanceOpen(false); }}
               aria-expanded={servicesOpen}
               aria-controls='services-dropdown'
               className='inline-flex items-center gap-2 text-left transition hover:text-red-600'
