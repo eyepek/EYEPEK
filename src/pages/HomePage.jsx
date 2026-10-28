@@ -98,14 +98,14 @@ const HomePage = () => (
             <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK
           </p>
           <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
-            Learn with confidence.<br />
-            <span className='text-orange-300'>Build what’s next.</span>
+            Your Goals.<br />
+            <span className='text-orange-300'>Our Support.</span><br />A Brighter Tomorrow.
           </h1>
           <p className='mt-6 max-w-2xl text-lg leading-8 text-blue-50 md:text-xl'>
-            Education guidance, IT support, home services, and business support—helpful solutions for students, families, and organisations from one place.
+            Education, IT, home services, and business support—practical solutions for students, families, and businesses, all in one place.
           </p>
           <div className='mt-9 flex flex-wrap gap-4'>
-            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Services</a>
+            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Our Services <span aria-hidden='true'>→</span></a>
             <a href='/contact' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
             <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Call 7004374250</a>
           </div>
@@ -155,8 +155,8 @@ const HomePage = () => (
               <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' />
               One team · many solutions
             </p>
-            <h2 className='mt-5 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Education, IT, Home & Business Services</h2>
-            <p className='mt-5 max-w-2xl text-lg leading-8 text-slate-600'>From education and career guidance to reliable IT support, home maintenance, and business solutions, EYEPEK brings essential services together in one place. We help students, families, and organisations with practical guidance, technical assistance, and dependable everyday support.</p>
+            <h2 className='mt-5 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Our <span className='text-orange-500'>Services</span></h2>
+            <p className='mt-3 max-w-2xl text-lg leading-8 text-slate-600'>Complete solutions for students, homes, and businesses. Explore our education, IT, home maintenance, and business support services—all in one place.</p>
           </div>
           <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
             Request a service <FaArrowRight aria-hidden='true' />
