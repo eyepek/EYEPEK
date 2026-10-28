@@ -15,13 +15,13 @@ const NavBar = () => {
           <span>Admissions &amp; enquiries</span>
           <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
             <InstallAppButton />
-            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-blue-200'>
+            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-orange-300'>
               <FaYoutube aria-hidden='true' className='h-4 w-4' /> YouTube
             </a>
-            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-blue-200'>
+            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-orange-300'>
               <FaFacebookF aria-hidden='true' className='h-3.5 w-3.5' /> Facebook
             </a>
-            <a href='tel:7004374250' className='text-blue-200 transition hover:text-white'>Call us: 7004374250</a>
+            <a href='tel:7004374250' className='text-orange-300 transition hover:text-white'>Call us: 7004374250</a>
           </div>
         </div>
       </div>
@@ -33,11 +33,11 @@ const NavBar = () => {
           <IoMdMenu className='h-8 w-8' />
         </button>
         <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-5 font-semibold text-blue-950 shadow-lg lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}>
-          <Link to='/' onClick={closeMenu} className='hover:text-blue-700'>Home</Link>
-          <a href='/#about' onClick={closeMenu} className='hover:text-blue-700'>About</a>
-          <a href='/#learning' onClick={closeMenu} className='hover:text-blue-700'>Learning</a>
-          <a href='/#campus' onClick={closeMenu} className='hover:text-blue-700'>Campus Life</a>
-          <a href='/#admissions' onClick={closeMenu} className='rounded-xl bg-blue-600 px-5 py-2.5 text-center text-white shadow-md shadow-blue-950/10 transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300'>Admissions</a>
+          <Link to='/' onClick={closeMenu} className='hover:text-red-600'>Home</Link>
+          <a href='/#about' onClick={closeMenu} className='hover:text-red-600'>About</a>
+          <a href='/#learning' onClick={closeMenu} className='hover:text-red-600'>Learning</a>
+          <a href='/#campus' onClick={closeMenu} className='hover:text-red-600'>Campus Life</a>
+          <a href='/#admissions' onClick={closeMenu} className='rounded-md bg-orange-500 px-5 py-2.5 text-center text-white transition hover:bg-orange-600'>Admissions</a>
         </nav>
       </div>
     </header>
