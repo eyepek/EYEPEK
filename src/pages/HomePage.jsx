@@ -188,23 +188,23 @@ const HomePage = () => (
         <div className='mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
           {studentSupport.map((item) => (
             <article key={item.number} className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 border-t-4 ${item.color} bg-white/95 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10`}>
-              <div className='relative h-48 overflow-hidden bg-blue-50 sm:h-56'>
+              <div className='relative h-52 overflow-hidden bg-blue-50 sm:h-60'>
                 <img src={item.image} alt={item.imageAlt} loading='lazy' className='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
-                <div className='absolute inset-0 bg-gradient-to-t from-blue-950/35 via-transparent to-transparent' />
+                <div className='absolute inset-0 bg-gradient-to-t from-blue-950/65 via-blue-950/5 to-transparent transition duration-300 group-hover:from-blue-950/45' />
                 <span className='absolute bottom-3 left-4 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-blue-950 shadow-sm'>{item.number}</span>
               </div>
               <div className='flex flex-1 flex-col p-6 sm:p-7'>
-              <div className='flex items-start justify-between gap-3'>
-                <div className='flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-2xl text-blue-800 ring-1 ring-blue-100 transition group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:ring-orange-100'>
-                  {item.number === '01' ? <FaUniversity aria-hidden='true' /> : item.number === '02' ? <FaFileAlt aria-hidden='true' /> : item.number === '03' ? <FaGraduationCap aria-hidden='true' /> : <FaTools aria-hidden='true' />}
+              <div className='flex items-center justify-between gap-3'>
+                <div className='flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl text-blue-800 ring-1 ring-blue-100 transition duration-300 group-hover:rotate-3 group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:ring-orange-100'>
+                  {item.number === '01' ? <FaUniversity aria-hidden='true' /> : item.number === '02' || item.number === '06' ? <FaTools aria-hidden='true' /> : item.number === '03' ? <FaGraduationCap aria-hidden='true' /> : <FaFileAlt aria-hidden='true' />}
                 </div>
-                <span className='rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-slate-500'>{item.number}</span>
+                <span className='rounded-full border border-orange-100 bg-orange-50 px-3 py-1 text-xs font-bold text-orange-700'>EYEPEK Services</span>
               </div>
-              <p className='mt-6 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-700'>{item.label}</p>
-              <h3 className='mt-3 text-xl font-bold leading-snug text-blue-950'>{item.title}</h3>
-              <p className='mt-3 flex-1 leading-7 text-slate-600'>{item.description}</p>
-              <a href='/contact' className='mt-6 inline-flex items-center gap-2 border-t border-slate-100 pt-5 font-bold text-blue-900 transition group-hover:text-orange-600'>
-                Ask about this service <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
+              <p className='mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-700'>{item.label}</p>
+              <h3 className='mt-2 text-xl font-extrabold leading-snug text-blue-950 transition group-hover:text-blue-700'>{item.title}</h3>
+              <p className='mt-3 flex-1 text-[0.95rem] leading-7 text-slate-600'>{item.description}</p>
+              <a href='/contact' className='mt-6 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-3 font-bold text-blue-900 transition hover:border-orange-200 hover:bg-orange-50 group-hover:text-orange-700'>
+                Enquire now <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
               </a>
               </div>
             </article>
