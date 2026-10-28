@@ -92,7 +92,7 @@ const HomePage = () => (
         alt='Students studying together outdoors in a campus setting (illustrative photo)'
       />
       <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-red-950/45' />
-      <div className='mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10'>
+      <div className='mx-auto grid min-h-[610px] max-w-7xl items-center gap-12 px-6 py-16 md:min-h-[680px] md:grid-cols-[1.1fr_0.9fr] md:px-10 md:py-20'>
         <div className='max-w-3xl'>
           <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur-sm sm:text-sm'>
             <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK
@@ -115,6 +115,29 @@ const HomePage = () => (
             <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Home &amp; Business Services</span>
           </div>
         </div>
+        <aside className='hidden md:block'>
+          <div className='relative overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-7 shadow-2xl shadow-blue-950/30 backdrop-blur-md lg:p-8'>
+            <div className='absolute -right-10 -top-10 h-36 w-36 rounded-full bg-orange-400/20 blur-2xl' aria-hidden='true' />
+            <p className='relative text-xs font-extrabold uppercase tracking-[0.2em] text-orange-200'>How EYEPEK helps</p>
+            <h2 className='relative mt-3 text-2xl font-extrabold leading-snug text-white lg:text-3xl'>One place for your everyday needs.</h2>
+            <div className='relative mt-7 space-y-3'>
+              {[
+                ['01', 'Education & career guidance', 'Course choices and admission steps'],
+                ['02', 'IT & computer support', 'Setup, troubleshooting and maintenance'],
+                ['03', 'Home & business services', 'Practical help for homes and workplaces'],
+              ].map(([number, title, description]) => (
+                <div key={number} className='flex gap-4 rounded-2xl border border-white/15 bg-blue-950/35 p-4'>
+                  <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-500 font-black text-white'>{number}</span>
+                  <div>
+                    <h3 className='font-bold text-white'>{title}</h3>
+                    <p className='mt-1 text-sm leading-6 text-blue-100'>{description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a href='#student-support' className='relative mt-6 inline-flex items-center gap-2 font-bold text-orange-200 transition hover:text-white'>Browse all services <FaArrowRight aria-hidden='true' /></a>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -162,10 +185,10 @@ const HomePage = () => (
             Request a service <FaArrowRight aria-hidden='true' />
           </a>
         </div>
-        <div className='mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
+        <div className='mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
           {studentSupport.map((item) => (
-            <article key={item.number} className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 border-t-4 ${item.color} bg-white/95 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10`}>
-              <div className='relative h-44 overflow-hidden bg-blue-50 sm:h-48'>
+            <article key={item.number} className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 border-t-4 ${item.color} bg-white/95 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10`}>
+              <div className='relative h-48 overflow-hidden bg-blue-50 sm:h-56'>
                 <img src={item.image} alt={item.imageAlt} loading='lazy' className='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
                 <div className='absolute inset-0 bg-gradient-to-t from-blue-950/35 via-transparent to-transparent' />
                 <span className='absolute bottom-3 left-4 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-blue-950 shadow-sm'>{item.number}</span>
