@@ -30,38 +30,56 @@ const studentSupport = [
   {
     number: '01',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Students learning together',
-    title: 'College Affiliation Support',
-    description: 'Guidance on State University affiliation processes and AICTE-related work, including application and compliance documentation.',
+    imageAlt: 'Students studying together',
+    title: 'Education Services',
+    description: 'Course information, admission guidance, document checklists, and career support for students exploring BBA, BCA, MBA, MCA, and other courses. Confirm availability and eligibility with the relevant institution.',
     color: 'border-blue-700',
-    label: 'Institutional guidance',
+    label: 'Courses & admissions',
   },
   {
     number: '02',
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Documents and paperwork arranged on a desk',
-    title: 'Document Support',
-    description: 'Help understanding common admission documents, preparing a checklist, and organising your paperwork.',
+    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'IT technician working with computer equipment',
+    title: 'IT Support Services',
+    description: 'Computer and laptop troubleshooting, software installation, operating system setup, printer support, Wi-Fi and networking help, data recovery guidance, remote support, and annual maintenance contracts.',
     color: 'border-orange-500',
-    label: 'Paperwork made clearer',
+    label: 'Technology & repairs',
   },
   {
     number: '03',
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Professionals discussing plans together',
-    title: 'Admission & Career Support',
-    description: 'Personal guidance to help you explore admission next steps and think through your education and career goals.',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Electrician working on a home electrical installation',
+    title: 'Home Services',
+    description: 'Home plumbing, electrician services, fan and light fitting, appliance installation and repair, AC installation support, CCTV installation, and everyday home maintenance requests.',
     color: 'border-red-600',
-    label: 'Guidance for your next step',
+    label: 'Help around the home',
   },
   {
     number: '04',
-    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Technician working with computer equipment',
-    title: 'Home & IT Services',
-    description: 'Find help for everyday home and technical needs, including plumbing, electrical work, computer and IT support, Wi-Fi and networking, printer setup, CCTV, and general troubleshooting.',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Business documents arranged on a desk',
+    title: 'Business & Institution Support',
+    description: 'Office IT setup, printer and network support, document organisation, project report assistance, and guidance with college affiliation and compliance paperwork. Official approvals remain the authority’s decision.',
+    color: 'border-blue-700',
+    label: 'Business & college support',
+  },
+  {
+    number: '05',
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Professionals discussing plans together',
+    title: 'Guidance & Support',
+    description: 'Education and career guidance, course selection support, application steps, skill development direction, and help understanding which service is suitable for your needs.',
     color: 'border-orange-500',
-    label: 'Practical help at home and work',
+    label: 'Practical next steps',
+  },
+  {
+    number: '06',
+    image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Computer equipment and technology accessories',
+    title: 'CCTV, Printer & Other Services',
+    description: 'CCTV and security camera setup, printer installation, server and office equipment support, Wi-Fi setup, routine maintenance, and tailored service requests for homes and small businesses.',
+    color: 'border-red-600',
+    label: 'More everyday solutions',
   },
 ];
 
@@ -77,24 +95,24 @@ const HomePage = () => (
       <div className='mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10'>
         <div className='max-w-3xl'>
           <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur-sm sm:text-sm'>
-            <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK COLLEGE
+            <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK
           </p>
           <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
             Learn with confidence.<br />
             <span className='text-orange-300'>Build what’s next.</span>
           </h1>
           <p className='mt-6 max-w-2xl text-lg leading-8 text-blue-50 md:text-xl'>
-            Explore your next step with course information, admission consultancy, and practical guidance for your college journey.
+            Education guidance, IT support, home services, and business support—helpful solutions for students, families, and organisations from one place.
           </p>
           <div className='mt-9 flex flex-wrap gap-4'>
-            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Courses</a>
+            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Services</a>
             <a href='/contact' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
             <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Call 7004374250</a>
           </div>
           <div className='mt-10 flex flex-wrap gap-2 border-t border-white/25 pt-5 text-sm font-semibold text-blue-50'>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Course information</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Admission consultancy</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>College support</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Education</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>IT &amp; Computer Support</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Home &amp; Business Services</span>
           </div>
         </div>
       </div>
@@ -137,7 +155,7 @@ const HomePage = () => (
               <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' />
               One team · many solutions
             </p>
-            <h2 className='mt-5 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Services for students, homes, and businesses.</h2>
+            <h2 className='mt-5 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Education, IT, home and business services.</h2>
             <p className='mt-5 max-w-2xl text-lg leading-8 text-slate-600'>From college guidance and documentation to home maintenance and technical support, find practical help for the things that matter every day.</p>
           </div>
           <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
