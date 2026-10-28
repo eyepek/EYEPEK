@@ -32,6 +32,7 @@ const studentSupport = [
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Students studying together',
     title: 'Education Services',
+    slug: 'education',
     description: 'Course information, admission guidance, document checklists, and career support for students exploring BBA, BCA, MBA, MCA, and other courses. Confirm availability and eligibility with the relevant institution.',
     color: 'border-blue-700',
     label: 'Courses & admissions',
@@ -41,6 +42,7 @@ const studentSupport = [
     image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'IT technician working with computer equipment',
     title: 'IT Support Services',
+    slug: 'it-support',
     description: 'Computer and laptop troubleshooting, software installation, operating system setup, printer support, Wi-Fi and networking help, data recovery guidance, remote support, and annual maintenance contracts.',
     color: 'border-orange-500',
     label: 'Technology & repairs',
@@ -50,6 +52,7 @@ const studentSupport = [
     image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Electrician working on a home electrical installation',
     title: 'Home Services',
+    slug: 'home-services',
     description: 'Home plumbing, electrician services, fan and light fitting, appliance installation and repair, AC installation support, CCTV installation, and everyday home maintenance requests.',
     color: 'border-red-600',
     label: 'Help around the home',
@@ -59,6 +62,7 @@ const studentSupport = [
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Business documents arranged on a desk',
     title: 'Business & Institution Support',
+    slug: 'business-support',
     description: 'Office IT setup, printer and network support, document organisation, project report assistance, and guidance with college affiliation and compliance paperwork. Official approvals remain the authority’s decision.',
     color: 'border-blue-700',
     label: 'Business & college support',
@@ -68,6 +72,7 @@ const studentSupport = [
     image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Professionals discussing plans together',
     title: 'Guidance & Support',
+    slug: 'education',
     description: 'Education and career guidance, course selection support, application steps, skill development direction, and help understanding which service is suitable for your needs.',
     color: 'border-orange-500',
     label: 'Practical next steps',
@@ -77,6 +82,7 @@ const studentSupport = [
     image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Computer equipment and technology accessories',
     title: 'CCTV, Printer & Other Services',
+    slug: 'it-support',
     description: 'CCTV and security camera setup, printer installation, server and office equipment support, Wi-Fi setup, routine maintenance, and tailored service requests for homes and small businesses.',
     color: 'border-red-600',
     label: 'More everyday solutions',
@@ -203,8 +209,8 @@ const HomePage = () => (
               <p className='mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-700'>{item.label}</p>
               <h3 className='mt-2 text-xl font-extrabold leading-snug text-blue-950 transition group-hover:text-blue-700'>{item.title}</h3>
               <p className='mt-3 flex-1 text-[0.95rem] leading-7 text-slate-600'>{item.description}</p>
-              <a href='/contact' className='mt-6 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-3 font-bold text-blue-900 transition hover:border-orange-200 hover:bg-orange-50 group-hover:text-orange-700'>
-                Enquire now <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
+              <a href={`/services/${item.slug}`} className='mt-6 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-3 font-bold text-blue-900 transition hover:border-orange-200 hover:bg-orange-50 group-hover:text-orange-700'>
+                View service details <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
               </a>
               </div>
             </article>
