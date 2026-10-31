@@ -1,44 +1,385 @@
 import 'package:flutter/material.dart';
+
 void main() => runApp(const EyepekApp());
-const navy = Color(0xFF073B78), blue = Color(0xFF0865C8), pale = Color(0xFFEAF4FF), ink = Color(0xFF102B50), muted = Color(0xFF64748B);
+const navy = Color(0xFF073B78);
+const blue = Color(0xFF0865C8);
+const pale = Color(0xFFEAF4FF);
+const ink = Color(0xFF102B50);
+
 class EyepekApp extends StatelessWidget {
- const EyepekApp({super.key});
- @override Widget build(BuildContext context) => MaterialApp(title:'EYEPEK', debugShowCheckedModeBanner:false, theme:ThemeData(useMaterial3:true, scaffoldBackgroundColor:const Color(0xFFF4F7FB), colorScheme:ColorScheme.fromSeed(seedColor:blue), appBarTheme:const AppBarTheme(backgroundColor:Colors.white,foregroundColor:ink,elevation:0), inputDecorationTheme:InputDecorationTheme(filled:true,fillColor:Colors.white,border:OutlineInputBorder(borderRadius:BorderRadius.circular(13),borderSide:const BorderSide(color:Color(0xFFDCE5F0))),contentPadding:const EdgeInsets.all(14))), home:const Splash());
+  const EyepekApp({super.key});
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+    title: 'EYEPEK',
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(seedColor: blue),
+      scaffoldBackgroundColor: const Color(0xFFF4F7FB),
+      appBarTheme: const AppBarTheme(backgroundColor: Colors.white, foregroundColor: ink, elevation: 0),
+    ),
+    home: const Splash(),
+  );
 }
-class Brand extends StatelessWidget { final double size; const Brand({super.key,this.size=30}); @override Widget build(BuildContext c)=>RichText(text:TextSpan(style:TextStyle(fontSize:size,fontWeight:FontWeight.w900,letterSpacing:-1.2),children:const [TextSpan(text:'E',style:TextStyle(color:Color(0xFFF47721))),TextSpan(text:'YEPEK',style:TextStyle(color:navy))])); }
-class Service { final String title,desc; final IconData icon; const Service(this.title,this.desc,this.icon); }
-const services=<Service>[
- Service('College Admission Support','Guidance for BBA, BCA, MBA, MCA and other courses',Icons.school),
- Service('Affiliation Support','Guidance for State Universities (AKU, PPU, LNMU, etc.)',Icons.account_balance),
- Service('AICTE Approval Support','New institute, course approval, extension and compliance assistance',Icons.verified),
- Service('Compliance & Documentation','Preparation and organisation of required documents',Icons.description),
- Service('Renewal & Compliance','Affiliation renewal, AICTE compliance and periodic reporting',Icons.sync),
- Service('Consultation','Expert guidance and end-to-end support',Icons.groups),
- Service('Computer & IT Support','Computer repair, software, networking, CCTV and AMC support',Icons.computer),
-];
-class Course { final String code,name,duration; const Course(this.code,this.name,this.duration); }
-const courses=<Course>[Course('BBA','Bachelor of Business Administration','3 Years'),Course('BCA','Bachelor of Computer Applications','3 Years'),Course('MBA','Master of Business Administration','2 Years'),Course('MCA','Master of Computer Applications','2 Years')];
-class Splash extends StatefulWidget { const Splash({super.key}); @override State<Splash> createState()=>_SplashState(); }
-class _SplashState extends State<Splash> { @override void initState(){super.initState();Future.delayed(const Duration(milliseconds:1200),(){if(mounted)Navigator.pushReplacement(context,MaterialPageRoute(builder:(_)=>const Shell()));});} @override Widget build(BuildContext c)=>Scaffold(body:Container(width:double.infinity,decoration:const BoxDecoration(gradient:LinearGradient(begin:Alignment.topLeft,end:Alignment.bottomRight,colors:[Color(0xFFD9ECFF),Colors.white,Color(0xFFB9DEFF)])),child:SafeArea(child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[const Icon(Icons.school,size:92,color:navy),const SizedBox(height:20),const Brand(size:44),const Text('Education & Compliance Services',style:TextStyle(color:navy,fontWeight:FontWeight.w600)),const SizedBox(height:30),const Text('Your Partner for College Admission,\\nAffiliation and Approvals',textAlign:TextAlign.center,style:TextStyle(color:ink,fontSize:18,height:1.5,fontWeight:FontWeight.w600)),const SizedBox(height:45),const CircularProgressIndicator(color:blue)]))));} }
-class Shell extends StatefulWidget { const Shell({super.key}); @override State<Shell> createState()=>_ShellState(); }
-class _ShellState extends State<Shell> { int tab=0; void go(int n)=>setState(()=>tab=n); @override Widget build(BuildContext c){final pages=<Widget>[Home(go:go),ServicesPage(onEnquire:()=>go(3)),CoursesPage(),EnquiryPage(),Dashboard(go:go)];return Scaffold(body:IndexedStack(index:tab,children:pages),floatingActionButton:FloatingActionButton(backgroundColor:navy,foregroundColor:Colors.white,onPressed:()=>go(3),child:const Icon(Icons.add,size:32)),floatingActionButtonLocation:FloatingActionButtonLocation.centerDocked,bottomNavigationBar:NavigationBar(selectedIndex:tab,onDestinationSelected:go,destinations:const [NavigationDestination(icon:Icon(Icons.home_outlined),label:'Home'),NavigationDestination(icon:Icon(Icons.grid_view),label:'Services'),NavigationDestination(icon:Icon(Icons.menu_book),label:'Courses'),NavigationDestination(icon:Icon(Icons.description_outlined),label:'Enquiry'),NavigationDestination(icon:Icon(Icons.person_outline),label:'Profile')]));} }
-Widget section(String title,VoidCallback tap)=>Padding(padding:const EdgeInsets.fromLTRB(18,22,18,12),child:Row(children:[Expanded(child:Text(title,style:const TextStyle(fontSize:19,fontWeight:FontWeight.w800,color:ink))),TextButton(onPressed:tap,child:const Text('View All'))]));
-class Home extends StatelessWidget { final ValueChanged<int> go; const Home({super.key,required this.go}); @override Widget build(BuildContext c)=>CustomScrollView(slivers:[
- SliverAppBar(pinned:true,title:const Brand(),actions:[IconButton(onPressed:()=>note(c),icon:const Icon(Icons.notifications_none)),const SizedBox(width:8)]),
- SliverToBoxAdapter(child:Padding(padding:const EdgeInsets.fromLTRB(16,12,16,8),child:Container(padding:const EdgeInsets.all(22),decoration:BoxDecoration(borderRadius:BorderRadius.circular(22),gradient:const LinearGradient(colors:[navy,Color(0xFF0874D1)])),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('COLLEGE & EDUCATION SERVICES',style:TextStyle(color:Color(0xFFBBDFFF),fontSize:11,letterSpacing:1,fontWeight:FontWeight.bold)),const SizedBox(height:12),const Text('College Admission\\n& Affiliation\\nMade Simple',style:TextStyle(color:Colors.white,fontSize:25,height:1.16,fontWeight:FontWeight.w800)),const SizedBox(height:10),const Text('Guidance for AICTE, State Universities and regulatory compliance.',style:TextStyle(color:Colors.white70)),const SizedBox(height:16),FilledButton.icon(onPressed:()=>go(3),style:FilledButton.styleFrom(backgroundColor:Colors.white,foregroundColor:navy),icon:const Icon(Icons.arrow_forward),label:const Text('Get Started'))])))),
- SliverToBoxAdapter(child:section('Explore Services',()=>go(1))),
- SliverPadding(padding:const EdgeInsets.symmetric(horizontal:16),sliver:SliverGrid.count(crossAxisCount:3,crossAxisSpacing:10,mainAxisSpacing:10,childAspectRatio:1,children:[quick(Icons.school,'College\\nAdmission',()=>go(1)),quick(Icons.account_balance,'Affiliation\\nSupport',()=>go(1)),quick(Icons.verified,'AICTE\\nApproval',()=>go(1)),quick(Icons.apartment,'State\\nUniversities',()=>go(1)),quick(Icons.description,'Documentation\\nSupport',()=>go(1)),quick(Icons.groups,'Consultation',()=>go(1))])),
- SliverToBoxAdapter(child:section('Popular Courses',()=>go(2))),
- SliverToBoxAdapter(child:SizedBox(height:155,child:ListView.separated(scrollDirection:Axis.horizontal,padding:const EdgeInsets.symmetric(horizontal:16),itemCount:courses.length,separatorBuilder:(_,__)=>const SizedBox(width:10),itemBuilder:(_,i)=>SizedBox(width:145,child:CourseTile(course:courses[i],compact:true))))),
- SliverToBoxAdapter(child:Padding(padding:const EdgeInsets.all(16),child:help(()=>go(3)))),const SliverToBoxAdapter(child:SizedBox(height:20))
- ]);}}
-Widget quick(IconData icon,String label,VoidCallback tap)=>Material(color:Colors.white,borderRadius:BorderRadius.circular(16),child:InkWell(onTap:tap,borderRadius:BorderRadius.circular(16),child:Container(padding:const EdgeInsets.all(8),decoration:BoxDecoration(borderRadius:BorderRadius.circular(16),border:Border.all(color:const Color(0xFFE5ECF4))),child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[Icon(icon,color:navy,size:29),const SizedBox(height:8),Text(label,textAlign:TextAlign.center,style:const TextStyle(color:ink,fontSize:11,fontWeight:FontWeight.w700))]))));
-Widget help(VoidCallback tap)=>Container(padding:const EdgeInsets.all(16),decoration:BoxDecoration(color:const Color(0xFFDCEEFF),borderRadius:BorderRadius.circular(18)),child:Row(children:[const CircleAvatar(backgroundColor:Colors.white,child:Icon(Icons.support_agent,color:navy)),const SizedBox(width:12),const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Need Help?',style:TextStyle(color:navy,fontWeight:FontWeight.w800,fontSize:16)),Text('Talk to our EYEPEK team',style:TextStyle(color:ink,fontSize:12))])),FilledButton(onPressed:tap,child:const Text('Contact Now'))]));
-class ServicesPage extends StatelessWidget { final VoidCallback onEnquire; const ServicesPage({super.key,required this.onEnquire}); @override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Our Services',style:TextStyle(fontWeight:FontWeight.w800))),body:ListView.separated(padding:const EdgeInsets.all(16),itemCount:services.length,separatorBuilder:(_,__)=>const SizedBox(height:10),itemBuilder:(ctx,i){final s=services[i];return Card(elevation:0,color:Colors.white,child:ListTile(contentPadding:const EdgeInsets.all(13),leading:CircleAvatar(backgroundColor:pale,child:Icon(s.icon,color:navy)),title:Text(s.title,style:const TextStyle(fontWeight:FontWeight.w800,color:ink,fontSize:14)),subtitle:Text(s.desc,style:const TextStyle(fontSize:12,color:muted)),trailing:const Icon(Icons.chevron_right,color:blue),onTap:()=>showModalBottomSheet(context:ctx,showDragHandle:true,builder:(b)=>Padding(padding:const EdgeInsets.all(22),child:Column(mainAxisSize:MainAxisSize.min,crossAxisAlignment:CrossAxisAlignment.start,children:[Icon(s.icon,size:40,color:navy),const SizedBox(height:12),Text(s.title,style:const TextStyle(fontSize:21,fontWeight:FontWeight.bold)),Text(s.desc),const SizedBox(height:18),FilledButton(onPressed:(){Navigator.pop(b);onEnquire();},child:const Text('Send Enquiry'))])))));}));} }
-class CoursesPage extends StatefulWidget { const CoursesPage({super.key}); @override State<CoursesPage> createState()=>_CoursesPageState(); }
-class _CoursesPageState extends State<CoursesPage>{bool pg=false;@override Widget build(BuildContext c){final list=courses.where((x)=>pg?x.code=='MBA'||x.code=='MCA':x.code=='BBA'||x.code=='BCA').toList();return Scaffold(appBar:AppBar(title:const Text('Courses',style:TextStyle(fontWeight:FontWeight.w800))),body:Column(children:[Padding(padding:const EdgeInsets.all(16),child:SegmentedButton<bool>(segments:const [ButtonSegment(value:false,label:Text('UG Courses')),ButtonSegment(value:true,label:Text('PG Courses'))],selected:{pg},onSelectionChanged:(v)=>setState(()=>pg=v.first))),Expanded(child:ListView.separated(padding:const EdgeInsets.all(16),itemCount:list.length+1,separatorBuilder:(_,__)=>const SizedBox(height:10),itemBuilder:(ctx,i)=>i==list.length?const Card(child:ListTile(leading:Icon(Icons.apartment,color:navy),title:Text('Other Courses'),subtitle:Text('Ask us about other UG/PG courses.'))):CourseTile(course:list[i])))]));}}
-class CourseTile extends StatelessWidget { final Course course; final bool compact; const CourseTile({super.key,required this.course,this.compact=false}); @override Widget build(BuildContext c)=>Card(elevation:0,color:Colors.white,child:compact?Padding(padding:const EdgeInsets.all(10),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Expanded(child:Center(child:Icon(Icons.menu_book,color:navy,size:40))),Text(course.code,style:const TextStyle(fontWeight:FontWeight.w800,color:navy)),Text(course.duration,style:const TextStyle(fontSize:11,color:muted))])):ListTile(contentPadding:const EdgeInsets.all(12),leading:Container(width:75,height:75,decoration:BoxDecoration(color:pale,borderRadius:BorderRadius.circular(12)),child:const Icon(Icons.school,color:navy,size:38)),title:Text(course.code,style:const TextStyle(fontWeight:FontWeight.w800)),subtitle:Text(course.name+'\\n'+course.duration+'\\nAdmission Support →'),isThreeLine:true));}
-class EnquiryPage extends StatefulWidget { const EnquiryPage({super.key}); @override State<EnquiryPage> createState()=>_EnquiryPageState(); }
-class _EnquiryPageState extends State<EnquiryPage>{final keyForm=GlobalKey<FormState>();final name=TextEditingController(),mobile=TextEditingController(),email=TextEditingController(),message=TextEditingController();String service=services.first.title,course='BBA',category='Admission';@override void dispose(){name.dispose();mobile.dispose();email.dispose();message.dispose();super.dispose();}Widget field(String label,TextEditingController ctl,String hint,{TextInputType type=TextInputType.text,bool required=false,int lines=1})=>Padding(padding:const EdgeInsets.only(bottom:13),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(label,style:const TextStyle(fontSize:12,fontWeight:FontWeight.w700,color:ink)),const SizedBox(height:6),TextFormField(controller:ctl,keyboardType:type,maxLines:lines,validator:(v)=>required&&(v==null||v.trim().isEmpty)?'This field is required':label.startsWith('Mobile')&&(v==null||v.trim().length<10)?'Enter valid mobile number':null,decoration:InputDecoration(hintText:hint))]));Widget drop(String label,String value,List<String> items,ValueChanged<String?> change)=>Padding(padding:const EdgeInsets.only(bottom:13),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(label,style:const TextStyle(fontSize:12,fontWeight:FontWeight.w700)),const SizedBox(height:6),DropdownButtonFormField<String>(value:value,items:items.map((x)=>DropdownMenuItem(value:x,child:Text(x,overflow:TextOverflow.ellipsis))).toList(),onChanged:change,decoration:const InputDecoration())]));@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Enquiry / Apply',style:TextStyle(fontWeight:FontWeight.w800))),body:Form(key:keyForm,child:ListView(padding:const EdgeInsets.all(17),children:[Wrap(spacing:6,children:['Admission','Affiliation','AICTE','Other'].map((x)=>ChoiceChip(label:Text(x),selected:category==x,onSelected:(_)=>setState((){category=x;service=x=='Admission'?services[0].title:x=='Affiliation'?services[1].title:x=='AICTE'?services[2].title:services[5].title;}))).toList()),const SizedBox(height:16),field('Full Name *',name,'Enter your name',required:true),field('Mobile Number *',mobile,'Enter mobile number',type:TextInputType.phone,required:true),field('Email Address',email,'Enter email address',type:TextInputType.emailAddress),drop('Select Service *',service,services.map((x)=>x.title).toList(),(v)=>setState(()=>service=v!)),drop('Select Course',course,courses.map((x)=>x.code).toList(),(v)=>setState(()=>course=v!)),field('State / University',TextEditingController(),'Select State / University'),field('Message',message,'Enter your message (optional)',lines:4),const SizedBox(height:10),SizedBox(height:52,child:FilledButton(onPressed:(){if(keyForm.currentState!.validate())showDialog(context:c,builder:(d)=>AlertDialog(title:const Text('Enquiry form preview'),content:const Text('The screen is ready. Connect the EYEPEK backend to securely submit enquiries and show live application status.'),actions:[TextButton(onPressed:()=>Navigator.pop(d),child:const Text('OK'))]));},child:const Text('Submit Enquiry',style:TextStyle(fontWeight:FontWeight.w800))))])));}
-class Dashboard extends StatelessWidget { final ValueChanged<int> go; const Dashboard({super.key,required this.go});Widget stat(IconData i,String label,String value)=>Container(padding:const EdgeInsets.all(12),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(15),border:Border.all(color:const Color(0xFFE5ECF4))),child:Row(children:[CircleAvatar(backgroundColor:pale,child:Icon(i,color:blue)),const SizedBox(width:8),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(label,style:const TextStyle(fontSize:11,color:muted)),Text(value,style:const TextStyle(fontSize:21,fontWeight:FontWeight.w800,color:ink))]))]));Widget recent(String title,String date,String status,Color color)=>Card(elevation:0,child:ListTile(leading:const CircleAvatar(backgroundColor:pale,child:Icon(Icons.assignment,color:navy)),title:Text(title,style:const TextStyle(fontWeight:FontWeight.w700,fontSize:13)),subtitle:Text(date,style:const TextStyle(fontSize:11)),trailing:Container(padding:const EdgeInsets.all(7),decoration:BoxDecoration(color:color,borderRadius:BorderRadius.circular(18)),child:Text(status,style:const TextStyle(fontSize:10)))));@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Brand(),actions:[IconButton(onPressed:()=>note(c),icon:const Icon(Icons.notifications_none)),const CircleAvatar(backgroundColor:pale,child:Icon(Icons.person,color:navy)),const SizedBox(width:12)]),body:ListView(padding:const EdgeInsets.all(16),children:[Container(padding:const EdgeInsets.all(18),decoration:BoxDecoration(borderRadius:BorderRadius.circular(18),gradient:const LinearGradient(colors:[blue,navy])),child:const Row(children:[CircleAvatar(radius:29,backgroundColor:Colors.white,child:Icon(Icons.person,size:34,color:blue)),SizedBox(width:12),Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Welcome',style:TextStyle(color:Colors.white70)),Text('EYEPEK User',style:TextStyle(color:Colors.white,fontSize:20,fontWeight:FontWeight.w800))])])),const SizedBox(height:15),GridView.count(shrinkWrap:true,physics:const NeverScrollableScrollPhysics(),crossAxisCount:2,crossAxisSpacing:10,mainAxisSpacing:10,childAspectRatio:1.8,children:[stat(Icons.list_alt,'My Enquiries','3'),stat(Icons.description,'My Applications','2'),stat(Icons.bookmark_border,'Saved Courses','5'),stat(Icons.notifications,'Notifications','1')]),const SizedBox(height:20),const Text('Recent Enquiries',style:TextStyle(fontSize:18,fontWeight:FontWeight.w800,color:ink)),recent('BBA Admission','10 Oct 2026','Under Review',const Color(0xFFFFE9BE)),recent('Affiliation Support','05 Oct 2026','In Process',const Color(0xFFD9E9FF)),recent('AICTE Approval','01 Oct 2026','Pending',const Color(0xFFFFDFDF)),const SizedBox(height:12),help(()=>go(3))]));}
-void note(BuildContext c)=>ScaffoldMessenger.of(c).showSnackBar(const SnackBar(content:Text('This feature will be available after backend integration.')));
+
+class Brand extends StatelessWidget {
+  const Brand({super.key});
+  @override
+  Widget build(BuildContext context) => RichText(text: const TextSpan(style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900), children: [
+    TextSpan(text: 'E', style: TextStyle(color: Color(0xFFF47721))),
+    TextSpan(text: 'YEPEK', style: TextStyle(color: navy)),
+  ]));
+}
+
+class Splash extends StatefulWidget {
+  const Splash({super.key});
+  @override
+  State<Splash> createState() => _SplashState();
+}
+class _SplashState extends State<Splash> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 1), () {
+      if (mounted) Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const Shell()));
+    });
+  }
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: Container(
+      width: double.infinity,
+      decoration: const BoxDecoration(gradient: LinearGradient(colors: [Color(0xFFD9ECFF), Colors.white, Color(0xFFB9DEFF)])),
+      child: const Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Icon(Icons.school, size: 90, color: navy),
+        SizedBox(height: 20),
+        Brand(),
+        Text('Education & Compliance Services', style: TextStyle(color: navy)),
+        SizedBox(height: 30),
+        Text('Your Partner for College Admission,\nAffiliation and Approvals', textAlign: TextAlign.center, style: TextStyle(color: ink, fontSize: 18, height: 1.5, fontWeight: FontWeight.w600)),
+        SizedBox(height: 40),
+        CircularProgressIndicator(color: blue),
+      ]),
+    ),
+  );
+}
+
+class Shell extends StatefulWidget {
+  const Shell({super.key});
+  @override
+  State<Shell> createState() => _ShellState();
+}
+class _ShellState extends State<Shell> {
+  int tab = 0;
+  void go(int value) => setState(() => tab = value);
+  @override
+  Widget build(BuildContext context) {
+    final pages = [Home(go: go), Services(go: go), const Courses(), const Enquiry(), Dashboard(go: go)];
+    return Scaffold(
+      body: IndexedStack(index: tab, children: pages),
+      floatingActionButton: FloatingActionButton(backgroundColor: navy, foregroundColor: Colors.white, onPressed: () => go(3), child: const Icon(Icons.add)),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: tab,
+        onDestinationSelected: go,
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.grid_view), label: 'Services'),
+          NavigationDestination(icon: Icon(Icons.menu_book), label: 'Courses'),
+          NavigationDestination(icon: Icon(Icons.description_outlined), label: 'Enquiry'),
+          NavigationDestination(icon: Icon(Icons.person_outline), label: 'Profile'),
+        ],
+      ),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  final ValueChanged<int> go;
+  const Home({super.key, required this.go});
+  @override
+  Widget build(BuildContext context) => CustomScrollView(slivers: [
+    SliverAppBar(pinned: true, title: const Brand(), actions: [IconButton(onPressed: () => _info(context), icon: const Icon(Icons.notifications_none))]),
+    SliverToBoxAdapter(child: Container(
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(22), gradient: const LinearGradient(colors: [navy, Color(0xFF0874D1)])),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const Text('COLLEGE & EDUCATION SERVICES', style: TextStyle(color: Color(0xFFBBDFFF), fontSize: 11, letterSpacing: 1, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 12),
+        const Text('College Admission\n& Affiliation\nMade Simple', style: TextStyle(color: Colors.white, fontSize: 26, height: 1.15, fontWeight: FontWeight.w800)),
+        const SizedBox(height: 10),
+        const Text('Guidance for AICTE, State Universities and regulatory compliance.', style: TextStyle(color: Colors.white)),
+        const SizedBox(height: 18),
+        FilledButton(onPressed: () => go(3), style: FilledButton.styleFrom(backgroundColor: Colors.white, foregroundColor: navy), child: const Text('Get Started →')),
+      ]),
+    )),
+    SliverToBoxAdapter(child: _heading('Explore Services', () => go(1))),
+    SliverPadding(padding: const EdgeInsets.symmetric(horizontal: 16), sliver: SliverGrid.count(
+      crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10, childAspectRatio: 1,
+      children: [
+        _tile(Icons.school, 'College\nAdmission', () => go(1)),
+        _tile(Icons.account_balance, 'Affiliation\nSupport', () => go(1)),
+        _tile(Icons.verified, 'AICTE\nApproval', () => go(1)),
+        _tile(Icons.apartment, 'State\nUniversities', () => go(1)),
+        _tile(Icons.description, 'Documentation', () => go(1)),
+        _tile(Icons.groups, 'Consultation', () => go(1)),
+      ],
+    )),
+    SliverToBoxAdapter(child: _heading('Popular Courses', () => go(2))),
+    SliverToBoxAdapter(child: SizedBox(height: 140, child: ListView(scrollDirection: Axis.horizontal, padding: const EdgeInsets.symmetric(horizontal: 16), children: const [
+      _MiniCourse('BBA', '3 Years'), _MiniCourse('BCA', '3 Years'), _MiniCourse('MBA', '2 Years'), _MiniCourse('MCA', '2 Years'),
+    ]))),
+    SliverToBoxAdapter(child: Padding(padding: const EdgeInsets.all(16), child: _help(() => go(3)))),
+  ]);
+}
+
+Widget _heading(String title, VoidCallback tap) => Padding(
+  padding: const EdgeInsets.fromLTRB(18, 22, 18, 12),
+  child: Row(children: [Expanded(child: Text(title, style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800, color: ink))), TextButton(onPressed: tap, child: const Text('View All'))]),
+);
+Widget _tile(IconData icon, String title, VoidCallback tap) => Material(
+  color: Colors.white,
+  borderRadius: BorderRadius.circular(15),
+  child: InkWell(onTap: tap, borderRadius: BorderRadius.circular(15), child: Container(
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: const Color(0xFFE5ECF4))),
+    padding: const EdgeInsets.all(8),
+    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Icon(icon, color: navy, size: 29), const SizedBox(height: 8),
+      Text(title, textAlign: TextAlign.center, style: const TextStyle(color: ink, fontSize: 11, fontWeight: FontWeight.w700)),
+    ]),
+  )),
+);
+class _MiniCourse extends StatelessWidget {
+  final String code, duration;
+  const _MiniCourse(this.code, this.duration);
+  @override
+  Widget build(BuildContext context) => Container(
+    width: 135, margin: const EdgeInsets.only(right: 10), padding: const EdgeInsets.all(12),
+    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(15), border: Border.all(color: const Color(0xFFE5ECF4))),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      const Expanded(child: Center(child: Icon(Icons.menu_book, color: navy, size: 42))),
+      Text(code, style: const TextStyle(fontWeight: FontWeight.w800, color: navy)),
+      Text(duration, style: const TextStyle(fontSize: 11, color: Colors.blueGrey)),
+    ]),
+  );
+}
+Widget _help(VoidCallback tap) => Container(
+  padding: const EdgeInsets.all(16),
+  decoration: BoxDecoration(color: const Color(0xFFDCEEFF), borderRadius: BorderRadius.circular(18)),
+  child: Row(children: [
+    const CircleAvatar(backgroundColor: Colors.white, child: Icon(Icons.support_agent, color: navy)),
+    const SizedBox(width: 12),
+    const Expanded(child: Text('Need Help?\nTalk to our EYEPEK team', style: TextStyle(color: ink, fontWeight: FontWeight.w600))),
+    FilledButton(onPressed: tap, child: const Text('Contact Now')),
+  ]),
+);
+
+class Services extends StatelessWidget {
+  final ValueChanged<int> go;
+  const Services({super.key, required this.go});
+  static const data = [
+    ('College Admission Support', 'Guidance for BBA, BCA, MBA, MCA and other courses', Icons.school),
+    ('Affiliation Support', 'Guidance for State Universities (AKU, PPU, LNMU, etc.)', Icons.account_balance),
+    ('AICTE Approval Support', 'New institute, course approval, extension and compliance assistance', Icons.verified),
+    ('Compliance & Documentation', 'Preparation and organisation of required documents', Icons.description),
+    ('Renewal & Compliance', 'Affiliation renewal, AICTE compliance and periodic reporting', Icons.sync),
+    ('Consultation', 'Expert guidance and end-to-end support', Icons.groups),
+    ('Computer & IT Support', 'Computer repair, software, networking, CCTV and AMC support', Icons.computer),
+  ];
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: const Text('Our Services')),
+    body: ListView.separated(
+      padding: const EdgeInsets.all(16), itemCount: data.length, separatorBuilder: (_, __) => const SizedBox(height: 10),
+      itemBuilder: (context, i) {
+        final item = data[i];
+        return Card(elevation: 0, color: Colors.white, child: ListTile(
+          leading: CircleAvatar(backgroundColor: pale, child: Icon(item.$3, color: navy)),
+          title: Text(item.$1, style: const TextStyle(fontWeight: FontWeight.w800, color: ink, fontSize: 14)),
+          subtitle: Text(item.$2, style: const TextStyle(fontSize: 12)),
+          trailing: const Icon(Icons.chevron_right, color: blue),
+          onTap: () => showModalBottomSheet<void>(context: context, showDragHandle: true, builder: (sheet) => Padding(
+            padding: const EdgeInsets.all(22),
+            child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Icon(item.$3, size: 40, color: navy), const SizedBox(height: 12),
+              Text(item.$1, style: const TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 8), Text(item.$2), const SizedBox(height: 18),
+              FilledButton(onPressed: () { Navigator.pop(sheet); go(3); }, child: const Text('Send Enquiry')),
+            ]),
+          )),
+        ));
+      },
+    ),
+  );
+}
+
+class Courses extends StatefulWidget {
+  const Courses({super.key});
+  @override
+  State<Courses> createState() => _CoursesState();
+}
+class _CoursesState extends State<Courses> {
+  bool pg = false;
+  static const data = [
+    ('BBA', 'Bachelor of Business Administration', '3 Years'),
+    ('BCA', 'Bachelor of Computer Applications', '3 Years'),
+    ('MBA', 'Master of Business Administration', '2 Years'),
+    ('MCA', 'Master of Computer Applications', '2 Years'),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    final visible = data.where((c) => pg ? c.$1 == 'MBA' || c.$1 == 'MCA' : c.$1 == 'BBA' || c.$1 == 'BCA').toList();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Courses')),
+      body: Column(children: [
+        Padding(padding: const EdgeInsets.all(16), child: SegmentedButton<bool>(
+          segments: const [ButtonSegment(value: false, label: Text('UG Courses')), ButtonSegment(value: true, label: Text('PG Courses'))],
+          selected: {pg}, onSelectionChanged: (v) => setState(() => pg = v.first),
+        )),
+        Expanded(child: ListView(padding: const EdgeInsets.all(16), children: [
+          for (final c in visible)
+            Card(elevation: 0, color: Colors.white, child: ListTile(
+              leading: Container(width: 65, height: 65, decoration: BoxDecoration(color: pale, borderRadius: BorderRadius.circular(12)), child: const Icon(Icons.school, color: navy, size: 34)),
+              title: Text(c.$1, style: const TextStyle(fontWeight: FontWeight.w800)),
+              subtitle: Text(c.$2 + '\n' + c.$3 + '\nAdmission Support →'),
+              isThreeLine: true,
+            )),
+          const Card(child: ListTile(leading: Icon(Icons.apartment, color: navy), title: Text('Other Courses'), subtitle: Text('Ask us about other UG/PG courses.'))),
+        ])),
+      ]),
+    );
+  }
+}
+
+class Enquiry extends StatefulWidget {
+  const Enquiry({super.key});
+  @override
+  State<Enquiry> createState() => _EnquiryState();
+}
+class _EnquiryState extends State<Enquiry> {
+  final keyForm = GlobalKey<FormState>();
+  final name = TextEditingController(), mobile = TextEditingController(), email = TextEditingController(), message = TextEditingController();
+  String category = 'Admission', service = Services.data.first.$1, course = 'BBA';
+  @override
+  void dispose() { name.dispose(); mobile.dispose(); email.dispose(); message.dispose(); super.dispose(); }
+  Widget field(String label, TextEditingController ctl, String hint, {bool required = false, bool phone = false, int lines = 1}) => Padding(
+    padding: const EdgeInsets.only(bottom: 13),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: ink)),
+      const SizedBox(height: 6),
+      TextFormField(controller: ctl, keyboardType: phone ? TextInputType.phone : TextInputType.text, maxLines: lines,
+        validator: (v) {
+          if (required && (v == null || v.trim().isEmpty)) return 'This field is required';
+          if (phone && (v == null || v.trim().length < 10)) return 'Enter a valid mobile number';
+          return null;
+        },
+        decoration: InputDecoration(hintText: hint),
+      ),
+    ]),
+  );
+  Widget drop(String label, String value, List<String> values, ValueChanged<String?> changed) => Padding(
+    padding: const EdgeInsets.only(bottom: 13),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+      const SizedBox(height: 6),
+      DropdownButtonFormField<String>(initialValue: value, items: values.map((v) => DropdownMenuItem(value: v, child: Text(v, overflow: TextOverflow.ellipsis))).toList(), onChanged: changed),
+    ]),
+  );
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: const Text('Enquiry / Apply')),
+    body: Form(key: keyForm, child: ListView(padding: const EdgeInsets.all(17), children: [
+      Wrap(spacing: 6, children: ['Admission', 'Affiliation', 'AICTE', 'Other'].map((v) => ChoiceChip(
+        label: Text(v), selected: category == v,
+        onSelected: (_) => setState(() {
+          category = v;
+          service = v == 'Admission' ? Services.data[0].$1 : v == 'Affiliation' ? Services.data[1].$1 : v == 'AICTE' ? Services.data[2].$1 : Services.data[5].$1;
+        }),
+      )).toList()),
+      const SizedBox(height: 16),
+      field('Full Name *', name, 'Enter your name', required: true),
+      field('Mobile Number *', mobile, 'Enter mobile number', required: true, phone: true),
+      field('Email Address', email, 'Enter email address'),
+      drop('Select Service *', service, Services.data.map((x) => x.$1).toList(), (v) => setState(() => service = v!)),
+      drop('Select Course', course, ['BBA', 'BCA', 'MBA', 'MCA'], (v) => setState(() => course = v!)),
+      field('State / University', TextEditingController(), 'Enter State / University'),
+      field('Message', message, 'Enter your message (optional)', lines: 4),
+      const SizedBox(height: 10),
+      SizedBox(height: 52, child: FilledButton(onPressed: () {
+        if (keyForm.currentState!.validate()) {
+          showDialog<void>(context: context, builder: (d) => AlertDialog(
+            title: const Text('Enquiry form preview'),
+            content: const Text('Secure server integration is needed to submit enquiries and show live application status.'),
+            actions: [TextButton(onPressed: () => Navigator.pop(d), child: const Text('OK'))],
+          ));
+        }
+      }, child: const Text('Submit Enquiry'))),
+    ])),
+  );
+}
+
+class Dashboard extends StatelessWidget {
+  final ValueChanged<int> go;
+  const Dashboard({super.key, required this.go});
+  Widget stat(IconData icon, String title, String value) => Container(
+    padding: const EdgeInsets.all(12),
+    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(15), border: Border.all(color: const Color(0xFFE5ECF4))),
+    child: Row(children: [
+      CircleAvatar(backgroundColor: pale, child: Icon(icon, color: blue)),
+      const SizedBox(width: 8),
+      Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text(title, style: const TextStyle(fontSize: 11, color: Colors.blueGrey)),
+        Text(value, style: const TextStyle(fontSize: 21, fontWeight: FontWeight.w800, color: ink)),
+      ])),
+    ]),
+  );
+  Widget recent(String title, String date, String status, Color color) => Card(
+    elevation: 0,
+    child: ListTile(
+      leading: const CircleAvatar(backgroundColor: pale, child: Icon(Icons.assignment, color: navy)),
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
+      subtitle: Text(date, style: const TextStyle(fontSize: 11)),
+      trailing: Container(padding: const EdgeInsets.all(7), decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(18)), child: Text(status, style: const TextStyle(fontSize: 10))),
+    ),
+  );
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: const Brand(), actions: [
+      IconButton(onPressed: () => _info(context), icon: const Icon(Icons.notifications_none)),
+      const CircleAvatar(backgroundColor: pale, child: Icon(Icons.person, color: navy)),
+      const SizedBox(width: 12),
+    ]),
+    body: ListView(padding: const EdgeInsets.all(16), children: [
+      Container(
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(18), gradient: const LinearGradient(colors: [blue, navy])),
+        child: const Row(children: [
+          CircleAvatar(radius: 29, backgroundColor: Colors.white, child: Icon(Icons.person, size: 34, color: blue)),
+          SizedBox(width: 12),
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text('Welcome', style: TextStyle(color: Colors.white70)),
+            Text('EYEPEK User', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w800)),
+          ]),
+        ]),
+      ),
+      const SizedBox(height: 15),
+      GridView.count(shrinkWrap: true, physics: const NeverScrollableScrollPhysics(), crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10, childAspectRatio: 1.8, children: [
+        stat(Icons.list_alt, 'My Enquiries', '3'),
+        stat(Icons.description, 'My Applications', '2'),
+        stat(Icons.bookmark_border, 'Saved Courses', '5'),
+        stat(Icons.notifications, 'Notifications', '1'),
+      ]),
+      const SizedBox(height: 20),
+      const Text('Recent Enquiries', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: ink)),
+      recent('BBA Admission', '10 Oct 2026', 'Under Review', const Color(0xFFFFE9BE)),
+      recent('Affiliation Support', '05 Oct 2026', 'In Process', const Color(0xFFD9E9FF)),
+      recent('AICTE Approval', '01 Oct 2026', 'Pending', const Color(0xFFFFDFDF)),
+      const SizedBox(height: 12),
+      _help(() => go(3)),
+    ]),
+  );
+}
+
+void _info(BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('This feature will be available after backend integration.')));
+}
