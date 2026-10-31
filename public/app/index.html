@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#172554">
+<meta name="description" content="Book education, IT and home services from EYEPEK: admission guidance, college affiliation, documents support, computer and network support, CCTV, plumbing, electrician and home maintenance.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="EYEPEK">
+<title>EYEPEK | Education, IT, Home & Business Services</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#0f1b3d;--muted:#5a6478;--brand:#172554;--accent:#2563eb;--accent-t:#fff;--line:#e0e5f0;--soft:#eaf0ff;--ok:#0f7a4a;--bad:#c0362c;--h1:#172554;--h2:#1e40af;--sh:0 1px 2px rgba(15,27,61,.06),0 4px 14px rgba(15,27,61,.05);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1120;--card:#161d33;--text:#eaeefc;--muted:#9aa5c2;--brand:#c7d4ff;--accent:#7ca2ff;--accent-t:#0c1120;--line:#27304d;--soft:#1f2848;--ok:#5fd39b;--bad:#ff8b80;--h1:#111a3a;--h2:#1c2f78;--sh:none;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1120;--card:#161d33;--text:#eaeefc;--muted:#9aa5c2;--brand:#c7d4ff;--accent:#7ca2ff;--accent-t:#0c1120;--line:#27304d;--soft:#1f2848;--ok:#5fd39b;--bad:#ff8b80;--h1:#111a3a;--h2:#1c2f78;--sh:none;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Devanagari",Roboto,sans-serif;line-height:1.55}
+.wrap{max-width:600px;margin:0 auto;padding:0 16px 96px}
+.top{display:flex;align-items:center;gap:10px;padding:14px 0}
+.logo{width:34px;height:34px;border-radius:9px;background:var(--h2);color:#fff;display:grid;place-items:center;font-weight:800}
+.top b{font-size:1.05rem;letter-spacing:.14em;color:var(--brand)}
+.top small{display:block;color:var(--muted);font-size:.72rem}
+.lang{margin-left:auto;display:flex;border:1.5px solid var(--line);border-radius:20px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--muted);font:inherit;font-size:.8rem;font-weight:600;padding:5px 11px;cursor:pointer}
+.lang .on{background:var(--accent);color:var(--accent-t)}
+.hero{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff;border-radius:20px;padding:26px 20px}
+.hero h1{font-size:1.5rem;line-height:1.3;margin:0 0 8px}
+.hero p{margin:0 0 18px;opacity:.9;font-size:.96rem}
+.eb{display:inline-block;background:rgba(255,255,255,.16);border-radius:20px;padding:4px 12px;font-size:.82rem;font-weight:700;letter-spacing:.04em;margin-bottom:12px}
+.hero .row{margin:0}
+.hero .btn{background:#fff;color:#172554}
+.hero .ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.strip{display:flex;gap:8px;margin:14px 0 4px;color:var(--muted);font-size:.8rem;text-align:center}
+.strip span{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 4px}
+.strip b{display:block;color:var(--text);font-size:.9rem}
+h2.s{font-size:1.1rem;margin:26px 0 4px}
+.sub{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+.box{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:var(--sh);margin-bottom:10px}
+.box i{font-style:normal;flex:none;width:28px;height:28px;border-radius:50%;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.box p{margin:0;font-size:.9rem;color:var(--muted)}.box b{color:var(--text);display:block;font-size:.95rem}
+.search{width:100%;font:inherit;color:var(--text);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 8px}
+h3{font-size:.78rem;margin:16px 0 8px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
+.svc{display:flex;align-items:center;gap:12px;width:100%;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;font:inherit;text-align:left;cursor:pointer;box-shadow:var(--sh)}
+.svc:hover,.svc:active{border-color:var(--accent)}
+.ic{flex:none;width:42px;height:42px;display:grid;place-items:center;background:var(--soft);color:var(--accent);border-radius:12px}
+.svc b{display:block;font-size:.97rem}
+.svc small{color:var(--muted);display:block;font-size:.82rem;line-height:1.35}
+.pr{display:inline-block;margin-top:3px;font-size:.76rem;font-weight:700;color:var(--accent)}
+.ar{margin-left:auto;color:var(--muted);font-size:1.3rem}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{flex-direction:column;justify-content:flex-start;align-items:center;text-align:center;gap:8px;padding:16px 8px 12px;margin:0;border-top:3px solid var(--c)}
+.tile b{font-size:.88rem;line-height:1.3}
+.ti{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
+.tile .pr{color:var(--c);margin:0}
+:root{--blu:#1d4ed8;--org:#ea580c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--blu:#6d9bff;--org:#fb923c}}
+:root[data-theme="dark"]{--blu:#6d9bff;--org:#fb923c}
+.edu{background:linear-gradient(135deg,color-mix(in srgb,var(--blu) 10%,var(--card)),color-mix(in srgb,var(--org) 10%,var(--card)));border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:8px}
+.edh{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:2px 2px 10px}
+.edh b{font-size:.85rem;color:var(--blu)}
+.edh span{background:var(--org);color:var(--accent-t);border-radius:20px;padding:3px 10px;font-size:.72rem;font-weight:700;white-space:nowrap}
+.edu .svc{border-left:4px solid var(--c);align-items:flex-start}
+.edu .svc:last-child{margin-bottom:0}
+.edu .ic{background:var(--c);color:var(--accent-t);width:46px;height:46px}
+.edu .pr{color:var(--c)}
+.empty{color:var(--muted);text-align:center;padding:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--sh)}
+.steps{display:flex;gap:6px;margin-bottom:6px}
+.steps i{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.steps i.on{background:var(--accent)}
+.stl{color:var(--muted);font-size:.78rem;margin:0 0 12px}
+label,.lb{display:block;font-weight:600;font-size:.88rem;margin:14px 0 6px}
+input,textarea{width:100%;font:inherit;color:var(--text);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px}
+input:focus,textarea:focus,.search:focus{outline:none;border-color:var(--accent)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--bg);color:var(--text);border:1.5px solid var(--line);border-radius:20px;padding:7px 14px;font:inherit;font-size:.88rem;cursor:pointer}
+.chip.on{background:var(--accent);color:var(--accent-t);border-color:var(--accent)}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-t);border:0;border-radius:12px;padding:12px 18px;font:inherit;font-weight:600;font-size:.95rem;cursor:pointer;text-decoration:none;text-align:center}
+.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.back{background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;padding:6px 0;margin-bottom:6px}
+.tag{display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--accent);border-radius:20px;padding:5px 12px 5px 8px;font-size:.88rem;font-weight:600}
+.err{color:var(--bad);font-size:.88rem;min-height:1.2em;margin-top:8px}
+.ok{color:var(--ok);font-weight:700;font-size:1.1rem;margin:0 0 4px}
+pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;font-size:.88rem;margin:10px 0}
+.note{color:var(--muted);font-size:.84rem}
+.next{margin:12px 0 0;padding-left:20px;font-size:.88rem;color:var(--muted)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+summary{font-weight:600;font-size:.93rem;cursor:pointer}
+details p{margin:8px 0 0;color:var(--muted);font-size:.9rem}
+.rv{font-size:.92rem;margin:0 0 8px}.rv small{color:var(--muted);display:block}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.contact{margin-top:26px;text-align:center}
+.contact p{margin:6px 0;font-size:.9rem}
+.foot{text-align:center;color:var(--muted);font-size:.78rem;margin-top:18px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));z-index:5}
+.bar div{max-width:600px;margin:0 auto;display:flex;gap:10px}
+.bar a{flex:1;padding:11px 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><div class="logo">E</div><div><b>EYEPEK</b><small id="tg"></small></div><div class="lang" id="lg"></div></div>
+ <div id="app"></div>
+ <div class="foot">© 2026 EYEPEK · life begins here · <a href="https://www.eyepek.com" target="_blank" rel="noopener" style="color:inherit">eyepek.com</a> · <a href="privacy.html" style="color:inherit">Privacy</a></div>
+</div>
+<div class="bar"><div id="bar"></div></div>
+<script>
+/* ===== EYEPEK team: edit this block ===== */
+var PHONE="917004374250",WHATSAPP="917004374250",EMAIL="Info.eyepek@gmail.com";
+var HOURS=["",""];            /* ["Mon–Sat, 9 AM–7 PM","सोम–शनि, सुबह 9–शाम 7"] */
+var PRICES={};                /* e.g. {"cctv":["From ₹X","₹X से शुरू"]} keys: admission,docs,computer,software,printer,network,cctv,plumbing,electrician,home */
+var REVIEWS=[];               /* e.g. [{name:"Customer name",text:["English review","हिंदी रिव्यू"]}] */
+var GALLERY=[];               /* image URLs */
+/* ======================================== */
+var LANG="en";try{LANG=localStorage.getItem("ep_lang")||"en"}catch(e){}
+function L(a){return a[LANG==="hi"?1:0]}
+var U={
+tag:["Education · IT · Home & Business","शिक्षा · आईटी · घर और बिज़नेस"],
+h1:["One partner for education, IT and home services","शिक्षा, आईटी और घरेलू सेवाओं के लिए एक भरोसेमंद साथी"],
+hp:["Book a service in a minute. Our team will get in touch with you.","एक मिनट में सेवा बुक करें। हमारी टीम आपसे संपर्क करेगी।"],
+book:["Book a service","सेवा बुक करें"],call:["Call","कॉल करें"],calln:["Call now","अभी कॉल करें"],wa:["WhatsApp","WhatsApp"],
+s1:["Services","सेवाएँ"],s2:["Categories","श्रेणियाँ"],s3:["To request","रिक्वेस्ट में"],m1:["1 min","1 मिनट"],
+how:["How it works","यह कैसे काम करता है"],
+h1t:["Choose a service","सेवा चुनें"],h1d:["Pick what you need from the list below.","नीचे की लिस्ट से अपनी ज़रूरत चुनें।"],
+h2t:["Share your details","जानकारी भरें"],h2d:["Add your name, phone number and location.","अपना नाम, फ़ोन नंबर और पता लिखें।"],
+h3t:["Send your request","रिक्वेस्ट भेजें"],h3d:["Send it on WhatsApp or email. We will contact you.","WhatsApp या ईमेल से भेजें। हम आपसे संपर्क करेंगे।"],
+our:["Our services","हमारी सेवाएँ"],sel:["Select a service to book it.","बुक करने के लिए सेवा चुनें।"],
+ph:["Search services, e.g. CCTV, printer","सेवा खोजें, जैसे CCTV, प्रिंटर"],none:["No service found. Try another word.","कोई सेवा नहीं मिली। दूसरा शब्द आज़माएँ।"],
+quote:["Get a quote","कोटेशन पाएँ"],feat:["Featured","ख़ास"],edsub:["Admission · College Affiliation · Documents Support","एडमिशन · कॉलेज एफ़िलिएशन · डॉक्यूमेंट सपोर्ट"],
+hrs:["Working hours","काम के घंटे"],faq:["Frequently asked questions","अक्सर पूछे जाने वाले सवाल"],
+rev:["What customers say","ग्राहक क्या कहते हैं"],gal:["Our work","हमारा काम"],
+cu:["Contact us","संपर्क करें"],em:["Email us","ईमेल करें"],
+back:["← All services","← सभी सेवाएँ"],step:["Step","चरण"],of:["of","/"],
+yd:["Your details","आपकी जानकारी"],sr:["Send your request","रिक्वेस्ट भेजें"],
+when:["When do you need it?","कब चाहिए?"],date:["Date","तारीख़"],name:["Your name","आपका नाम"],phone:["Phone number","फ़ोन नंबर"],
+city:["City / address","शहर / पता"],more:["Anything else? (optional)","कुछ और बताना हो (वैकल्पिक)"],cont:["Continue","आगे बढ़ें"],
+e1:["Please enter your name.","कृपया अपना नाम लिखें।"],e2:["Please enter a valid phone number (at least 10 digits).","कृपया सही फ़ोन नंबर लिखें (कम से कम 10 अंक)।"],
+e3:["Please enter your city or address.","कृपया शहर या पता लिखें।"],e4:["Please choose a date.","कृपया तारीख़ चुनें।"],
+ready:["✓ Your request is ready","✓ आपकी रिक्वेस्ट तैयार है"],rv:["Review it, then send it to EYEPEK.","देख लें, फिर EYEPEK को भेजें।"],
+swa:["Send on WhatsApp","WhatsApp पर भेजें"],sem:["Send by email","ईमेल से भेजें"],copy:["Copy","कॉपी करें"],copied:["Copied.","कॉपी हो गया।"],
+cf:["Could not copy. Please select the text above and copy it.","कॉपी नहीं हो सका। ऊपर का टेक्स्ट चुनकर कॉपी करें।"],
+n1:["Send the request using one of the buttons above.","ऊपर के किसी बटन से रिक्वेस्ट भेजें।"],n2:["The EYEPEK team will contact you on your phone number.","EYEPEK की टीम आपके फ़ोन नंबर पर संपर्क करेगी।"],n3:["Confirm the time and details of the work.","काम का समय और जानकारी तय करें।"],
+ed:["Edit","बदलाव करें"],nb:["New booking","नई बुकिंग"],
+br:["EYEPEK Booking Request","EYEPEK बुकिंग रिक्वेस्ट"],sv:["Service","सेवा"],wn:["When","कब"],nm:["Name","नाम"],ph2:["Phone","फ़ोन"],ct:["City/address","शहर/पता"],nt:["Notes","अन्य"],
+hi:["Hello EYEPEK, I would like to enquire about your services.","नमस्ते EYEPEK, मैं आपकी सेवाओं के बारे में पूछना चाहता/चाहती हूँ।"]
+};
+function T(k){return L(U[k])}
+var FAQ=[
+[["How do I book a service?","सेवा कैसे बुक करूँ?"],["Choose a service, fill in your details and send the request on WhatsApp or email.","सेवा चुनें, जानकारी भरें और रिक्वेस्ट WhatsApp या ईमेल से भेजें।"]],
+[["What happens after I send my request?","रिक्वेस्ट भेजने के बाद क्या होता है?"],["The EYEPEK team will contact you on the phone number you provided to confirm the details.","EYEPEK की टीम आपके दिए फ़ोन नंबर पर संपर्क करके जानकारी तय करेगी।"]],
+[["Can I choose a date?","क्या मैं तारीख़ चुन सकता/सकती हूँ?"],["Yes. Choose 'I will pick a date' in the request form.","हाँ। फ़ॉर्म में 'तारीख़ चुनूँगा' चुनें।"]],
+[["How do I know the cost?","खर्च कैसे पता चलेगा?"],["You can ask the team about the cost when they contact you.","टीम के संपर्क करने पर आप खर्च के बारे में पूछ सकते हैं।"]],
+[["How can I contact EYEPEK directly?","EYEPEK से सीधे कैसे संपर्क करूँ?"],["Call or WhatsApp +91 70043 74250, or email "+EMAIL+".","+91 70043 74250 पर कॉल या WhatsApp करें, या "+EMAIL+" पर ईमेल करें।"]]
+];
+function I(p,z){z=z||22;return '<svg viewBox="0 0 24 24" width="'+z+'" height="'+z+'" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+'</svg>'}
+var G=[["Educational Services","शैक्षिक सेवाएँ"],["Computer & IT","कंप्यूटर और आईटी"],["Home Services","घरेलू सेवाएँ"]];
+var DV=[["Desktop","डेस्कटॉप"],["Laptop","लैपटॉप"],["Other","अन्य"]],OT=["Other","अन्य"];
+var S=[
+{id:"admission",g:0,i:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>',n:["Admission Guidance","एडमिशन गाइडेंस"],d:["Choosing the right course and college, and applying","सही कोर्स और कॉलेज चुनने और आवेदन में मदद"],q:["Your level","आपका स्तर"],o:[["Class 10","कक्षा 10"],["Class 12","कक्षा 12"],["Graduate","ग्रेजुएट"],OT]},
+{id:"affiliation",g:0,i:'<path d="M3 21h18M5 21V10M9 21V10M15 21V10M19 21V10M2 10l10-6 10 6"/>',n:["College Affiliation","कॉलेज एफ़िलिएशन"],d:["Support with the college affiliation process and paperwork","कॉलेज एफ़िलिएशन की प्रक्रिया और कागज़ी कार्रवाई में सहायता"],q:["Support needed for","किस काम में मदद चाहिए"],o:[["New affiliation","नया एफ़िलिएशन"],["Renewal","नवीनीकरण"],["Documents only","सिर्फ़ डॉक्यूमेंट"],OT]},
+{id:"docs",g:0,i:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',n:["Documents Support","डॉक्यूमेंट सपोर्ट"],d:["Help preparing papers and forms for college, business and government work","कॉलेज, बिज़नेस और सरकारी काम के काग़ज़ात और फ़ॉर्म तैयार करने में मदद"],q:["Needed for","किसके लिए"],o:[["College","कॉलेज"],["Business","बिज़नेस"],["Government form","सरकारी फ़ॉर्म"],OT]},
+{id:"computer",g:1,i:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',n:["Computer Support","कंप्यूटर सपोर्ट"],d:["Computer and laptop problems and maintenance","कंप्यूटर/लैपटॉप की समस्या और रखरखाव"],q:["Device","डिवाइस"],o:DV},
+{id:"software",g:1,i:'<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/>',n:["Software Installation","सॉफ़्टवेयर इंस्टॉलेशन"],d:["Installing and setting up the software you need","ज़रूरी सॉफ़्टवेयर इंस्टॉल और सेटअप"],q:["Device","डिवाइस"],o:DV},
+{id:"printer",g:1,i:'<path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/>',n:["Printer Support","प्रिंटर सपोर्ट"],d:["Printer setup and troubleshooting","प्रिंटर की सेटिंग और दिक्कतों का हल"],q:["Issue","समस्या"],o:[["Setup","सेटअप"],["Not printing","प्रिंट नहीं हो रहा"],OT]},
+{id:"network",g:1,i:'<path d="M2 9a15 15 0 0120 0M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0"/><circle cx="12" cy="19.5" r="1"/>',n:["Network Support","नेटवर्क सपोर्ट"],d:["Internet, Wi-Fi and network setup","इंटरनेट, वाई-फ़ाई और नेटवर्क सेटअप"],q:["Issue","समस्या"],o:[["Wi-Fi","वाई-फ़ाई"],["No internet","इंटरनेट बंद"],["New setup","नया सेटअप"]]},
+{id:"cctv",g:1,i:'<rect x="2" y="7" width="14" height="10" rx="2"/><path d="M16 10.5l6-3.5v10l-6-3.5"/>',n:["CCTV Installation","CCTV इंस्टॉलेशन"],d:["Camera installation and setup","कैमरे लगवाना और सेटअप"],q:["Number of cameras","कैमरों की संख्या"],o:[["1–2","1–2"],["3–4","3–4"],["5 or more","5 या ज़्यादा"],["Not sure","पता नहीं"]]},
+{id:"plumbing",g:2,i:'<path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/>',n:["Plumbing","प्लंबिंग"],d:["Pipes, taps and water problems","पाइप, नल और पानी की समस्याएँ"],q:["Work type","काम"],o:[["Leakage","रिसाव"],["New work","नया काम"],["Repair","मरम्मत"]]},
+{id:"electrician",g:2,i:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',n:["Electrician","इलेक्ट्रीशियन"],d:["Wiring, switches and electrical repairs","वायरिंग, स्विच और बिजली की मरम्मत"],q:["Work type","काम"],o:[["Repair","मरम्मत"],["New fitting","नई फ़िटिंग"],["Inspection","जाँच"]]},
+{id:"home",g:2,i:'<path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',n:["Home Maintenance","होम मेंटेनेंस"],d:["Small and large upkeep jobs around the home","घर के छोटे-बड़े रखरखाव के काम"],q:["Work type","काम"],o:[["Small job","छोटा काम"],["Large job","बड़ा काम"],["Not sure","पता नहीं"]]}
+];
+var WHEN=[["As soon as possible","जल्द से जल्द"],["This week","इस हफ़्ते"],["I will pick a date","तारीख़ चुनूँगा"]];
+var TC={plumbing:"#2563eb",electrician:"#d97706",home:"#0f9d6a"};
+var app=document.getElementById("app"),query="",view="home",curS=null,curF={};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function ld(k){try{return localStorage.getItem(k)||""}catch(e){return""}}
+function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function go(){window.scrollTo(0,0)}
+function val(id){var e=document.getElementById(id);return e?e.value.trim():""}
+function err(t){document.getElementById("er").textContent=t}
+
+function chrome(){
+ document.documentElement.lang=LANG;
+ document.getElementById("tg").textContent=T("tag");
+ document.getElementById("lg").innerHTML='<button class="'+(LANG==="en"?"on":"")+'" data-l="en">EN</button><button class="'+(LANG==="hi"?"on":"")+'" data-l="hi">हिं</button>';
+ document.querySelectorAll("#lg button").forEach(function(b){b.onclick=function(){if(b.dataset.l===LANG)return;if(view==="form")snap();LANG=b.dataset.l;sv("ep_lang",LANG);render()}});
+ document.getElementById("bar").innerHTML='<a class="btn ghost" href="tel:+'+PHONE+'">'+T("call")+'</a><a class="btn" target="_blank" rel="noopener" href="https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(T("hi"))+'">'+T("wa")+'</a>';
+}
+function render(){chrome();if(view==="home")home();else if(view==="form")form();else done()}
+
+function home(){
+ var h='<div class="hero"><div class="eb">EYEPEK life begins here</div><h1>'+T("h1")+'</h1><p>'+T("hp")+'</p><div class="row"><a class="btn" href="#svc">'+T("book")+'</a><a class="btn ghost" href="tel:+'+PHONE+'">'+T("calln")+'</a></div></div>';
+ h+='<div class="strip"><span><b>11</b>'+T("s1")+'</span><span><b>3</b>'+T("s2")+'</span><span><b>'+T("m1")+'</b>'+T("s3")+'</span></div>';
+ h+='<h2 class="s">'+T("how")+'</h2>';
+ [1,2,3].forEach(function(n){h+='<div class="box"><i>'+n+'</i><span><b>'+T("h"+n+"t")+'</b><p>'+T("h"+n+"d")+'</p></span></div>'});
+ h+='<h2 class="s" id="svc">'+T("our")+'</h2><p class="sub">'+T("sel")+'</p><input class="search" id="sq" type="search" placeholder="'+esc(T("ph"))+'" value="'+esc(query)+'"><div id="lst"></div>';
+ if(REVIEWS.length){h+='<h2 class="s">'+T("rev")+'</h2>';REVIEWS.forEach(function(r){h+='<div class="box"><p class="rv">“'+esc(L(r.text))+'”<small>— '+esc(r.name)+'</small></p></div>'})}
+ if(GALLERY.length){h+='<h2 class="s">'+T("gal")+'</h2><div class="gal">';GALLERY.forEach(function(u){h+='<img loading="lazy" alt="" src="'+esc(u)+'">'});h+='</div>'}
+ h+='<h2 class="s">'+T("faq")+'</h2>';
+ FAQ.forEach(function(f){h+='<details><summary>'+esc(L(f[0]))+'</summary><p>'+esc(L(f[1]))+'</p></details>'});
+ h+='<div class="contact card"><h2 class="s" style="margin-top:0">'+T("cu")+'</h2><p>+91 70043 74250</p><p>'+esc(EMAIL)+'</p>';
+ if(L(HOURS))h+='<p class="note"><b>'+T("hrs")+':</b> '+esc(L(HOURS))+'</p>';
+ h+='<div class="row" style="justify-content:center"><a class="btn ghost" href="mailto:'+EMAIL+'">'+T("em")+'</a></div></div>';
+ app.innerHTML=h;
+ var sq=document.getElementById("sq");sq.oninput=function(){query=sq.value;draw()};draw();
+}
+function draw(){
+ var q=query.trim().toLowerCase(),h="",c=0;
+ G.forEach(function(g,gi){
+  var m=S.filter(function(s){return s.g===gi&&(!q||(s.n.join(" ")+" "+s.d.join(" ")).toLowerCase().indexOf(q)>-1)});
+  if(!m.length)return;
+  h+='<h3>'+L(g)+'</h3>';
+  if(gi===0){h+='<div class="edu"><div class="edh"><b>'+T("edsub")+'</b><span>★ '+T("feat")+'</span></div>';m.forEach(function(s,n){c++;h+='<button class="svc" style="--c:'+(n%2?"var(--org)":"var(--blu)")+'" data-id="'+s.id+'"><span class="ic">'+I(s.i)+'</span><span><b>'+esc(L(s.n))+'</b><small>'+esc(L(s.d))+'</small><span class="pr">'+esc(PRICES[s.id]?L(PRICES[s.id]):T("quote"))+'</span></span><span class="ar">›</span></button>'});h+='</div>';return}
+  if(gi===2){h+='<div class="tiles">';m.forEach(function(s){c++;h+='<button class="svc tile" style="--c:'+(TC[s.id]||"#2563eb")+'" data-id="'+s.id+'" title="'+esc(L(s.d))+'"><span class="ti">'+I(s.i,30)+'</span><b>'+esc(L(s.n))+'</b><span class="pr">'+esc(PRICES[s.id]?L(PRICES[s.id]):T("quote"))+'</span></button>'});h+='</div>';return}
+  m.forEach(function(s){c++;h+='<button class="svc" data-id="'+s.id+'"><span class="ic">'+I(s.i)+'</span><span><b>'+esc(L(s.n))+'</b><small>'+esc(L(s.d))+'</small><span class="pr">'+esc(PRICES[s.id]?L(PRICES[s.id]):T("quote"))+'</span></span><span class="ar">›</span></button>'});
+ });
+ if(!c)h='<div class="empty">'+T("none")+'</div>';
+ var l=document.getElementById("lst");l.innerHTML=h;
+ l.querySelectorAll(".svc").forEach(function(b){b.onclick=function(){curS=S.filter(function(s){return s.id===b.dataset.id})[0];curF={};view="form";go();render()}});
+}
+function steps(n,t){return '<div class="steps"><i class="on"></i><i class="'+(n>1?'on':'')+'"></i><i class="'+(n>2?'on':'')+'"></i></div><p class="stl">'+T("step")+' '+n+' '+T("of")+' 3 · '+t+'</p>'}
+function chips(id,arr,sel){var h='<div class="chips" id="'+id+'">';arr.forEach(function(o,n){h+='<button type="button" class="chip'+(n===sel?' on':'')+'" data-v="'+n+'">'+esc(L(o))+'</button>'});return h+'</div>'}
+function bind(id,cb){var w=document.getElementById(id);w.querySelectorAll(".chip").forEach(function(b){b.onclick=function(){w.querySelectorAll(".chip").forEach(function(x){x.classList.remove("on")});b.classList.add("on");if(cb)cb(+b.dataset.v)}})}
+function pick(id){var o=document.querySelector("#"+id+" .chip.on");return o?+o.dataset.v:-1}
+function snap(){curF={x:pick("c1"),w:Math.max(pick("c2"),0),d:val("d"),n:val("n"),p:val("p"),a:val("a"),m:val("m")}}
+
+function form(){
+ var s=curS,v=curF,w0=(v.w==null?0:v.w);
+ var h='<button class="back" id="bk">'+T("back")+'</button><div class="card">'+steps(2,T("yd"))+'<span class="tag"><span class="ic" style="width:28px;height:28px;border-radius:8px">'+I(s.i,16)+'</span>'+esc(L(s.n))+'</span>';
+ h+='<div class="lb">'+esc(L(s.q))+'</div>'+chips("c1",s.o,v.x==null?-1:v.x);
+ h+='<div class="lb">'+T("when")+'</div>'+chips("c2",WHEN,w0);
+ h+='<div id="dw" style="display:'+(w0===2?'block':'none')+'"><label for="d">'+T("date")+'</label><input id="d" type="date" value="'+esc(v.d||"")+'"></div>';
+ h+='<label for="n">'+T("name")+'</label><input id="n" autocomplete="name" value="'+esc(v.n||ld("ep_n"))+'">';
+ h+='<label for="p">'+T("phone")+'</label><input id="p" type="tel" inputmode="numeric" autocomplete="tel" value="'+esc(v.p||ld("ep_p"))+'">';
+ h+='<label for="a">'+T("city")+'</label><input id="a" autocomplete="street-address" value="'+esc(v.a||ld("ep_a"))+'">';
+ h+='<label for="m">'+T("more")+'</label><textarea id="m" rows="2">'+esc(v.m||"")+'</textarea>';
+ h+='<div class="err" id="er"></div><div class="row" style="margin-top:4px"><button class="btn" id="go" style="width:100%">'+T("cont")+'</button></div></div>';
+ app.innerHTML=h;
+ var dw=document.getElementById("dw");bind("c1");bind("c2",function(x){dw.style.display=x===2?"block":"none"});
+ document.getElementById("bk").onclick=function(){view="home";go();render()};
+ document.getElementById("go").onclick=function(){
+  snap();var f=curF;
+  if(!f.n)return err(T("e1"));
+  if(f.p.replace(/\D/g,"").length<10)return err(T("e2"));
+  if(!f.a)return err(T("e3"));
+  if(f.w===2&&!f.d)return err(T("e4"));
+  sv("ep_n",f.n);sv("ep_p",f.p);sv("ep_a",f.a);view="done";go();render();
+ };
+}
+function msg(){
+ var s=curS,f=curF;
+ return T("br")+"\n"+T("sv")+": "+L(s.n)+(f.x>=0?"\n"+L(s.q)+": "+L(s.o[f.x]):"")+"\n"+T("wn")+": "+(f.w===2?f.d:L(WHEN[f.w]))+"\n"+T("nm")+": "+f.n+"\n"+T("ph2")+": "+f.p+"\n"+T("ct")+": "+f.a+(f.m?"\n"+T("nt")+": "+f.m:"");
+}
+function done(){
+ var t=msg();
+ var h='<div class="card">'+steps(3,T("sr"))+'<p class="ok">'+T("ready")+'</p><p class="note" style="margin:0">'+T("rv")+'</p><pre>'+esc(t)+'</pre>';
+ h+='<div class="row" style="margin-top:0"><a class="btn" style="width:100%" target="_blank" rel="noopener" href="https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(t)+'">'+T("swa")+'</a><a class="btn ghost" href="mailto:'+EMAIL+'?subject='+encodeURIComponent(T("br")+": "+L(curS.n))+'&body='+encodeURIComponent(t)+'">'+T("sem")+'</a><button class="btn ghost" id="cp">'+T("copy")+'</button></div><div class="note" id="cm" style="margin-top:8px"></div>';
+ h+='<ol class="next"><li>'+T("n1")+'</li><li>'+T("n2")+'</li><li>'+T("n3")+'</li></ol>';
+ h+='<div class="row"><button class="btn ghost" id="ed">'+T("ed")+'</button><button class="btn ghost" id="hm">'+T("nb")+'</button></div></div>';
+ app.innerHTML=h;
+ document.getElementById("cp").onclick=function(){var m=document.getElementById("cm");try{navigator.clipboard.writeText(t).then(function(){m.textContent=T("copied")},function(){m.textContent=T("cf")})}catch(e){m.textContent=T("cf")}};
+ document.getElementById("ed").onclick=function(){view="form";go();render()};
+ document.getElementById("hm").onclick=function(){query="";curF={};view="home";go();render()};
+}
+render();
+</script>
+<script>
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+</script>
+</body>
+</html>
