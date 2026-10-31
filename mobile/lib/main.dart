@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(const EyepekApp());
 const navy = Color(0xFF073B78);
@@ -376,6 +377,26 @@ class Dashboard extends StatelessWidget {
       recent('AICTE Approval', '01 Oct 2026', 'Pending', const Color(0xFFFFDFDF)),
       const SizedBox(height: 12),
       _help(() => go(3)),
+      const SizedBox(height: 12),
+      Card(
+        elevation: 0,
+        color: Colors.white,
+        child: ListTile(
+          leading: const Icon(Icons.privacy_tip_outlined, color: navy),
+          title: const Text('Privacy Policy', style: TextStyle(fontWeight: FontWeight.w700)),
+          subtitle: const Text('Read how EYEPEK handles your information'),
+          trailing: const Icon(Icons.open_in_new, color: blue),
+          onTap: () async {
+            final uri = Uri.parse('https://www.eyepek.com/privacy-policy.html');
+            final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
+            if (!opened && context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Could not open Privacy Policy. Please try again.')),
+              );
+            }
+          },
+        ),
+      ),
     ]),
   );
 }
