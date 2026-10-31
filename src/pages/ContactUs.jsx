@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { courses } from '../courses';
 
 export default function ContactUs() {
-  const [form, setForm] = useState({ name: '', phone: '', course: '', message: '' });
+  const [form, setForm] = useState(() => ({ name: '', phone: '', course: new URLSearchParams(window.location.search).get('course') || '', message: '' }));
   const [status, setStatus] = useState('');
   const [emailUrl, setEmailUrl] = useState('');
 
