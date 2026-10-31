@@ -5,24 +5,30 @@ import { courses } from '../courses';
 const highlights = [
   {
     number: '01',
-    title: 'Explore your options',
-    description: 'Compare course paths and understand which direction fits your interests and goals.',
+    title: 'Tell us what you need',
+    description: 'Whether it is education guidance, college documentation, IT help, or a business requirement, start by sharing what you are looking for.',
     color: 'border-orange-500',
     accent: 'bg-orange-500',
+    href: '#student-support',
+    linkLabel: 'Explore our services',
   },
   {
     number: '02',
-    title: 'Get the details right',
-    description: 'Get clear on eligibility, applications, and the documents you may need.',
+    title: 'Get clear, practical guidance',
+    description: 'Understand the available options, important requirements, documents, and the next steps before you move ahead.',
     color: 'border-red-600',
     accent: 'bg-red-600',
+    href: '/contact',
+    linkLabel: 'Talk to our team',
   },
   {
     number: '03',
-    title: 'Take your next step',
-    description: 'Move ahead with practical admission guidance and a plan for what comes next.',
+    title: 'Move forward with confidence',
+    description: 'Get support shaped around your needs, with clear communication and a practical way forward.',
     color: 'border-blue-700',
     accent: 'bg-blue-700',
+    href: '/contact',
+    linkLabel: 'Get in touch',
   },
 ];
 
@@ -167,7 +173,7 @@ const HomePage = () => (
               </div>
               <h3 className='mt-5 text-xl font-bold text-blue-950'>{item.title}</h3>
               <p className='mt-3 min-h-14 leading-7 text-slate-600'>{item.description}</p>
-              <a href='#admissions' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 transition group-hover:text-orange-600'>Explore courses <span aria-hidden='true'>→</span></a>
+              <a href={item.href} className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 transition group-hover:text-orange-600'>{item.linkLabel} <span aria-hidden='true'>→</span></a>
             </article>
           ))}
         </div>
