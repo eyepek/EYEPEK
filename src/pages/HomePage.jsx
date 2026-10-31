@@ -345,15 +345,15 @@ const HomePage = () => (
           <a href='/contact' className='inline-flex shrink-0 items-center justify-center rounded-lg bg-orange-500 px-6 py-3 font-bold text-white transition hover:bg-orange-400'>Get course guidance <span className='ml-2' aria-hidden='true'>→</span></a>
         </div>
         <div className='mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4'>
-          {courses.map((course, index) => <div key={course} className='group relative overflow-hidden rounded-2xl border border-white/15 bg-white/[0.08] p-5 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-orange-300/70 hover:bg-white/[0.13] sm:p-6'>
+          {courses.map((course, index) => <a key={course} href={`/contact?course=${encodeURIComponent(course)}`} aria-label={`Enquire about ${course}`} className='group relative block overflow-hidden rounded-2xl border border-white/15 bg-white/[0.08] p-5 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-orange-300 hover:bg-white/[0.15] hover:shadow-orange-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:p-6'>
             <span className='absolute right-3 top-2 text-xs font-bold tracking-widest text-blue-300/70'>0{index + 1}</span>
             <div className='mb-3 h-1 w-10 rounded-full bg-orange-400 transition-all group-hover:w-16' />
             <h3 className='text-2xl font-black tracking-wide text-white sm:text-3xl'>{course}</h3>
-            <p className='mt-2 text-xs font-semibold uppercase tracking-wider text-blue-200'>Course enquiry</p>
-          </div>)}
-          <div className='flex min-h-28 items-center justify-center rounded-2xl border border-dashed border-orange-300/60 bg-orange-400/10 p-5 text-center'>
-            <div><p className='text-xl font-extrabold text-orange-200'>And more</p><p className='mt-1 text-xs text-blue-100'>Ask our team</p></div>
-          </div>
+            <p className='mt-2 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-orange-200'>Course enquiry <span aria-hidden='true'>↗</span></p>
+          </a>)}
+          <a href='/contact?course=Other' className='flex min-h-28 items-center justify-center rounded-2xl border border-dashed border-orange-300/60 bg-orange-400/10 p-5 text-center transition hover:bg-orange-400/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300'>
+            <div><p className='text-xl font-extrabold text-orange-200'>And more</p><p className='mt-1 text-xs text-blue-100'>Ask our team ↗</p></div>
+          </a>
         </div>
         <div className='mt-5 flex flex-col gap-2 border-t border-white/15 pt-4 sm:flex-row sm:items-center sm:justify-between'>
           <p className='text-sm text-blue-200'>Course availability and admission details should be confirmed with the relevant institution.</p>
