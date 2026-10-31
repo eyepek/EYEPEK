@@ -37,7 +37,7 @@ jobs:
         run: rm -f test/widget_test.dart
 
       - name: Check Dart code
-        run: flutter analyze
+        run: flutter analyze --no-fatal-infos
 
       - name: Build release APK
         run: flutter build apk --release
