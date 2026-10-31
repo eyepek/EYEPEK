@@ -259,10 +259,12 @@ const HomePage = () => (
               Good guidance. <span className='text-orange-500'>Practical solutions.</span> A better way forward.
             </h2>
             <p className='mt-4 text-base leading-7 text-slate-600 sm:text-lg'>
-              EYEPEK (EYEPEK Educational and Technology Services, also known as EYEPEK College) is an education, student guidance, and technical support organisation based in Patna, Bihar, India. EYEPEK provides course and admission guidance, college documentation process support, computer and laptop troubleshooting, software installation, printer support, Wi-Fi and networking, CCTV installation, home maintenance, office IT setup, and business documentation assistance.
+              EYEPEK is your trusted partner for education, technology, and support services in Patna, Bihar, India. We make education and essential services simpler and more accessible through course selection and admission guidance, career support, and assistance with college affiliation processes, compliance guidance, and organised documentation.
+
+We also provide practical IT and technology solutions, including computer and laptop troubleshooting, software installation, printer support, Wi-Fi and networking, CCTV installation, and office IT setup. From home maintenance coordination to business and institutional documentation assistance, we bring multiple support services together in one place.
             </p>
             <p className='mt-3 text-base leading-7 text-slate-600 sm:text-lg'>
-              Whether you are exploring courses and admissions, looking for IT or computer assistance, or seeking help organising business and college documentation, we focus on clear information, practical next steps, and support shaped around your needs.
+              Whether you are a student planning your future, an institution organising its documentation, or an individual or business looking for reliable technical assistance, our approach is built on clear communication, practical solutions, professional support, and helping you move forward with confidence.
             </p>
             <div className='mt-7 grid gap-3 sm:grid-cols-2'>
               <div className='flex gap-3 rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-sm'>
