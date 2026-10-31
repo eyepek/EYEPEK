@@ -147,6 +147,19 @@ const HomePage = () => (
       </div>
     </section>
 
+    <section id='download-app' className='bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 text-white'>
+      <div className='mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 md:flex-row md:items-center md:justify-between md:px-10'>
+        <div className='max-w-2xl'>
+          <p className='text-sm font-bold uppercase tracking-[0.18em] text-orange-300'>EYEPEK mobile app</p>
+          <h2 className='mt-2 text-2xl font-extrabold sm:text-3xl'>Get EYEPEK on your Android phone</h2>
+          <p className='mt-2 leading-7 text-blue-100'>Download the latest Android app directly from EYEPEK. If Android displays a security prompt, review it and allow installation only if you trust this app.</p>
+        </div>
+        <a href='https://github.com/eyepek/EYEPEK/releases/download/android-latest/app-release.apk' className='inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 font-extrabold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200' aria-label='Download EYEPEK Android app'>
+          Download Android App <span aria-hidden='true'>↓</span>
+        </a>
+      </div>
+    </section>
+
     <section id='learning' className='overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50/60'>
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end'>
