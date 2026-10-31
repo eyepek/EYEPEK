@@ -61,7 +61,7 @@ const guides = {
     ],
     note: 'EYEPEK offers computer and laptop troubleshooting, software installation, printer and networking support. Contact the team to confirm service availability and arrangements.',
     related: '/services/it-support',
-  },,
+  },
 
   'wifi-not-working-home-office-checklist': {
     category: 'Wi-Fi & Networking',
