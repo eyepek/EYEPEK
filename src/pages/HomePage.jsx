@@ -114,7 +114,7 @@ const HomePage = () => (
             Supporting Colleges.<br />Simplifying Every Step.
           </h1>
           <p className='mt-6 max-w-2xl text-lg leading-8 text-blue-50 md:text-xl'>
-            Your trusted support partner for education guidance and institutional documentation in Patna, Bihar. Explore course and admission options, get help understanding affiliation and compliance processes, and access practical IT and business support—all with clear guidance at every step.
+            Your trusted support partner for course and admission guidance, college affiliation documentation, and practical technology and business services. Explore your options, understand the process, and get clear support at every step.
           </p>
           <div className='mt-9 flex flex-wrap gap-4'>
             <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Education Services <span aria-hidden='true'>→</span></a>
@@ -265,7 +265,7 @@ const HomePage = () => (
               Good guidance. <span className='text-orange-500'>Practical solutions.</span> A better way forward.
             </h2>
             <p className='mt-4 text-base leading-7 text-slate-600 sm:text-lg'>
-              EYEPEK is your trusted partner for education, technology, and support services in Patna, Bihar, India. We make education and essential services simpler and more accessible through course selection and admission guidance, career support, and assistance with college affiliation processes, compliance guidance, and organised documentation.
+              EYEPEK is your trusted partner for education, technology, and support services. We make education and essential services simpler and more accessible through course selection and admission guidance, career support, and assistance with college affiliation processes, compliance guidance, and organised documentation.
 
 We also provide practical IT and technology solutions, including computer and laptop troubleshooting, software installation, printer support, Wi-Fi and networking, CCTV installation, and office IT setup. From home maintenance coordination to business and institutional documentation assistance, we bring multiple support services together in one place.
             </p>
