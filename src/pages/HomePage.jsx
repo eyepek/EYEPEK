@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaCheckCircle, FaClipboardCheck, FaFileAlt, FaGraduationCap, FaTools, FaUniversity } from 'react-icons/fa';
 import { courses } from '../courses';
@@ -53,7 +53,22 @@ const faqs = [
   ['Can I use EYEPEK for IT or home services too?', 'Yes. EYEPEK also provides IT, computer, networking, CCTV, home, and business support services.'],
 ];
 
-const HomePage = () => (
+const HomePage = () => {
+  useEffect(() => {
+    document.title = 'EYEPEK | College Affiliation, Admissions, Documentation & AICTE Support';
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.setAttribute('content', 'EYEPEK in Patna, Bihar provides college affiliation process guidance, admissions support, institutional documentation, and AICTE-related compliance document readiness support for colleges and students.');
+    }
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', 'https://www.eyepek.com/');
+    }
+  }, []);
+
+  return (
   <main className='bg-white text-slate-900'>
     <section className='relative isolate overflow-hidden bg-blue-950 text-white'>
       <img className='absolute inset-0 -z-20 h-full w-full object-cover' src='/images/students-campus.jpg' alt='Students studying together outdoors in a campus setting (illustrative photo)' />
@@ -238,6 +253,7 @@ const HomePage = () => (
       </div>
     </section>
   </main>
-);
+  );
+};
 
 export default HomePage;
