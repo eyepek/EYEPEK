@@ -147,16 +147,39 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='download-app' className='bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 text-white'>
-      <div className='mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 md:flex-row md:items-center md:justify-between md:px-10'>
-        <div className='max-w-2xl'>
-          <p className='text-sm font-bold uppercase tracking-[0.18em] text-orange-300'>EYEPEK mobile app</p>
-          <h2 className='mt-2 text-2xl font-extrabold sm:text-3xl'>Get EYEPEK on your Android phone</h2>
-          <p className='mt-2 leading-7 text-blue-100'>Download the latest Android app directly from EYEPEK. If Android displays a security prompt, review it and allow installation only if you trust this app.</p>
+    <section id='download-app' className='overflow-hidden bg-gradient-to-br from-blue-50 via-white to-sky-100'>
+      <div className='mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20'>
+        <div className='grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]'>
+          <div>
+            <p className='inline-flex rounded-full border border-blue-200 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-800'>Introducing the EYEPEK app</p>
+            <h2 className='mt-5 text-3xl font-black leading-tight text-blue-950 sm:text-4xl md:text-5xl'>Education support, right in your pocket.</h2>
+            <p className='mt-5 max-w-2xl text-lg leading-8 text-slate-600'>Explore courses, discover EYEPEK services and send an enquiry from one simple Android app. The new interface follows EYEPEK College’s blue-and-white identity.</p>
+            <div className='mt-7 flex flex-wrap gap-3'>
+              <a href='https://github.com/eyepek/EYEPEK/releases/download/android-latest/app-release.apk' className='inline-flex items-center justify-center gap-3 rounded-xl bg-blue-800 px-7 py-4 font-extrabold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200' aria-label='Download EYEPEK Android app'>
+                Download Android App <span aria-hidden='true'>↓</span>
+              </a>
+              <a href='https://github.com/eyepek/EYEPEK/actions/runs/41205409412' className='inline-flex items-center justify-center rounded-xl border border-blue-200 bg-white px-6 py-4 font-bold text-blue-900 transition hover:bg-blue-50'>Build status</a>
+            </div>
+            <p className='mt-4 text-sm leading-6 text-slate-500'>Android APK download. This is not yet a Play Store listing. Enquiry submission, account login and live application tracking require the upcoming secure backend connection.</p>
+          </div>
+          <div className='grid grid-cols-2 gap-3 sm:grid-cols-3'>
+            {[
+              [ '01', 'Splash screen', 'A clean EYEPEK welcome screen', 'bg-blue-100 text-blue-900' ],
+              [ '02', 'Home screen', 'Quick access to key services', 'bg-white text-blue-900' ],
+              [ '03', 'Our services', 'Explore education and IT support', 'bg-blue-100 text-blue-900' ],
+              [ '04', 'Courses', 'Browse BBA, BCA, MBA and MCA', 'bg-white text-blue-900' ],
+              [ '05', 'Enquiry form', 'Prepare an enquiry in the app', 'bg-blue-100 text-blue-900' ],
+              [ '06', 'User dashboard', 'Dashboard interface preview', 'bg-white text-blue-900' ],
+            ].map(([number, title, description, color]) => (
+              <article key={number} className={`rounded-2xl border border-blue-100 ${color} p-4 shadow-sm`}>
+                <span className='text-xs font-black tracking-[0.16em] opacity-60'>{number}</span>
+                <div className='my-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-800 text-xl font-black text-white'>{number === '01' ? 'E' : number === '02' ? '⌂' : number === '03' ? '▦' : number === '04' ? '▤' : number === '05' ? '✉' : '◉'}</div>
+                <h3 className='font-extrabold'>{title}</h3>
+                <p className='mt-1 text-xs leading-5 opacity-75'>{description}</p>
+              </article>
+            ))}
+          </div>
         </div>
-        <a href='https://github.com/eyepek/EYEPEK/releases/download/android-latest/app-release.apk' className='inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 font-extrabold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200' aria-label='Download EYEPEK Android app'>
-          Download Android App <span aria-hidden='true'>↓</span>
-        </a>
       </div>
     </section>
 
