@@ -36,7 +36,8 @@ const allServices = [
   { title: 'AICTE & Compliance Support', description: 'AICTE-related documentation readiness, compliance checklists, and internal file organisation.', icon: FaClipboardCheck, to: '/services/aicte-support', label: 'Priority service' },
   { title: 'Education & Student Support', description: 'Career direction, course planning, and practical student support for the next step.', icon: FaFileAlt, to: '/services/education', label: 'Education' },
   { title: 'IT & Computer Support', description: 'Computers, printers, networking, CCTV, software setup, and maintenance support.', icon: FaTools, to: '/services/it-support', label: 'Technology' },
-  { title: 'Home & Business Services', description: 'Home maintenance, office IT setup, and practical support for everyday service needs.', icon: FaTools, to: '/services/business-support', label: 'Other services' },
+  { title: 'Home Services', description: 'Plumbing, electrician work, appliance installation, AC support, and CCTV setup.', icon: FaTools, to: '/services/home-services', label: 'Home support' },
+  { title: 'Business & Institution Support', description: 'Office IT setup, network support, document organisation, and project-report assistance.', icon: FaFileAlt, to: '/services/business-support', label: 'Business support' },
 ];
 
 const steps = [
