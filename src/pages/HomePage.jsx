@@ -91,14 +91,14 @@ const studentSupport = [
 
 const HomePage = () => (
   <main className='bg-white text-slate-900'>
-    <section className='relative isolate min-h-[610px] overflow-hidden bg-blue-950 text-white md:min-h-[680px]'>
+    <section className='relative isolate min-h-[520px] overflow-hidden bg-blue-950 text-white md:min-h-[560px]'>
       <img
         className='absolute inset-0 -z-20 h-full w-full object-cover'
         src='/images/students-campus.jpg'
         alt='Students studying together outdoors in a campus setting (illustrative photo)'
       />
       <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-red-950/45' />
-      <div className='mx-auto grid min-h-[610px] max-w-7xl items-center gap-12 px-6 py-16 md:min-h-[680px] md:grid-cols-[1.1fr_0.9fr] md:px-10 md:py-20'>
+      <div className='mx-auto grid min-h-[520px] max-w-7xl items-center gap-8 px-6 py-10 md:min-h-[560px] md:grid-cols-[1.1fr_0.9fr] md:px-10 md:py-12'>
         <div className='max-w-3xl'>
           <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur-sm sm:text-sm'>
             <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK
@@ -148,24 +148,24 @@ const HomePage = () => (
     </section>
 
     <section id='learning' className='overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50/60'>
-      <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end'>
           <div>
             <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Guidance that moves education forward</p>
-            <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Supporting students. Strengthening institutions.</h2>
+            <h2 className='mt-3 text-3xl font-extrabold leading-tight text-blue-950 md:text-4xl'>Supporting students. Strengthening institutions.</h2>
           </div>
           <p className='max-w-2xl text-lg leading-8 text-slate-600'>
             From choosing the right course to navigating college affiliation and compliance documentation, EYEPEK provides clear information, practical guidance, and organised support at every step. We help students move forward with confidence and assist institutions with affiliation, approval-process documentation, compliance, and renewal requirements. Final decisions and approvals rest with the relevant university or regulatory authority.
           </p>
         </div>
-        <div className='mt-12 grid gap-5 md:grid-cols-3'>
+        <div className='mt-8 grid gap-4 md:grid-cols-3'>
           {highlights.map((item) => (
-            <article key={item.number} className={`group relative overflow-hidden rounded-2xl border border-white/80 border-t-4 ${item.color} bg-white p-7 shadow-md shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-950/10`}>
+            <article key={item.number} className={`group relative overflow-hidden rounded-2xl border border-white/80 border-t-4 ${item.color} bg-white p-5 shadow-md shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-950/10`}>
               <div className='flex items-center justify-between'>
                 <span className={`h-1.5 w-12 rounded-full ${item.accent}`} aria-hidden='true' />
                 <p className='text-sm font-black tracking-[0.18em] text-slate-400'>{item.number}</p>
               </div>
-              <h3 className='mt-8 text-xl font-bold text-blue-950'>{item.title}</h3>
+              <h3 className='mt-5 text-xl font-bold text-blue-950'>{item.title}</h3>
               <p className='mt-3 min-h-14 leading-7 text-slate-600'>{item.description}</p>
               <a href='#admissions' className='mt-6 inline-flex items-center gap-2 font-bold text-blue-900 transition group-hover:text-orange-600'>Explore courses <span aria-hidden='true'>→</span></a>
             </article>
@@ -177,29 +177,29 @@ const HomePage = () => (
     <section id='student-support' className='relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50/60'>
       <div className='pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-200/25 blur-3xl' aria-hidden='true' />
       <div className='pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl' aria-hidden='true' />
-      <div className='relative mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+      <div className='relative mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <div className='flex flex-col gap-6 md:flex-row md:items-end md:justify-between'>
           <div className='max-w-3xl'>
             <p className='inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-orange-700'>
               <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' />
               One team · many solutions
             </p>
-            <h2 className='mt-5 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Our <span className='text-orange-500'>Services</span></h2>
-            <p className='mt-3 max-w-2xl text-lg leading-8 text-slate-600'>Complete solutions for students, homes, and businesses. Explore our education, IT, home maintenance, and business support services—all in one place.</p>
+            <h2 className='mt-3 text-3xl font-extrabold leading-tight text-blue-950 md:text-4xl'>Our <span className='text-orange-500'>Services</span></h2>
+            <p className='mt-2 max-w-2xl text-base leading-7 text-slate-600'>Complete solutions for students, homes, and businesses. Explore our education, IT, home maintenance, and business support services—all in one place.</p>
           </div>
           <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
             Request a service <FaArrowRight aria-hidden='true' />
           </a>
         </div>
-        <div className='mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+        <div className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
           {studentSupport.map((item) => (
             <article key={item.number} className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 border-t-4 ${item.color} bg-white/95 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10`}>
-              <div className='relative h-52 overflow-hidden bg-blue-50 sm:h-60'>
+              <div className='relative h-44 overflow-hidden bg-blue-50 sm:h-48'>
                 <img src={item.image} alt={item.imageAlt} loading='lazy' className='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
                 <div className='absolute inset-0 bg-gradient-to-t from-blue-950/65 via-blue-950/5 to-transparent transition duration-300 group-hover:from-blue-950/45' />
                 <span className='absolute bottom-3 left-4 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-blue-950 shadow-sm'>{item.number}</span>
               </div>
-              <div className='flex flex-1 flex-col p-6 sm:p-7'>
+              <div className='flex flex-1 flex-col p-5'>
               <div className='flex items-center justify-between gap-3'>
                 <div className='flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl text-blue-800 ring-1 ring-blue-100 transition duration-300 group-hover:rotate-3 group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:ring-orange-100'>
                   {item.number === '01' ? <FaUniversity aria-hidden='true' /> : item.number === '02' || item.number === '06' ? <FaTools aria-hidden='true' /> : item.number === '03' ? <FaGraduationCap aria-hidden='true' /> : <FaFileAlt aria-hidden='true' />}
@@ -232,7 +232,7 @@ const HomePage = () => (
     <section id='about' className='relative isolate overflow-hidden bg-white'>
       <div className='pointer-events-none absolute -right-24 -top-16 -z-10 h-80 w-80 rounded-full bg-orange-100/70 blur-3xl' aria-hidden='true' />
       <div className='pointer-events-none absolute -bottom-24 -left-20 -z-10 h-80 w-80 rounded-full bg-blue-100/80 blur-3xl' aria-hidden='true' />
-      <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28'>
+      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <div className='grid items-center gap-12 lg:grid-cols-2 lg:gap-16'>
           <div className='relative'>
             <div className='absolute -inset-3 rounded-[2rem] border border-orange-200/80 rotate-2' aria-hidden='true' />
@@ -258,10 +258,10 @@ const HomePage = () => (
             <h2 className='mt-5 text-3xl font-black leading-tight tracking-tight text-blue-950 sm:text-4xl md:text-5xl'>
               Good guidance. <span className='text-orange-500'>Practical solutions.</span> A better way forward.
             </h2>
-            <p className='mt-6 text-base leading-8 text-slate-600 sm:text-lg'>
+            <p className='mt-4 text-base leading-7 text-slate-600 sm:text-lg'>
               EYEPEK (EYEPEK Educational and Technology Services, also known as EYEPEK College) is an education, student guidance, and technical support organisation based in Patna, Bihar, India. EYEPEK provides course and admission guidance, college documentation process support, computer and laptop troubleshooting, software installation, printer support, Wi-Fi and networking, CCTV installation, home maintenance, office IT setup, and business documentation assistance.
             </p>
-            <p className='mt-4 text-base leading-8 text-slate-600 sm:text-lg'>
+            <p className='mt-3 text-base leading-7 text-slate-600 sm:text-lg'>
               Whether you are exploring courses and admissions, looking for IT or computer assistance, or seeking help organising business and college documentation, we focus on clear information, practical next steps, and support shaped around your needs.
             </p>
             <div className='mt-7 grid gap-3 sm:grid-cols-2'>
@@ -280,7 +280,7 @@ const HomePage = () => (
                 </div>
               </div>
             </div>
-            <div className='mt-7 flex flex-wrap gap-2'>
+            <div className='mt-5 flex flex-wrap gap-2'>
               {['Student-focused', 'Clear communication', 'Practical next steps'].map((item) => (
                 <span key={item} className='rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-semibold text-slate-700'>{item}</span>
               ))}
@@ -296,7 +296,7 @@ const HomePage = () => (
     </section>
 
     <section id='campus' className='bg-blue-950 text-white'>
-      <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-center'>
           <div className='py-2'>
             <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Your journey · your future</p>
@@ -314,10 +314,10 @@ const HomePage = () => (
     </section>
 
     <section id='faq' className='bg-slate-50'>
-      <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
+      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Quick answers</p>
         <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>Frequently asked questions</h2>
-        <div className='mt-9 grid gap-4 md:grid-cols-2'>
+        <div className='mt-6 grid gap-3 md:grid-cols-2'>
           {[
             ['How can I get course and fee details?', 'Call EYEPEK College on 7004374250 to confirm current course availability and fees.'],
             ['How do I ask about admission?', 'Call the admissions team or send an enquiry through the admissions page.'],
@@ -335,7 +335,7 @@ const HomePage = () => (
     </section>
 
     <section id='admissions' className='bg-blue-950 text-white'>
-      <div className='mx-auto flex max-w-7xl flex-col gap-8 px-6 py-16 md:flex-row md:items-center md:justify-between md:px-10 md:py-20'>
+      <div className='mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10 md:py-12'>
         <div>
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Take your next step</p>
           <h2 className='mt-3 text-3xl font-extrabold md:text-5xl'>Let’s talk about your future.</h2>
