@@ -299,10 +299,10 @@ const HomePage = () => (
       <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-center'>
           <div className='py-2'>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Your journey · your future</p>
-            <h2 className='mt-4 text-3xl font-extrabold leading-tight md:text-5xl'>Explore your options. Move forward with confidence.</h2>
-            <p className='mt-5 max-w-xl text-lg leading-8 text-blue-100'>College is shaped by the questions you ask, the people you meet, and the ideas you share along the way.</p>
-            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-orange-500 px-6 py-3.5 font-bold text-white transition hover:bg-orange-400'>Explore courses <span aria-hidden='true'>→</span></a>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Build your future with EYEPEK</p>
+            <h2 className='mt-4 text-3xl font-extrabold leading-tight md:text-5xl'>Make informed choices. Take confident steps towards your future.</h2>
+            <p className='mt-5 max-w-xl text-lg leading-8 text-blue-100'>Choosing a course or planning your career is an important decision. Get clear guidance on course options, admission requirements, essential documents and the next steps—so you can plan ahead with confidence.</p>
+            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-orange-500 px-6 py-3.5 font-bold text-white transition hover:bg-orange-400'>Get admission guidance <span aria-hidden='true'>→</span></a>
           </div>
           <figure className='group relative overflow-hidden rounded-3xl bg-blue-900 shadow-2xl shadow-black/20'>
             <img className='block aspect-[4/3] max-h-[34rem] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/students-library.jpg' alt='Students sharing ideas and studying together (representative photo)' loading='lazy' />
