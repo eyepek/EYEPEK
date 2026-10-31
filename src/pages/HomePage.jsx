@@ -334,24 +334,30 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='admissions' className='bg-blue-950 text-white'>
-      <div className='mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10 md:py-12'>
-        <div>
-          <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Take your next step</p>
-          <h2 className='mt-3 text-3xl font-extrabold md:text-5xl'>Let’s talk about your future.</h2>
-          <p className='mt-4 text-blue-100'>Ask the admissions team about course availability, eligibility, and fees.</p>
-          <div className='mt-6'>
-            <p className='text-sm font-bold text-orange-200'>Courses to enquire about</p>
-            <ul className='mt-3 flex flex-wrap gap-2'>
-              {courses.map((course) => <li key={course} className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-sm font-semibold'>{course}</li>)}
-              <li className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-sm font-semibold'>And more</li>
-            </ul>
-            <p className='mt-3 text-sm text-blue-200'>Confirm current availability and admission details with the college team.</p>
+    <section id='admissions' className='bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 text-white'>
+      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
+        <div className='flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between'>
+          <div>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>Explore your study options</p>
+            <h2 className='mt-3 text-3xl font-extrabold md:text-5xl'>Find the course that moves you forward.</h2>
+            <p className='mt-3 max-w-2xl text-base leading-7 text-blue-100'>Explore popular programmes and contact our team for guidance on eligibility, admission steps and required documents.</p>
+          </div>
+          <a href='/contact' className='inline-flex shrink-0 items-center justify-center rounded-lg bg-orange-500 px-6 py-3 font-bold text-white transition hover:bg-orange-400'>Get course guidance <span className='ml-2' aria-hidden='true'>→</span></a>
+        </div>
+        <div className='mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4'>
+          {courses.map((course, index) => <div key={course} className='group relative overflow-hidden rounded-2xl border border-white/15 bg-white/[0.08] p-5 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-orange-300/70 hover:bg-white/[0.13] sm:p-6'>
+            <span className='absolute right-3 top-2 text-xs font-bold tracking-widest text-blue-300/70'>0{index + 1}</span>
+            <div className='mb-3 h-1 w-10 rounded-full bg-orange-400 transition-all group-hover:w-16' />
+            <h3 className='text-2xl font-black tracking-wide text-white sm:text-3xl'>{course}</h3>
+            <p className='mt-2 text-xs font-semibold uppercase tracking-wider text-blue-200'>Course enquiry</p>
+          </div>)}
+          <div className='flex min-h-28 items-center justify-center rounded-2xl border border-dashed border-orange-300/60 bg-orange-400/10 p-5 text-center'>
+            <div><p className='text-xl font-extrabold text-orange-200'>And more</p><p className='mt-1 text-xs text-blue-100'>Ask our team</p></div>
           </div>
         </div>
-        <div className='flex flex-wrap gap-3'>
-          <a href='/contact' className='shrink-0 rounded-md border border-white/60 px-6 py-4 text-center font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
-          <a href='tel:7004374250' className='shrink-0 rounded-md bg-orange-500 px-8 py-4 text-center font-bold text-white transition hover:bg-orange-400'>Call 7004374250</a>
+        <div className='mt-5 flex flex-col gap-2 border-t border-white/15 pt-4 sm:flex-row sm:items-center sm:justify-between'>
+          <p className='text-sm text-blue-200'>Course availability and admission details should be confirmed with the relevant institution.</p>
+          <a href='tel:7004374250' className='font-bold text-orange-300 transition hover:text-white'>Call 7004374250</a>
         </div>
       </div>
     </section>
