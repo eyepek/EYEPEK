@@ -61,6 +61,37 @@ const guides = {
     ],
     note: 'EYEPEK offers computer and laptop troubleshooting, software installation, printer and networking support. Contact the team to confirm service availability and arrangements.',
     related: '/services/it-support',
+  },,
+
+  'wifi-not-working-home-office-checklist': {
+    category: 'Wi-Fi & Networking',
+    title: 'Wi-Fi Not Working? A Safe Home and Office Troubleshooting Checklist',
+    description: 'Learn how to check a slow or disconnected Wi-Fi network, router lights, device settings and internet outages before requesting technical support.',
+    intro: 'When Wi-Fi stops working, first identify whether the issue affects one device or the whole network. These safe checks can help narrow down the cause without changing advanced router settings.',
+    sections: [
+      ['1. Check whether one device or every device is affected', 'Try connecting a second phone or computer to the same Wi-Fi. If only one device has a problem, check its Wi-Fi setting, airplane mode and saved network connection. If every device is offline, continue with the router and internet connection checks.'],
+      ['2. Read the router lights', 'Check the power, internet/WAN and Wi-Fi indicators against the router manufacturer’s manual. A red or unusual internet light may indicate a line or service issue. Light meanings differ by model, so do not guess or press reset.'],
+      ['3. Restart safely', 'If there is no sign of electrical damage, switch the router off using its power button, wait around 30 seconds and turn it back on. Allow a few minutes for it to reconnect. Do not use the factory reset button as a routine restart.'],
+      ['4. Check placement and interference', 'Keep the router in an open, central location, away from thick obstructions and enclosed cabinets. Distance, walls and interference from nearby devices can reduce signal strength.'],
+      ['5. Contact your internet provider or a technician', 'If all devices remain offline, note the router light pattern and any outage message, then contact your internet provider. Never share your router administrator password or one-time codes with an unknown caller.'],
+    ],
+    note: 'EYEPEK provides Wi-Fi, networking and technical support for home and office setups. Share the problem and device/router model when contacting the team so the right support can be discussed.',
+    related: '/services/it-support',
+  },
+  'printer-not-printing-checklist': {
+    category: 'Printer Support',
+    title: 'Printer Not Printing? Checks to Try Before Calling for Help',
+    description: 'A practical printer troubleshooting checklist covering power, paper, ink, connections, print queues, drivers and safe maintenance.',
+    intro: 'A printer that will not print may have a simple paper, connection or queue issue. Work through these checks in order and avoid forcing parts or opening electrical components.',
+    sections: [
+      ['1. Check power and printer status', 'Confirm the printer is switched on and has no error light or display message. If it is unresponsive, check the power cable and wall socket. Do not continue if you notice burning smells, liquid or damaged wiring.'],
+      ['2. Check paper, ink and toner', 'Load the correct paper size, make sure the tray guides are positioned properly and check ink or toner levels. Remove a paper jam only using the manufacturer’s instructions; do not pull hard against rollers.'],
+      ['3. Check the connection', 'For USB printers, confirm the cable is firmly connected. For Wi-Fi printers, check that the printer and computer are on the intended network. A guest network may prevent devices from finding one another.'],
+      ['4. Review the print queue', 'On your computer, open the printer queue and check whether printing is paused or old jobs are stuck. Confirm that the correct printer is selected and set as default if appropriate.'],
+      ['5. Check the official driver and test page', 'If the printer is detected but still fails, check the manufacturer’s official support site for the correct driver for your operating system. Print a test page after installation and keep the exact error message if the issue continues.'],
+    ],
+    note: 'EYEPEK offers printer setup, troubleshooting and related computer support. Keep the printer model and any displayed error code ready when you contact the team.',
+    related: '/services/it-support',
   },
 };
 
