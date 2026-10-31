@@ -3,9 +3,51 @@ import { Link, useParams } from 'react-router-dom';
 import { FaArrowRight, FaCheckCircle, FaPhoneAlt } from 'react-icons/fa';
 
 const servicePages = {
+  'college-affiliation': {
+    title: 'College Affiliation & Documentation Support',
+    metaTitle: 'College Affiliation & Documentation Support | EYEPEK',
+    description: 'Practical guidance for colleges organising affiliation files, compliance paperwork, renewal documentation, and institutional checklists.',
+    intro: 'Make the affiliation process easier to understand with organised documents, practical checklists, and clear next steps.',
+    services: [
+      'Affiliation process guidance and readiness checklists',
+      'Document organisation for new course or institutional applications',
+      'Compliance, renewal, and follow-up paperwork support',
+      'Faculty, infrastructure, and supporting-evidence checklist coordination',
+      'Question lists to confirm directly with the relevant university or authority',
+    ],
+    note: 'EYEPEK provides process guidance and document organisation only. Affiliation, accreditation, and approval decisions are made solely by the relevant university, regulatory body, or authority.',
+  },
+  'admission-support': {
+    title: 'Admissions & Course Guidance',
+    metaTitle: 'Admissions & Course Guidance | EYEPEK',
+    description: 'Get clearer guidance on course options, eligibility, application steps, admission documents, and questions to confirm with a college.',
+    intro: 'Give students and families a clearer path from course selection to a complete admission enquiry.',
+    services: [
+      'Course and career guidance for BBA, BCA, MBA, MCA, nursing, and other courses',
+      'Eligibility and admission-step guidance',
+      'Admission document checklists and document organisation',
+      'Questions to confirm about availability, fees, scholarships, and deadlines',
+      'Practical support for preparing a complete enquiry',
+    ],
+    note: 'Course availability, eligibility, fees, admissions, and scholarships must be confirmed with the relevant institution. EYEPEK does not guarantee admission.',
+  },
+  'aicte-support': {
+    title: 'AICTE & Compliance Documentation Support',
+    metaTitle: 'AICTE & Compliance Documentation Support | EYEPEK',
+    description: 'Structured AICTE-related documentation and compliance process support for colleges, with clear boundaries around official approvals.',
+    intro: 'Prepare stronger internal document records and clearer compliance checklists before your institution approaches the relevant authority.',
+    services: [
+      'AICTE-related documentation readiness checklists',
+      'Renewal, extension, and compliance document organisation support',
+      'Faculty, infrastructure, policy, and evidence-file coordination checklists',
+      'Internal document-review and missing-information tracking support',
+      'Question lists for institutions to confirm directly with AICTE or the relevant authority',
+    ],
+    note: 'EYEPEK provides document organisation and process guidance only. It is not AICTE, does not represent AICTE, and cannot guarantee approval, extension, accreditation, or any regulatory outcome.',
+  },
   education: {
-    title: 'Education & Admission Guidance',
-    metaTitle: 'Education & Admission Guidance | EYEPEK',
+    title: 'Education & Student Support',
+    metaTitle: 'Education & Student Support | EYEPEK',
     description: 'Explore course options, admission steps, eligibility questions, career guidance, and college documentation support with EYEPEK.',
     intro: 'Make your next education decision with clearer information and practical guidance.',
     services: [
@@ -69,6 +111,7 @@ const ServiceDetailPage = () => {
 
   useEffect(() => {
     if (!service) return;
+
     document.title = service.metaTitle;
     let description = document.querySelector('meta[name="description"]');
     if (!description) {
@@ -119,7 +162,7 @@ const ServiceDetailPage = () => {
       <main className="mx-auto max-w-4xl px-6 py-24 text-center">
         <h1 className="text-3xl font-extrabold text-blue-950">Service page not found</h1>
         <p className="mt-4 text-slate-600">Please browse our services or contact EYEPEK for guidance.</p>
-        <Link to="/#student-support" className="mt-7 inline-flex rounded-xl bg-orange-500 px-6 py-3 font-bold text-white">Browse services</Link>
+        <Link to="/#primary-support" className="mt-7 inline-flex rounded-xl bg-orange-500 px-6 py-3 font-bold text-white">Browse services</Link>
       </main>
     );
   }
@@ -128,21 +171,23 @@ const ServiceDetailPage = () => {
     <main className="min-h-[70vh] bg-gradient-to-br from-blue-50 via-white to-orange-50/60 text-slate-900">
       <section className="relative overflow-hidden bg-blue-950 text-white">
         <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl" aria-hidden="true" />
+        <div className="absolute -bottom-28 left-1/3 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
-          <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-200">EYEPEK · Services</p>
+          <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-200">EYEPEK · Professional support</p>
           <h1 className="mt-6 max-w-4xl text-4xl font-black leading-tight sm:text-5xl md:text-6xl">{service.title}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-blue-100">{service.intro}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white transition hover:bg-orange-400">Enquire now <FaArrowRight aria-hidden="true" /></Link>
             <a href="tel:+917004374250" className="inline-flex items-center gap-2 rounded-xl border border-white/40 px-6 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950"><FaPhoneAlt aria-hidden="true" /> Call 7004374250</a>
           </div>
+          <p className="mt-6 text-sm leading-6 text-blue-200">Clear process guidance. Better document readiness. Official decisions remain with the relevant authority.</p>
         </div>
       </section>
 
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1fr_0.7fr] md:px-10 md:py-20">
         <div>
           <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-orange-700">How we can help</p>
-          <h2 className="mt-3 text-3xl font-extrabold text-blue-950">Services and support</h2>
+          <h2 className="mt-3 text-3xl font-extrabold text-blue-950">Practical support, clearly explained</h2>
           <p className="mt-4 leading-7 text-slate-600">{service.description}</p>
           <ul className="mt-7 space-y-4">
             {service.services.map((item) => (
@@ -158,11 +203,11 @@ const ServiceDetailPage = () => {
         <aside className="h-fit rounded-3xl border border-blue-100 bg-white p-7 shadow-xl shadow-blue-950/5 md:sticky md:top-24">
           <p className="text-sm font-bold uppercase tracking-[0.16em] text-orange-700">Need help?</p>
           <h2 className="mt-3 text-2xl font-extrabold text-blue-950">Talk to EYEPEK</h2>
-          <p className="mt-3 leading-7 text-slate-600">Tell us what you need. Our team can help you understand the next step and confirm availability.</p>
+          <p className="mt-3 leading-7 text-slate-600">Tell us your goal and where you are in the process. We will help you identify the next practical step.</p>
           <a href="tel:+917004374250" className="mt-6 block rounded-xl bg-blue-950 px-5 py-3.5 text-center font-bold text-white transition hover:bg-blue-800">Call +91 70043 74250</a>
           <a href="https://wa.me/917004374250" className="mt-3 block rounded-xl border border-green-200 bg-green-50 px-5 py-3.5 text-center font-bold text-green-800 transition hover:bg-green-100">WhatsApp EYEPEK</a>
           <a href="mailto:Info.eyepek@gmail.com" className="mt-3 block break-words rounded-xl border border-slate-200 px-5 py-3.5 text-center font-bold text-blue-900 transition hover:bg-blue-50">Info.eyepek@gmail.com</a>
-          <Link to="/#student-support" className="mt-6 inline-flex items-center gap-2 font-bold text-blue-900 hover:text-orange-600">View all services <FaArrowRight aria-hidden="true" /></Link>
+          <Link to="/#primary-support" className="mt-6 inline-flex items-center gap-2 font-bold text-blue-900 hover:text-orange-600">View priority services <FaArrowRight aria-hidden="true" /></Link>
         </aside>
       </section>
     </main>
