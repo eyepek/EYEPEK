@@ -104,11 +104,11 @@ const HomePage = () => (
             <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK
           </p>
           <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
-            College Affiliation.<br />
-            <span className='text-orange-300'>Admissions.</span><br />Documentation Support.
+            Empowering <span className='text-orange-300'>Students.</span><br />
+            Supporting Colleges.<br />Simplifying Every Step.
           </h1>
           <p className='mt-6 max-w-2xl text-lg leading-8 text-blue-50 md:text-xl'>
-            Support for college course affiliation processes, student admissions, and institutional documentation in Patna, Bihar.
+            Your trusted support partner for education guidance and institutional documentation in Patna, Bihar. Explore course and admission options, get help understanding affiliation and compliance processes, and access practical IT and business support—all with clear guidance at every step.
           </p>
           <div className='mt-9 flex flex-wrap gap-4'>
             <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Education Services <span aria-hidden='true'>→</span></a>
@@ -116,21 +116,21 @@ const HomePage = () => (
             <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Speak with our team</a>
           </div>
           <div className='mt-10 flex flex-wrap gap-2 border-t border-white/25 pt-5 text-sm font-semibold text-blue-50'>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Course Affiliation</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Admission Guidance</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>College Documentation</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Student & Career Guidance</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>College Affiliation Support</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Compliance Documentation</span>
           </div>
         </div>
         <aside className='hidden md:block'>
           <div className='relative overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-7 shadow-2xl shadow-blue-950/30 backdrop-blur-md lg:p-8'>
             <div className='absolute -right-10 -top-10 h-36 w-36 rounded-full bg-orange-400/20 blur-2xl' aria-hidden='true' />
             <p className='relative text-xs font-extrabold uppercase tracking-[0.2em] text-orange-200'>How EYEPEK helps</p>
-            <h2 className='relative mt-3 text-2xl font-extrabold leading-snug text-white lg:text-3xl'>College and Education Support</h2>
+            <h2 className='relative mt-3 text-2xl font-extrabold leading-snug text-white lg:text-3xl'>The right guidance for your next step</h2>
             <div className='relative mt-7 space-y-3'>
               {[
-                ['01', 'Course affiliation support', 'Affiliation process and paperwork guidance'],
-                ['02', 'Admission guidance', 'Course options, eligibility and document checklists'],
-                ['03', 'College documentation', 'Compliance and renewal paperwork support'],
+                ['01', 'For students', 'Course selection, eligibility, admission steps and career guidance'],
+                ['02', 'For institutions', 'Affiliation process guidance and organised documentation support'],
+                ['03', 'For organisations', 'Compliance paperwork, renewals and practical technology support'],
               ].map(([number, title, description]) => (
                 <div key={number} className='flex gap-4 rounded-2xl border border-white/15 bg-blue-950/35 p-4'>
                   <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-500 font-black text-white'>{number}</span>
