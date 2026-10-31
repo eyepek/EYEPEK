@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className='bg-slate-950 text-white'>
     <div className='mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_0.8fr_1fr] md:px-10'>
       <div>
-        <img src='/images/eyepek-college-logo-light.svg' alt='EYEPEK College' className='block h-auto w-[230px]' />
+        <img src='/images/eyepek-college-logo-light.svg' alt='EYEPEK' className='block h-auto w-[230px]' />
         <p className='mt-4 max-w-md leading-7 text-slate-300'>Helping students make informed education and career choices, while supporting institutions with organised affiliation, compliance, and documentation guidance. Practical IT and technology support for everyday needs—all from one team.</p>
         <div className='mt-5 flex flex-wrap gap-3'>
           <a
@@ -53,7 +53,7 @@ const Footer = () => (
       </div>
     </div>
     <div className='border-t border-white/10 px-6 py-5 text-center text-sm text-slate-400'>
-      © {new Date().getFullYear()} EYEPEK COLLEGE. All rights reserved.
+      © {new Date().getFullYear()} EYEPEK. All rights reserved.
     </div>
   </footer>
 );
