@@ -151,11 +151,11 @@ const HomePage = () => (
       <div className='mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end'>
           <div>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Your next step, made clearer</p>
-            <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>College affiliation, admission, and documentation support.</h2>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>Guidance that moves education forward</p>
+            <h2 className='mt-4 text-3xl font-extrabold leading-tight text-blue-950 md:text-5xl'>Supporting students. Strengthening institutions.</h2>
           </div>
           <p className='max-w-2xl text-lg leading-8 text-slate-600'>
-            EYEPEK helps students understand course options and admission steps, and helps institutions organise affiliation, compliance, and renewal documentation. Official approvals remain the decision of the relevant university or regulatory authority.
+            From choosing the right course to navigating college affiliation and compliance documentation, EYEPEK provides clear information, practical guidance, and organised support at every step. We help students move forward with confidence and assist institutions with affiliation, approval-process documentation, compliance, and renewal requirements. Final decisions and approvals rest with the relevant university or regulatory authority.
           </p>
         </div>
         <div className='mt-12 grid gap-5 md:grid-cols-3'>
