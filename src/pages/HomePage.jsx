@@ -113,7 +113,7 @@ const HomePage = () => (
           <div className='mt-9 flex flex-wrap gap-4'>
             <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>Explore Education Services <span aria-hidden='true'>→</span></a>
             <a href='/contact' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950'>Send an enquiry</a>
-            <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Call 7004374250</a>
+            <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Speak with our team</a>
           </div>
           <div className='mt-10 flex flex-wrap gap-2 border-t border-white/25 pt-5 text-sm font-semibold text-blue-50'>
             <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Course Affiliation</span>
@@ -218,14 +218,14 @@ const HomePage = () => (
         </div>
         <div className='mt-8 flex flex-col gap-3 rounded-2xl border border-blue-100 bg-white/80 p-5 sm:flex-row sm:items-center sm:justify-between sm:px-6'>
           <div>
-            <p className='font-bold text-blue-950'>Not sure which service you need?</p>
-            <p className='mt-1 text-sm leading-6 text-slate-600'>Tell us what you need and our team will guide you to the right next step.</p>
+            <p className='font-bold text-blue-950'>Let’s find the right support for you.</p>
+            <p className='mt-1 text-sm leading-6 text-slate-600'>Whether you’re a student or an institution, our team is here to understand your needs and help you take the next step with confidence.</p>
           </div>
           <a href='tel:7004374250' className='inline-flex shrink-0 items-center justify-center rounded-xl border border-blue-200 px-5 py-3 font-bold text-blue-900 transition hover:border-orange-300 hover:bg-orange-50'>
             Call 7004374250
           </a>
         </div>
-        <p className='mt-6 text-sm leading-6 text-slate-500'>Affiliation support means process guidance and information. It does not represent or guarantee approval, accreditation, or affiliation by any authority.</p>
+        <p className='mt-6 text-sm leading-6 text-slate-500'>EYEPEK provides guidance and documentation assistance for affiliation and compliance processes. All approvals and affiliation decisions are made independently by the concerned university or regulatory authority.</p>
       </div>
     </section>
 
