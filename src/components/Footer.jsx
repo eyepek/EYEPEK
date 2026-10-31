@@ -6,7 +6,7 @@ const Footer = () => (
     <div className='mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_0.8fr_1fr] md:px-10'>
       <div>
         <img src='/images/eyepek-college-logo-light.svg' alt='EYEPEK College' className='block h-auto w-[230px]' />
-        <p className='mt-4 max-w-md leading-7 text-slate-300'>Clear guidance on courses, admissions, documents, and careers—plus affiliation support for colleges.</p>
+        <p className='mt-4 max-w-md leading-7 text-slate-300'>Helping students make informed education and career choices, while supporting institutions with organised affiliation, compliance, and documentation guidance. Practical IT and technology support for everyday needs—all from one team.</p>
         <div className='mt-5 flex flex-wrap gap-3'>
           <a
             href='https://www.youtube.com/@eyepek'
