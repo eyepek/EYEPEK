@@ -364,10 +364,9 @@ const HomePage = () => {
             <p className='mt-3 text-xs leading-5 text-slate-500'>{t("Eligibility, fees and admission decisions are confirmed by each college.","पात्रता, फीस और प्रवेश का निर्णय संबंधित कॉलेज तय करता है।")}</p>
           </div>
           <figure className='group relative overflow-hidden rounded-3xl bg-blue-100 shadow-xl'>
-            <img className='block aspect-[4/3] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/course-admission-guidance-ai.png' alt={t("AI-generated illustration of two students reviewing a course brochure and admission document checklist with a college adviser.","AI से बनाई गई चित्रात्मक छवि: दो छात्र कॉलेज सलाहकार के साथ कोर्स पुस्तिका और प्रवेश दस्तावेज़ सूची देख रहे हैं।")} loading='lazy' />
+            <img className='block aspect-[4/3] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/course-admission-guidance-ai.png' alt={t("Two students reviewing a course guide and admission checklist with a college adviser.","दो छात्र कॉलेज सलाहकार के साथ कोर्स गाइड और प्रवेश दस्तावेज़ सूची देख रहे हैं।")} loading='lazy' />
             <div className='absolute inset-0 bg-gradient-to-t from-blue-950/75 via-transparent to-transparent' aria-hidden='true' />
             <figcaption className='absolute inset-x-0 bottom-0 px-5 py-5 text-white sm:px-7 sm:py-7'>
-              <span className='inline-flex rounded-full border border-white/30 bg-blue-950/60 px-3 py-1 text-[11px] font-bold text-white backdrop-blur-sm'>{t("AI-generated illustration","AI से बनाई गई चित्रात्मक छवि")}</span>
               <span className='mt-3 block text-lg font-bold sm:text-xl'>{t("Good guidance makes the next step clearer.","सही मार्गदर्शन अगला कदम आसान बनाता है।")}</span>
               <span className='mt-1 block text-sm leading-6 text-blue-100'>{t("Courses · Admission · Documents","कोर्स · प्रवेश · दस्तावेज़")}</span>
             </figcaption>
