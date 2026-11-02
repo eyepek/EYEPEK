@@ -8,10 +8,10 @@ const levels = [
 ];
 
 const interests = [
-  { value: 'business', title: 'Business & management', detail: 'Business, teams, marketing or entrepreneurship', imagePosition: '0% center', imageAlt: 'Indian college students discussing a business project' },
-  { value: 'technology', title: 'Computers & technology', detail: 'Software, computers or digital tools', imagePosition: '50% center', imageAlt: 'Indian student learning programming in a computer lab' },
-  { value: 'healthcare', title: 'Healthcare', detail: 'Patient care and health services', imagePosition: '100% center', imageAlt: 'Nursing student practising in a clinical training lab' },
-  { value: 'unsure', title: 'I am still exploring', detail: 'Help me compare a few broad directions', imagePosition: '50% center', imageAlt: 'Students exploring different areas of study' },
+  { value: 'business', title: 'Business & management', detail: 'Business, teams, marketing or entrepreneurship', imagePosition: 'left center', imageAlt: 'Indian college students discussing a business project' },
+  { value: 'technology', title: 'Computers & technology', detail: 'Software, computers or digital tools', imagePosition: 'center center', imageAlt: 'Indian student learning programming in a computer lab' },
+  { value: 'healthcare', title: 'Healthcare', detail: 'Patient care and health services', imagePosition: 'right center', imageAlt: 'Nursing student practising in a clinical training lab' },
+  { value: 'unsure', title: 'I am still exploring', detail: 'Help me compare a few broad directions', imageSrc: '/images/students-campus.jpg', imageAlt: 'Students exploring study options on campus' },
 ];
 
 const courseInfo = {
@@ -95,11 +95,11 @@ function CourseFinder() {
               <div className='mt-2 space-y-3'>
                 {interests.map((item) => (
                   <label key={item.value} className={`flex cursor-pointer flex-col rounded-xl border p-4 transition ${interest === item.value ? 'border-orange-400 bg-orange-50' : 'border-slate-200 hover:border-blue-300'}`}>
-                    <span className='flex items-start gap-3'>
-                      <input type='radio' name='interest' value={item.value} checked={interest === item.value} onChange={() => setInterest(item.value)} className='mt-1 h-4 w-4 accent-orange-500' />
+                    <span className='flex items-center gap-3'>
+                      <input type='radio' name='interest' value={item.value} checked={interest === item.value} onChange={() => setInterest(item.value)} className='h-4 w-4 shrink-0 accent-orange-500' />
+                      <img src={item.imageSrc || '/images/course-paths-triptych.png'} alt={item.imageAlt} loading='lazy' className='h-24 w-24 shrink-0 rounded-lg object-cover' style={{ objectPosition: item.imagePosition || 'center' }} />
                       <span><span className='block font-bold text-blue-950'>{item.title}</span><span className='mt-1 block text-sm text-slate-500'>{item.detail}</span></span>
                     </span>
-                    <img src='/images/course-paths-triptych.png' alt={item.imageAlt} loading='lazy' className='mt-4 h-32 w-full rounded-lg object-cover sm:h-36' style={{ objectPosition: item.imagePosition }} />
                   </label>
                 ))}
               </div>
