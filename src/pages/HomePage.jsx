@@ -52,7 +52,7 @@ const serviceCategories = [
     title: 'College Affiliation & AICTE Support', titleHi: 'कॉलेज संबद्धता और AICTE सहायता',
     slug: 'business-support',
     label: 'For colleges and institutions', labelHi: 'कॉलेजों और संस्थानों के लिए',
-    description: 'Process and documentation guidance for affiliation, AICTE-related paperwork, compliance, and renewals.', descriptionHi: 'कॉलेज संबद्धता, जहाँ लागू हो AICTE प्रक्रिया, अनुपालन और नवीनीकरण के लिए मार्गदर्शन।'
+    description: 'Process and documentation guidance for affiliation, AICTE-related paperwork, compliance, and renewals.', descriptionHi: 'कॉलेज संबद्धता, जहाँ लागू हो AICTE प्रक्रिया, अनुपालन और नवीनीकरण के लिए मार्गदर्शन।',
     includes: ['College affiliation process guidance', 'AICTE-related documentation support', 'Compliance, renewal and institution paperwork'], includesHi: ['कॉलेज संबद्धता प्रक्रिया का मार्गदर्शन', 'AICTE से जुड़े दस्तावेज़ों में सहायता', 'अनुपालन, नवीनीकरण और संस्थान के कागज़ात'],
     color: 'border-orange-500',
   },
@@ -63,7 +63,7 @@ const serviceCategories = [
     title: 'IT & Computer Support', titleHi: 'आईटी और कंप्यूटर सहायता',
     slug: 'it-support',
     label: 'Technology and repairs', labelHi: 'तकनीक और मरम्मत',
-    description: 'Practical technical help for students, home users, offices, and small businesses.', descriptionHi: 'छात्रों, घरों, दफ्तरों और छोटे व्यवसायों के लिए व्यावहारिक तकनीकी सहायता।'
+    description: 'Practical technical help for students, home users, offices, and small businesses.', descriptionHi: 'छात्रों, घरों, दफ्तरों और छोटे व्यवसायों के लिए व्यावहारिक तकनीकी सहायता।',
     includes: ['Computer and laptop troubleshooting', 'Software, printer and setup support', 'Wi-Fi, networking and CCTV assistance'], includesHi: ['कंप्यूटर और लैपटॉप समस्या सहायता', 'सॉफ्टवेयर, प्रिंटर और सेटअप सहायता', 'वाई-फाई, नेटवर्क और CCTV सहायता'],
     color: 'border-red-600',
   },
@@ -74,7 +74,7 @@ const serviceCategories = [
     title: 'Home Services', titleHi: 'घरेलू सेवाएँ',
     slug: 'home-services',
     label: 'Help around the home', labelHi: 'घर के कामों में सहायता',
-    description: 'Get help coordinating everyday home maintenance, installation, and repair requests.', descriptionHi: 'घर के रखरखाव, फिटिंग और मरम्मत के कामों के लिए सहायता पाएँ।'
+    description: 'Get help coordinating everyday home maintenance, installation, and repair requests.', descriptionHi: 'घर के रखरखाव, फिटिंग और मरम्मत के कामों के लिए सहायता पाएँ।',
     includes: ['Plumbing and electrician services', 'Fan, light and appliance installation', 'AC support and home maintenance'], includesHi: ['प्लंबिंग और इलेक्ट्रीशियन सेवाएँ', 'पंखा, लाइट और उपकरण लगाना', 'AC सहायता और घर का रखरखाव'],
     color: 'border-blue-700',
   },
