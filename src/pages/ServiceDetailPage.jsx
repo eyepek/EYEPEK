@@ -4,16 +4,15 @@ import { FaArrowRight, FaCheckCircle, FaPhoneAlt } from 'react-icons/fa';
 
 const servicePages = {
   education: {
-    title: 'Education & Admission Guidance',
-    metaTitle: 'Education & Admission Guidance | EYEPEK',
-    description: 'Explore course options, admission steps, eligibility questions, career guidance, and college documentation support with EYEPEK.',
-    intro: 'Make your next education decision with clearer information and practical guidance.',
+    title: 'Admissions & Student Document Support',
+    metaTitle: 'Admission Guidance & Documents Support | EYEPEK',
+    description: 'Get guidance on course options, college admission steps, eligibility questions, application documents, and career pathways with EYEPEK.',
+    intro: 'Understand your course options, admission steps, and the documents to prepare.',
     services: [
       'Course and career guidance for BBA, BCA, MBA, MCA, and other courses',
       'Admission process information and application-step guidance',
       'Admission document checklists and document organisation',
-      'Guidance for college affiliation and compliance documentation processes',
-      'Help identifying questions to confirm with the relevant institution',
+      'Help identifying eligibility and application questions to confirm with the relevant institution',
     ],
     note: 'Course availability, eligibility, fees, admissions, affiliation, and approvals must be confirmed with the relevant institution or authority. EYEPEK does not guarantee admission or official approval.',
   },
@@ -48,18 +47,18 @@ const servicePages = {
     note: 'Service coverage and technician availability may vary by location. Confirm details and pricing with EYEPEK before arranging work.',
   },
   'business-support': {
-    title: 'Business & Institution Support',
-    metaTitle: 'Business & Institution Support | EYEPEK',
-    description: 'EYEPEK helps businesses and institutions with office IT setup, printer and network support, document organisation, project report assistance, and college compliance process guidance.',
-    intro: 'Support for smoother day-to-day operations, technical needs, and documentation workflows.',
+    title: 'College Affiliation, AICTE & Institution Support',
+    metaTitle: 'College Affiliation & AICTE Documentation Support | EYEPEK',
+    description: 'EYEPEK provides process and documentation guidance for college affiliation, AICTE-related paperwork, compliance and renewals, plus institution and business support.',
+    intro: 'Organised process and documentation guidance for colleges, institutions, and businesses.',
     services: [
-      'Office computer, printer, Wi-Fi, and network setup support',
-      'Server and office equipment support',
+      'College affiliation process and documentation guidance',
+      'AICTE-related document organisation and process guidance',
+      'Compliance and renewal paperwork support',
       'Business document organisation and project report assistance',
-      'College affiliation process and compliance documentation guidance',
-      'Help understanding documentation steps and preparing checklists',
+      'Office computer, printer, Wi-Fi, network, and equipment support',
     ],
-    note: 'EYEPEK provides process guidance and documentation support only. Government, university, and regulatory approvals are decided solely by the relevant authorities.',
+    note: 'EYEPEK provides process guidance and documentation support only. AICTE, government, university, and regulatory approvals or affiliation decisions are made solely by the relevant authorities.',
   },
 };
 

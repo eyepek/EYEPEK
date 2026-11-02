@@ -37,22 +37,22 @@ const serviceCategories = [
     number: '01',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Students studying together on campus',
-    title: 'Education & Student Guidance',
+    title: 'Admissions & Documents Support',
     slug: 'education',
     label: 'For students',
-    description: 'Clear support for choosing a course, understanding admission steps, and planning your next education move.',
-    includes: ['Course and career guidance', 'Admission steps and document checklists', 'BBA, BCA, MBA, MCA and nursing options'],
+    description: 'Guidance from course selection and admission steps to getting documents ready.',
+    includes: ['Admission steps and document checklists', 'Course and career guidance', 'BBA, BCA, MBA, MCA and nursing options'],
     color: 'border-blue-700',
   },
   {
     number: '02',
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Business documents arranged on a desk',
-    title: 'College & Business Support',
+    title: 'College Affiliation & AICTE Support',
     slug: 'business-support',
-    label: 'For colleges and businesses',
-    description: 'Organised documentation and process guidance for institutions and day-to-day business needs.',
-    includes: ['Affiliation and compliance documentation', 'Renewal process checklists', 'Business documents and project reports'],
+    label: 'For colleges and institutions',
+    description: 'Process and documentation guidance for affiliation, AICTE-related paperwork, compliance, and renewals.',
+    includes: ['College affiliation process guidance', 'AICTE-related documentation support', 'Compliance, renewal and institution paperwork'],
     color: 'border-orange-500',
   },
   {
@@ -106,9 +106,9 @@ const HomePage = () => (
             <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>Speak with our team</a>
           </div>
           <div className='mt-10 flex flex-wrap gap-2 border-t border-white/25 pt-5 text-sm font-semibold text-blue-50'>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Student & Career Guidance</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>College Affiliation Support</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Compliance Documentation</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>Admissions &amp; Documents</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>College Affiliation</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-1.5'>AICTE-Related Guidance</span>
           </div>
         </div>
         <aside className='hidden md:block'>
@@ -185,7 +185,7 @@ const HomePage = () => (
               One team · many solutions
             </p>
             <h2 className='mt-3 text-3xl font-extrabold leading-tight text-blue-950 md:text-4xl'>Our <span className='text-orange-500'>Services</span></h2>
-            <p className='mt-2 max-w-2xl text-base leading-7 text-slate-600'>Choose the type of support you need. We have grouped our services for students, colleges and businesses, technology, and homes.</p>
+            <p className='mt-2 max-w-2xl text-base leading-7 text-slate-600'>Start with admission and college affiliation support. Explore our IT, computer, business, and home services after that.</p>
           </div>
           <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
             Request a service <FaArrowRight aria-hidden='true' />
@@ -243,51 +243,49 @@ const HomePage = () => (
               <div className='absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/5 to-transparent' aria-hidden='true' />
               <figcaption className='absolute inset-x-0 bottom-0 px-6 py-6 text-white sm:px-8 sm:py-8'>
                 <span className='inline-flex rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-orange-200 backdrop-blur'>About EYEPEK</span>
-                <p className='mt-3 max-w-md text-2xl font-black leading-tight sm:text-3xl'>Clear guidance for the steps ahead.</p>
+                <p className='mt-3 max-w-md text-2xl font-black leading-tight sm:text-3xl'>Admissions. Affiliation. Document support.</p>
               </figcaption>
             </div>
           </figure>
 
           <div>
             <p className='inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-800 shadow-sm'>
-              <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' /> Who we help
+              <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' /> Our main support
             </p>
             <h2 className='mt-5 text-3xl font-black leading-tight tracking-tight text-blue-950 sm:text-4xl md:text-5xl'>
-              Guidance for your next step. <span className='text-orange-500'>Support for everyday needs.</span>
+              Admission and <span className='text-orange-500'>college affiliation</span> guidance.
             </h2>
             <p className='mt-4 text-base leading-7 text-slate-600 sm:text-lg'>
-              EYEPEK brings education guidance and practical support together. Students can explore course options, admission steps, and document checklists. Colleges and businesses can get help organising affiliation, compliance, renewal, and project documentation. We also offer IT, computer, networking, and home service support.
+              EYEPEK helps students understand course admissions and prepare documents. We also guide colleges through affiliation processes and AICTE-related documentation. IT, computer, business, and home services are available too.
             </p>
 
             <div className='mt-7 space-y-3'>
-              <article className='flex gap-4 rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-sm'>
-                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-800'><FaGraduationCap aria-hidden='true' /></span>
+              <article className='flex gap-4 rounded-2xl border border-orange-200 bg-white p-4 shadow-md shadow-orange-950/5'>
+                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-xl text-orange-700'><FaGraduationCap aria-hidden='true' /></span>
                 <div>
-                  <h3 className='font-extrabold text-blue-950'>For students</h3>
-                  <p className='mt-1 text-sm leading-6 text-slate-600'>Course and career guidance, admissions steps, and document preparation.</p>
+                  <h3 className='font-extrabold text-blue-950'>Admission &amp; Documents Support</h3>
+                  <p className='mt-1 text-sm leading-6 text-slate-600'>Course guidance, application steps, eligibility questions, and admission document checklists.</p>
                 </div>
               </article>
-              <article className='flex gap-4 rounded-2xl border border-orange-100 bg-white/90 p-4 shadow-sm'>
-                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-xl text-orange-700'><FaUniversity aria-hidden='true' /></span>
+              <article className='flex gap-4 rounded-2xl border border-blue-200 bg-white p-4 shadow-md shadow-blue-950/5'>
+                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-800'><FaUniversity aria-hidden='true' /></span>
                 <div>
-                  <h3 className='font-extrabold text-blue-950'>For colleges and businesses</h3>
-                  <p className='mt-1 text-sm leading-6 text-slate-600'>Affiliation and compliance process guidance, plus organised paperwork support.</p>
+                  <h3 className='font-extrabold text-blue-950'>College Affiliation &amp; AICTE Documentation</h3>
+                  <p className='mt-1 text-sm leading-6 text-slate-600'>Process guidance, document organisation, compliance paperwork, and renewal support for colleges.</p>
                 </div>
               </article>
-              <article className='flex gap-4 rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-sm'>
-                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-800'><FaTools aria-hidden='true' /></span>
-                <div>
-                  <h3 className='font-extrabold text-blue-950'>For homes and offices</h3>
-                  <p className='mt-1 text-sm leading-6 text-slate-600'>Computer, printer, Wi-Fi, networking, and home maintenance support.</p>
-                </div>
-              </article>
+            </div>
+            <div className='mt-5 rounded-xl border border-slate-200 bg-white/80 p-4'>
+              <p className='text-sm font-bold text-blue-950'>Also available</p>
+              <p className='mt-1 text-sm leading-6 text-slate-600'>IT and computer support, business documentation, and home services.</p>
+              <a href='#student-support' className='mt-2 inline-flex items-center gap-2 text-sm font-bold text-blue-900 hover:text-orange-600'>See all services <FaArrowRight aria-hidden='true' /></a>
             </div>
 
             <div className='mt-8 flex flex-wrap items-center gap-3'>
-              <a href='#student-support' className='inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>Explore our services <FaArrowRight aria-hidden='true' /></a>
-              <a href='/course-finder' className='inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3.5 font-bold text-blue-900 transition hover:bg-blue-50'>Find a course <FaArrowRight aria-hidden='true' /></a>
+              <a href='#admissions' className='inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>Admission support <FaArrowRight aria-hidden='true' /></a>
+              <a href='/services/business-support' className='inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3.5 font-bold text-blue-900 transition hover:bg-blue-50'>College support <FaArrowRight aria-hidden='true' /></a>
             </div>
-            <p className='mt-5 text-xs leading-5 text-slate-500'>Course availability, eligibility, admissions, and official approvals are determined by the relevant institution or authority. Service availability may vary by location.</p>
+            <p className='mt-5 text-xs leading-5 text-slate-500'>EYEPEK provides process and documentation guidance. Admissions, affiliation, AICTE decisions, and approvals are made by the relevant institution or authority.</p>
           </div>
         </div>
       </div>
