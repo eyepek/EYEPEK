@@ -53,10 +53,6 @@ const NavBar = () => {
               <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'en' ? 'bg-white text-blue-950' : 'text-blue-100 hover:text-white'}`}>EN</button>
               <button type='button' onClick={() => setLanguage('hi')} aria-pressed={language === 'hi'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'hi' ? 'bg-white text-blue-950' : 'text-blue-100 hover:text-white'}`}>हिंदी</button>
             </div>
-            <div className='inline-flex items-center rounded-full border border-white/20 bg-white/5 p-0.5' aria-label={t('Choose language', 'भाषा चुनें')}>
-              <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'en' ? 'bg-white text-blue-950' : 'text-blue-100 hover:text-white'}`}>EN</button>
-              <button type='button' onClick={() => setLanguage('hi')} aria-pressed={language === 'hi'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'hi' ? 'bg-white text-blue-950' : 'text-blue-100 hover:text-white'}`}>हिंदी</button>
-            </div>
             <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-100 transition hover:text-orange-300'>
               <FaYoutube aria-hidden='true' className='h-4 w-4' /><span className='hidden sm:inline'>{t('YouTube', 'यूट्यूब')}</span>
             </a>
