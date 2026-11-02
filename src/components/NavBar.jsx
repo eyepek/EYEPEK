@@ -23,7 +23,7 @@ const journeyLinks = [
   { label: 'Explore Your Options', detail: 'Discover learning and support pathways', href: '/#learning', icon: FaRoute },
   { label: 'Career', detail: 'Explore career paths, skills and job guidance', href: '/#student-support', icon: FaBriefcase },
   { label: 'Set Your Goals', detail: 'Choose a practical next step for your future', href: '/#about', icon: FaBullseye },
-  { label: 'Admissions & Enquiries', detail: 'Ask us about courses and admission guidance', href: '/#admissions', icon: FaRegCalendarCheck },
+  { label: 'Course & Admission Guidance', detail: 'Ask about courses, admission steps and documents', href: '/#admissions', icon: FaRegCalendarCheck },
   { label: 'Free Admission Checklist', detail: 'Build and print your document checklist', href: '/admission-checklist', icon: FaClipboardCheck },
   { label: 'Course & Career Finder', detail: 'Explore courses that fit your interests', href: '/course-finder', icon: FaGraduationCap },
 ];
@@ -44,7 +44,7 @@ const NavBar = () => {
     <header className='sticky top-0 z-50 bg-white shadow-sm'>
       <div className='bg-blue-950 px-6 py-2 text-xs font-semibold text-blue-50 md:px-10 md:text-sm'>
         <div className='mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2'>
-          <span>Admissions &amp; enquiries</span>
+          <span>Course &amp; admission guidance</span>
           <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
             <InstallAppButton />
             <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-orange-300'>

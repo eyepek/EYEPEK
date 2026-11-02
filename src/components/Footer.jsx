@@ -34,7 +34,7 @@ const Footer = () => (
       </div>
       <div>
         <h3 className='font-bold text-white'>Contact</h3>
-        <p className='mt-4 text-slate-300'>Admissions &amp; enquiries</p>
+        <p className='mt-4 text-slate-300'>Course, admission &amp; document support</p>
         <a href='tel:7004374250' className='mt-2 inline-block font-bold text-orange-300 hover:text-white'>7004374250</a>
         <p className='mt-5'><Link to='/contact' className='font-semibold text-slate-300 hover:text-orange-300'>Send us a message →</Link></p>
       </div>
