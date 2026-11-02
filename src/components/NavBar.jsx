@@ -47,7 +47,7 @@ const NavBar = () => {
     <header className='sticky top-0 z-50 bg-white shadow-sm'>
       <div className='border-b border-blue-900 bg-blue-950 px-4 text-blue-50 sm:px-6 md:px-10'>
         <div className='mx-auto flex min-h-9 max-w-7xl items-center justify-between gap-3'>
-          <p className='hidden text-[11px] font-semibold tracking-wide text-blue-100 sm:block'>{t('Guidance for students &amp; institutions', 'छात्रों और संस्थानों के लिए मार्गदर्शन')}</p>
+          <p className='hidden text-[11px] font-semibold tracking-wide text-blue-100 sm:block'>{t('Guidance for students & institutions', 'छात्रों और संस्थानों के लिए मार्गदर्शन')}</p>
           <div className='ml-auto flex items-center gap-2.5 sm:gap-4'>
             <div className='inline-flex items-center rounded-full border border-white/20 bg-white/5 p-0.5' aria-label={t('Choose language', 'भाषा चुनें')}>
               <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'en' ? 'bg-white text-blue-950' : 'text-blue-100 hover:text-white'}`}>EN</button>
