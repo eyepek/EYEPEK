@@ -82,8 +82,20 @@ export default async function handler(req, res) {
       }),
     });
 
-    const result = await upstream.json();
+    let result;
+    try {
+      result = await upstream.json();
+    } catch {
+      console.error('EYEPEK chat upstream returned non-JSON', { status: upstream.status });
+      return res.status(502).json({ error: 'The assistant is temporarily unavailable. Please try again shortly or contact EYEPEK.' });
+    }
+
     if (!upstream.ok) {
+      console.error('EYEPEK chat upstream API error', {
+        status: upstream.status,
+        type: result?.error?.type || null,
+        code: result?.error?.code || null,
+      });
       const status = upstream.status === 429 ? 503 : 502;
       return res.status(status).json({ error: 'The assistant is busy right now. Please try again shortly or contact EYEPEK.' });
     }
@@ -92,15 +104,21 @@ export default async function handler(req, res) {
       .flatMap((item) => Array.isArray(item.content) ? item.content : [])
       .filter((item) => item.type === 'output_text' && typeof item.text === 'string')
       .map((item) => item.text)
-      .join('\n')
+      .join('\\n')
       .trim();
 
     if (!reply) {
+      console.error('EYEPEK chat upstream returned no text', {
+        status: upstream.status,
+        responseStatus: result?.status || null,
+        outputTypes: Array.isArray(result?.output) ? result.output.map((item) => item?.type).slice(0, 5) : [],
+      });
       return res.status(502).json({ error: 'The assistant could not prepare a reply. Please try again.' });
     }
 
     return res.status(200).json({ reply });
-  } catch {
+  } catch (error) {
+    console.error('EYEPEK chat request failed', { name: error?.name || 'Error' });
     return res.status(502).json({ error: 'The assistant is temporarily unavailable. Please try again or contact EYEPEK.' });
   }
 }
