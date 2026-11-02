@@ -69,9 +69,21 @@ export default function AIHeadshotPage() {
       body.append('photo', file);
       body.append('style', style);
       body.append('background', background);
-      const response = await fetch('/api/headshot', { method: 'POST', body });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || 'Could not generate your headshot. Please try again.');
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 65000);
+      let response;
+      try {
+        response = await fetch('/api/headshot', { method: 'POST', body, signal: controller.signal });
+      } finally {
+        window.clearTimeout(timeoutId);
+      }
+      const responseText = await response.text();
+      let data = {};
+      try { data = responseText ? JSON.parse(responseText) : {}; } catch {
+        throw new Error(`AI service returned an unexpected response (HTTP ${response.status}). Please try again after deployment.`);
+      }
+      if (!response.ok) throw new Error(data.error || `AI service error (HTTP ${response.status}). Please try again.`);
+      if (!data.image_data_url) throw new Error('The AI service did not return an image. Please try again.');
       setResult(data.image_data_url);
     } catch (err) {
       setError(err.message || 'Something went wrong. Please try again.');
