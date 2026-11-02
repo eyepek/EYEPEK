@@ -24,7 +24,11 @@ BACKGROUNDS = {
 
 @app.get("/api/headshot")
 def health():
-    return jsonify(status="ready", service="EYEPEK AI Headshot")
+    return jsonify(
+        status="ready",
+        service="EYEPEK AI Headshot",
+        openai_configured=bool(os.getenv("OPENAI_API_KEY", "").strip()),
+    )
 
 
 @app.post("/api/headshot")
