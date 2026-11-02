@@ -87,22 +87,36 @@ export default function AIChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [draft, setDraft] = useState('');
+  const [isSending, setIsSending] = useState(false);
   const bottomRef = useRef(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, [messages, open]);
 
-  const sendMessage = (value = draft) => {
+  const sendMessage = async (value = draft) => {
     const question = value.trim();
-    if (!question) return;
-    const reply = getFaqReply(question, hi);
-    setMessages((current) => [
-      ...current,
-      { role: 'user', content: question },
-      { role: 'assistant', ...reply },
-    ]);
+    if (!question || isSending) return;
+    setMessages((current) => [...current, { role: 'user', content: question }]);
     setDraft('');
+    setIsSending(true);
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question, language: hi ? 'hi' : 'en' }),
+      });
+      if (!response.ok) throw new Error('Gemini is unavailable');
+      const data = await response.json();
+      if (typeof data.reply !== 'string' || !data.reply.trim()) throw new Error('Empty Gemini reply');
+      setMessages((current) => [...current, { role: 'assistant', content: data.reply.trim(), contact: true }]);
+    } catch {
+      const reply = getFaqReply(question, hi);
+      setMessages((current) => [...current, { role: 'assistant', ...reply }]);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const suggestions = [
@@ -134,6 +148,7 @@ export default function AIChatWidget() {
                 </div>
               </div>
             )}
+            {isSending && <div className='flex justify-start'><div className='rounded-2xl rounded-bl-sm border border-slate-200 bg-white px-4 py-3 text-sm text-slate-500 shadow-sm'>{t('Thinking…', 'जवाब तैयार हो रहा है…')}</div></div>}
             {messages.map((message, index) => (
               <div key={index} className={message.role === 'user' ? 'flex justify-end' : 'flex justify-start'}>
                 <div className={`max-w-[90%] rounded-2xl px-4 py-3 text-sm leading-6 ${message.role === 'user' ? 'rounded-br-sm bg-blue-800 text-white' : 'rounded-bl-sm border border-slate-200 bg-white text-slate-800 shadow-sm'}`}>
@@ -147,7 +162,7 @@ export default function AIChatWidget() {
           <p className='border-t border-slate-100 bg-white px-4 pt-2 text-[11px] leading-4 text-slate-500'>{t('Please don’t share passwords, payment details or private documents.', 'पासवर्ड, भुगतान विवरण या निजी दस्तावेज़ साझा न करें।')}</p>
           <form onSubmit={(event) => { event.preventDefault(); sendMessage(); }} className='flex gap-2 bg-white p-3 pt-2'>
             <input value={draft} onChange={(event) => setDraft(event.target.value)} maxLength={1000} placeholder={t('Type your question…', 'अपना सवाल लिखें…')} aria-label={t('Your question', 'आपका सवाल')} className='min-w-0 flex-1 rounded-xl border border-slate-300 px-3 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-100' />
-            <button type='submit' disabled={!draft.trim()} aria-label={t('Send message', 'संदेश भेजें')} className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white transition hover:bg-orange-600 disabled:cursor-not-allowed disabled:opacity-50'><FaPaperPlane aria-hidden='true' /></button>
+            <button type='submit' disabled={!draft.trim() || isSending} aria-label={t('Send message', 'संदेश भेजें')} className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white transition hover:bg-orange-600 disabled:cursor-not-allowed disabled:opacity-50'><FaPaperPlane aria-hidden='true' /></button>
           </form>
         </section>
       )}
