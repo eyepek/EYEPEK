@@ -30,8 +30,11 @@ jobs:
       - name: Generate Android platform files
         run: flutter create --platforms=android --org com.eyepek .
 
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Install dependencies and prepare EYEPEK app icon
+        run: |
+          flutter pub get
+          dart run flutter_launcher_icons
+          sed -i 's/android:label="eyepek_app"/android:label="EYEPEK"/' android/app/src/main/AndroidManifest.xml
 
       - name: Remove generated placeholder test
         run: rm -f test/widget_test.dart

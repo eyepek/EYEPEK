@@ -2,10 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(const EyepekApp());
+
 const navy = Color(0xFF073B78);
 const blue = Color(0xFF0865C8);
 const pale = Color(0xFFEAF4FF);
 const ink = Color(0xFF102B50);
+
+class ServiceInfo {
+  final String title, detail;
+  final IconData icon;
+  const ServiceInfo(this.title, this.detail, this.icon);
+}
+const services = <ServiceInfo>[
+  ServiceInfo('Admission Guidance', 'Explore course options and get help understanding the admission process.', Icons.school),
+  ServiceInfo('College Affiliation', 'Guidance for affiliation processes and required documentation.', Icons.account_balance),
+  ServiceInfo('AICTE Documentation', 'Support organising applications, records and compliance documents.', Icons.verified_outlined),
+  ServiceInfo('Documents & Compliance', 'Help preparing, checking and organising education related documents.', Icons.description_outlined),
+  ServiceInfo('Renewals & Reporting', 'Guidance with periodic renewals, reporting and document preparation.', Icons.sync),
+  ServiceInfo('Consultation', 'Speak with the EYEPEK team about your requirements.', Icons.support_agent),
+  ServiceInfo('Computer & IT Support', 'Computer, software, networking, CCTV and maintenance support.', Icons.computer),
+];
 
 class EyepekApp extends StatelessWidget {
   const EyepekApp({super.key});
@@ -18,50 +34,27 @@ class EyepekApp extends StatelessWidget {
       colorScheme: ColorScheme.fromSeed(seedColor: blue),
       scaffoldBackgroundColor: const Color(0xFFF4F7FB),
       appBarTheme: const AppBarTheme(backgroundColor: Colors.white, foregroundColor: ink, elevation: 0),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(13), borderSide: const BorderSide(color: Color(0xFFDCE5EF))),
+        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(13), borderSide: const BorderSide(color: Color(0xFFDCE5EF))),
+        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(13), borderSide: const BorderSide(color: blue, width: 1.5)),
+      ),
     ),
-    home: const Splash(),
+    home: const Shell(),
   );
 }
 
 class Brand extends StatelessWidget {
-  const Brand({super.key});
+  final double size;
+  const Brand({super.key, this.size = 40});
   @override
-  Widget build(BuildContext context) => RichText(text: const TextSpan(style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900), children: [
-    TextSpan(text: 'E', style: TextStyle(color: Color(0xFFF47721))),
-    TextSpan(text: 'YEPEK', style: TextStyle(color: navy)),
-  ]));
-}
-
-class Splash extends StatefulWidget {
-  const Splash({super.key});
-  @override
-  State<Splash> createState() => _SplashState();
-}
-class _SplashState extends State<Splash> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 1), () {
-      if (mounted) Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const Shell()));
-    });
-  }
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    body: Container(
-      width: double.infinity,
-      decoration: const BoxDecoration(gradient: LinearGradient(colors: [Color(0xFFD9ECFF), Colors.white, Color(0xFFB9DEFF)])),
-      child: const Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Icon(Icons.school, size: 90, color: navy),
-        SizedBox(height: 20),
-        Brand(),
-        Text('Education & Compliance Services', style: TextStyle(color: navy)),
-        SizedBox(height: 30),
-        Text('Your Partner for College Admission,\nAffiliation and Approvals', textAlign: TextAlign.center, style: TextStyle(color: ink, fontSize: 18, height: 1.5, fontWeight: FontWeight.w600)),
-        SizedBox(height: 40),
-        CircularProgressIndicator(color: blue),
-      ]),
-    ),
-  );
+  Widget build(BuildContext context) => Row(mainAxisSize: MainAxisSize.min, children: [
+    ClipRRect(borderRadius: BorderRadius.circular(size * .22), child: Image.asset('assets/eyepek-app-icon.png', width: size, height: size, fit: BoxFit.cover)),
+    const SizedBox(width: 9),
+    const Text('EYEPEK', style: TextStyle(color: navy, fontSize: 23, fontWeight: FontWeight.w900, letterSpacing: .2)),
+  ]);
 }
 
 class Shell extends StatefulWidget {
@@ -74,20 +67,17 @@ class _ShellState extends State<Shell> {
   void go(int value) => setState(() => tab = value);
   @override
   Widget build(BuildContext context) {
-    final pages = [Home(go: go), Services(go: go), const Courses(), const Enquiry(), Dashboard(go: go)];
+    final pages = [Home(go: go), ServicesPage(go: go), const CoursesPage(), const EnquiryPage(), const MorePage()];
     return Scaffold(
       body: IndexedStack(index: tab, children: pages),
-      floatingActionButton: FloatingActionButton(backgroundColor: navy, foregroundColor: Colors.white, onPressed: () => go(3), child: const Icon(Icons.add)),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: NavigationBar(
-        selectedIndex: tab,
-        onDestinationSelected: go,
+        selectedIndex: tab, onDestinationSelected: go,
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.grid_view), label: 'Services'),
-          NavigationDestination(icon: Icon(Icons.menu_book), label: 'Courses'),
-          NavigationDestination(icon: Icon(Icons.description_outlined), label: 'Enquiry'),
-          NavigationDestination(icon: Icon(Icons.person_outline), label: 'Profile'),
+          NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.grid_view_outlined), selectedIcon: Icon(Icons.grid_view), label: 'Services'),
+          NavigationDestination(icon: Icon(Icons.menu_book_outlined), selectedIcon: Icon(Icons.menu_book), label: 'Courses'),
+          NavigationDestination(icon: Icon(Icons.chat_bubble_outline), selectedIcon: Icon(Icons.chat_bubble), label: 'Enquiry'),
+          NavigationDestination(icon: Icon(Icons.more_horiz), label: 'More'),
         ],
       ),
     );
@@ -99,308 +89,234 @@ class Home extends StatelessWidget {
   const Home({super.key, required this.go});
   @override
   Widget build(BuildContext context) => CustomScrollView(slivers: [
-    SliverAppBar(pinned: true, title: const Brand(), actions: [IconButton(onPressed: () => _info(context), icon: const Icon(Icons.notifications_none))]),
+    SliverAppBar(pinned: true, title: const Brand(), actions: [IconButton(tooltip: 'Contact EYEPEK', onPressed: () => go(4), icon: const Icon(Icons.call_outlined))]),
     SliverToBoxAdapter(child: Container(
-      margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.all(22),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(22), gradient: const LinearGradient(colors: [navy, Color(0xFF0874D1)])),
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 8), padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(24), gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [navy, Color(0xFF0874D1)])),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const Text('COLLEGE & EDUCATION SERVICES', style: TextStyle(color: Color(0xFFBBDFFF), fontSize: 11, letterSpacing: 1, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 12),
-        const Text('College Admission\n& Affiliation\nMade Simple', style: TextStyle(color: Colors.white, fontSize: 26, height: 1.15, fontWeight: FontWeight.w800)),
+        Row(children: [
+          ClipRRect(borderRadius: BorderRadius.circular(13), child: Image.asset('assets/eyepek-app-icon.png', width: 48, height: 48)),
+          const SizedBox(width: 10), const Text('EYEPEK', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18, letterSpacing: 1)),
+        ]),
+        const SizedBox(height: 22),
+        const Text('ADMISSIONS • AFFILIATION • DOCUMENTS', style: TextStyle(color: Color(0xFFFFC58A), fontSize: 10, letterSpacing: .7, fontWeight: FontWeight.bold)),
         const SizedBox(height: 10),
-        const Text('Guidance for AICTE, State Universities and regulatory compliance.', style: TextStyle(color: Colors.white)),
+        const Text('Education guidance,\nmade clearer.', style: TextStyle(color: Colors.white, fontSize: 29, height: 1.15, fontWeight: FontWeight.w800)),
+        const SizedBox(height: 10),
+        const Text('Get practical guidance for college admissions, affiliation processes and AICTE related documentation.', style: TextStyle(color: Colors.white, height: 1.5)),
         const SizedBox(height: 18),
-        FilledButton(onPressed: () => go(3), style: FilledButton.styleFrom(backgroundColor: Colors.white, foregroundColor: navy), child: const Text('Get Started →')),
+        FilledButton.icon(onPressed: () => go(3), style: FilledButton.styleFrom(backgroundColor: Colors.white, foregroundColor: navy), icon: const Icon(Icons.chat_outlined), label: const Text('Talk to our team')),
       ]),
     )),
-    SliverToBoxAdapter(child: _heading('Explore Services', () => go(1))),
+    SliverToBoxAdapter(child: _heading('How EYEPEK can help', () => go(1))),
     SliverPadding(padding: const EdgeInsets.symmetric(horizontal: 16), sliver: SliverGrid.count(
-      crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10, childAspectRatio: 1,
-      children: [
-        _tile(Icons.school, 'College\nAdmission', () => go(1)),
-        _tile(Icons.account_balance, 'Affiliation\nSupport', () => go(1)),
-        _tile(Icons.verified, 'AICTE\nApproval', () => go(1)),
-        _tile(Icons.apartment, 'State\nUniversities', () => go(1)),
-        _tile(Icons.description, 'Documentation', () => go(1)),
-        _tile(Icons.groups, 'Consultation', () => go(1)),
-      ],
+      crossAxisCount: 2, crossAxisSpacing: 11, mainAxisSpacing: 11, childAspectRatio: 1.48,
+      children: services.take(4).map((s) => _serviceTile(s, () => go(1))).toList(),
     )),
-    SliverToBoxAdapter(child: _heading('Popular Courses', () => go(2))),
-    SliverToBoxAdapter(child: SizedBox(height: 140, child: ListView(scrollDirection: Axis.horizontal, padding: const EdgeInsets.symmetric(horizontal: 16), children: const [
-      _MiniCourse('BBA', '3 Years'), _MiniCourse('BCA', '3 Years'), _MiniCourse('MBA', '2 Years'), _MiniCourse('MCA', '2 Years'),
-    ]))),
-    SliverToBoxAdapter(child: Padding(padding: const EdgeInsets.all(16), child: _help(() => go(3)))),
+    SliverToBoxAdapter(child: _heading('Explore courses', () => go(2))),
+    SliverToBoxAdapter(child: SizedBox(height: 108, child: ListView(
+      scrollDirection: Axis.horizontal, padding: const EdgeInsets.symmetric(horizontal: 16),
+      children: const [_CourseChip('BBA'), _CourseChip('BCA'), _CourseChip('MBA'), _CourseChip('MCA'), _CourseChip('ANM'), _CourseChip('GNM'), _CourseChip('B.Sc. Nursing')],
+    ))),
+    SliverToBoxAdapter(child: Padding(padding: const EdgeInsets.fromLTRB(16, 16, 16, 24), child: _notice())),
   ]);
 }
-
 Widget _heading(String title, VoidCallback tap) => Padding(
-  padding: const EdgeInsets.fromLTRB(18, 22, 18, 12),
-  child: Row(children: [Expanded(child: Text(title, style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800, color: ink))), TextButton(onPressed: tap, child: const Text('View All'))]),
+  padding: const EdgeInsets.fromLTRB(18, 20, 18, 12),
+  child: Row(children: [Expanded(child: Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: ink))), TextButton(onPressed: tap, child: const Text('See all'))]),
 );
-Widget _tile(IconData icon, String title, VoidCallback tap) => Material(
-  color: Colors.white,
-  borderRadius: BorderRadius.circular(15),
-  child: InkWell(onTap: tap, borderRadius: BorderRadius.circular(15), child: Container(
-    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: const Color(0xFFE5ECF4))),
-    padding: const EdgeInsets.all(8),
-    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Icon(icon, color: navy, size: 29), const SizedBox(height: 8),
-      Text(title, textAlign: TextAlign.center, style: const TextStyle(color: ink, fontSize: 11, fontWeight: FontWeight.w700)),
+Widget _serviceTile(ServiceInfo item, VoidCallback tap) => Material(
+  color: Colors.white, borderRadius: BorderRadius.circular(17),
+  child: InkWell(onTap: tap, borderRadius: BorderRadius.circular(17), child: Container(
+    padding: const EdgeInsets.all(13),
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(17), border: Border.all(color: const Color(0xFFE5ECF4))),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [
+      CircleAvatar(radius: 19, backgroundColor: pale, child: Icon(item.icon, color: navy, size: 21)),
+      const SizedBox(height: 9),
+      Text(item.title, style: const TextStyle(color: ink, fontSize: 12, fontWeight: FontWeight.w800)),
+      const SizedBox(height: 3), const Text('Learn more  ›', style: TextStyle(color: blue, fontSize: 10, fontWeight: FontWeight.w600)),
     ]),
   )),
 );
-class _MiniCourse extends StatelessWidget {
-  final String code, duration;
-  const _MiniCourse(this.code, this.duration);
+class _CourseChip extends StatelessWidget {
+  final String name;
+  const _CourseChip(this.name);
   @override
   Widget build(BuildContext context) => Container(
-    width: 135, margin: const EdgeInsets.only(right: 10), padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(15), border: Border.all(color: const Color(0xFFE5ECF4))),
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const Expanded(child: Center(child: Icon(Icons.menu_book, color: navy, size: 42))),
-      Text(code, style: const TextStyle(fontWeight: FontWeight.w800, color: navy)),
-      Text(duration, style: const TextStyle(fontSize: 11, color: Colors.blueGrey)),
+    width: 102, margin: const EdgeInsets.only(right: 10), padding: const EdgeInsets.all(13),
+    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), border: Border.all(color: const Color(0xFFE5ECF4))),
+    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      const Icon(Icons.menu_book_outlined, color: blue, size: 27), const SizedBox(height: 6),
+      Text(name, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w800, color: ink, fontSize: 12)),
     ]),
   );
 }
-Widget _help(VoidCallback tap) => Container(
-  padding: const EdgeInsets.all(16),
-  decoration: BoxDecoration(color: const Color(0xFFDCEEFF), borderRadius: BorderRadius.circular(18)),
-  child: Row(children: [
-    const CircleAvatar(backgroundColor: Colors.white, child: Icon(Icons.support_agent, color: navy)),
-    const SizedBox(width: 12),
-    const Expanded(child: Text('Need Help?\nTalk to our EYEPEK team', style: TextStyle(color: ink, fontWeight: FontWeight.w600))),
-    FilledButton(onPressed: tap, child: const Text('Contact Now')),
+Widget _notice() => Container(
+  padding: const EdgeInsets.all(14),
+  decoration: BoxDecoration(color: const Color(0xFFFFF6E9), borderRadius: BorderRadius.circular(16), border: Border.all(color: const Color(0xFFFFE1B8))),
+  child: const Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+    Icon(Icons.info_outline, color: Color(0xFF9A5A00), size: 19), SizedBox(width: 9),
+    Expanded(child: Text('Course availability, eligibility and approvals are decided by the relevant institutions and authorities. EYEPEK provides guidance and documentation support.', style: TextStyle(color: ink, fontSize: 11, height: 1.45))),
   ]),
 );
 
-class Services extends StatelessWidget {
+class ServicesPage extends StatelessWidget {
   final ValueChanged<int> go;
-  const Services({super.key, required this.go});
-  static const data = [
-    ('College Admission Support', 'Guidance for BBA, BCA, MBA, MCA and other courses', Icons.school),
-    ('Affiliation Support', 'Guidance for State Universities (AKU, PPU, LNMU, etc.)', Icons.account_balance),
-    ('AICTE Approval Support', 'New institute, course approval, extension and compliance assistance', Icons.verified),
-    ('Compliance & Documentation', 'Preparation and organisation of required documents', Icons.description),
-    ('Renewal & Compliance', 'Affiliation renewal, AICTE compliance and periodic reporting', Icons.sync),
-    ('Consultation', 'Expert guidance and end-to-end support', Icons.groups),
-    ('Computer & IT Support', 'Computer repair, software, networking, CCTV and AMC support', Icons.computer),
+  const ServicesPage({super.key, required this.go});
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: const Text('Our Services', style: TextStyle(fontWeight: FontWeight.w800))),
+    body: ListView(padding: const EdgeInsets.all(16), children: [
+      const Text('Guidance and support, in the order people usually need it.', style: TextStyle(color: Colors.blueGrey)),
+      const SizedBox(height: 14),
+      for (final item in services)
+        Card(elevation: 0, color: Colors.white, margin: const EdgeInsets.only(bottom: 10), child: ListTile(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+          leading: CircleAvatar(backgroundColor: pale, child: Icon(item.icon, color: navy)),
+          title: Text(item.title, style: const TextStyle(fontWeight: FontWeight.w800, color: ink, fontSize: 14)),
+          subtitle: Padding(padding: const EdgeInsets.only(top: 4), child: Text(item.detail, style: const TextStyle(fontSize: 12, height: 1.35))),
+          trailing: const Icon(Icons.chevron_right, color: blue),
+          onTap: () => _serviceSheet(context, item, () => go(3)),
+        )),
+      _notice(),
+    ]),
+  );
+}
+void _serviceSheet(BuildContext context, ServiceInfo item, VoidCallback enquire) => showModalBottomSheet<void>(
+  context: context, showDragHandle: true, builder: (sheet) => Padding(
+    padding: const EdgeInsets.fromLTRB(22, 8, 22, 28),
+    child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+      CircleAvatar(radius: 25, backgroundColor: pale, child: Icon(item.icon, color: navy, size: 27)),
+      const SizedBox(height: 14),
+      Text(item.title, style: const TextStyle(fontSize: 21, fontWeight: FontWeight.bold, color: ink)),
+      const SizedBox(height: 8), Text(item.detail), const SizedBox(height: 18),
+      FilledButton.icon(onPressed: () { Navigator.pop(sheet); enquire(); }, icon: const Icon(Icons.chat_outlined), label: const Text('Ask about this service')),
+    ]),
+  ),
+);
+
+class CoursesPage extends StatelessWidget {
+  const CoursesPage({super.key});
+  static const courses = [
+    ('BBA', 'Business administration', 'Undergraduate'),
+    ('BCA', 'Computer applications', 'Undergraduate'),
+    ('ANM', 'Nursing', 'Undergraduate'),
+    ('GNM', 'Nursing', 'Undergraduate'),
+    ('B.Sc. Nursing', 'Nursing', 'Undergraduate'),
+    ('MBA', 'Business administration', 'Postgraduate'),
+    ('MCA', 'Computer applications', 'Postgraduate'),
   ];
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('Our Services')),
-    body: ListView.separated(
-      padding: const EdgeInsets.all(16), itemCount: data.length, separatorBuilder: (_, __) => const SizedBox(height: 10),
-      itemBuilder: (context, i) {
-        final item = data[i];
-        return Card(elevation: 0, color: Colors.white, child: ListTile(
-          leading: CircleAvatar(backgroundColor: pale, child: Icon(item.$3, color: navy)),
-          title: Text(item.$1, style: const TextStyle(fontWeight: FontWeight.w800, color: ink, fontSize: 14)),
-          subtitle: Text(item.$2, style: const TextStyle(fontSize: 12)),
-          trailing: const Icon(Icons.chevron_right, color: blue),
-          onTap: () => showModalBottomSheet<void>(context: context, showDragHandle: true, builder: (sheet) => Padding(
-            padding: const EdgeInsets.all(22),
-            child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Icon(item.$3, size: 40, color: navy), const SizedBox(height: 12),
-              Text(item.$1, style: const TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 8), Text(item.$2), const SizedBox(height: 18),
-              FilledButton(onPressed: () { Navigator.pop(sheet); go(3); }, child: const Text('Send Enquiry')),
-            ]),
-          )),
-        ));
-      },
-    ),
+    appBar: AppBar(title: const Text('Explore Courses', style: TextStyle(fontWeight: FontWeight.w800))),
+    body: ListView(padding: const EdgeInsets.all(16), children: [
+      const Text('Tell us what you are interested in and we can guide you on available options.', style: TextStyle(color: Colors.blueGrey, height: 1.45)),
+      const SizedBox(height: 14),
+      for (final course in courses)
+        Card(elevation: 0, color: Colors.white, margin: const EdgeInsets.only(bottom: 9), child: ListTile(
+          leading: Container(width: 52, height: 52, decoration: BoxDecoration(color: pale, borderRadius: BorderRadius.circular(13)), child: const Icon(Icons.menu_book, color: navy)),
+          title: Text(course.$1, style: const TextStyle(fontWeight: FontWeight.w800, color: ink)),
+          subtitle: Text(course.$2 + ' • ' + course.$3),
+          trailing: const Icon(Icons.arrow_forward_ios, size: 15, color: blue),
+          onTap: () => _openWhatsApp(context, 'Hello EYEPEK, I would like to know about ' + course.$1 + '.'),
+        )),
+      _notice(),
+    ]),
   );
 }
 
-class Courses extends StatefulWidget {
-  const Courses({super.key});
+class EnquiryPage extends StatefulWidget {
+  const EnquiryPage({super.key});
   @override
-  State<Courses> createState() => _CoursesState();
+  State<EnquiryPage> createState() => _EnquiryPageState();
 }
-class _CoursesState extends State<Courses> {
-  bool pg = false;
-  static const data = [
-    ('BBA', 'Bachelor of Business Administration', '3 Years'),
-    ('BCA', 'Bachelor of Computer Applications', '3 Years'),
-    ('MBA', 'Master of Business Administration', '2 Years'),
-    ('MCA', 'Master of Computer Applications', '2 Years'),
-  ];
+class _EnquiryPageState extends State<EnquiryPage> {
+  final formKey = GlobalKey<FormState>();
+  final name = TextEditingController(), phone = TextEditingController(), email = TextEditingController(), interest = TextEditingController();
+  String service = services.first.title;
   @override
-  Widget build(BuildContext context) {
-    final visible = data.where((c) => pg ? c.$1 == 'MBA' || c.$1 == 'MCA' : c.$1 == 'BBA' || c.$1 == 'BCA').toList();
-    return Scaffold(
-      appBar: AppBar(title: const Text('Courses')),
-      body: Column(children: [
-        Padding(padding: const EdgeInsets.all(16), child: SegmentedButton<bool>(
-          segments: const [ButtonSegment(value: false, label: Text('UG Courses')), ButtonSegment(value: true, label: Text('PG Courses'))],
-          selected: {pg}, onSelectionChanged: (v) => setState(() => pg = v.first),
-        )),
-        Expanded(child: ListView(padding: const EdgeInsets.all(16), children: [
-          for (final c in visible)
-            Card(elevation: 0, color: Colors.white, child: ListTile(
-              leading: Container(width: 65, height: 65, decoration: BoxDecoration(color: pale, borderRadius: BorderRadius.circular(12)), child: const Icon(Icons.school, color: navy, size: 34)),
-              title: Text(c.$1, style: const TextStyle(fontWeight: FontWeight.w800)),
-              subtitle: Text(c.$2 + '\n' + c.$3 + '\nAdmission Support →'),
-              isThreeLine: true,
-            )),
-          const Card(child: ListTile(leading: Icon(Icons.apartment, color: navy), title: Text('Other Courses'), subtitle: Text('Ask us about other UG/PG courses.'))),
-        ])),
-      ]),
-    );
-  }
-}
+  void dispose() { name.dispose(); phone.dispose(); email.dispose(); interest.dispose(); super.dispose(); }
 
-class Enquiry extends StatefulWidget {
-  const Enquiry({super.key});
-  @override
-  State<Enquiry> createState() => _EnquiryState();
-}
-class _EnquiryState extends State<Enquiry> {
-  final keyForm = GlobalKey<FormState>();
-  final name = TextEditingController(), mobile = TextEditingController(), email = TextEditingController(), message = TextEditingController();
-  String category = 'Admission', service = Services.data.first.$1, course = 'BBA';
-  @override
-  void dispose() { name.dispose(); mobile.dispose(); email.dispose(); message.dispose(); super.dispose(); }
-  Widget field(String label, TextEditingController ctl, String hint, {bool required = false, bool phone = false, int lines = 1}) => Padding(
+  Widget field(String label, TextEditingController controller, {String? hint, bool required = false, TextInputType keyboard = TextInputType.text}) => Padding(
     padding: const EdgeInsets.only(bottom: 13),
     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: ink)),
       const SizedBox(height: 6),
-      TextFormField(controller: ctl, keyboardType: phone ? TextInputType.phone : TextInputType.text, maxLines: lines,
-        validator: (v) {
-          if (required && (v == null || v.trim().isEmpty)) return 'This field is required';
-          if (phone && (v == null || v.trim().length < 10)) return 'Enter a valid mobile number';
-          return null;
-        },
-        decoration: InputDecoration(hintText: hint),
-      ),
+      TextFormField(controller: controller, keyboardType: keyboard, decoration: InputDecoration(hintText: hint ?? label), validator: (value) {
+        if (required && (value == null || value.trim().isEmpty)) return 'Please enter ' + label;
+        if (keyboard == TextInputType.phone && value != null && value.trim().length < 10) return 'Please enter a valid phone number';
+        return null;
+      }),
     ]),
   );
-  Widget drop(String label, String value, List<String> values, ValueChanged<String?> changed) => Padding(
-    padding: const EdgeInsets.only(bottom: 13),
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
-      const SizedBox(height: 6),
-      DropdownButtonFormField<String>(initialValue: value, items: values.map((v) => DropdownMenuItem(value: v, child: Text(v, overflow: TextOverflow.ellipsis))).toList(), onChanged: changed),
-    ]),
-  );
+
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('Enquiry / Apply')),
-    body: Form(key: keyForm, child: ListView(padding: const EdgeInsets.all(17), children: [
-      Wrap(spacing: 6, children: ['Admission', 'Affiliation', 'AICTE', 'Other'].map((v) => ChoiceChip(
-        label: Text(v), selected: category == v,
-        onSelected: (_) => setState(() {
-          category = v;
-          service = v == 'Admission' ? Services.data[0].$1 : v == 'Affiliation' ? Services.data[1].$1 : v == 'AICTE' ? Services.data[2].$1 : Services.data[5].$1;
-        }),
-      )).toList()),
-      const SizedBox(height: 16),
-      field('Full Name *', name, 'Enter your name', required: true),
-      field('Mobile Number *', mobile, 'Enter mobile number', required: true, phone: true),
-      field('Email Address', email, 'Enter email address'),
-      drop('Select Service *', service, Services.data.map((x) => x.$1).toList(), (v) => setState(() => service = v!)),
-      drop('Select Course', course, ['BBA', 'BCA', 'MBA', 'MCA'], (v) => setState(() => course = v!)),
-      field('State / University', TextEditingController(), 'Enter State / University'),
-      field('Message', message, 'Enter your message (optional)', lines: 4),
-      const SizedBox(height: 10),
-      SizedBox(height: 52, child: FilledButton(onPressed: () {
-        if (keyForm.currentState!.validate()) {
-          showDialog<void>(context: context, builder: (d) => AlertDialog(
-            title: const Text('Enquiry form preview'),
-            content: const Text('Secure server integration is needed to submit enquiries and show live application status.'),
-            actions: [TextButton(onPressed: () => Navigator.pop(d), child: const Text('OK'))],
-          ));
-        }
-      }, child: const Text('Submit Enquiry'))),
+    appBar: AppBar(title: const Text('Talk to EYEPEK', style: TextStyle(fontWeight: FontWeight.w800))),
+    body: Form(key: formKey, child: ListView(padding: const EdgeInsets.all(17), children: [
+      Container(padding: const EdgeInsets.all(16), decoration: BoxDecoration(color: pale, borderRadius: BorderRadius.circular(17)), child: const Row(children: [
+        Icon(Icons.chat_outlined, color: navy, size: 27), SizedBox(width: 11),
+        Expanded(child: Text('Share a few details. WhatsApp will open with your message ready to send.', style: TextStyle(color: ink, fontSize: 13, height: 1.4))),
+      ])),
+      const SizedBox(height: 18),
+      field('Name', name, hint: 'Your name', required: true),
+      field('Mobile number', phone, hint: 'Your phone number', required: true, keyboard: TextInputType.phone),
+      field('Email (optional)', email, hint: 'Your email address', keyboard: TextInputType.emailAddress),
+      const Text('What do you need help with?', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: ink)),
+      const SizedBox(height: 6),
+      DropdownButtonFormField<String>(initialValue: service, isExpanded: true, items: services.map((s) => DropdownMenuItem(value: s.title, child: Text(s.title, overflow: TextOverflow.ellipsis))).toList(), onChanged: (value) { if (value != null) setState(() => service = value); }),
+      const SizedBox(height: 13),
+      field('Course or other details', interest, hint: 'For example: BCA, affiliation, document help'),
+      const SizedBox(height: 5),
+      SizedBox(height: 52, child: FilledButton.icon(onPressed: () {
+        if (!formKey.currentState!.validate()) return;
+        final message = 'Hello EYEPEK, I need help with: ' + service +
+          '\nName: ' + name.text.trim() + '\nMobile: ' + phone.text.trim() +
+          '\nEmail: ' + email.text.trim() + '\nDetails: ' + interest.text.trim();
+        _openWhatsApp(context, message);
+      }, icon: const Icon(Icons.send), label: const Text('Continue on WhatsApp'))),
+      const SizedBox(height: 13),
+      const Text('WhatsApp opens on your device. Review the message and press Send to contact us.', textAlign: TextAlign.center, style: TextStyle(color: Colors.blueGrey, fontSize: 11)),
     ])),
   );
 }
 
-class Dashboard extends StatelessWidget {
-  final ValueChanged<int> go;
-  const Dashboard({super.key, required this.go});
-  Widget stat(IconData icon, String title, String value) => Container(
-    padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(15), border: Border.all(color: const Color(0xFFE5ECF4))),
-    child: Row(children: [
-      CircleAvatar(backgroundColor: pale, child: Icon(icon, color: blue)),
-      const SizedBox(width: 8),
-      Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(title, style: const TextStyle(fontSize: 11, color: Colors.blueGrey)),
-        Text(value, style: const TextStyle(fontSize: 21, fontWeight: FontWeight.w800, color: ink)),
-      ])),
-    ]),
-  );
-  Widget recent(String title, String date, String status, Color color) => Card(
-    elevation: 0,
-    child: ListTile(
-      leading: const CircleAvatar(backgroundColor: pale, child: Icon(Icons.assignment, color: navy)),
-      title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
-      subtitle: Text(date, style: const TextStyle(fontSize: 11)),
-      trailing: Container(padding: const EdgeInsets.all(7), decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(18)), child: Text(status, style: const TextStyle(fontSize: 10))),
-    ),
-  );
+class MorePage extends StatelessWidget {
+  const MorePage({super.key});
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Brand(), actions: [
-      IconButton(onPressed: () => _info(context), icon: const Icon(Icons.notifications_none)),
-      const CircleAvatar(backgroundColor: pale, child: Icon(Icons.person, color: navy)),
-      const SizedBox(width: 12),
-    ]),
+    appBar: AppBar(title: const Brand()),
     body: ListView(padding: const EdgeInsets.all(16), children: [
-      Container(
-        padding: const EdgeInsets.all(18),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(18), gradient: const LinearGradient(colors: [blue, navy])),
-        child: const Row(children: [
-          CircleAvatar(radius: 29, backgroundColor: Colors.white, child: Icon(Icons.person, size: 34, color: blue)),
-          SizedBox(width: 12),
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text('Welcome', style: TextStyle(color: Colors.white70)),
-            Text('EYEPEK User', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w800)),
-          ]),
-        ]),
-      ),
-      const SizedBox(height: 15),
-      GridView.count(shrinkWrap: true, physics: const NeverScrollableScrollPhysics(), crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10, childAspectRatio: 1.8, children: [
-        stat(Icons.list_alt, 'My Enquiries', '3'),
-        stat(Icons.description, 'My Applications', '2'),
-        stat(Icons.bookmark_border, 'Saved Courses', '5'),
-        stat(Icons.notifications, 'Notifications', '1'),
-      ]),
-      const SizedBox(height: 20),
-      const Text('Recent Enquiries', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: ink)),
-      recent('BBA Admission', '10 Oct 2026', 'Under Review', const Color(0xFFFFE9BE)),
-      recent('Affiliation Support', '05 Oct 2026', 'In Process', const Color(0xFFD9E9FF)),
-      recent('AICTE Approval', '01 Oct 2026', 'Pending', const Color(0xFFFFDFDF)),
-      const SizedBox(height: 12),
-      _help(() => go(3)),
-      const SizedBox(height: 12),
-      Card(
-        elevation: 0,
-        color: Colors.white,
-        child: ListTile(
-          leading: const Icon(Icons.privacy_tip_outlined, color: navy),
-          title: const Text('Privacy Policy', style: TextStyle(fontWeight: FontWeight.w700)),
-          subtitle: const Text('Read how EYEPEK handles your information'),
-          trailing: const Icon(Icons.open_in_new, color: blue),
-          onTap: () async {
-            final uri = Uri.parse('https://www.eyepek.com/privacy-policy.html');
-            final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
-            if (!opened && context.mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Could not open Privacy Policy. Please try again.')),
-              );
-            }
-          },
-        ),
-      ),
+      Container(padding: const EdgeInsets.all(18), decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)), child: const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text('About EYEPEK', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: ink)),
+        SizedBox(height: 8),
+        Text('Education service and guidance for students and institutions, including admissions, college affiliation processes and document support.', style: TextStyle(height: 1.5, color: Colors.blueGrey)),
+      ])),
+      const SizedBox(height: 14),
+      _moreTile(context, Icons.chat, 'WhatsApp', 'Message our team', 'https://wa.me/917004374250'),
+      _moreTile(context, Icons.language, 'Website', 'www.eyepek.com', 'https://www.eyepek.com'),
+      _moreTile(context, Icons.call_outlined, 'Call EYEPEK', '+91 70043 74250', 'tel:+917004374250'),
+      _moreTile(context, Icons.privacy_tip_outlined, 'Privacy Policy', 'How your information is handled', 'https://www.eyepek.com/privacy-policy.html'),
+      const SizedBox(height: 12), _notice(), const SizedBox(height: 16),
+      const Center(child: Text('EYEPEK • Guidance that helps you move forward', style: TextStyle(color: Colors.blueGrey, fontSize: 11))),
     ]),
   );
 }
-
-void _info(BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('This feature will be available after backend integration.')));
+Widget _moreTile(BuildContext context, IconData icon, String title, String subtitle, String url) => Card(
+  elevation: 0, color: Colors.white, margin: const EdgeInsets.only(bottom: 9),
+  child: ListTile(
+    leading: CircleAvatar(backgroundColor: pale, child: Icon(icon, color: navy)),
+    title: Text(title, style: const TextStyle(fontWeight: FontWeight.w800, color: ink)),
+    subtitle: Text(subtitle, style: const TextStyle(fontSize: 12)),
+    trailing: const Icon(Icons.open_in_new, size: 17, color: blue),
+    onTap: () => _launch(context, Uri.parse(url)),
+  ),
+);
+Future<void> _openWhatsApp(BuildContext context, String message) =>
+  _launch(context, Uri.https('wa.me', '/917004374250', {'text': message}));
+Future<void> _launch(BuildContext context, Uri uri) async {
+  final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
+  if (!opened && context.mounted) {
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Could not open this link. Please try again.')));
+  }
 }
