@@ -42,24 +42,23 @@ const NavBar = () => {
 
   return (
     <header className='sticky top-0 z-50 bg-white shadow-sm'>
-      <div className='bg-blue-950 px-6 py-2 text-xs font-semibold text-blue-50 md:px-10 md:text-sm'>
-        <div className='mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2'>
-          <span>Course &amp; admission guidance</span>
-          <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
-            <InstallAppButton />
-            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-orange-300'>
-              <FaYoutube aria-hidden='true' className='h-4 w-4' /> YouTube
+      <div className='border-b border-blue-900 bg-blue-950 px-4 text-blue-50 sm:px-6 md:px-10'>
+        <div className='mx-auto flex min-h-9 max-w-7xl items-center justify-between gap-3'>
+          <p className='hidden text-[11px] font-semibold tracking-wide text-blue-100 sm:block'>Guidance for students &amp; institutions</p>
+          <div className='ml-auto flex items-center gap-3 sm:gap-4'>
+            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-100 transition hover:text-orange-300'>
+              <FaYoutube aria-hidden='true' className='h-4 w-4' /><span className='hidden sm:inline'>YouTube</span>
             </a>
-            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-blue-50 transition hover:text-orange-300'>
-              <FaFacebookF aria-hidden='true' className='h-3.5 w-3.5' /> Facebook
+            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-100 transition hover:text-orange-300'>
+              <FaFacebookF aria-hidden='true' className='h-3.5 w-3.5' /><span className='hidden sm:inline'>Facebook</span>
             </a>
-            <a href='tel:7004374250' className='text-orange-300 transition hover:text-white'>Call us: 7004374250</a>
+            <a href='tel:7004374250' className='text-[11px] font-bold text-orange-300 transition hover:text-white'>Call: 7004374250</a>
           </div>
         </div>
       </div>
-      <div className='mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10'>
+      <div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-10 md:py-4'>
         <Link to='/' onClick={closeMenu} aria-label='EYEPEK home' className='shrink-0'>
-          <img src='/images/eyepek-logo.svg' alt='EYEPEK' className='block h-auto w-[210px] sm:w-[240px]' />
+          <img src='/images/eyepek-logo.svg' alt='EYEPEK' className='block h-auto w-[174px] sm:w-[210px] md:w-[230px]' />
         </Link>
         <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='rounded-md p-2 text-blue-950 lg:hidden'>
           <IoMdMenu className='h-8 w-8' />
@@ -114,7 +113,8 @@ const NavBar = () => {
               <a href='/#admissions' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>Contact EYEPEK <span aria-hidden='true'>→</span></a>
             </div>
           </div>
-          <a href='/#admissions' onClick={closeMenu} className='rounded-md bg-orange-500 px-5 py-2.5 text-center text-white transition hover:bg-orange-600'>Admissions</a>
+          <a href='/#admissions' onClick={closeMenu} className='rounded-md bg-orange-500 px-5 py-2.5 text-center text-white transition hover:bg-orange-600'>Admission Help</a>
+          <div className='pt-1 lg:pt-0'><InstallAppButton /></div>
         </nav>
       </div>
     </header>
