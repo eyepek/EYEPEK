@@ -86,7 +86,11 @@ export default function AIHeadshotPage() {
       if (!data.image_data_url) throw new Error('The AI service did not return an image. Please try again.');
       setResult(data.image_data_url);
     } catch (err) {
-      setError(err.message || 'Something went wrong. Please try again.');
+      if (err.name === 'AbortError') {
+        setError('Image generation is taking too long. Please try again. If this continues, the server timeout or OpenAI service needs checking.');
+      } else {
+        setError(err.message || 'Network connection failed. Please check your internet and try again.');
+      }
     } finally {
       setBusy(false);
     }
