@@ -231,69 +231,63 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section id='about' className='relative isolate overflow-hidden bg-white'>
+    <section id='about' className='relative isolate overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-orange-50/70'>
       <div className='pointer-events-none absolute -right-24 -top-16 -z-10 h-80 w-80 rounded-full bg-orange-100/70 blur-3xl' aria-hidden='true' />
       <div className='pointer-events-none absolute -bottom-24 -left-20 -z-10 h-80 w-80 rounded-full bg-blue-100/80 blur-3xl' aria-hidden='true' />
-      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
-        <div className='grid items-center gap-12 lg:grid-cols-2 lg:gap-16'>
-          <div className='relative'>
+      <div className='mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20'>
+        <div className='grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16'>
+          <figure className='group relative'>
             <div className='absolute -inset-3 rounded-[2rem] border border-orange-200/80 rotate-2' aria-hidden='true' />
             <div className='relative overflow-hidden rounded-[1.75rem] bg-blue-950 shadow-2xl shadow-blue-950/20'>
-              <img className='h-[360px] w-full object-cover sm:h-[480px]' src='/images/students-classroom.jpg' alt='Students learning and working together' loading='lazy' />
-              <div className='absolute inset-0 bg-gradient-to-t from-blue-950/95 via-blue-950/15 to-transparent' />
-              <div className='absolute inset-x-0 bottom-0 p-7 sm:p-9'>
-                <span className='inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.18em] text-orange-200 backdrop-blur'>
-                  <span className='h-2 w-2 rounded-full bg-orange-400' aria-hidden='true' /> Life Begins Here
-                </span>
-                <p className='mt-4 max-w-md text-2xl font-black leading-tight text-white sm:text-4xl'>Every big journey starts with the right support.</p>
-              </div>
-              <div className='absolute right-4 top-4 rounded-2xl border border-white/25 bg-white/95 px-4 py-3 shadow-lg sm:right-6 sm:top-6'>
-                <p className='text-xs font-bold uppercase tracking-wider text-slate-500'>The EYEPEK promise</p>
-                <p className='mt-1 text-base font-extrabold text-blue-950'>Clear. Practical. People-first.</p>
-              </div>
+              <img className='block aspect-[4/3] max-h-[34rem] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/eyepek-about-guidance.png' alt='Representative photo of an adviser discussing study plans with two Indian students' loading='lazy' />
+              <div className='absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/5 to-transparent' aria-hidden='true' />
+              <figcaption className='absolute inset-x-0 bottom-0 px-6 py-6 text-white sm:px-8 sm:py-8'>
+                <span className='inline-flex rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-orange-200 backdrop-blur'>About EYEPEK</span>
+                <p className='mt-3 max-w-md text-2xl font-black leading-tight sm:text-3xl'>Clear guidance for the steps ahead.</p>
+              </figcaption>
             </div>
-          </div>
+          </figure>
+
           <div>
-            <p className='inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-800'>
-              <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' /> About EYEPEK
+            <p className='inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-800 shadow-sm'>
+              <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' /> Who we help
             </p>
             <h2 className='mt-5 text-3xl font-black leading-tight tracking-tight text-blue-950 sm:text-4xl md:text-5xl'>
-              Good guidance. <span className='text-orange-500'>Practical solutions.</span> A better way forward.
+              Guidance for your next step. <span className='text-orange-500'>Support for everyday needs.</span>
             </h2>
             <p className='mt-4 text-base leading-7 text-slate-600 sm:text-lg'>
-              EYEPEK is your trusted partner for education, technology, and support services. We make education and essential services simpler and more accessible through course selection and admission guidance, career support, and assistance with college affiliation processes, compliance guidance, and organised documentation.
+              EYEPEK brings education guidance and practical support together. Students can explore course options, admission steps, and document checklists. Colleges and businesses can get help organising affiliation, compliance, renewal, and project documentation. We also offer IT, computer, networking, and home service support.
+            </p>
 
-We also provide practical IT and technology solutions, including computer and laptop troubleshooting, software installation, printer support, Wi-Fi and networking, CCTV installation, and office IT setup. From home maintenance coordination to business and institutional documentation assistance, we bring multiple support services together in one place.
-            </p>
-            <p className='mt-3 text-base leading-7 text-slate-600 sm:text-lg'>
-              Whether you are a student planning your future, an institution organising its documentation, or an individual or business looking for reliable technical assistance, our approach is built on clear communication, practical solutions, professional support, and helping you move forward with confidence.
-            </p>
-            <div className='mt-7 grid gap-3 sm:grid-cols-2'>
-              <div className='flex gap-3 rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-sm'>
+            <div className='mt-7 space-y-3'>
+              <article className='flex gap-4 rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-sm'>
                 <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-800'><FaGraduationCap aria-hidden='true' /></span>
                 <div>
-                  <h3 className='font-extrabold text-blue-950'>Education guidance</h3>
-                  <p className='mt-1 text-sm leading-6 text-slate-600'>Course options, eligibility, applications, and document guidance.</p>
+                  <h3 className='font-extrabold text-blue-950'>For students</h3>
+                  <p className='mt-1 text-sm leading-6 text-slate-600'>Course and career guidance, admissions steps, and document preparation.</p>
                 </div>
-              </div>
-              <div className='flex gap-3 rounded-2xl border border-orange-100 bg-white/90 p-4 shadow-sm'>
-                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-xl text-orange-700'><FaTools aria-hidden='true' /></span>
+              </article>
+              <article className='flex gap-4 rounded-2xl border border-orange-100 bg-white/90 p-4 shadow-sm'>
+                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-xl text-orange-700'><FaUniversity aria-hidden='true' /></span>
                 <div>
-                  <h3 className='font-extrabold text-blue-950'>Everyday support</h3>
-                  <p className='mt-1 text-sm leading-6 text-slate-600'>IT, computer, home, and business service assistance.</p>
+                  <h3 className='font-extrabold text-blue-950'>For colleges and businesses</h3>
+                  <p className='mt-1 text-sm leading-6 text-slate-600'>Affiliation and compliance process guidance, plus organised paperwork support.</p>
                 </div>
-              </div>
+              </article>
+              <article className='flex gap-4 rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-sm'>
+                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-800'><FaTools aria-hidden='true' /></span>
+                <div>
+                  <h3 className='font-extrabold text-blue-950'>For homes and offices</h3>
+                  <p className='mt-1 text-sm leading-6 text-slate-600'>Computer, printer, Wi-Fi, networking, and home maintenance support.</p>
+                </div>
+              </article>
             </div>
-            <div className='mt-5 flex flex-wrap gap-2'>
-              {['Student-focused', 'Clear communication', 'Practical next steps'].map((item) => (
-                <span key={item} className='rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-semibold text-slate-700'>{item}</span>
-              ))}
+
+            <div className='mt-8 flex flex-wrap items-center gap-3'>
+              <a href='#student-support' className='inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>Explore our services <FaArrowRight aria-hidden='true' /></a>
+              <a href='/course-finder' className='inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3.5 font-bold text-blue-900 transition hover:bg-blue-50'>Find a course <FaArrowRight aria-hidden='true' /></a>
             </div>
-            <div className='mt-8 flex flex-wrap items-center gap-4'>
-              <a href='/contact' className='inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>Talk to our team <FaArrowRight aria-hidden='true' /></a>
-              <a href='tel:7004374250' className='font-bold text-blue-950 transition hover:text-orange-600'>Call 7004374250</a>
-            </div>
-            <p className='mt-5 text-xs leading-5 text-slate-500'>Course availability, admissions, and any official affiliation or approval are determined by the relevant institution or authority.</p>
+            <p className='mt-5 text-xs leading-5 text-slate-500'>Course availability, eligibility, admissions, and official approvals are determined by the relevant institution or authority. Service availability may vary by location.</p>
           </div>
         </div>
       </div>
