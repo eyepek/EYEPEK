@@ -93,7 +93,6 @@ const NavBar = () => {
               <a href='/#student-support' onClick={closeMenu} className='block border-t border-slate-100 px-4 py-3 text-sm font-semibold text-orange-600 transition hover:bg-orange-50'>All services on homepage</a>
             </div>
           </div>
-          <Link to='/ai-headshot' onClick={closeMenu} className='rounded-md border border-blue-100 px-4 py-2 text-blue-800 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-950'>AI Headshot</Link>
           <div className='relative'>
             <button type='button' onClick={() => { setJourneyOpen(!journeyOpen); setGuidanceOpen(false); setServicesOpen(false); }} aria-expanded={journeyOpen} aria-controls='journey-dropdown' className='inline-flex items-center gap-2 text-left transition hover:text-red-600'>
               Student Resources <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${journeyOpen ? 'rotate-180' : ''}`} />

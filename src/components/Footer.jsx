@@ -43,7 +43,6 @@ const Footer = () => (
           <li><a href='/#campus' className='hover:text-orange-300'>Student Journey</a></li>
           <li><a href='/#admissions' className='hover:text-orange-300'>Admissions</a></li>
           <li><Link to='/guides' className='hover:text-orange-300'>Helpful Guides</Link></li>
-          <li><Link to='/ai-headshot' className='hover:text-orange-300'>AI Headshot Studio</Link></li>
           <li><a href='/privacy-policy.html' className='hover:text-orange-300'>Privacy Policy</a></li>
         </ul>
       </div>
