@@ -24,6 +24,7 @@ const journeyLinks = [
   { label: 'Career', detail: 'Explore career paths, skills and job guidance', href: '/#student-support', icon: FaBriefcase },
   { label: 'Set Your Goals', detail: 'Choose a practical next step for your future', href: '/#about', icon: FaBullseye },
   { label: 'Admissions & Enquiries', detail: 'Ask us about courses and admission guidance', href: '/#admissions', icon: FaRegCalendarCheck },
+  { label: 'Free Admission Checklist', detail: 'Build and print your document checklist', href: '/admission-checklist', icon: FaClipboardCheck },
 ];
 
 const NavBar = () => {

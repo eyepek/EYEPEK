@@ -8,28 +8,12 @@ const Footer = () => (
         <img src='/images/eyepek-college-logo-light.svg' alt='EYEPEK' className='block h-auto w-[230px]' />
         <p className='mt-4 max-w-md leading-7 text-slate-300'>Helping students make informed education and career choices, while supporting institutions with organised affiliation, compliance, and documentation guidance. Practical IT and technology support for everyday needs—all from one team.</p>
         <div className='mt-5 flex flex-wrap gap-3'>
-          <a
-            href='https://www.youtube.com/@eyepek'
-            target='_blank'
-            rel='noreferrer'
-            aria-label='Visit EYEPEK on YouTube (opens in a new tab)'
-            className='inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-red-500 hover:bg-red-600 hover:text-white'
-          >
-            <svg aria-hidden='true' viewBox='0 0 24 24' className='h-5 w-5 fill-current'>
-              <path d='M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z' />
-            </svg>
+          <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-red-500 hover:bg-red-600 hover:text-white'>
+            <svg aria-hidden='true' viewBox='0 0 24 24' className='h-5 w-5 fill-current'><path d='M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z' /></svg>
             YouTube
           </a>
-          <a
-            href='https://www.facebook.com/share/1E6U716f8p/'
-            target='_blank'
-            rel='noreferrer'
-            aria-label='Visit EYEPEK on Facebook (opens in a new tab)'
-            className='inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-blue-500 hover:bg-blue-600 hover:text-white'
-          >
-            <svg aria-hidden='true' viewBox='0 0 24 24' className='h-5 w-5 fill-current'>
-              <path d='M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11 10.13 11.93v-8.43H7.08v-3.5h3.05V9.4c0-3.03 1.8-4.7 4.55-4.7 1.32 0 2.7.24 2.7.24v2.98h-1.52c-1.5 0-1.97.94-1.97 1.9v2.25h3.35l-.54 3.5h-2.81V24C19.61 23.07 24 18.1 24 12.07Z' />
-            </svg>
+          <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-blue-500 hover:bg-blue-600 hover:text-white'>
+            <svg aria-hidden='true' viewBox='0 0 24 24' className='h-5 w-5 fill-current'><path d='M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11 10.13 11.93v-8.43H7.08v-3.5h3.05V9.4c0-3.03 1.8-4.7 4.55-4.7 1.32 0 2.7.24 2.7.24v2.98h-1.52c-1.5 0-1.97.94-1.97 1.9v2.25h3.35l-.54 3.5h-2.81V24C19.61 23.07 24 18.1 24 12.07Z' /></svg>
             Facebook
           </a>
         </div>
@@ -42,6 +26,7 @@ const Footer = () => (
           <li><a href='/#student-support' className='hover:text-orange-300'>Services</a></li>
           <li><a href='/#campus' className='hover:text-orange-300'>Student Journey</a></li>
           <li><a href='/#admissions' className='hover:text-orange-300'>Admissions</a></li>
+          <li><Link to='/admission-checklist' className='hover:text-orange-300'>Free Admission Checklist</Link></li>
           <li><Link to='/guides' className='hover:text-orange-300'>Helpful Guides</Link></li>
           <li><a href='/privacy-policy.html' className='hover:text-orange-300'>Privacy Policy</a></li>
         </ul>
@@ -53,9 +38,7 @@ const Footer = () => (
         <p className='mt-5'><Link to='/contact' className='font-semibold text-slate-300 hover:text-orange-300'>Send us a message →</Link></p>
       </div>
     </div>
-    <div className='border-t border-white/10 px-6 py-5 text-center text-sm text-slate-400'>
-      © {new Date().getFullYear()} EYEPEK. All rights reserved.
-    </div>
+    <div className='border-t border-white/10 px-6 py-5 text-center text-sm text-slate-400'>© {new Date().getFullYear()} EYEPEK. All rights reserved.</div>
   </footer>
 );
 
