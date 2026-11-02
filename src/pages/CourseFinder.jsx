@@ -8,10 +8,10 @@ const levels = [
 ];
 
 const interests = [
-  { value: 'business', title: 'Business & management', detail: 'Business, teams, marketing or entrepreneurship' },
-  { value: 'technology', title: 'Computers & technology', detail: 'Software, computers or digital tools' },
-  { value: 'healthcare', title: 'Healthcare', detail: 'Patient care and health services' },
-  { value: 'unsure', title: 'I am still exploring', detail: 'Help me compare a few broad directions' },
+  { value: 'business', title: 'Business & management', detail: 'Business, teams, marketing or entrepreneurship', imagePosition: '0% center', imageAlt: 'Indian college students discussing a business project' },
+  { value: 'technology', title: 'Computers & technology', detail: 'Software, computers or digital tools', imagePosition: '50% center', imageAlt: 'Indian student learning programming in a computer lab' },
+  { value: 'healthcare', title: 'Healthcare', detail: 'Patient care and health services', imagePosition: '100% center', imageAlt: 'Nursing student practising in a clinical training lab' },
+  { value: 'unsure', title: 'I am still exploring', detail: 'Help me compare a few broad directions', imagePosition: '50% center', imageAlt: 'Students exploring different areas of study' },
 ];
 
 const courseInfo = {
@@ -94,9 +94,12 @@ function CourseFinder() {
               <legend className='px-2 text-lg font-bold text-blue-950'>2. What interests you most?</legend>
               <div className='mt-2 space-y-3'>
                 {interests.map((item) => (
-                  <label key={item.value} className={`flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition ${interest === item.value ? 'border-orange-400 bg-orange-50' : 'border-slate-200 hover:border-blue-300'}`}>
-                    <input type='radio' name='interest' value={item.value} checked={interest === item.value} onChange={() => setInterest(item.value)} className='mt-1 h-4 w-4 accent-orange-500' />
-                    <span><span className='block font-bold text-blue-950'>{item.title}</span><span className='mt-1 block text-sm text-slate-500'>{item.detail}</span></span>
+                  <label key={item.value} className={`flex cursor-pointer flex-col rounded-xl border p-4 transition ${interest === item.value ? 'border-orange-400 bg-orange-50' : 'border-slate-200 hover:border-blue-300'}`}>
+                    <span className='flex items-start gap-3'>
+                      <input type='radio' name='interest' value={item.value} checked={interest === item.value} onChange={() => setInterest(item.value)} className='mt-1 h-4 w-4 accent-orange-500' />
+                      <span><span className='block font-bold text-blue-950'>{item.title}</span><span className='mt-1 block text-sm text-slate-500'>{item.detail}</span></span>
+                    </span>
+                    <img src='/images/course-paths-triptych.png' alt={item.imageAlt} loading='lazy' className='mt-4 h-32 w-full rounded-lg object-cover sm:h-36' style={{ objectPosition: item.imagePosition }} />
                   </label>
                 ))}
               </div>
