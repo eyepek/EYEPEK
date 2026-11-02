@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Create a polished professional AI headshot with EYEPEK AI Studio.">
+  <title>EYEPEK AI Studio | Professional Headshots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container py-2">
+    <a class="navbar-brand" href="#"><span class="logo-mark">E</span><span class="brand-name">EYEPEK</span><span class="brand-divider">/</span><span class="brand-product">AI STUDIO</span></a>
+    <a class="nav-cta" href="#create">Create headshot <span>↗</span></a>
+  </div>
+</nav>
+<header class="hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="eyebrow"><i></i> YOUR PROFESSIONAL IMAGE, REIMAGINED</div>
+        <h1>Show up as your<br><em>best self.</em></h1>
+        <p class="hero-copy">Transform a simple photo into a polished professional headshot. Made for LinkedIn, your CV and your next big opportunity.</p>
+        <div class="hero-actions"><a class="primary-btn" href="#create">Create my headshot <span>→</span></a><span class="micro-note">Simple · Fast · Professional</span></div>
+        <div class="trust-row"><span>✦ Natural-looking portraits</span><span>✦ Multiple professional styles</span></div>
+      </div>
+      <div class="col-lg-6">
+        <div class="showcase">
+          <div class="showcase-top"><span>THE EYEPEK STANDARD</span><span class="live-dot">AI PORTRAIT STUDIO</span></div>
+          <div class="showcase-images">
+            <div class="sample sample-a"><div class="sample-person person-a"></div><span class="sample-tag">EVERYDAY PHOTO</span></div>
+            <div class="sample sample-b"><div class="sample-person person-b"></div><span class="sample-tag">PROFESSIONAL LOOK</span></div>
+          </div>
+          <div class="showcase-bottom"><div class="star-icon">✦</div><div><b>A confident first impression.</b><small>Your face. Your identity. A sharper profile.</small></div><span class="verified">✓</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+<section class="creator-section" id="create">
+  <div class="container">
+    <div class="section-intro"><div class="eyebrow centered">CREATE YOUR PORTRAIT</div><h2>Three steps to a stronger profile.</h2><p>Upload a clear photo, choose your style and generate your new headshot.</p></div>
+    <div class="creator-card">
+      <form id="headshotForm">
+        <div class="step-heading"><span>01</span><div><h3>Upload your photo</h3><p>Choose a clear, front-facing photo with your face visible.</p></div></div>
+        <label class="upload-area" id="uploadZone" for="photoInput">
+          <input id="photoInput" name="photo" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+          <span class="upload-symbol">↑</span><b id="uploadTitle">Drop your photo here or browse</b><small id="uploadSub">JPG, PNG or WEBP · Maximum 10 MB</small>
+          <img id="photoPreview" alt="Selected photo preview" hidden>
+        </label>
+        <div class="step-heading section-step"><span>02</span><div><h3>Choose your style</h3><p>Pick a look that fits the opportunity ahead.</p></div></div>
+        <div class="row g-3 style-grid">
+          <div class="col-sm-6"><label class="style-card selected"><input type="radio" name="style" value="corporate" checked><span class="style-symbol">▣</span><span><b>Corporate</b><small>Classic business style</small></span><i>✓</i></label></div>
+          <div class="col-sm-6"><label class="style-card"><input type="radio" name="style" value="formal"><span class="style-symbol">✧</span><span><b>Formal</b><small>Clean and timeless</small></span><i>✓</i></label></div>
+          <div class="col-sm-6"><label class="style-card"><input type="radio" name="style" value="creative"><span class="style-symbol">◇</span><span><b>Creative</b><small>Smart casual look</small></span><i>✓</i></label></div>
+          <div class="col-sm-6"><label class="style-card"><input type="radio" name="style" value="executive"><span class="style-symbol">★</span><span><b>Executive</b><small>Premium leadership look</small></span><i>✓</i></label></div>
+        </div>
+        <div class="step-heading section-step"><span>03</span><div><h3>Select a background</h3><p>Choose a clean setting for your portrait.</p></div></div>
+        <div class="background-picks">
+          <label><input type="radio" name="background" value="studio" checked><span class="swatch studio"></span>Studio</label>
+          <label><input type="radio" name="background" value="white"><span class="swatch white"></span>White</label>
+          <label><input type="radio" name="background" value="office"><span class="swatch office"></span>Office</label>
+        </div>
+        <label class="consent"><input type="checkbox" id="consent"><span>I confirm I have permission to use this photo and agree to its processing to create my headshot.</span></label>
+        <button class="primary-btn submit-btn" id="generateBtn" type="submit">Generate my AI headshot <span>✦</span></button>
+        <p class="privacy-note">Your original upload is removed after processing. Generated images remain on the server until deleted by the site owner.</p>
+      </form>
+      <div id="statusBox" class="status-box" hidden role="status"></div>
+      <div id="resultBox" class="result-panel" hidden><div class="result-title"><div><div class="eyebrow">YOUR NEW PORTRAIT</div><h3>Your headshot is ready.</h3></div><span class="ready-pill">✓ Ready</span></div><img id="resultImage" alt="Generated AI headshot"><a id="downloadBtn" class="primary-btn download-btn" href="#">Download headshot ↓</a><button id="startOver" class="reset-btn">Create another headshot</button></div>
+    </div>
+  </div>
+</section>
+<section class="steps-strip"><div class="container"><div class="row g-4"><div class="col-md-4"><span>01</span><h4>Upload</h4><p>Start with a clear photo of yourself.</p></div><div class="col-md-4"><span>02</span><h4>Personalise</h4><p>Choose a style and background you like.</p></div><div class="col-md-4"><span>03</span><h4>Download</h4><p>Save your new professional portrait.</p></div></div></div></section>
+</main>
+<footer><div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2"><a class="footer-brand" href="#"><span class="logo-mark">E</span> EYEPEK</a><span>© 2026 EYEPEK AI Studio. All rights reserved.</span><span>Made for your next opportunity.</span></div></footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body></html>
