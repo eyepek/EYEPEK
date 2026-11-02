@@ -9,9 +9,11 @@ import ServiceDetailPage from './pages/ServiceDetailPage'
 import GuidePage from './pages/GuidePage'
 import AdmissionChecklist from './pages/AdmissionChecklist'
 import CourseFinder from './pages/CourseFinder'
+import { LanguageProvider } from './LanguageContext'
 
 const App = () => {
   return (
+    <LanguageProvider>
     <div>
      <NavBar/>
 
@@ -28,6 +30,7 @@ const App = () => {
      </Routes>
      <Footer/>
     </div>
+    </LanguageProvider>
   )
 }
 

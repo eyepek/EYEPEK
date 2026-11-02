@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../LanguageContext';
 
-const Footer = () => (
+const Footer = () => {
+  const { t } = useLanguage();
+  return (
   <footer className='bg-slate-950 text-white'>
     <div className='mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_0.8fr_1fr] md:px-10'>
       <div>
         <img src='/images/eyepek-college-logo-light.svg' alt='EYEPEK' className='block h-auto w-[230px]' />
-        <p className='mt-4 max-w-md leading-7 text-slate-300'>Helping students make informed education and career choices, while supporting institutions with organised affiliation, compliance, and documentation guidance. Practical IT and technology support for everyday needs—all from one team.</p>
+        <p className='mt-4 max-w-md leading-7 text-slate-300'>{t('Helping students make informed education and career choices, while supporting institutions with organised affiliation, compliance, and documentation guidance. Practical IT and technology support for everyday needs—all from one team.', 'छात्रों को शिक्षा और करियर के बेहतर विकल्प समझने में मदद, और संस्थानों को संबद्धता, अनुपालन व दस्तावेज़ीकरण में व्यवस्थित मार्गदर्शन। रोज़मर्रा की तकनीकी सहायता भी—एक ही टीम से।')}</p>
         <div className='mt-5 flex flex-wrap gap-3'>
           <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-red-500 hover:bg-red-600 hover:text-white'>
             <svg aria-hidden='true' viewBox='0 0 24 24' className='h-5 w-5 fill-current'><path d='M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z' /></svg>
@@ -19,28 +22,30 @@ const Footer = () => (
         </div>
       </div>
       <div>
-        <h3 className='font-bold text-white'>Explore</h3>
+        <h3 className='font-bold text-white'>{t('Explore', 'देखें')}</h3>
         <ul className='mt-4 space-y-3 text-slate-300'>
-          <li><a href='/#about' className='hover:text-orange-300'>About EYEPEK</a></li>
-          <li><a href='/#learning' className='hover:text-orange-300'>Guidance &amp; Support</a></li>
-          <li><a href='/#student-support' className='hover:text-orange-300'>Services</a></li>
-          <li><a href='/#campus' className='hover:text-orange-300'>Student Journey</a></li>
-          <li><a href='/#admissions' className='hover:text-orange-300'>Admissions</a></li>
-          <li><Link to='/admission-checklist' className='hover:text-orange-300'>Free Admission Checklist</Link></li>
-          <li><Link to='/course-finder' className='hover:text-orange-300'>Course &amp; Career Finder</Link></li>
-          <li><Link to='/guides' className='hover:text-orange-300'>Helpful Guides</Link></li>
-          <li><a href='/privacy-policy.html' className='hover:text-orange-300'>Privacy Policy</a></li>
+          <li><a href='/#about' className='hover:text-orange-300'>{t('About EYEPEK', 'EYEPEK के बारे में')}</a></li>
+          <li><a href='/#learning' className='hover:text-orange-300'>{t('Guidance & Support', 'मार्गदर्शन और सहायता')}</a></li>
+          <li><a href='/#student-support' className='hover:text-orange-300'>{t('Services', 'सेवाएँ')}</a></li>
+          <li><a href='/#campus' className='hover:text-orange-300'>{t('Student Journey', 'छात्र यात्रा')}</a></li>
+          <li><a href='/#support-guide' className='hover:text-orange-300'>{t('Admission, Affiliation & Documents Guide', 'प्रवेश, संबद्धता और दस्तावेज़ मार्गदर्शन')}</a></li>
+          <li><a href='/#admissions' className='hover:text-orange-300'>{t('Admissions', 'प्रवेश')}</a></li>
+          <li><Link to='/admission-checklist' className='hover:text-orange-300'>{t('Free Admission Checklist', 'निःशुल्क प्रवेश दस्तावेज़ सूची')}</Link></li>
+          <li><Link to='/course-finder' className='hover:text-orange-300'>{t('Course & Career Finder', 'कोर्स और करियर खोजें')}</Link></li>
+          <li><Link to='/guides' className='hover:text-orange-300'>{t('Helpful Guides', 'उपयोगी मार्गदर्शिकाएँ')}</Link></li>
+          <li><a href='/privacy-policy.html' className='hover:text-orange-300'>{t('Privacy Policy', 'गोपनीयता नीति')}</a></li>
         </ul>
       </div>
       <div>
-        <h3 className='font-bold text-white'>Contact</h3>
-        <p className='mt-4 text-slate-300'>Course, admission &amp; document support</p>
+        <h3 className='font-bold text-white'>{t('Contact', 'संपर्क')}</h3>
+        <p className='mt-4 text-slate-300'>{t('Course, admission & document support', 'कोर्स, प्रवेश और दस्तावेज़ सहायता')}</p>
         <a href='tel:7004374250' className='mt-2 inline-block font-bold text-orange-300 hover:text-white'>7004374250</a>
-        <p className='mt-5'><Link to='/contact' className='font-semibold text-slate-300 hover:text-orange-300'>Send us a message →</Link></p>
+        <p className='mt-5'><Link to='/contact' className='font-semibold text-slate-300 hover:text-orange-300'>{t('Send us a message →', 'हमें संदेश भेजें →')}</Link></p>
       </div>
     </div>
     <div className='border-t border-white/10 px-6 py-5 text-center text-sm text-slate-400'>© {new Date().getFullYear()} EYEPEK. All rights reserved.</div>
   </footer>
-);
+  );
+};
 
 export default Footer;
