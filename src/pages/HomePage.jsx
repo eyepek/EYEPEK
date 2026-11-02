@@ -32,66 +32,50 @@ const highlights = [
   },
 ];
 
-const studentSupport = [
+const serviceCategories = [
   {
     number: '01',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Students studying together',
-    title: 'Education Services',
+    imageAlt: 'Students studying together on campus',
+    title: 'Education & Student Guidance',
     slug: 'education',
-    description: 'Course information, admission guidance, document checklists, and career support for students exploring BBA, BCA, MBA, MCA, and other courses. Confirm availability and eligibility with the relevant institution.',
+    label: 'For students',
+    description: 'Clear support for choosing a course, understanding admission steps, and planning your next education move.',
+    includes: ['Course and career guidance', 'Admission steps and document checklists', 'BBA, BCA, MBA, MCA and nursing options'],
     color: 'border-blue-700',
-    label: 'Courses & admissions',
   },
   {
     number: '02',
-    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'IT technician working with computer equipment',
-    title: 'IT Support Services',
-    slug: 'it-support',
-    description: 'Computer and laptop troubleshooting, software installation, operating system setup, printer support, Wi-Fi and networking help, data recovery guidance, remote support, and annual maintenance contracts.',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Business documents arranged on a desk',
+    title: 'College & Business Support',
+    slug: 'business-support',
+    label: 'For colleges and businesses',
+    description: 'Organised documentation and process guidance for institutions and day-to-day business needs.',
+    includes: ['Affiliation and compliance documentation', 'Renewal process checklists', 'Business documents and project reports'],
     color: 'border-orange-500',
-    label: 'Technology & repairs',
   },
   {
     number: '03',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Electrician working on a home electrical installation',
-    title: 'Home Services',
-    slug: 'home-services',
-    description: 'Home plumbing, electrician services, fan and light fitting, appliance installation and repair, AC installation support, CCTV installation, and everyday home maintenance requests.',
+    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'IT technician working with computer equipment',
+    title: 'IT & Computer Support',
+    slug: 'it-support',
+    label: 'Technology and repairs',
+    description: 'Practical technical help for students, home users, offices, and small businesses.',
+    includes: ['Computer and laptop troubleshooting', 'Software, printer and setup support', 'Wi-Fi, networking and CCTV assistance'],
     color: 'border-red-600',
-    label: 'Help around the home',
   },
   {
     number: '04',
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Business documents arranged on a desk',
-    title: 'Business & Institution Support',
-    slug: 'business-support',
-    description: 'Office IT setup, printer and network support, document organisation, project report assistance, and guidance with college affiliation and compliance paperwork. Official approvals remain the authority’s decision.',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Electrician working on a home installation',
+    title: 'Home Services',
+    slug: 'home-services',
+    label: 'Help around the home',
+    description: 'Get help coordinating everyday home maintenance, installation, and repair requests.',
+    includes: ['Plumbing and electrician services', 'Fan, light and appliance installation', 'AC support and home maintenance'],
     color: 'border-blue-700',
-    label: 'Business & college support',
-  },
-  {
-    number: '05',
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Professionals discussing plans together',
-    title: 'Guidance & Support',
-    slug: 'education',
-    description: 'Education and career guidance, course selection support, application steps, skill development direction, and help understanding which service is suitable for your needs.',
-    color: 'border-orange-500',
-    label: 'Practical next steps',
-  },
-  {
-    number: '06',
-    image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Computer equipment and technology accessories',
-    title: 'CCTV, Printer & Other Services',
-    slug: 'it-support',
-    description: 'CCTV and security camera setup, printer installation, server and office equipment support, Wi-Fi setup, routine maintenance, and tailored service requests for homes and small businesses.',
-    color: 'border-red-600',
-    label: 'More everyday solutions',
   },
 ];
 
@@ -201,33 +185,35 @@ const HomePage = () => (
               One team · many solutions
             </p>
             <h2 className='mt-3 text-3xl font-extrabold leading-tight text-blue-950 md:text-4xl'>Our <span className='text-orange-500'>Services</span></h2>
-            <p className='mt-2 max-w-2xl text-base leading-7 text-slate-600'>Complete solutions for students, homes, and businesses. Explore our education, IT, home maintenance, and business support services—all in one place.</p>
+            <p className='mt-2 max-w-2xl text-base leading-7 text-slate-600'>Choose the type of support you need. We have grouped our services for students, colleges and businesses, technology, and homes.</p>
           </div>
           <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
             Request a service <FaArrowRight aria-hidden='true' />
           </a>
         </div>
-        <div className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-          {studentSupport.map((item) => (
-            <article key={item.number} className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 border-t-4 ${item.color} bg-white/95 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10`}>
-              <div className='relative h-44 overflow-hidden bg-blue-50 sm:h-48'>
+        <div className='mt-8 grid gap-6 md:grid-cols-2'>
+          {serviceCategories.map((item) => (
+            <article key={item.slug} className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 border-t-4 ${item.color} bg-white/95 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10`}>
+              <div className='relative h-48 overflow-hidden bg-blue-50 sm:h-56'>
                 <img src={item.image} alt={item.imageAlt} loading='lazy' className='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
-                <div className='absolute inset-0 bg-gradient-to-t from-blue-950/65 via-blue-950/5 to-transparent transition duration-300 group-hover:from-blue-950/45' />
+                <div className='absolute inset-0 bg-gradient-to-t from-blue-950/55 via-transparent to-transparent' />
                 <span className='absolute bottom-3 left-4 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-blue-950 shadow-sm'>{item.number}</span>
               </div>
-              <div className='flex flex-1 flex-col p-5'>
-              <div className='flex items-center justify-between gap-3'>
-                <div className='flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl text-blue-800 ring-1 ring-blue-100 transition duration-300 group-hover:rotate-3 group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:ring-orange-100'>
-                  {item.number === '01' ? <FaUniversity aria-hidden='true' /> : item.number === '02' || item.number === '06' ? <FaTools aria-hidden='true' /> : item.number === '03' ? <FaGraduationCap aria-hidden='true' /> : <FaFileAlt aria-hidden='true' />}
+              <div className='flex flex-1 flex-col p-6'>
+                <div className='flex items-center justify-between gap-3'>
+                  <div className='flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl text-blue-800 ring-1 ring-blue-100 transition group-hover:bg-orange-50 group-hover:text-orange-600'>
+                    {item.slug === 'education' ? <FaGraduationCap aria-hidden='true' /> : item.slug === 'business-support' ? <FaUniversity aria-hidden='true' /> : item.slug === 'it-support' ? <FaTools aria-hidden='true' /> : <FaFileAlt aria-hidden='true' />}
+                  </div>
+                  <span className='rounded-full border border-orange-100 bg-orange-50 px-3 py-1 text-xs font-bold text-orange-700'>{item.label}</span>
                 </div>
-                <span className='rounded-full border border-orange-100 bg-orange-50 px-3 py-1 text-xs font-bold text-orange-700'>EYEPEK Services</span>
-              </div>
-              <p className='mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-700'>{item.label}</p>
-              <h3 className='mt-2 text-xl font-extrabold leading-snug text-blue-950 transition group-hover:text-blue-700'>{item.title}</h3>
-              <p className='mt-3 flex-1 text-[0.95rem] leading-7 text-slate-600'>{item.description}</p>
-              <a href={`/services/${item.slug}`} className='mt-6 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-3 font-bold text-blue-900 transition hover:border-orange-200 hover:bg-orange-50 group-hover:text-orange-700'>
-                View service details <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
-              </a>
+                <h3 className='mt-5 text-xl font-extrabold leading-snug text-blue-950 transition group-hover:text-blue-700'>{item.title}</h3>
+                <p className='mt-2 text-[0.95rem] leading-7 text-slate-600'>{item.description}</p>
+                <ul className='mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-2'>
+                  {item.includes.map((service) => <li key={service} className='flex items-start gap-2'><span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500' aria-hidden='true' />{service}</li>)}
+                </ul>
+                <a href={`/services/${item.slug}`} className='mt-6 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-3 font-bold text-blue-900 transition hover:border-orange-200 hover:bg-orange-50 group-hover:text-orange-700'>
+                  View service details <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
+                </a>
               </div>
             </article>
           ))}
