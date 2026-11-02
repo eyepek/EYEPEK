@@ -159,7 +159,7 @@ class _CourseChip extends StatelessWidget {
 Widget _notice() => Container(
   padding: const EdgeInsets.all(14),
   decoration: BoxDecoration(color: const Color(0xFFFFF6E9), borderRadius: BorderRadius.circular(16), border: Border.all(color: const Color(0xFFFFE1B8))),
-  child: const Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+  child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
     Icon(Icons.info_outline, color: Color(0xFF9A5A00), size: 19), SizedBox(width: 9),
     Expanded(child: Text(_t("Course availability, eligibility and approvals are decided by the relevant institutions and authorities. EYEPEK provides guidance and documentation support.", "कोर्स की उपलब्धता, पात्रता और मंज़ूरी संबंधित संस्थान तय करते हैं। EYEPEK मार्गदर्शन और दस्तावेज़ सहायता देता है।"), style: TextStyle(color: ink, fontSize: 11, height: 1.45))),
   ]),

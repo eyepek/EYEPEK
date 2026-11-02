@@ -41,7 +41,7 @@ const serviceCategories = [
     title: 'Admissions & Documents Support', titleHi: 'प्रवेश और दस्तावेज़ सहायता',
     slug: 'education',
     label: 'For students', labelHi: 'छात्रों के लिए',
-    description: 'Guidance from course selection and admission steps to getting documents ready.', descriptionHi: 'कोर्स चुनने, प्रवेश प्रक्रिया समझने और दस्तावेज़ तैयार करने में मार्गदर्शन।'
+    description: 'Guidance from course selection and admission steps to getting documents ready.', descriptionHi: 'कोर्स चुनने, प्रवेश प्रक्रिया समझने और दस्तावेज़ तैयार करने में मार्गदर्शन।',
     includes: ['Admission steps and document checklists', 'Course and career guidance', 'BBA, BCA, MBA, MCA and nursing options'], includesHi: ['प्रवेश के चरण और दस्तावेज़ चेकलिस्ट', 'कोर्स और करियर मार्गदर्शन', 'BBA, BCA, MBA, MCA और नर्सिंग विकल्प'],
     color: 'border-blue-700',
   },
