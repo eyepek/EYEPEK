@@ -7,6 +7,7 @@ import ContactUs from './pages/ContactUs'
 import Profile from './pages/Profile'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 import GuidePage from './pages/GuidePage'
+import AIHeadshotPage from './pages/AIHeadshotPage'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Route path='/services/:serviceSlug' element={<ServiceDetailPage/>}/>
       <Route path='/guides' element={<GuidePage/>}/>
       <Route path='/guides/:guideSlug' element={<GuidePage/>}/>
+      <Route path='/ai-headshot' element={<AIHeadshotPage/>}/>
      </Routes>
      <Footer/>
     </div>
