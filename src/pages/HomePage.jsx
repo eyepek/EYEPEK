@@ -338,19 +338,39 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='campus' className='bg-blue-950 text-white'>
-      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
-        <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-center'>
-          <div className='py-2'>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>{t("Build your future with EYEPEK","EYEPEK के साथ भविष्य बनाएँ")}</p>
-            <h2 className='mt-4 text-3xl font-extrabold leading-tight md:text-5xl'>{t("Make informed choices. Take confident steps towards your future.","सोच-समझकर विकल्प चुनें। अपने भविष्य की ओर आत्मविश्वास से बढ़ें।")}</h2>
-            <p className='mt-5 max-w-xl text-lg leading-8 text-blue-100'>{t('Choosing a course or planning your career is an important decision. Get clear guidance on course options, admission requirements, essential documents and the next steps—so you can plan ahead with confidence.', 'कोर्स चुनना या करियर की योजना बनाना अहम निर्णय है। कोर्स विकल्प, प्रवेश की ज़रूरतें, दस्तावेज़ और अगले कदम समझें—ताकि आप भरोसे से योजना बना सकें।')}</p>
-            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-orange-500 px-6 py-3.5 font-bold text-white transition hover:bg-orange-400'>{t('Get admission guidance', 'प्रवेश मार्गदर्शन पाएँ')} <span aria-hidden='true'>→</span></a>
+    <section id='campus' className='overflow-hidden bg-slate-50'>
+      <div className='mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20'>
+        <div className='grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14'>
+          <div>
+            <p className='inline-flex items-center gap-2 rounded-full bg-orange-100 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-orange-800'>
+              <FaGraduationCap aria-hidden='true' /> {t("Build your future with EYEPEK","EYEPEK के साथ भविष्य बनाएँ")}
+            </p>
+            <h2 className='mt-5 text-3xl font-extrabold leading-tight text-blue-950 sm:text-4xl md:text-5xl'>{t("From course choice to admission, know your next step.","कोर्स चुनने से प्रवेश तक—अपना अगला कदम समझें।")}</h2>
+            <p className='mt-5 max-w-xl text-lg leading-8 text-slate-600'>{t("Explore course options, check what to ask the college, and get your documents ready. We make the process easier to understand, one step at a time.","कोर्स के विकल्प जानें, कॉलेज से पूछने वाली बातें समझें और दस्तावेज़ तैयार करें। हम पूरी प्रक्रिया को आसान चरणों में समझने में मदद करते हैं।")}</p>
+            <ol className='mt-7 grid gap-3 sm:grid-cols-2'>
+              {[
+                [t("Choose a course","कोर्स चुनें"), t("Explore options that match your interests.","अपनी रुचि के अनुसार विकल्प देखें।")],
+                [t("Check with the college","कॉलेज से पुष्टि करें"), t("Ask about eligibility, fees and dates.","पात्रता, फीस और तारीखें पूछें।")],
+                [t("Prepare your documents","दस्तावेज़ तैयार करें"), t("Use the latest checklist from the college.","कॉलेज की नई चेकलिस्ट देखें।")],
+                [t("Apply with confidence","आत्मविश्वास से आवेदन करें"), t("Follow the institution’s application steps.","संस्थान के आवेदन चरणों का पालन करें।")],
+              ].map(([title, description], index) => (
+                <li key={title} className='flex gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm'>
+                  <span className='flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-extrabold text-blue-900'>{index + 1}</span>
+                  <span><strong className='block text-sm text-blue-950'>{title}</strong><span className='mt-1 block text-xs leading-5 text-slate-600'>{description}</span></span>
+                </li>
+              ))}
+            </ol>
+            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-orange-500 px-6 py-3.5 font-bold text-white shadow-md transition hover:bg-orange-600'>{t('Explore courses & admission help', 'कोर्स और प्रवेश सहायता देखें')} <span aria-hidden='true'>→</span></a>
+            <p className='mt-3 text-xs leading-5 text-slate-500'>{t("Eligibility, fees and admission decisions are confirmed by each college.","पात्रता, फीस और प्रवेश का निर्णय संबंधित कॉलेज तय करता है।")}</p>
           </div>
-          <figure className='group relative overflow-hidden rounded-3xl bg-blue-900 shadow-2xl shadow-black/20'>
-            <img className='block aspect-[4/3] max-h-[34rem] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/students-library.jpg' alt='Students sharing ideas and studying together (representative photo)' loading='lazy' />
-            <div className='absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent' aria-hidden='true' />
-            <figcaption className='absolute inset-x-0 bottom-0 px-6 py-6 text-sm font-semibold text-white sm:px-8 sm:py-8'>{t("Good conversations can open new possibilities.","अच्छी बातचीत नए रास्ते खोल सकती है।")}</figcaption>
+          <figure className='group relative overflow-hidden rounded-3xl bg-blue-100 shadow-xl'>
+            <img className='block aspect-[4/3] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]' src='/images/course-admission-guidance-ai.png' alt={t("AI-generated illustration of two students reviewing a course brochure and admission document checklist with a college adviser.","AI से बनाई गई चित्रात्मक छवि: दो छात्र कॉलेज सलाहकार के साथ कोर्स पुस्तिका और प्रवेश दस्तावेज़ सूची देख रहे हैं।")} loading='lazy' />
+            <div className='absolute inset-0 bg-gradient-to-t from-blue-950/75 via-transparent to-transparent' aria-hidden='true' />
+            <figcaption className='absolute inset-x-0 bottom-0 px-5 py-5 text-white sm:px-7 sm:py-7'>
+              <span className='inline-flex rounded-full border border-white/30 bg-blue-950/60 px-3 py-1 text-[11px] font-bold text-white backdrop-blur-sm'>{t("AI-generated illustration","AI से बनाई गई चित्रात्मक छवि")}</span>
+              <span className='mt-3 block text-lg font-bold sm:text-xl'>{t("Good guidance makes the next step clearer.","सही मार्गदर्शन अगला कदम आसान बनाता है।")}</span>
+              <span className='mt-1 block text-sm leading-6 text-blue-100'>{t("Courses · Admission · Documents","कोर्स · प्रवेश · दस्तावेज़")}</span>
+            </figcaption>
           </figure>
         </div>
       </div>
