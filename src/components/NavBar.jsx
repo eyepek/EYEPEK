@@ -25,6 +25,7 @@ const journeyLinks = [
   { label: 'Set Your Goals', detail: 'Choose a practical next step for your future', href: '/#about', icon: FaBullseye },
   { label: 'Admissions & Enquiries', detail: 'Ask us about courses and admission guidance', href: '/#admissions', icon: FaRegCalendarCheck },
   { label: 'Free Admission Checklist', detail: 'Build and print your document checklist', href: '/admission-checklist', icon: FaClipboardCheck },
+  { label: 'Course & Career Finder', detail: 'Explore courses that fit your interests', href: '/course-finder', icon: FaGraduationCap },
 ];
 
 const NavBar = () => {

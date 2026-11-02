@@ -8,6 +8,7 @@ import Profile from './pages/Profile'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 import GuidePage from './pages/GuidePage'
 import AdmissionChecklist from './pages/AdmissionChecklist'
+import CourseFinder from './pages/CourseFinder'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       <Route path='/guides' element={<GuidePage/>}/>
       <Route path='/guides/:guideSlug' element={<GuidePage/>}/>
       <Route path='/admission-checklist' element={<AdmissionChecklist/>}/>
+      <Route path='/course-finder' element={<CourseFinder/>}/>
       <Route path='/ai-headshot' element={<Navigate to='/' replace/>}/>
      </Routes>
      <Footer/>

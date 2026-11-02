@@ -177,12 +177,15 @@ const HomePage = () => (
             </article>
           ))}
         </div>
-        <div className='mt-8 flex flex-col gap-3 rounded-2xl border border-blue-100 bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:px-6'>
+        <div className='mt-8 flex flex-col gap-4 rounded-2xl border border-blue-100 bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:px-6'>
           <div>
-            <h3 className='font-bold text-blue-950'>Looking for clear answers before you decide?</h3>
-            <p className='mt-1 text-sm leading-6 text-slate-600'>Read practical guides about course admissions, college documentation and everyday IT support.</p>
+            <h3 className='font-bold text-blue-950'>Not sure which course may suit you?</h3>
+            <p className='mt-1 text-sm leading-6 text-slate-600'>Answer a few quick questions to explore course options, then read our practical student guides.</p>
           </div>
-          <a href='/guides' className='inline-flex shrink-0 items-center justify-center rounded-xl bg-blue-900 px-5 py-3 font-bold text-white transition hover:bg-blue-800'>Read helpful guides <FaArrowRight aria-hidden='true' /></a>
+          <div className='flex shrink-0 flex-wrap gap-3'>
+            <a href='/course-finder' className='inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 font-bold text-white transition hover:bg-orange-600'>Find a course <FaArrowRight aria-hidden='true' /></a>
+            <a href='/guides' className='inline-flex items-center justify-center rounded-xl border border-blue-200 px-5 py-3 font-bold text-blue-900 transition hover:bg-blue-50'>Read student guides</a>
+          </div>
         </div>
       </div>
     </section>
