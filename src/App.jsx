@@ -10,6 +10,7 @@ import GuidePage from './pages/GuidePage'
 import AdmissionChecklist from './pages/AdmissionChecklist'
 import CourseFinder from './pages/CourseFinder'
 import { LanguageProvider } from './LanguageContext'
+import AIChatWidget from './components/AIChatWidget'
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
       <Route path='/ai-headshot' element={<Navigate to='/' replace/>}/>
      </Routes>
      <Footer/>
+     <AIChatWidget/>
     </div>
     </LanguageProvider>
   )
