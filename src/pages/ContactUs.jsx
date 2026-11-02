@@ -25,6 +25,17 @@ export default function ContactUs() {
     window.location.href = url;
   };
 
+  const handleWhatsApp = () => {
+    const message = [
+      hi ? 'नमस्ते EYEPEK, मुझे जानकारी चाहिए।' : 'Hello EYEPEK, I would like some information.',
+      `${hi ? 'नाम' : 'Name'}: ${form.name || (hi ? 'नहीं दिया' : 'Not provided')}`,
+      `${hi ? 'फोन' : 'Phone'}: ${form.phone || (hi ? 'नहीं दिया' : 'Not provided')}`,
+      `${hi ? 'कोर्स' : 'Course'}: ${form.course || (hi ? 'अभी तय नहीं' : 'Not decided yet')}`,
+      `${hi ? 'सवाल' : 'Question'}: ${form.message || (hi ? 'कृपया कोर्स, पात्रता, फीस और दस्तावेज़ बताएँ।' : 'Please share course, eligibility, fee and document details.')}`,
+    ].join('\n');
+    window.open(`https://wa.me/917004374250?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <main className='min-h-[70vh] bg-slate-50 px-6 py-16 md:px-10 md:py-20'>
       <div className='mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr]'>
@@ -57,7 +68,11 @@ export default function ContactUs() {
             <label className='block text-sm font-semibold text-slate-700'>{t("Your question (optional)","आपका सवाल (ज़रूरी नहीं)")}
               <textarea rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className='mt-2 w-full rounded-md border border-slate-300 px-4 py-3 font-normal outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-100' placeholder={t("What would you like to know?","आप क्या जानना चाहते हैं?")} />
             </label>
-            <button type='submit' className='rounded-md bg-blue-800 px-6 py-3 font-bold text-white transition hover:bg-blue-900'>{t("Send enquiry by email","ईमेल से पूछताछ भेजें")}</button>
+            <div className='flex flex-wrap gap-3'>
+              <button type='submit' className='rounded-md bg-blue-800 px-6 py-3 font-bold text-white transition hover:bg-blue-900'>{t("Send enquiry by email","ईमेल से पूछताछ भेजें")}</button>
+              <button type='button' onClick={handleWhatsApp} className='rounded-md bg-emerald-600 px-6 py-3 font-bold text-white transition hover:bg-emerald-700'>{t("Continue on WhatsApp","WhatsApp पर जारी रखें")}</button>
+            </div>
+            <p className='text-xs text-slate-500'>{t("WhatsApp opens a draft for you to review and send.","WhatsApp पर संदेश का ड्राफ़्ट खुलेगा; भेजने से पहले उसे जाँच लें।")}</p>
             {status && <p role='status' className='rounded-md bg-blue-50 p-4 text-sm leading-6 text-blue-950'>{status} <a href={emailUrl} className='ml-1 font-bold underline'>Open email</a></p>}
           </form>
           <p className='mt-5 text-xs leading-5 text-slate-500'>Your enquiry will be addressed to info.eyepek@gmail.com. It is sent only after you press Send in your email app.</p>
