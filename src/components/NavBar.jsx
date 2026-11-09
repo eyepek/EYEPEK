@@ -93,7 +93,7 @@ const NavBar = () => {
             </div>
           </div>
           <div className='relative'>
-            <button type='button' onClick={() => { setServicesOpen(!servicesOpen); setGuidanceOpen(false); setJourneyOpen(false); }} aria-expanded={servicesOpen} aria-controls='services-dropdown' className='inline-flex items-center gap-2 text-left transition hover:text-red-600'>
+            <button type='button' onClick={() => { setServicesOpen(!servicesOpen); setGuidanceOpen(false); setJourneyOpen(false); }} aria-expanded={servicesOpen} aria-controls='services-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-left text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:w-auto lg:px-3.5 lg:py-2.5'>
               {t('Services', 'सेवाएँ')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='services-dropdown' className={`${servicesOpen ? 'block' : 'hidden'} mt-3 min-w-64 overflow-hidden rounded-lg border border-slate-100 bg-white py-2 shadow-lg lg:absolute lg:left-0 lg:top-full lg:mt-3 lg:w-72`}>
@@ -103,12 +103,12 @@ const NavBar = () => {
           </div>
           <div className='relative'>
             <button type='button' onClick={() => { setJourneyOpen(!journeyOpen); setGuidanceOpen(false); setServicesOpen(false); }} aria-expanded={journeyOpen} aria-controls='journey-dropdown' className='inline-flex items-center gap-2 text-left transition hover:text-red-600'>
-              {t('Student Resources', 'छात्र संसाधन')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${journeyOpen ? 'rotate-180' : ''}`} />
+              {t('Resources', 'संसाधन')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${journeyOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='journey-dropdown' className={`${journeyOpen ? 'block' : 'hidden'} mt-3 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl lg:absolute lg:right-0 lg:top-full lg:mt-4 lg:w-80`}>
               <div className='bg-blue-950 px-5 py-4 text-white'>
                 <p className='text-xs font-semibold uppercase tracking-widest text-orange-300'>{t('Your future starts here', 'आपका भविष्य यहाँ से शुरू होता है')}</p>
-                <p className='mt-1 text-base font-bold'>{t('Student Resources', 'छात्र संसाधन')}</p>
+                <p className='mt-1 text-base font-bold'>{t('Resources for students', 'छात्रों के लिए संसाधन')}</p>
                 <p className='mt-1 text-xs font-normal leading-relaxed text-blue-100'>{t('Find your next step with EYEPEK.', 'EYEPEK के साथ अपना अगला कदम जानें।')}</p>
               </div>
               <div className='p-2'>
@@ -120,7 +120,7 @@ const NavBar = () => {
               <a href='/#admissions' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>{t('Contact EYEPEK', 'EYEPEK से संपर्क करें')} <span aria-hidden='true'>→</span></a>
             </div>
           </div>
-          <a href='/#admissions' onClick={closeMenu} className='mt-1 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-5 py-3 text-center text-sm font-extrabold text-white shadow-md shadow-orange-500/25 transition duration-200 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 lg:mt-0 lg:ml-2 lg:px-5 lg:py-2.5'>{t('Admission Help', 'प्रवेश सहायता')}</a>
+          <a href='/contact' onClick={closeMenu} className='mt-1 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-5 py-3 text-center text-sm font-extrabold text-white shadow-lg shadow-orange-500/30 transition duration-200 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 lg:mt-0 lg:ml-2 lg:px-5 lg:py-2.5'>{t('Contact Us', 'संपर्क करें')}</a>
           <div className='pt-1 lg:hidden xl:block'><InstallAppButton /></div>
         </nav>
       </div>
