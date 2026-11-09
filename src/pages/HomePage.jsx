@@ -171,7 +171,10 @@ const HomePage = () => {
               <ul className="mt-6 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
                 {[t("Course & admission guidance", "कोर्स और प्रवेश मार्गदर्शन"), t("College affiliation documentation", "कॉलेज संबद्धता दस्तावेज़"), t("Compliance & renewal support", "अनुपालन और नवीनीकरण सहायता"), t("Institutional website support", "संस्थान की वेबसाइट सहायता")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
               </ul>
-              <a href="/services/education" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-950 px-6 py-3 font-bold text-white transition hover:bg-blue-800">{t("Explore Education", "Education सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="/services/education" className="inline-flex items-center gap-2 rounded-xl bg-blue-950 px-5 py-3 font-bold text-white transition hover:bg-blue-800">{t("Student Guidance", "छात्र मार्गदर्शन")} <FaArrowRight aria-hidden="true" /></a>
+                <a href="/services/business-support" className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-5 py-3 font-bold text-blue-950 transition hover:bg-blue-50">{t("Institution Support", "संस्थान सहायता")} <FaArrowRight aria-hidden="true" /></a>
+              </div>
             </div>
           </article>
           <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white shadow-lg shadow-blue-950/5">
