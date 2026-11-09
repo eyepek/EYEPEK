@@ -155,7 +155,6 @@ const ServiceDetailPage = () => {
         telephone: '+91-7004374250',
         email: 'Info.eyepek@gmail.com',
       },
-      areaServed: { '@type': 'Country', name: 'India' },
     });
 
     return () => {
