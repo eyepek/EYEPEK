@@ -70,12 +70,12 @@ const NavBar = () => {
         <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='rounded-md p-2 text-blue-950 lg:hidden'>
           <IoMdMenu className='h-8 w-8' />
         </button>
-        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-5 font-semibold text-blue-950 shadow-lg lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-5 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}>
-          <Link to='/' onClick={closeMenu} className='hover:text-red-600'>{t('Home', 'होम')}</Link>
-          <a href='/#about' onClick={closeMenu} className='hover:text-red-600'>{t('About', 'हमारे बारे में')}</a>
+        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-2 border-t border-slate-100 bg-white px-5 py-5 font-semibold text-blue-950 shadow-xl lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-1.5 lg:rounded-2xl lg:border lg:border-slate-200 lg:bg-slate-50 lg:p-2 lg:shadow-sm`}>
+          <Link to='/' onClick={closeMenu} className='rounded-xl px-4 py-3 text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:px-3.5 lg:py-2.5'>{t('Home', 'होम')}</Link>
+          <a href='/#about' onClick={closeMenu} className='rounded-xl px-4 py-3 text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:px-3.5 lg:py-2.5'>{t('About', 'हमारे बारे में')}</a>
           <div className='relative'>
-            <button type='button' onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); setJourneyOpen(false); }} aria-expanded={guidanceOpen} aria-controls='guidance-dropdown' className='inline-flex items-center gap-2 text-left transition hover:text-red-600'>
-              {t('Guidance & Support', 'मार्गदर्शन और सहायता')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${guidanceOpen ? 'rotate-180' : ''}`} />
+            <button type='button' onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); setJourneyOpen(false); }} aria-expanded={guidanceOpen} aria-controls='guidance-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-left text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:w-auto lg:px-3.5 lg:py-2.5'>
+              {t('Admission Help', 'प्रवेश सहायता')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${guidanceOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='guidance-dropdown' className={`${guidanceOpen ? 'block' : 'hidden'} mt-3 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl lg:absolute lg:left-0 lg:top-full lg:mt-4 lg:w-80`}>
               <div className='bg-blue-950 px-5 py-4 text-white'>
@@ -120,7 +120,7 @@ const NavBar = () => {
               <a href='/#admissions' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>{t('Contact EYEPEK', 'EYEPEK से संपर्क करें')} <span aria-hidden='true'>→</span></a>
             </div>
           </div>
-          <a href='/#admissions' onClick={closeMenu} className='rounded-md bg-orange-500 px-5 py-2.5 text-center text-white transition hover:bg-orange-600'>{t('Admission Help', 'प्रवेश सहायता')}</a>
+          <a href='/#admissions' onClick={closeMenu} className='mt-1 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-5 py-3 text-center text-sm font-extrabold text-white shadow-md shadow-orange-500/25 transition duration-200 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 lg:mt-0 lg:ml-2 lg:px-5 lg:py-2.5'>{t('Admission Help', 'प्रवेश सहायता')}</a>
           <div className='pt-1 lg:hidden xl:block'><InstallAppButton /></div>
         </nav>
       </div>
