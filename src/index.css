@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-/* EYEPEK visual identity: deep navy, refined teal and warm gold */
+/* EYEPEK visual identity: deep navy, warm orange and crisp cool neutrals */
 @theme {
-  --color-blue-50: #eff5f8;
-  --color-blue-100: #dce9ef;
-  --color-blue-200: #bdd4df;
+  --color-blue-50: #e5edf4;
+  --color-blue-100: #d2e0e9;
+  --color-blue-200: #b4cbd8;
   --color-blue-300: #91b5c7;
   --color-blue-400: #6092aa;
   --color-blue-500: #3e718b;
