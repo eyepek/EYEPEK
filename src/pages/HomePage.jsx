@@ -150,6 +150,57 @@ const HomePage = () => {
       </div>
     </section>
 
+
+    <section id="national-services" className="bg-white px-6 py-16 md:px-10 md:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-3xl">
+          <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange-600">{t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}</p>
+          <h2 className="mt-3 text-3xl font-black leading-tight text-blue-950 md:text-5xl">{t("Education and technology support, connected across India.", "शिक्षा और तकनीक की सहायता, पूरे भारत के लिए।")}</h2>
+          <p className="mt-5 text-lg leading-8 text-slate-600">{t("Choose the EYEPEK division that matches your requirement. Share an enquiry online and our team will confirm the scope, availability, service location and quotation before work begins.", "अपनी जरूरत के अनुसार EYEPEK का विभाग चुनें। ऑनलाइन पूछताछ भेजें; काम शुरू होने से पहले हमारी टीम सेवा, उपलब्धता, स्थान और शुल्क की पुष्टि करेगी।")}</p>
+        </div>
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <article className="group overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white shadow-lg shadow-blue-950/5">
+            <div className="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85" alt={t("Students collaborating on a campus", "कैंपस में साथ पढ़ते विद्यार्थी")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/75 to-transparent" />
+              <p className="absolute bottom-5 left-6 rounded-full border border-white/30 bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur">{t("Division 01", "विभाग 01")}</p>
+            </div>
+            <div className="p-7 md:p-9">
+              <h3 className="text-2xl font-black text-blue-950 md:text-3xl">{t("EYEPEK Education Services", "EYEPEK Education Services")}</h3>
+              <p className="mt-3 leading-7 text-slate-600">{t("Practical guidance and organised documentation support for students, colleges and educational institutions.", "छात्रों, कॉलेजों और शैक्षणिक संस्थानों के लिए व्यावहारिक मार्गदर्शन और व्यवस्थित दस्तावेज़ सहायता।")}</p>
+              <ul className="mt-6 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
+                {[t("Course & admission guidance", "कोर्स और प्रवेश मार्गदर्शन"), t("College affiliation documentation", "कॉलेज संबद्धता दस्तावेज़"), t("Compliance & renewal support", "अनुपालन और नवीनीकरण सहायता"), t("Institutional website support", "संस्थान की वेबसाइट सहायता")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
+              </ul>
+              <a href="/services/education" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-950 px-6 py-3 font-bold text-white transition hover:bg-blue-800">{t("Explore Education", "Education सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
+            </div>
+          </article>
+          <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white shadow-lg shadow-blue-950/5">
+            <div className="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=85" alt={t("IT technician working with computer equipment", "कंप्यूटर उपकरणों पर काम करते IT तकनीशियन")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/75 to-transparent" />
+              <p className="absolute bottom-5 left-6 rounded-full border border-white/30 bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur">{t("Division 02", "विभाग 02")}</p>
+            </div>
+            <div className="p-7 md:p-9">
+              <h3 className="text-2xl font-black text-blue-950 md:text-3xl">{t("EYEPEK IT Solutions", "EYEPEK IT Solutions")}</h3>
+              <p className="mt-3 leading-7 text-slate-600">{t("Technology assistance for individuals, offices, institutions and small businesses, delivered remotely or through verified local partners where available.", "व्यक्तियों, कार्यालयों, संस्थानों और छोटे व्यवसायों के लिए तकनीकी सहायता—ऑनलाइन या उपलब्ध सत्यापित स्थानीय पार्टनर के माध्यम से।")}</p>
+              <ul className="mt-6 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
+                {[t("Computer & laptop support", "कंप्यूटर और लैपटॉप सहायता"), t("Software & Windows setup", "सॉफ्टवेयर और Windows सेटअप"), t("Networking, printer & CCTV", "नेटवर्किंग, प्रिंटर और CCTV"), t("Websites, remote support & AMC", "वेबसाइट, रिमोट सहायता और AMC")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
+              </ul>
+              <a href="/services/it-support" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-bold text-white transition hover:bg-orange-400">{t("Explore IT Solutions", "IT सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
+            </div>
+          </article>
+        </div>
+        <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-blue-950 p-6 text-white md:flex-row md:items-center md:justify-between md:p-8">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-300">{t("Serving enquiries from across India", "भारत भर से पूछताछ आमंत्रित है")}</p>
+            <h3 className="mt-2 text-xl font-bold md:text-2xl">{t("Tell us what you need. We will help you plan the next step.", "अपनी जरूरत बताएँ। हम अगला कदम तय करने में मदद करेंगे।")}</h3>
+            <p className="mt-2 text-sm leading-6 text-blue-100">{t("Service availability depends on the type of work and location. We confirm this before accepting a booking.", "सेवा की उपलब्धता काम और स्थान पर निर्भर करेगी। बुकिंग स्वीकार करने से पहले इसकी पुष्टि की जाएगी।")}</p>
+          </div>
+          <a href="/contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-bold text-blue-950 transition hover:bg-orange-100">{t("Send an enquiry", "पूछताछ भेजें")} <FaArrowRight aria-hidden="true" /></a>
+        </div>
+      </div>
+    </section>
+
     <section id='learning' className='overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50/60'>
       <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end'>
