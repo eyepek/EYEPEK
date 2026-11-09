@@ -63,15 +63,15 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-10 md:py-4'>
+      <div className='mx-auto flex max-w-7xl items-center gap-5 px-4 py-3 sm:px-6 md:px-10 md:py-4'>
         <Link to='/' onClick={closeMenu} aria-label='EYEPEK home' className='shrink-0'>
           <img src='/images/eyepek-logo.svg' alt='EYEPEK' className='block h-auto w-[174px] sm:w-[210px] md:w-[230px]' />
         </Link>
         <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='rounded-md p-2 text-blue-950 lg:hidden'>
           <IoMdMenu className='h-8 w-8' />
         </button>
-        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-2 border-t border-slate-100 bg-white px-5 py-5 font-semibold text-blue-950 shadow-xl lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-1.5 lg:rounded-2xl lg:border lg:border-slate-200 lg:bg-slate-50 lg:p-2 lg:shadow-sm`}>
-          <Link to='/' onClick={closeMenu} className='rounded-xl px-4 py-3 text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:px-3.5 lg:py-2.5'>{t('Home', 'होम')}</Link>
+        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-2 border-t border-slate-100 bg-white px-5 py-5 font-semibold text-blue-950 shadow-xl lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:justify-between lg:gap-1 lg:rounded-2xl lg:border lg:border-slate-200 lg:bg-slate-50 lg:px-2 lg:py-1.5 lg:shadow-sm`}>
+          <Link to='/' onClick={closeMenu} className='rounded-xl px-4 py-3 text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:px-2.5 lg:py-2'>{t('Home', 'होम')}</Link>
           <a href='/#about' onClick={closeMenu} className='rounded-xl px-4 py-3 text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:px-3.5 lg:py-2.5'>{t('About', 'हमारे बारे में')}</a>
           <div className='relative'>
             <button type='button' onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); setJourneyOpen(false); }} aria-expanded={guidanceOpen} aria-controls='guidance-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-left text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:w-auto lg:px-3.5 lg:py-2.5'>
