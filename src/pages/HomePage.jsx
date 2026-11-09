@@ -9,7 +9,7 @@ const highlights = [
     title: 'Tell us what you need', titleHi: 'अपनी ज़रूरत बताएँ',
     description: 'Whether it is education guidance, college documentation, IT help, or a business requirement, start by sharing what you are looking for.', descriptionHi: 'शिक्षा, कॉलेज के दस्तावेज़, आईटी या व्यवसाय—बताएँ कि आपको किस मदद की ज़रूरत है।',
     color: 'border-orange-500',
-    accent: 'bg-[#fff0df]0',
+    accent: 'bg-orange-500',
     href: '#student-support',
     linkLabel: 'Explore our services', linkLabelHi: 'हमारी सेवाएँ देखें',
   },
@@ -114,7 +114,7 @@ const HomePage = () => {
             {t('Your trusted support partner for course and admission guidance, college affiliation documentation, and practical technology and business services. Explore your options, understand the process, and get clear support at every step.', 'कोर्स और प्रवेश मार्गदर्शन, कॉलेज संबद्धता के दस्तावेज़ तथा तकनीकी और व्यवसाय सेवाओं के लिए EYEPEK आपका सहयोगी है। विकल्प समझें और हर कदम पर साफ़ सहायता पाएँ।')}
           </p>
           <div className='mt-9 flex flex-wrap gap-4'>
-            <a href='#admissions' className='rounded-md bg-[#fff0df]0 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>{t('Explore Education Services', 'शिक्षा सेवाएँ देखें')} <span aria-hidden='true'>→</span></a>
+            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>{t('Explore Education Services', 'शिक्षा सेवाएँ देखें')} <span aria-hidden='true'>→</span></a>
             <a href='/contact' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-[#f4f7fb] hover:text-blue-950'>{t("Send an enquiry","सवाल पूछें")}</a>
             <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>{t("Speak with our team","हमारी टीम से बात करें")}</a>
           </div>
@@ -136,7 +136,7 @@ const HomePage = () => {
                 ['03', t('For organisations', 'संगठनों के लिए'), t('Compliance paperwork, renewals and practical technology support', 'अनुपालन कागज़ात, नवीनीकरण और तकनीकी सहायता')],
               ].map(([number, title, description]) => (
                 <div key={number} className='flex gap-4 rounded-2xl border border-white/15 bg-blue-950/35 p-4'>
-                  <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#fff0df]0 font-black text-white'>{number}</span>
+                  <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-500 font-black text-white'>{number}</span>
                   <div>
                     <h3 className='font-bold text-white'>{title}</h3>
                     <p className='mt-1 text-sm leading-6 text-blue-100'>{description}</p>
@@ -169,7 +169,7 @@ const HomePage = () => {
                 <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-[#f4f7fb]/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">04</span>{t("IT & Technical Services", "IT और तकनीकी सेवाएँ")}</span>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#fff0df]0 px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400">{t("Get in touch", "संपर्क करें")} <FaArrowRight aria-hidden="true" /></a>
+                <a href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400">{t("Get in touch", "संपर्क करें")} <FaArrowRight aria-hidden="true" /></a>
                 <a href="#student-support" className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-6 py-3.5 font-bold text-white transition hover:bg-[#f4f7fb]/10">{t("Explore services", "सेवाएँ देखें")}</a>
               </div>
             </div>
@@ -219,7 +219,7 @@ const HomePage = () => {
               <ul className="mt-6 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
                 {[t("Computer & laptop support", "कंप्यूटर और लैपटॉप सहायता"), t("Software & Windows setup", "सॉफ्टवेयर और Windows सेटअप"), t("Networking, printer & CCTV", "नेटवर्किंग, प्रिंटर और CCTV"), t("Websites, remote support & AMC", "वेबसाइट, रिमोट सहायता और AMC")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
               </ul>
-              <a href="/services/it-support" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#fff0df]0 px-6 py-3 font-bold text-white transition hover:bg-orange-400">{t("Explore IT Solutions", "IT सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
+              <a href="/services/it-support" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-bold text-white transition hover:bg-orange-400">{t("Explore IT Solutions", "IT सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
             </div>
           </article>
         </div>
@@ -264,7 +264,7 @@ const HomePage = () => {
             <p className='mt-1 text-sm leading-6 text-slate-600'>{t("Answer a few quick questions to explore course options, then read our practical student guides.","कोर्स विकल्प जानने के लिए कुछ सवालों के जवाब दें, फिर छात्र मार्गदर्शिकाएँ देखें।")}</p>
           </div>
           <div className='flex shrink-0 flex-wrap gap-3'>
-            <a href='/course-finder' className='inline-flex items-center justify-center rounded-xl bg-[#fff0df]0 px-5 py-3 font-bold text-white transition hover:bg-orange-600'>{t('Find a course', 'कोर्स खोजें')} <FaArrowRight aria-hidden='true' /></a>
+            <a href='/course-finder' className='inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 font-bold text-white transition hover:bg-orange-600'>{t('Find a course', 'कोर्स खोजें')} <FaArrowRight aria-hidden='true' /></a>
             <a href='/guides' className='inline-flex items-center justify-center rounded-xl border border-blue-200 px-5 py-3 font-bold text-blue-900 transition hover:bg-[#e7eff7]'>{t("Read student guides","छात्र मार्गदर्शिकाएँ पढ़ें")}</a>
           </div>
         </div>
@@ -278,13 +278,13 @@ const HomePage = () => {
         <div className='flex flex-col gap-6 md:flex-row md:items-end md:justify-between'>
           <div className='max-w-3xl'>
             <p className='inline-flex items-center gap-2 rounded-full border border-orange-200 bg-[#fff0df] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-orange-700'>
-              <span className='h-2 w-2 rounded-full bg-[#fff0df]0' aria-hidden='true' />
+              <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' />
               One team · many solutions
             </p>
             <h2 className='mt-3 text-3xl font-extrabold leading-tight text-blue-950 md:text-4xl'>{t('Our', 'हमारी')} <span className='text-orange-500'>{t('Services', 'सेवाएँ')}</span></h2>
             <p className='mt-2 max-w-2xl text-base leading-7 text-slate-600'>{t('Start with admission and college affiliation support. Explore our IT, computer, business, and home services after that.', 'पहले प्रवेश और कॉलेज संबद्धता सहायता देखें। इसके बाद IT, कंप्यूटर, व्यवसाय और घरेलू सेवाओं के बारे में जानें।')}</p>
           </div>
-          <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#fff0df]0 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
+          <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
             {t('Request a service', 'सेवा के लिए पूछें')} <FaArrowRight aria-hidden='true' />
           </a>
         </div>
@@ -306,7 +306,7 @@ const HomePage = () => {
                 <h3 className='mt-5 text-xl font-extrabold leading-snug text-blue-950 transition group-hover:text-blue-700'>{t(item.title, item.titleHi)}</h3>
                 <p className='mt-2 text-[0.95rem] leading-7 text-slate-600'>{t(item.description, item.descriptionHi)}</p>
                 <ul className='mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-2'>
-                  {item.includes.map((service, index) => <li key={service} className='flex items-start gap-2'><span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#fff0df]0' aria-hidden='true' />{t(service, item.includesHi[index])}</li>)}
+                  {item.includes.map((service, index) => <li key={service} className='flex items-start gap-2'><span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500' aria-hidden='true' />{t(service, item.includesHi[index])}</li>)}
                 </ul>
                 <a href={`/services/${item.slug}`} className='mt-6 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-[#e7eff7] px-4 py-3 font-bold text-blue-900 transition hover:border-orange-200 hover:bg-[#fff0df] group-hover:text-orange-700'>
                   {t('View service details', 'सेवा की जानकारी देखें')} <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
@@ -381,7 +381,7 @@ const HomePage = () => {
 
           <div>
             <p className='inline-flex items-center gap-2 rounded-full border border-blue-100 bg-[#f4f7fb] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-800 shadow-sm'>
-              <span className='h-2 w-2 rounded-full bg-[#fff0df]0' aria-hidden='true' /> Our main support
+              <span className='h-2 w-2 rounded-full bg-orange-500' aria-hidden='true' /> Our main support
             </p>
             <h2 className='mt-5 text-3xl font-black leading-tight tracking-tight text-blue-950 sm:text-4xl md:text-5xl'>
               {t('Admission and', 'प्रवेश और')} <span className='text-orange-500'>{t('college affiliation', 'कॉलेज संबद्धता')}</span> {t('guidance.', 'मार्गदर्शन।')}
@@ -413,7 +413,7 @@ const HomePage = () => {
             </div>
 
             <div className='mt-8 flex flex-wrap items-center gap-3'>
-              <a href='#admissions' className='inline-flex items-center justify-center gap-2 rounded-xl bg-[#fff0df]0 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>{t('Admission support', 'प्रवेश सहायता')} <FaArrowRight aria-hidden='true' /></a>
+              <a href='#admissions' className='inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>{t('Admission support', 'प्रवेश सहायता')} <FaArrowRight aria-hidden='true' /></a>
               <a href='/services/business-support' className='inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-[#f4f7fb] px-6 py-3.5 font-bold text-blue-900 transition hover:bg-[#e7eff7]'>{t('College support', 'कॉलेज सहायता')} <FaArrowRight aria-hidden='true' /></a>
             </div>
             <p className='mt-5 text-xs leading-5 text-slate-500'>{t('EYEPEK provides process and documentation guidance. Admissions, affiliation, AICTE decisions, and approvals are made by the relevant institution or authority.', 'EYEPEK प्रक्रिया और दस्तावेज़ों में मार्गदर्शन देता है। प्रवेश, संबद्धता, AICTE और मंज़ूरी के निर्णय संबंधित संस्थान या प्राधिकरण लेते हैं।')}</p>
@@ -444,7 +444,7 @@ const HomePage = () => {
                 </li>
               ))}
             </ol>
-            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-[#fff0df]0 px-6 py-3.5 font-bold text-white shadow-md transition hover:bg-orange-600'>{t('Explore courses & admission help', 'कोर्स और प्रवेश सहायता देखें')} <span aria-hidden='true'>→</span></a>
+            <a href='#admissions' className='mt-8 inline-flex items-center gap-3 rounded-lg bg-orange-500 px-6 py-3.5 font-bold text-white shadow-md transition hover:bg-orange-600'>{t('Explore courses & admission help', 'कोर्स और प्रवेश सहायता देखें')} <span aria-hidden='true'>→</span></a>
             <p className='mt-3 text-xs leading-5 text-slate-500'>{t("Eligibility, fees and admission decisions are confirmed by each college.","पात्रता, फीस और प्रवेश का निर्णय संबंधित कॉलेज तय करता है।")}</p>
           </div>
           <figure className='group relative overflow-hidden rounded-3xl bg-blue-100 shadow-xl'>
@@ -478,7 +478,7 @@ const HomePage = () => {
             <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-900 group-hover:text-orange-600'>{t('Explore institution support', 'संस्थान सहायता देखें')} <FaArrowRight aria-hidden='true' /></span>
           </a>
           <a href='/services/education' className='group rounded-2xl border border-orange-100 bg-gradient-to-br from-[#fff0df] to-[#f4f7fb] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl'>
-            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-[#fff0df]0 text-xl text-white'><FaGraduationCap aria-hidden='true' /></span>
+            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500 text-xl text-white'><FaGraduationCap aria-hidden='true' /></span>
             <p className='mt-5 text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('For students', 'विद्यार्थियों के लिए')}</p>
             <h3 className='mt-2 text-xl font-black text-blue-950'>{t('Student Counselling', 'विद्यार्थी काउंसलिंग')}</h3>
             <p className='mt-3 text-sm leading-6 text-slate-600'>{t('Course selection, college options, eligibility questions, admission steps and document checklists.', 'कोर्स चयन, कॉलेज विकल्प, पात्रता संबंधी सवाल, प्रवेश प्रक्रिया और दस्तावेज़ चेकलिस्ट।')}</p>
@@ -508,7 +508,7 @@ const HomePage = () => {
           <div className='mt-5 flex flex-wrap gap-3 md:mt-0'>
             <a href='/guides' className='rounded-lg border border-blue-200 bg-[#f4f7fb] px-4 py-2.5 text-sm font-bold text-blue-950 hover:bg-blue-100'>{t('Read guides', 'गाइड पढ़ें')}</a>
             <a href='/admission-checklist' className='rounded-lg border border-blue-200 bg-[#f4f7fb] px-4 py-2.5 text-sm font-bold text-blue-950 hover:bg-blue-100'>{t('Admission checklist', 'प्रवेश चेकलिस्ट')}</a>
-            <a href='/course-finder' className='rounded-lg bg-[#fff0df]0 px-4 py-2.5 text-sm font-bold text-white hover:bg-orange-600'>{t('Find a course', 'कोर्स खोजें')}</a>
+            <a href='/course-finder' className='rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-bold text-white hover:bg-orange-600'>{t('Find a course', 'कोर्स खोजें')}</a>
           </div>
         </div>
       </div>
@@ -544,7 +544,7 @@ const HomePage = () => {
             <p className='mt-3 max-w-2xl text-base leading-7 text-blue-100'>{t('Explore popular programmes and contact our team for guidance on course fit, eligibility questions, admission steps and required documents.', 'लोकप्रिय कोर्स देखें और उपयुक्तता, पात्रता संबंधी सवाल, प्रवेश प्रक्रिया व दस्तावेज़ों के लिए हमारी टीम से मार्गदर्शन लें।')}</p>
           </div>
           <div className='flex flex-wrap gap-3'>
-            <a href='/contact' className='inline-flex shrink-0 items-center justify-center rounded-lg bg-[#fff0df]0 px-6 py-3 font-bold text-white transition hover:bg-orange-400'>{t('Get course guidance', 'कोर्स मार्गदर्शन पाएँ')} <span className='ml-2' aria-hidden='true'>→</span></a>
+            <a href='/contact' className='inline-flex shrink-0 items-center justify-center rounded-lg bg-orange-500 px-6 py-3 font-bold text-white transition hover:bg-orange-400'>{t('Get course guidance', 'कोर्स मार्गदर्शन पाएँ')} <span className='ml-2' aria-hidden='true'>→</span></a>
             <a href='https://wa.me/917004374250?text=Namaste%20EYEPEK%2C%20mujhe%20course%20aur%20admission%20ki%20jaankari%20chahiye.' target='_blank' rel='noreferrer' className='inline-flex shrink-0 items-center justify-center rounded-lg border border-white/40 px-5 py-3 font-bold text-white transition hover:bg-[#f4f7fb]/10'>{t('Ask on WhatsApp', 'WhatsApp पर पूछें')}</a>
           </div>
         </div>
