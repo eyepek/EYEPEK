@@ -459,6 +459,61 @@ const HomePage = () => {
       </div>
     </section>
 
+    <section id='explore-eyepek' className='bg-white'>
+      <div className='mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20'>
+        <div className='flex flex-col gap-5 md:flex-row md:items-end md:justify-between'>
+          <div className='max-w-3xl'>
+            <p className='text-sm font-extrabold uppercase tracking-[0.18em] text-orange-600'>{t('Explore what EYEPEK can do for you', 'जानें EYEPEK आपकी कैसे मदद कर सकता है')}</p>
+            <h2 className='mt-3 text-3xl font-black leading-tight text-blue-950 md:text-5xl'>{t('Practical services. Clear guidance. Your next step starts here.', 'उपयोगी सेवाएँ। स्पष्ट मार्गदर्शन। आपका अगला कदम यहीं से।')}</h2>
+            <p className='mt-4 max-w-2xl text-base leading-8 text-slate-600'>{t('Whether you are a student, college representative or business owner, explore the support you need and contact our team for a clear discussion about your requirements.', 'आप विद्यार्थी हों, कॉलेज प्रतिनिधि हों या व्यवसाय से जुड़े हों—अपनी ज़रूरत के अनुसार सेवा चुनें और हमारी टीम से बात करें।')}</p>
+          </div>
+          <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-blue-950 px-6 py-3.5 font-bold text-white transition hover:bg-blue-800'>{t('Discuss your requirement', 'अपनी ज़रूरत बताएँ')} <FaArrowRight aria-hidden='true' /></a>
+        </div>
+        <div className='mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
+          <a href='/services/business-support' className='group rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl'>
+            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-blue-950 text-xl text-white'><FaUniversity aria-hidden='true' /></span>
+            <p className='mt-5 text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('For institutions', 'संस्थानों के लिए')}</p>
+            <h3 className='mt-2 text-xl font-black text-blue-950'>{t('College Affiliation', 'कॉलेज संबद्धता')}</h3>
+            <p className='mt-3 text-sm leading-6 text-slate-600'>{t('Affiliation process guidance, university documentation, compliance records and renewal support.', 'संबद्धता प्रक्रिया, विश्वविद्यालय के दस्तावेज़, अनुपालन रिकॉर्ड और नवीनीकरण में मार्गदर्शन।')}</p>
+            <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-900 group-hover:text-orange-600'>{t('Explore institution support', 'संस्थान सहायता देखें')} <FaArrowRight aria-hidden='true' /></span>
+          </a>
+          <a href='/services/education' className='group rounded-2xl border border-orange-100 bg-gradient-to-br from-orange-50 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl'>
+            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500 text-xl text-white'><FaGraduationCap aria-hidden='true' /></span>
+            <p className='mt-5 text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('For students', 'विद्यार्थियों के लिए')}</p>
+            <h3 className='mt-2 text-xl font-black text-blue-950'>{t('Student Counselling', 'विद्यार्थी काउंसलिंग')}</h3>
+            <p className='mt-3 text-sm leading-6 text-slate-600'>{t('Course selection, college options, eligibility questions, admission steps and document checklists.', 'कोर्स चयन, कॉलेज विकल्प, पात्रता संबंधी सवाल, प्रवेश प्रक्रिया और दस्तावेज़ चेकलिस्ट।')}</p>
+            <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-900 group-hover:text-orange-600'>{t('Explore student guidance', 'छात्र मार्गदर्शन देखें')} <FaArrowRight aria-hidden='true' /></span>
+          </a>
+          <a href='/services/business-support' className='group rounded-2xl border border-blue-100 bg-gradient-to-br from-slate-50 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl'>
+            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-blue-800 text-xl text-white'><FaFileAlt aria-hidden='true' /></span>
+            <p className='mt-5 text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('For colleges', 'कॉलेजों के लिए')}</p>
+            <h3 className='mt-2 text-xl font-black text-blue-950'>{t('AICTE Documentation', 'AICTE दस्तावेज़ सहायता')}</h3>
+            <p className='mt-3 text-sm leading-6 text-slate-600'>{t('Support organising applicable AICTE-related documents, records and compliance information. Approval decisions remain with the authority.', 'जहाँ लागू हो AICTE से जुड़े दस्तावेज़, रिकॉर्ड और अनुपालन जानकारी व्यवस्थित करने में सहायता। मंज़ूरी का निर्णय प्राधिकरण करता है।')}</p>
+            <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-900 group-hover:text-orange-600'>{t('Explore documentation support', 'दस्तावेज़ सहायता देखें')} <FaArrowRight aria-hidden='true' /></span>
+          </a>
+          <a href='/services/it-support' className='group rounded-2xl border border-orange-100 bg-gradient-to-br from-orange-50/70 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl'>
+            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-xl text-white'><FaTools aria-hidden='true' /></span>
+            <p className='mt-5 text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('For homes & offices', 'घर और कार्यालयों के लिए')}</p>
+            <h3 className='mt-2 text-xl font-black text-blue-950'>{t('IT & Technical Services', 'IT और तकनीकी सेवाएँ')}</h3>
+            <p className='mt-3 text-sm leading-6 text-slate-600'>{t('Computer troubleshooting, software installation, printer support, networking, CCTV and remote assistance.', 'कंप्यूटर समस्या समाधान, सॉफ्टवेयर इंस्टॉलेशन, प्रिंटर, नेटवर्किंग, CCTV और रिमोट सहायता।')}</p>
+            <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-900 group-hover:text-orange-600'>{t('Explore IT services', 'IT सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></span>
+          </a>
+        </div>
+        <div className='mt-8 rounded-2xl border border-blue-100 bg-blue-50/70 p-6 md:flex md:items-center md:justify-between md:gap-8'>
+          <div>
+            <p className='text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('Free information resources', 'मुफ़्त जानकारी')}</p>
+            <h3 className='mt-2 text-xl font-black text-blue-950'>{t('Prepare before you apply or enquire.', 'आवेदन या पूछताछ से पहले तैयारी करें।')}</h3>
+            <p className='mt-2 text-sm leading-6 text-slate-600'>{t('Browse practical guides, use the admission checklist and explore course options.', 'उपयोगी गाइड पढ़ें, प्रवेश चेकलिस्ट देखें और कोर्स विकल्प जानें।')}</p>
+          </div>
+          <div className='mt-5 flex flex-wrap gap-3 md:mt-0'>
+            <a href='/guides' className='rounded-lg border border-blue-200 bg-white px-4 py-2.5 text-sm font-bold text-blue-950 hover:bg-blue-100'>{t('Read guides', 'गाइड पढ़ें')}</a>
+            <a href='/admission-checklist' className='rounded-lg border border-blue-200 bg-white px-4 py-2.5 text-sm font-bold text-blue-950 hover:bg-blue-100'>{t('Admission checklist', 'प्रवेश चेकलिस्ट')}</a>
+            <a href='/course-finder' className='rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-bold text-white hover:bg-orange-600'>{t('Find a course', 'कोर्स खोजें')}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id='faq' className='bg-slate-50'>
       <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>{t("Quick answers","आम सवालों के जवाब")}</p>
