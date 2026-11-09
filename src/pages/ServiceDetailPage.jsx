@@ -9,9 +9,12 @@ const servicePages = {
     processTitle: 'How admission guidance works',
     process: ['Choose a course and shortlist colleges.', 'Confirm eligibility, fees, availability and dates with the college.', 'Prepare the documents on the institution’s latest checklist.', 'Apply directly to the institution; it makes the admission decision.'],
     metaTitle: 'Admission Guidance & Documents Support | EYEPEK',
-    description: 'Get guidance on course options, college admission steps, eligibility questions, application documents, and career pathways with EYEPEK.',
-    intro: 'Understand your course options, admission steps, and the documents to prepare.',
+    description: 'EYEPEK supports students with course and admission guidance, online tutoring, subject-wise doubt-solving, homework support, study planning and career direction.',
+    intro: 'Learn with guided online tutoring, clear your doubts, plan your studies, and understand your next education step.',
     services: [
+      'Online one-to-one and small-group tutoring for school and college students',
+      'Subject-wise doubt-solving, homework and assignment guidance',
+      'Learning support for school, college and competitive-exam preparation',
       'Course and career guidance for BBA, BCA, MBA, MCA, and other courses',
       'Admission process information and application-step guidance',
       'Admission document checklists and document organisation',
@@ -22,9 +25,13 @@ const servicePages = {
   'it-support': {
     title: 'IT & Computer Support Services',
     metaTitle: 'IT & Computer Support Services | EYEPEK',
-    description: 'EYEPEK IT support includes computer troubleshooting, software and operating system installation, printer support, Wi-Fi, networking, CCTV, and maintenance assistance.',
-    intro: 'Practical technical support for home users, students, offices, and small businesses.',
+    description: 'EYEPEK provides website design and development, data entry and Excel support, digital documentation, computer troubleshooting, software installation, printer, Wi-Fi, networking, CCTV and IT maintenance services.',
+    intro: 'Build your digital presence, organise your data, and get dependable technical support for study, work and business.',
     services: [
+      'Website design, development, redesign and ongoing maintenance',
+      'Business websites, landing pages and basic e-commerce website support',
+      'Data entry, Excel spreadsheets, data cleaning and data organisation',
+      'Reports, documentation formatting and digital record management',
       'Computer and laptop troubleshooting and repair support',
       'Windows and software installation support',
       'Printer installation, configuration, and troubleshooting',
@@ -33,7 +40,7 @@ const servicePages = {
       'Server and office equipment assistance',
       'Remote support and maintenance requests, subject to availability',
     ],
-    note: 'Please contact EYEPEK to confirm service availability, visit arrangements, and pricing before booking.',
+    note: 'Website scope, data volume, delivery timelines, technical requirements and pricing are confirmed after reviewing your request. Share only the minimum data required and never send passwords or sensitive personal records through public forms.',
   },
   'home-services': {
     title: 'Home Maintenance Services',
@@ -74,7 +81,7 @@ const serviceHindi = {
   intro:'कोर्स विकल्प, प्रवेश प्रक्रिया और तैयार करने वाले दस्तावेज़ आसान भाषा में समझें।',
   processTitle:'प्रवेश मार्गदर्शन कैसे काम करता है',
   process:['कोर्स चुनें और संभावित कॉलेजों की सूची बनाएँ।','पात्रता, फीस, उपलब्धता और तारीखें कॉलेज से पक्की करें।','संस्थान की नवीनतम सूची के अनुसार दस्तावेज़ तैयार करें।','संस्थान में सीधे आवेदन करें; प्रवेश का निर्णय वही करता है।'],
-  services:['BBA, BCA, MBA, MCA और अन्य कोर्सों के बारे में मार्गदर्शन','प्रवेश प्रक्रिया और आवेदन के चरणों की जानकारी','प्रवेश दस्तावेज़ों की चेकलिस्ट और रिकॉर्ड व्यवस्थित करने में सहायता','पात्रता और आवेदन से जुड़े सवाल संबंधित संस्थान से पूछने में मदद'],
+  services:['स्कूल और कॉलेज के विद्यार्थियों के लिए वन-टू-वन और छोटे ग्रुप में ऑनलाइन ट्यूशन','विषयवार डाउट सॉल्विंग, होमवर्क और असाइनमेंट मार्गदर्शन','स्कूल, कॉलेज और प्रतियोगी परीक्षाओं की तैयारी में पढ़ाई सहायता','BBA, BCA, MBA, MCA और अन्य कोर्सों के बारे में मार्गदर्शन','प्रवेश प्रक्रिया और आवेदन के चरणों की जानकारी','प्रवेश दस्तावेज़ों की चेकलिस्ट और रिकॉर्ड व्यवस्थित करने में सहायता','पात्रता और आवेदन से जुड़े सवाल संबंधित संस्थान से पूछने में मदद'],
   note:'कोर्स की उपलब्धता, पात्रता, फीस और प्रवेश नियम संबंधित संस्थान से पक्के करें। EYEPEK प्रवेश की गारंटी नहीं देता; अंतिम निर्णय कॉलेज का होता है।',
  },
  'business-support': {
@@ -87,10 +94,10 @@ const serviceHindi = {
   note:'संबद्धता और AICTE प्रक्रिया अलग हो सकती हैं; नियम कोर्स और संस्था के अनुसार जाँचें। EYEPEK प्रक्रिया व दस्तावेज़ों में सहायता करता है, मंज़ूरी का निर्णय विश्वविद्यालय या नियामक प्राधिकरण का होता है।',
  },
  'it-support': {
-  title:'आईटी और कंप्यूटर सहायता सेवाएँ', metaTitle:'आईटी और कंप्यूटर सहायता सेवाएँ | EYEPEK',
-  description:'कंप्यूटर, सॉफ्टवेयर, प्रिंटर, वाई-फाई, नेटवर्क, CCTV और रखरखाव से जुड़ी व्यावहारिक सहायता।',
-  intro:'घर, पढ़ाई, दफ्तर और छोटे व्यवसायों के लिए तकनीकी मदद।',
-  services:['कंप्यूटर और लैपटॉप की समस्या व मरम्मत सहायता','Windows और सॉफ्टवेयर इंस्टॉल करने में मदद','प्रिंटर सेटअप और समस्या समाधान','वाई-फाई, राउटर और लोकल नेटवर्क सेटअप','CCTV और सुरक्षा कैमरा इंस्टॉलेशन','सर्वर और दफ्तर के उपकरणों में सहायता','उपलब्धता के अनुसार रिमोट सहायता और रखरखाव'],
+  title:'IT, वेबसाइट डेवलपमेंट और डेटा सहायता', metaTitle:'Website Development, Data & IT Support | EYEPEK',
+  description:'वेबसाइट डिजाइन व डेवलपमेंट, डेटा एंट्री, Excel, डिजिटल दस्तावेज़, कंप्यूटर, सॉफ्टवेयर, नेटवर्किंग और तकनीकी सहायता।',
+  intro:'वेबसाइट बनवाएँ, डेटा व्यवस्थित करें और पढ़ाई व काम के लिए भरोसेमंद तकनीकी सहायता पाएँ।',
+  services:['वेबसाइट डिजाइन, डेवलपमेंट, रीडिजाइन और मेंटेनेंस','बिजनेस वेबसाइट, लैंडिंग पेज और बेसिक ई-कॉमर्स वेबसाइट सहायता','डेटा एंट्री, Excel शीट, डेटा क्लीनिंग और डेटा व्यवस्थित करना','रिपोर्ट, दस्तावेज़ फॉर्मेटिंग और डिजिटल रिकॉर्ड मैनेजमेंट','कंप्यूटर और लैपटॉप की समस्या व मरम्मत सहायता','Windows और सॉफ्टवेयर इंस्टॉल करने में मदद','प्रिंटर सेटअप और समस्या समाधान','वाई-फाई, राउटर और लोकल नेटवर्क सेटअप','CCTV और सुरक्षा कैमरा इंस्टॉलेशन','सर्वर और दफ्तर के उपकरणों में सहायता','उपलब्धता के अनुसार रिमोट सहायता और रखरखाव'],
   note:'बुकिंग से पहले EYEPEK से उपलब्धता, विज़िट और कीमत की पुष्टि करें।',
  },
  'home-services': {
