@@ -38,11 +38,11 @@ const serviceCategories = [
     number: '01',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Students studying together on campus',
-    title: 'Admissions & Documents Support', titleHi: 'प्रवेश और दस्तावेज़ सहायता',
+    title: 'Education, Online Tutoring & Student Support', titleHi: 'शिक्षा, ऑनलाइन ट्यूटरिंग और छात्र सहायता',
     slug: 'education',
     label: 'For students', labelHi: 'छात्रों के लिए',
-    description: 'Guidance from course selection and admission steps to getting documents ready.', descriptionHi: 'कोर्स चुनने, प्रवेश प्रक्रिया समझने और दस्तावेज़ तैयार करने में मार्गदर्शन।',
-    includes: ['Admission steps and document checklists', 'Course and career guidance', 'BBA, BCA, MBA, MCA and nursing options'], includesHi: ['प्रवेश के चरण और दस्तावेज़ चेकलिस्ट', 'कोर्स और करियर मार्गदर्शन', 'BBA, BCA, MBA, MCA और नर्सिंग विकल्प'],
+    description: 'Course and career guidance, admission assistance, online tutoring, homework help, and learning support for school, college, and competitive-exam students.', descriptionHi: 'स्कूल, कॉलेज और प्रतियोगी परीक्षाओं के विद्यार्थियों के लिए कोर्स व करियर मार्गदर्शन, प्रवेश सहायता, ऑनलाइन ट्यूशन, होमवर्क और पढ़ाई में मदद।',
+    includes: ['Online one-to-one and group tutoring', 'School, college and exam learning support', 'Course, career and admission guidance', 'Study plans, assignments and doubt-solving'], includesHi: ['वन-टू-वन और ग्रुप ऑनलाइन ट्यूशन', 'स्कूल, कॉलेज और परीक्षा की पढ़ाई में मदद', 'कोर्स, करियर और प्रवेश मार्गदर्शन', 'स्टडी प्लान, असाइनमेंट और डाउट सॉल्विंग'],
     color: 'border-blue-700',
   },
   {
@@ -60,11 +60,11 @@ const serviceCategories = [
     number: '03',
     image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'IT technician working with computer equipment',
-    title: 'IT & Computer Support', titleHi: 'आईटी और कंप्यूटर सहायता',
+    title: 'IT, Website Development & Data Support', titleHi: 'आईटी, वेबसाइट डेवलपमेंट और डेटा सहायता',
     slug: 'it-support',
     label: 'Technology and repairs', labelHi: 'तकनीक और मरम्मत',
-    description: 'Practical technical help for students, home users, offices, and small businesses.', descriptionHi: 'छात्रों, घरों, दफ्तरों और छोटे व्यवसायों के लिए व्यावहारिक तकनीकी सहायता।',
-    includes: ['Computer and laptop troubleshooting', 'Software, printer and setup support', 'Wi-Fi, networking and CCTV assistance'], includesHi: ['कंप्यूटर और लैपटॉप समस्या सहायता', 'सॉफ्टवेयर, प्रिंटर और सेटअप सहायता', 'वाई-फाई, नेटवर्क और CCTV सहायता'],
+    description: 'Technology services including computer support, professional website design and development, business data handling, and digital solutions.', descriptionHi: 'कंप्यूटर सहायता, प्रोफेशनल वेबसाइट डिजाइन व डेवलपमेंट, बिजनेस डेटा मैनेजमेंट और डिजिटल समाधान।',
+    includes: ['Website design, development and maintenance', 'Excel, data entry and data organisation', 'Computer, laptop and software support', 'Networking, printer, CCTV and remote IT help'], includesHi: ['वेबसाइट डिजाइन, डेवलपमेंट और मेंटेनेंस', 'Excel, डेटा एंट्री और डेटा व्यवस्थित करना', 'कंप्यूटर, लैपटॉप और सॉफ्टवेयर सहायता', 'नेटवर्किंग, प्रिंटर, CCTV और रिमोट IT मदद'],
     color: 'border-red-600',
   },
   {
@@ -132,7 +132,7 @@ const HomePage = () => {
             <div className='relative mt-7 space-y-3'>
               {[
                 ['01', t('For students', 'छात्रों के लिए'), t('Course selection, eligibility, admission steps and career guidance', 'कोर्स चयन, पात्रता, प्रवेश प्रक्रिया और करियर मार्गदर्शन')],
-                ['02', t('For institutions', 'संस्थानों के लिए'), t('Affiliation process guidance and organised documentation support', 'संबद्धता प्रक्रिया और व्यवस्थित दस्तावेज़ सहायता')],
+                ['02', t('For institutions', 'संस्थानों के लिए'), t('Affiliation process guidance and organised documentation support', 'संबद्धता प्रक्रिया और ऑनलाइन ट्यूशन और पढ़ाई में मदद')],
                 ['03', t('For organisations', 'संगठनों के लिए'), t('Compliance paperwork, renewals and practical technology support', 'अनुपालन कागज़ात, नवीनीकरण और तकनीकी सहायता')],
               ].map(([number, title, description]) => (
                 <div key={number} className='flex gap-4 rounded-2xl border border-white/15 bg-blue-950/35 p-4'>
@@ -154,8 +154,8 @@ const HomePage = () => {
     <section id="national-services" className="bg-white px-6 py-16 md:px-10 md:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
-          <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange-600">{t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}</p>
-          <h2 className="mt-3 text-3xl font-black leading-tight text-blue-950 md:text-5xl">{t("Education and technology support, connected across India.", "शिक्षा और तकनीक की सहायता, पूरे भारत के लिए।")}</h2>
+          <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange-600">{t("One platform. Complete support solutions.", "एक प्लेटफॉर्म। हर जरूरत के लिए सहायता।")}</p>
+          <h2 className="mt-3 text-3xl font-black leading-tight text-blue-950 md:text-5xl">{t("Education, learning and technology services—all in one place.", "शिक्षा, सीखने और तकनीक की सेवाएँ—एक ही जगह।")}</h2>
           <p className="mt-5 text-lg leading-8 text-slate-600">{t("Choose the EYEPEK division that matches your requirement. Share an enquiry online and our team will confirm the scope, availability, service location and quotation before work begins.", "अपनी जरूरत के अनुसार EYEPEK का विभाग चुनें। ऑनलाइन पूछताछ भेजें; काम शुरू होने से पहले हमारी टीम सेवा, उपलब्धता, स्थान और शुल्क की पुष्टि करेगी।")}</p>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -167,9 +167,9 @@ const HomePage = () => {
             </div>
             <div className="p-7 md:p-9">
               <h3 className="text-2xl font-black text-blue-950 md:text-3xl">{t("EYEPEK Education Services", "EYEPEK Education Services")}</h3>
-              <p className="mt-3 leading-7 text-slate-600">{t("Practical guidance and organised documentation support for students, colleges and educational institutions.", "छात्रों, कॉलेजों और शैक्षणिक संस्थानों के लिए व्यावहारिक मार्गदर्शन और व्यवस्थित दस्तावेज़ सहायता।")}</p>
+              <p className="mt-3 leading-7 text-slate-600">{t("Student guidance, online tutoring and organised academic support for learners at every stage.", "हर स्तर के विद्यार्थियों के लिए मार्गदर्शन, ऑनलाइन ट्यूशन और व्यवस्थित शैक्षणिक सहायता।")}</p>
               <ul className="mt-6 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
-                {[t("Course & admission guidance", "कोर्स और प्रवेश मार्गदर्शन"), t("College affiliation documentation", "कॉलेज संबद्धता दस्तावेज़"), t("Compliance & renewal support", "अनुपालन और नवीनीकरण सहायता"), t("Institutional website support", "संस्थान की वेबसाइट सहायता")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
+                {[t("Course & admission guidance", "कोर्स और प्रवेश मार्गदर्शन"), t("Online tutoring & doubt-solving", "कॉलेज संबद्धता दस्तावेज़"), t("School, college & exam support", "अनुपालन और नवीनीकरण सहायता"), t("Study plans & assignment guidance", "संस्थान की वेबसाइट सहायता")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
               </ul>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="/services/education" className="inline-flex items-center gap-2 rounded-xl bg-blue-950 px-5 py-3 font-bold text-white transition hover:bg-blue-800">{t("Student Guidance", "छात्र मार्गदर्शन")} <FaArrowRight aria-hidden="true" /></a>
@@ -185,9 +185,9 @@ const HomePage = () => {
             </div>
             <div className="p-7 md:p-9">
               <h3 className="text-2xl font-black text-blue-950 md:text-3xl">{t("EYEPEK IT Solutions", "EYEPEK IT Solutions")}</h3>
-              <p className="mt-3 leading-7 text-slate-600">{t("Technology assistance for individuals, offices, institutions and small businesses, delivered remotely or through verified local partners where available.", "व्यक्तियों, कार्यालयों, संस्थानों और छोटे व्यवसायों के लिए तकनीकी सहायता—ऑनलाइन या उपलब्ध सत्यापित स्थानीय पार्टनर के माध्यम से।")}</p>
+              <p className="mt-3 leading-7 text-slate-600">{t("Digital and technical solutions for individuals, students, offices and businesses—from computer support to websites and data services.", "व्यक्तियों, विद्यार्थियों, कार्यालयों और व्यवसायों के लिए कंप्यूटर, वेबसाइट और डेटा से जुड़े डिजिटल समाधान।")}</p>
               <ul className="mt-6 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
-                {[t("Computer & laptop support", "कंप्यूटर और लैपटॉप सहायता"), t("Software & Windows setup", "सॉफ्टवेयर और Windows सेटअप"), t("Networking, printer & CCTV", "नेटवर्किंग, प्रिंटर और CCTV"), t("Websites, remote support & AMC", "वेबसाइट, रिमोट सहायता और AMC")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
+                {[t("Website design & development", "कंप्यूटर और लैपटॉप सहायता"), t("Data entry & Excel support", "सॉफ्टवेयर और Windows सेटअप"), t("Computer & software support", "नेटवर्किंग, प्रिंटर और CCTV"), t("Networking, printer & remote IT", "वेबसाइट, रिमोट सहायता और AMC")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
               </ul>
               <a href="/services/it-support" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-bold text-white transition hover:bg-orange-400">{t("Explore IT Solutions", "IT सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
             </div>
@@ -195,7 +195,7 @@ const HomePage = () => {
         </div>
         <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-blue-950 p-6 text-white md:flex-row md:items-center md:justify-between md:p-8">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-300">{t("Serving enquiries from across India", "भारत भर से पूछताछ आमंत्रित है")}</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-300">{t("Support for students, institutions and businesses", "छात्रों, संस्थानों और व्यवसायों के लिए सहायता")}</p>
             <h3 className="mt-2 text-xl font-bold md:text-2xl">{t("Tell us what you need. We will help you plan the next step.", "अपनी जरूरत बताएँ। हम अगला कदम तय करने में मदद करेंगे।")}</h3>
             <p className="mt-2 text-sm leading-6 text-blue-100">{t("Service availability depends on the type of work and location. We confirm this before accepting a booking.", "सेवा की उपलब्धता काम और स्थान पर निर्भर करेगी। बुकिंग स्वीकार करने से पहले इसकी पुष्टि की जाएगी।")}</p>
           </div>
@@ -252,7 +252,7 @@ const HomePage = () => {
               One team · many solutions
             </p>
             <h2 className='mt-3 text-3xl font-extrabold leading-tight text-blue-950 md:text-4xl'>{t('Our', 'हमारी')} <span className='text-orange-500'>{t('Services', 'सेवाएँ')}</span></h2>
-            <p className='mt-2 max-w-2xl text-base leading-7 text-slate-600'>{t('Start with admission and college affiliation support. Explore our IT, computer, business, and home services after that.', 'पहले प्रवेश और कॉलेज संबद्धता सहायता देखें। इसके बाद IT, कंप्यूटर, व्यवसाय और घरेलू सेवाओं के बारे में जानें।')}</p>
+            <p className='mt-2 max-w-2xl text-base leading-7 text-slate-600'>{t('Explore education, online tutoring, institution support, website development, data services, IT support, and other practical solutions.', 'शिक्षा, ऑनलाइन ट्यूशन, संस्थान सहायता, वेबसाइट डेवलपमेंट, डेटा सेवाएँ, IT सहायता और अन्य समाधान देखें।')}</p>
           </div>
           <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>
             {t('Request a service', 'सेवा के लिए पूछें')} <FaArrowRight aria-hidden='true' />
