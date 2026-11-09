@@ -6,8 +6,8 @@ import InstallAppButton from './InstallAppButton';
 import { useLanguage } from '../LanguageContext';
 
 const serviceLinks = [
-  { label: 'Education Services', labelHi: 'शिक्षा सेवाएँ', to: '/services/education' },
-  { label: 'IT & Computer Support', labelHi: 'आईटी और कंप्यूटर सहायता', to: '/services/it-support' },
+  { label: 'Education & Online Tutoring', labelHi: 'शिक्षा और ऑनलाइन ट्यूशन', to: '/services/education' },
+  { label: 'Website, Data & IT Solutions', labelHi: 'वेबसाइट, डेटा और IT समाधान', to: '/services/it-support' },
   { label: 'Home Services', labelHi: 'घरेलू सेवाएँ', to: '/services/home-services' },
   { label: 'Business & Institution Support', labelHi: 'कॉलेज और संस्थान सहायता', to: '/services/business-support' },
 ];
