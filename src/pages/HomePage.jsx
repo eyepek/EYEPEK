@@ -153,10 +153,30 @@ const HomePage = () => {
 
     <section id="national-services" className="bg-white px-6 py-16 md:px-10 md:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange-600">{t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}</p>
-          <h2 className="mt-3 text-3xl font-black leading-tight text-blue-950 md:text-5xl">{t("Education and technology support, connected across India.", "शिक्षा और तकनीक की सहायता, पूरे भारत के लिए।")}</h2>
-          <p className="mt-5 text-lg leading-8 text-slate-600">{t("Choose the EYEPEK division that matches your requirement. Share an enquiry online and our team will confirm the scope, availability, service location and quotation before work begins.", "अपनी जरूरत के अनुसार EYEPEK का विभाग चुनें। ऑनलाइन पूछताछ भेजें; काम शुरू होने से पहले हमारी टीम सेवा, उपलब्धता, स्थान और शुल्क की पुष्टि करेगी।")}</p>
+        <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+          <div className="max-w-3xl">
+            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange-600">{t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}</p>
+            <h2 className="mt-3 text-3xl font-black leading-tight text-blue-950 md:text-5xl">{t("Education and technology support, connected across India.", "शिक्षा और तकनीक की सहायता, पूरे भारत के लिए।")}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{t("Choose the EYEPEK division that matches your requirement. Share an enquiry online and our team will confirm the scope, availability, service location and quotation before work begins.", "अपनी जरूरत के अनुसार EYEPEK का विभाग चुनें। ऑनलाइन पूछताछ भेजें; काम शुरू होने से पहले हमारी टीम सेवा, उपलब्धता, स्थान और शुल्क की पुष्टि करेगी।")}</p>
+            <div className="mt-6 flex flex-wrap gap-3 text-sm font-bold text-blue-950">
+              <span className="rounded-full bg-blue-50 px-4 py-2">✓ {t("Student guidance", "छात्र मार्गदर्शन")}</span>
+              <span className="rounded-full bg-orange-50 px-4 py-2">✓ {t("College documentation", "कॉलेज दस्तावेज़")}</span>
+              <span className="rounded-full bg-slate-100 px-4 py-2">✓ {t("IT support", "आईटी सहायता")}</span>
+            </div>
+          </div>
+          <div className="relative hidden min-h-[250px] overflow-hidden rounded-3xl shadow-xl shadow-blue-950/10 sm:block">
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85"
+              alt={t("Students learning and collaborating on a college campus", "कॉलेज परिसर में साथ सीखते और काम करते विद्यार्थी")}
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/80 via-blue-950/15 to-transparent" />
+            <div className="absolute bottom-5 left-5 right-5 text-white">
+              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-200">{t("Your next step starts here", "आपका अगला कदम यहाँ से")}</p>
+              <p className="mt-1 text-xl font-black">{t("Learn. Build. Grow with EYEPEK.", "EYEPEK के साथ सीखें, बनाएँ और आगे बढ़ें।")}</p>
+            </div>
+          </div>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <article className="group overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white shadow-lg shadow-blue-950/5">
