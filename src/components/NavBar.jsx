@@ -45,21 +45,21 @@ const NavBar = () => {
 
   return (
     <header className='sticky top-0 z-50 bg-white shadow-sm'>
-      <div className='border-b border-blue-900 bg-blue-950 px-4 text-blue-50 sm:px-6 md:px-10'>
+      <div className='border-b border-blue-100 bg-[#eaf1f7] px-4 text-blue-900 sm:px-6 md:px-10'>
         <div className='mx-auto flex min-h-9 max-w-7xl items-center justify-between gap-3'>
-          <p className='hidden text-[11px] font-semibold tracking-wide text-blue-100 sm:block'>{t('Guidance for students & institutions', 'छात्रों और संस्थानों के लिए मार्गदर्शन')}</p>
+          <p className='hidden text-[11px] font-semibold tracking-wide text-blue-800 sm:block'>{t('Guidance for students & institutions', 'छात्रों और संस्थानों के लिए मार्गदर्शन')}</p>
           <div className='ml-auto flex items-center gap-2.5 sm:gap-4'>
-            <div className='inline-flex items-center rounded-full border border-white/20 bg-white/5 p-0.5' aria-label={t('Choose language', 'भाषा चुनें')}>
-              <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'en' ? 'bg-white text-blue-950' : 'text-blue-100 hover:text-white'}`}>EN</button>
+            <div className='inline-flex items-center rounded-full border border-blue-200 bg-white p-0.5' aria-label={t('Choose language', 'भाषा चुनें')}>
+              <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'en' ? 'bg-blue-800 text-white' : 'text-blue-700 hover:text-orange-700'}`}>EN</button>
               <button type='button' onClick={() => setLanguage('hi')} aria-pressed={language === 'hi'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'hi' ? 'bg-white text-blue-950' : 'text-blue-100 hover:text-white'}`}>हिंदी</button>
             </div>
-            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-100 transition hover:text-orange-300'>
+            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-700 transition hover:text-orange-600'>
               <FaYoutube aria-hidden='true' className='h-4 w-4' /><span className='hidden sm:inline'>{t('YouTube', 'यूट्यूब')}</span>
             </a>
             <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-100 transition hover:text-orange-300'>
               <FaFacebookF aria-hidden='true' className='h-3.5 w-3.5' /><span className='hidden sm:inline'>{t('Facebook', 'फेसबुक')}</span>
             </a>
-            <a href='tel:7004374250' className='text-[11px] font-bold text-orange-300 transition hover:text-white'>{t('Call: 7004374250', 'कॉल: 7004374250')}</a>
+            <a href='tel:7004374250' className='text-[11px] font-bold text-orange-700 transition hover:text-blue-950'>{t('Call: 7004374250', 'कॉल: 7004374250')}</a>
           </div>
         </div>
       </div>
@@ -70,11 +70,11 @@ const NavBar = () => {
         <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-blue-950 shadow-sm transition hover:border-orange-300 hover:bg-orange-50 lg:hidden'>
           <IoMdMenu className='h-7 w-7' />
         </button>
-        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full max-h-[calc(100dvh-105px)] w-full flex-col gap-1 overflow-y-auto border-t border-slate-100 bg-white px-4 py-4 font-semibold text-blue-950 shadow-xl sm:px-6 lg:max-h-none lg:overflow-visible lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:justify-between lg:gap-1 lg:rounded-2xl lg:border lg:border-slate-200 lg:bg-slate-50 lg:px-2 lg:py-1.5 lg:shadow-sm`}>
+        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full max-h-[calc(100dvh-105px)] w-full flex-col gap-1 overflow-y-auto border-t border-slate-100 bg-white px-4 py-4 font-semibold text-blue-950 shadow-xl sm:px-6 lg:max-h-none lg:overflow-visible lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:justify-between lg:gap-1 lg:rounded-2xl lg:border lg:border-slate-200 lg:bg-[#f1f5f9] lg:px-2 lg:py-1.5 lg:shadow-sm`}>
           <Link to='/' onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-blue-100'>{t('Home', 'होम')}</Link>
           <a href='/#about' onClick={closeMenu} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-blue-100'>{t('About', 'हमारे बारे में')}</a>
           <div className='relative w-full lg:w-auto'>
-            <button type='button' onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); setJourneyOpen(false); }} aria-expanded={guidanceOpen} aria-controls='guidance-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:w-auto lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-blue-100'>
+            <button type='button' onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); setJourneyOpen(false); }} aria-expanded={guidanceOpen} aria-controls='guidance-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-[#f3f7fb] px-4 py-3 text-left text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-[#fff4e8] hover:text-orange-700 lg:w-auto lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-white'>
               {t('Admission Help', 'प्रवेश सहायता')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${guidanceOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='guidance-dropdown' className={`${guidanceOpen ? 'block' : 'hidden'} mt-2 max-h-[55vh] overflow-y-auto rounded-xl border border-slate-200 bg-white shadow-lg lg:mt-4 lg:max-h-none lg:overflow-hidden lg:absolute lg:left-0 lg:top-full lg:mt-4 lg:w-80 lg:shadow-2xl`}>
@@ -93,7 +93,7 @@ const NavBar = () => {
             </div>
           </div>
           <div className='relative w-full lg:w-auto'>
-            <button type='button' onClick={() => { setServicesOpen(!servicesOpen); setGuidanceOpen(false); setJourneyOpen(false); }} aria-expanded={servicesOpen} aria-controls='services-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-left text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:w-auto lg:px-3.5 lg:py-2.5'>
+            <button type='button' onClick={() => { setServicesOpen(!servicesOpen); setGuidanceOpen(false); setJourneyOpen(false); }} aria-expanded={servicesOpen} aria-controls='services-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-[#f3f7fb] px-4 py-3 text-left text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-[#fff4e8] hover:text-orange-700 lg:w-auto lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-white'>
               {t('Services', 'सेवाएँ')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='services-dropdown' className={`${servicesOpen ? 'block' : 'hidden'} mt-2 max-h-56 min-w-64 overflow-y-auto rounded-xl border border-slate-100 bg-white py-2 shadow-lg lg:mt-3 lg:max-h-none lg:overflow-hidden lg:absolute lg:left-0 lg:top-full lg:mt-3 lg:w-72 lg:shadow-2xl`}>
@@ -114,13 +114,13 @@ const NavBar = () => {
               <div className='p-2'>
                 {journeyLinks.map((item) => {
                   const Icon = item.icon;
-                  return <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg px-3 py-3 transition hover:bg-orange-50'><span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'><Icon aria-hidden='true' className='h-4 w-4' /></span><span className='min-w-0'><span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{item.label}</span><span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{item.detail}</span></span></a>;
+                  return <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg border border-slate-100 bg-[#f3f7fb] px-3 py-3 transition hover:border-orange-200 hover:bg-[#fff4e8]'><span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'><Icon aria-hidden='true' className='h-4 w-4' /></span><span className='min-w-0'><span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{item.label}</span><span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{item.detail}</span></span></a>;
                 })}
               </div>
               <a href='/#admissions' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>{t('Contact EYEPEK', 'EYEPEK से संपर्क करें')} <span aria-hidden='true'>→</span></a>
             </div>
           </div>
-          <a href='/contact' onClick={closeMenu} className='mt-2 w-full rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-5 py-3 text-center text-sm font-extrabold text-white shadow-lg shadow-orange-500/30 transition duration-200 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 lg:mt-0 lg:ml-2 lg:w-auto lg:px-5 lg:py-2.5'>{t('Admission Help', 'प्रवेश सहायता')}</a>
+          <a href='/contact' onClick={closeMenu} className='mt-2 w-full rounded-xl border border-orange-500 bg-orange-500 px-5 py-3 text-center text-sm font-extrabold text-white shadow-lg shadow-orange-500/30 transition duration-200 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 lg:mt-0 lg:ml-2 lg:w-auto lg:px-5 lg:py-2.5'>{t('Admission Help', 'प्रवेश सहायता')}</a>
           <div className='pt-2 lg:hidden xl:block [&_a]:w-full [&_a]:justify-center'><InstallAppButton /></div>
         </nav>
       </div>
