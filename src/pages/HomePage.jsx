@@ -153,28 +153,37 @@ const HomePage = () => {
 
     <section id="national-services" className="bg-white px-6 py-16 md:px-10 md:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
-          <div className="max-w-3xl">
-            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange-600">{t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}</p>
-            <h2 className="mt-3 text-3xl font-black leading-tight text-blue-950 md:text-5xl">{t("Education and technology support, connected across India.", "शिक्षा और तकनीक की सहायता, पूरे भारत के लिए।")}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{t("Choose the EYEPEK division that matches your requirement. Share an enquiry online and our team will confirm the scope, availability, service location and quotation before work begins.", "अपनी जरूरत के अनुसार EYEPEK का विभाग चुनें। ऑनलाइन पूछताछ भेजें; काम शुरू होने से पहले हमारी टीम सेवा, उपलब्धता, स्थान और शुल्क की पुष्टि करेगी।")}</p>
-            <div className="mt-6 flex flex-wrap gap-3 text-sm font-bold text-blue-950">
-              <span className="rounded-full bg-blue-50 px-4 py-2">✓ {t("Student guidance", "छात्र मार्गदर्शन")}</span>
-              <span className="rounded-full bg-orange-50 px-4 py-2">✓ {t("College documentation", "कॉलेज दस्तावेज़")}</span>
-              <span className="rounded-full bg-slate-100 px-4 py-2">✓ {t("IT support", "आईटी सहायता")}</span>
+        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 px-7 py-9 text-white shadow-xl shadow-blue-950/10 md:px-12 md:py-12">
+          <div className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-orange-400/15 blur-3xl" />
+          <div className="relative grid items-center gap-9 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+            <div className="max-w-2xl">
+              <p className="inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-400/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em] text-orange-200">
+                <span className="h-2 w-2 rounded-full bg-orange-400" /> {t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}
+              </p>
+              <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight md:text-5xl">{t("Education & Technology. One Trusted Partner.", "शिक्षा और तकनीक के लिए आपका भरोसेमंद साथी।")}</h2>
+              <p className="mt-5 max-w-xl text-base leading-8 text-blue-100 md:text-lg">{t("From course and admission guidance to college documentation and dependable IT support, EYEPEK helps you take the next step with clarity.", "कोर्स और प्रवेश मार्गदर्शन से लेकर कॉलेज दस्तावेज़ और भरोसेमंद आईटी सहायता तक, EYEPEK आपके अगले कदम को आसान बनाने में मदद करता है।")}</p>
+              <div className="mt-7 flex flex-wrap gap-3 text-sm font-bold">
+                <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2.5">✓ {t("Student guidance", "छात्र मार्गदर्शन")}</span>
+                <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2.5">✓ {t("College documentation", "कॉलेज दस्तावेज़")}</span>
+                <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2.5">✓ {t("IT support", "आईटी सहायता")}</span>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400">{t("Get in touch", "संपर्क करें")} <FaArrowRight aria-hidden="true" /></a>
+                <a href="#student-support" className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-6 py-3.5 font-bold text-white transition hover:bg-white/10">{t("Explore services", "सेवाएँ देखें")}</a>
+              </div>
             </div>
-          </div>
-          <div className="relative hidden min-h-[250px] overflow-hidden rounded-3xl shadow-xl shadow-blue-950/10 sm:block">
-            <img
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85"
-              alt={t("Students learning and collaborating on a college campus", "कॉलेज परिसर में साथ सीखते और काम करते विद्यार्थी")}
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/80 via-blue-950/15 to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 text-white">
-              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-200">{t("Your next step starts here", "आपका अगला कदम यहाँ से")}</p>
-              <p className="mt-1 text-xl font-black">{t("Learn. Build. Grow with EYEPEK.", "EYEPEK के साथ सीखें, बनाएँ और आगे बढ़ें।")}</p>
+            <div className="relative min-h-[250px] overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/20 sm:min-h-[330px]">
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=85"
+                alt={t("A team working together with computers in a modern workspace", "आधुनिक कार्यस्थल में कंप्यूटर के साथ मिलकर काम करती टीम")}
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/85 via-blue-950/10 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5">
+                <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-200">{t("Learn • Connect • Get support", "सीखें • जुड़ें • सहायता पाएँ")}</p>
+                <p className="mt-2 text-xl font-black md:text-2xl">{t("Move forward with EYEPEK.", "EYEPEK के साथ आगे बढ़ें।")}</p>
+              </div>
             </div>
           </div>
         </div>
