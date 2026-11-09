@@ -161,11 +161,12 @@ const HomePage = () => {
                 <span className="h-2 w-2 rounded-full bg-orange-400" /> {t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}
               </p>
               <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight md:text-5xl">{t("Education & Technology. One Trusted Partner.", "शिक्षा और तकनीक के लिए आपका भरोसेमंद साथी।")}</h2>
-              <p className="mt-5 max-w-xl text-base leading-8 text-blue-100 md:text-lg">{t("From course and admission guidance to college documentation and dependable IT support, EYEPEK helps you take the next step with clarity.", "कोर्स और प्रवेश मार्गदर्शन से लेकर कॉलेज दस्तावेज़ और भरोसेमंद आईटी सहायता तक, EYEPEK आपके अगले कदम को आसान बनाने में मदद करता है।")}</p>
-              <div className="mt-7 flex flex-wrap gap-3 text-sm font-bold">
-                <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2.5">✓ {t("Student guidance", "छात्र मार्गदर्शन")}</span>
-                <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2.5">✓ {t("College documentation", "कॉलेज दस्तावेज़")}</span>
-                <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2.5">✓ {t("IT support", "आईटी सहायता")}</span>
+              <p className="mt-5 max-w-xl text-base leading-8 text-blue-100 md:text-lg">{t("Your partner for college affiliation and institutional documentation, student counselling and admission guidance, AICTE-related process support, and professional IT solutions. EYEPEK brings the right guidance and services together in one place.", "कॉलेज संबद्धता और संस्थागत दस्तावेज़, विद्यार्थियों की काउंसलिंग व प्रवेश मार्गदर्शन, AICTE से जुड़ी प्रक्रिया में सहायता और प्रोफेशनल IT सेवाओं के लिए EYEPEK आपका सहयोगी है।")}</p>
+              <div className="mt-7 grid max-w-2xl grid-cols-1 gap-3 text-sm font-bold sm:grid-cols-2">
+                <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">01</span>{t("College Affiliation", "कॉलेज संबद्धता")}</span>
+                <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">02</span>{t("Student Counselling", "विद्यार्थी काउंसलिंग")}</span>
+                <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">03</span>{t("AICTE Documentation Support", "AICTE दस्तावेज़ सहायता")}</span>
+                <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">04</span>{t("IT & Technical Services", "IT और तकनीकी सेवाएँ")}</span>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400">{t("Get in touch", "संपर्क करें")} <FaArrowRight aria-hidden="true" /></a>
