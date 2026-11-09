@@ -95,56 +95,55 @@ const HomePage = () => {
   const t = (english, hindi) => hi ? hindi : english;
   return (
   <main className='bg-[#f4f7fb] text-slate-900'>
-    <section className='relative isolate min-h-[520px] overflow-hidden bg-blue-950 text-white md:min-h-[560px]'>
+    <section className='relative isolate overflow-hidden bg-blue-950 text-white'>
       <img
-        className='absolute inset-0 -z-20 h-full w-full object-cover'
+        className='absolute inset-0 -z-20 h-full w-full object-cover object-center'
         src='/images/students-campus.jpg'
         alt='Students studying together outdoors in a campus setting (illustrative photo)'
       />
-      <div className='absolute inset-0 -z-10 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-red-950/45' />
-      <div className='mx-auto grid min-h-[520px] max-w-7xl items-center gap-8 px-6 py-10 md:min-h-[560px] md:grid-cols-[1.1fr_0.9fr] md:px-10 md:py-12'>
-        <div className='max-w-3xl'>
-          <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-[#f4f7fb]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-200 backdrop-blur-sm sm:text-sm'>
+      <div className='absolute inset-0 -z-10 bg-gradient-to-br from-blue-950/95 via-blue-950/90 to-slate-950/80' />
+      <div className='mx-auto grid min-h-[620px] max-w-7xl items-center gap-8 px-5 py-12 sm:px-8 md:min-h-[650px] md:grid-cols-[1.05fr_0.95fr] md:gap-10 md:px-10 md:py-14'>
+        <div className='max-w-2xl'>
+          <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-200 backdrop-blur-sm sm:text-sm'>
             <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK
           </p>
-          <h1 className='text-4xl font-black leading-tight sm:text-5xl md:text-7xl'>
+          <h1 className='max-w-[650px] text-[2.65rem] font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.35rem] xl:text-[3.65rem]'>
             {hi ? <>छात्रों को आगे बढ़ाएँ।<br />कॉलेजों को सहयोग दें।<br />हर कदम आसान बनाएँ।</> : <>Empowering <span className='text-orange-300'>Students.</span><br />Supporting Colleges.<br />Simplifying Every Step.</>}
           </h1>
-          <p className='mt-6 max-w-2xl text-lg leading-8 text-blue-50 md:text-xl'>
+          <p className='mt-5 max-w-xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8'>
             {t('Your trusted support partner for course and admission guidance, college affiliation documentation, and practical technology and business services. Explore your options, understand the process, and get clear support at every step.', 'कोर्स और प्रवेश मार्गदर्शन, कॉलेज संबद्धता के दस्तावेज़ तथा तकनीकी और व्यवसाय सेवाओं के लिए EYEPEK आपका सहयोगी है। विकल्प समझें और हर कदम पर साफ़ सहायता पाएँ।')}
           </p>
-          <div className='mt-9 flex flex-wrap gap-4'>
-            <a href='#admissions' className='rounded-md bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg transition hover:bg-orange-400'>{t('Explore Education Services', 'शिक्षा सेवाएँ देखें')} <span aria-hidden='true'>→</span></a>
-            <a href='/contact' className='rounded-md border border-white/70 px-7 py-3.5 font-bold text-white transition hover:bg-[#f4f7fb] hover:text-blue-950'>{t("Send an enquiry","सवाल पूछें")}</a>
-            <a href='tel:7004374250' className='rounded-md px-3 py-3.5 font-bold text-white underline decoration-white/50 underline-offset-4 transition hover:text-orange-200'>{t("Speak with our team","हमारी टीम से बात करें")}</a>
+          <div className='mt-7 flex flex-wrap gap-3'>
+            <a href='#admissions' className='rounded-xl bg-orange-500 px-6 py-3 font-bold text-white shadow-lg shadow-orange-950/25 transition hover:bg-orange-400'>{t('Explore Education Services', 'शिक्षा सेवाएँ देखें')} <span aria-hidden='true'>→</span></a>
+            <a href='/contact' className='rounded-xl border border-white/60 bg-white/5 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-blue-950'>{t("Send an enquiry","सवाल पूछें")}</a>
           </div>
-          <div className='mt-10 flex flex-wrap gap-2 border-t border-white/25 pt-5 text-sm font-semibold text-blue-50'>
-            <span className='rounded-full border border-white/20 bg-[#f4f7fb]/10 px-3 py-1.5'>{t("Admissions & Documents","प्रवेश और दस्तावेज़")}</span>
-            <span className='rounded-full border border-white/20 bg-[#f4f7fb]/10 px-3 py-1.5'>{t("College Affiliation","कॉलेज संबद्धता")}</span>
-            <span className='rounded-full border border-white/20 bg-[#f4f7fb]/10 px-3 py-1.5'>{t("AICTE-Related Guidance","AICTE प्रक्रिया मार्गदर्शन")}</span>
+          <div className='mt-8 flex flex-wrap gap-2 border-t border-white/20 pt-5 text-xs font-semibold text-blue-50 sm:text-sm'>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-2'>{t("Admissions & Documents","प्रवेश और दस्तावेज़")}</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-2'>{t("College Affiliation","कॉलेज संबद्धता")}</span>
+            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-2'>{t("AICTE-Related Guidance","AICTE प्रक्रिया मार्गदर्शन")}</span>
           </div>
         </div>
-        <aside className='hidden md:block'>
-          <div className='relative overflow-hidden rounded-3xl border border-white/20 bg-[#f4f7fb]/10 p-7 shadow-2xl shadow-blue-950/30 backdrop-blur-md lg:p-8'>
-            <div className='absolute -right-10 -top-10 h-36 w-36 rounded-full bg-orange-400/20 blur-2xl' aria-hidden='true' />
-            <p className='relative text-xs font-extrabold uppercase tracking-[0.2em] text-orange-200'>{t("How EYEPEK helps","EYEPEK कैसे मदद करता है")}</p>
-            <h2 className='relative mt-3 text-2xl font-extrabold leading-snug text-white lg:text-3xl'>{t("The right guidance for your next step","आपके अगले कदम के लिए सही मार्गदर्शन")}</h2>
-            <div className='relative mt-7 space-y-3'>
+        <aside className='relative mx-auto w-full max-w-xl md:max-w-none'>
+          <div className='relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-slate-900/95 via-blue-950/95 to-blue-900/95 p-5 shadow-2xl shadow-black/30 sm:p-7'>
+            <div className='absolute -right-12 -top-12 h-40 w-40 rounded-full bg-orange-500/20 blur-3xl' aria-hidden='true' />
+            <p className='relative text-xs font-extrabold uppercase tracking-[0.2em] text-orange-300'>{t("How EYEPEK helps","EYEPEK कैसे मदद करता है")}</p>
+            <h2 className='relative mt-3 max-w-md text-2xl font-extrabold leading-tight text-white sm:text-3xl'>{t("The right guidance for your next step","आपके अगले कदम के लिए सही मार्गदर्शन")}</h2>
+            <div className='relative mt-6 space-y-3'>
               {[
                 ['01', t('For students', 'छात्रों के लिए'), t('Course selection, eligibility, admission steps and career guidance', 'कोर्स चयन, पात्रता, प्रवेश प्रक्रिया और करियर मार्गदर्शन')],
                 ['02', t('For institutions', 'संस्थानों के लिए'), t('Affiliation process guidance and organised documentation support', 'संबद्धता प्रक्रिया और व्यवस्थित दस्तावेज़ सहायता')],
                 ['03', t('For organisations', 'संगठनों के लिए'), t('Compliance paperwork, renewals and practical technology support', 'अनुपालन कागज़ात, नवीनीकरण और तकनीकी सहायता')],
               ].map(([number, title, description]) => (
-                <div key={number} className='flex gap-4 rounded-2xl border border-white/15 bg-blue-950/35 p-4'>
+                <div key={number} className='flex gap-3 rounded-2xl border border-white/10 bg-white/[0.07] p-3.5 sm:gap-4 sm:p-4'>
                   <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-500 font-black text-white'>{number}</span>
-                  <div>
+                  <div className='min-w-0'>
                     <h3 className='font-bold text-white'>{title}</h3>
                     <p className='mt-1 text-sm leading-6 text-blue-100'>{description}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <a href='#student-support' className='relative mt-6 inline-flex items-center gap-2 font-bold text-orange-200 transition hover:text-white'>{t('Browse all services', 'सभी सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></a>
+            <a href='#student-support' className='relative mt-5 inline-flex items-center gap-2 font-bold text-orange-300 transition hover:text-white'>{t('Browse all services', 'सभी सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></a>
           </div>
         </aside>
       </div>
