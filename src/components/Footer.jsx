@@ -26,9 +26,9 @@ const Footer = () => {
         <ul className='mt-4 space-y-3 text-slate-300'>
           <li><a href='/#about' className='hover:text-orange-300'>{t('About EYEPEK', 'EYEPEK के बारे में')}</a></li>
           <li><a href='/#learning' className='hover:text-orange-300'>{t('Guidance & Support', 'मार्गदर्शन और सहायता')}</a></li>
-          <li><Link to='/services/education' className='hover:text-orange-300'>{t('Student & Education Services', 'छात्र और शिक्षा सेवाएँ')}</Link></li>
+          <li><Link to='/services/education' className='hover:text-orange-300'>{t('Education & Online Tutoring', 'शिक्षा और ऑनलाइन ट्यूशन')}</Link></li>
           <li><Link to='/services/business-support' className='hover:text-orange-300'>{t('College & Institution Support', 'कॉलेज और संस्थान सहायता')}</Link></li>
-          <li><Link to='/services/it-support' className='hover:text-orange-300'>{t('IT Solutions', 'आईटी समाधान')}</Link></li>
+          <li><Link to='/services/it-support' className='hover:text-orange-300'>{t('Website, Data & IT Solutions', 'वेबसाइट, डेटा और IT समाधान')}</Link></li>
           <li><a href='/#student-support' className='hover:text-orange-300'>{t('All Services', 'सभी सेवाएँ')}</a></li>
           <li><a href='/#campus' className='hover:text-orange-300'>{t('Student Journey', 'छात्र यात्रा')}</a></li>
           <li><a href='/#support-guide' className='hover:text-orange-300'>{t('Admission, Affiliation & Documents Guide', 'प्रवेश, संबद्धता और दस्तावेज़ मार्गदर्शन')}</a></li>
