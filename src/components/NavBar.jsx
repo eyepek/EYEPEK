@@ -71,10 +71,10 @@ const NavBar = () => {
           <IoMdMenu className='h-7 w-7' />
         </button>
         <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full max-h-[calc(100dvh-105px)] w-full flex-col gap-1 overflow-y-auto border-t border-slate-100 bg-white px-4 py-4 font-semibold text-blue-950 shadow-xl sm:px-6 lg:max-h-none lg:overflow-visible lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:justify-between lg:gap-1 lg:rounded-2xl lg:border lg:border-slate-200 lg:bg-slate-50 lg:px-2 lg:py-1.5 lg:shadow-sm`}>
-          <Link to='/' onClick={closeMenu} className='rounded-xl px-4 py-3 text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:px-2.5 lg:py-2'>{t('Home', 'होम')}</Link>
-          <a href='/#about' onClick={closeMenu} className='rounded-xl px-4 py-3 text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:px-3.5 lg:py-2.5'>{t('About', 'हमारे बारे में')}</a>
+          <Link to='/' onClick={closeMenu} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-blue-100'>{t('Home', 'होम')}</Link>
+          <a href='/#about' onClick={closeMenu} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-blue-100'>{t('About', 'हमारे बारे में')}</a>
           <div className='relative w-full lg:w-auto'>
-            <button type='button' onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); setJourneyOpen(false); }} aria-expanded={guidanceOpen} aria-controls='guidance-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-left text-sm font-bold transition duration-200 hover:bg-blue-100 hover:text-orange-700 lg:w-auto lg:px-3.5 lg:py-2.5'>
+            <button type='button' onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); setJourneyOpen(false); }} aria-expanded={guidanceOpen} aria-controls='guidance-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:w-auto lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-blue-100'>
               {t('Admission Help', 'प्रवेश सहायता')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${guidanceOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='guidance-dropdown' className={`${guidanceOpen ? 'block' : 'hidden'} mt-2 max-h-[55vh] overflow-y-auto rounded-xl border border-slate-200 bg-white shadow-lg lg:mt-4 lg:max-h-none lg:overflow-hidden lg:absolute lg:left-0 lg:top-full lg:mt-4 lg:w-80 lg:shadow-2xl`}>
@@ -86,7 +86,7 @@ const NavBar = () => {
               <div className='p-2'>
                 {guidanceLinks.map((item) => {
                   const Icon = item.icon;
-                  return <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg px-3 py-3 transition hover:bg-orange-50'><span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'><Icon aria-hidden='true' className='h-4 w-4' /></span><span className='min-w-0'><span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{t(item.label, item.labelHi)}</span><span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{t(item.detail, item.detailHi)}</span></span></a>;
+                  return <a key={item.label} href={item.href} onClick={closeMenu} className='group flex items-start gap-3 rounded-lg border border-slate-100 bg-slate-50 px-3 py-3 transition hover:border-orange-200 hover:bg-orange-50'><span className='mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-900 transition group-hover:bg-orange-100 group-hover:text-orange-700'><Icon aria-hidden='true' className='h-4 w-4' /></span><span className='min-w-0'><span className='block text-sm font-semibold text-blue-950 group-hover:text-red-600'>{t(item.label, item.labelHi)}</span><span className='mt-0.5 block text-xs font-normal leading-relaxed text-slate-500'>{t(item.detail, item.detailHi)}</span></span></a>;
                 })}
               </div>
               <a href='/#learning' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>{t('Explore all guidance', 'सभी मार्गदर्शन देखें')} <span aria-hidden='true'>→</span></a>
@@ -97,8 +97,8 @@ const NavBar = () => {
               {t('Services', 'सेवाएँ')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
             <div id='services-dropdown' className={`${servicesOpen ? 'block' : 'hidden'} mt-2 max-h-56 min-w-64 overflow-y-auto rounded-xl border border-slate-100 bg-white py-2 shadow-lg lg:mt-3 lg:max-h-none lg:overflow-hidden lg:absolute lg:left-0 lg:top-full lg:mt-3 lg:w-72 lg:shadow-2xl`}>
-              {serviceLinks.map((service) => <Link key={service.to} to={service.to} onClick={closeMenu} className='block px-4 py-3 text-sm font-medium text-blue-950 transition hover:bg-orange-50 hover:text-red-600'>{t(service.label, service.labelHi)}</Link>)}
-              <a href='/#student-support' onClick={closeMenu} className='block border-t border-slate-100 px-4 py-3 text-sm font-semibold text-orange-600 transition hover:bg-orange-50'>{t('All services on homepage', 'होमपेज पर सभी सेवाएँ')}</a>
+              {serviceLinks.map((service) => <Link key={service.to} to={service.to} onClick={closeMenu} className='mx-2 my-1 block rounded-lg border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-semibold text-blue-950 transition hover:border-orange-200 hover:bg-orange-50 hover:text-orange-700'>{t(service.label, service.labelHi)}</Link>)}
+              <a href='/#student-support' onClick={closeMenu} className='mx-2 my-1 block rounded-lg border border-orange-200 bg-orange-50 px-4 py-3 text-sm font-bold text-orange-700 transition hover:bg-orange-100'>{t('All services on homepage', 'होमपेज पर सभी सेवाएँ')}</a>
             </div>
           </div>
           <div className='relative w-full lg:w-auto'>
