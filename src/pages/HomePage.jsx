@@ -181,7 +181,7 @@ const HomePage = () => {
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <article className="group overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white shadow-lg shadow-blue-950/5">
             <div className="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85" alt={t("Students collaborating on a campus", "कैंपस में साथ पढ़ते विद्यार्थी")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=85" alt={t("Students collaborating on a campus", "कैंपस में साथ पढ़ते विद्यार्थी")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-950/75 to-transparent" />
               <p className="absolute bottom-5 left-6 rounded-full border border-white/30 bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur">{t("Division 01", "विभाग 01")}</p>
             </div>
