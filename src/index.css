@@ -1,41 +1,41 @@
 @import "tailwindcss";
 
-/* EYEPEK visual identity: deep navy, warm orange and crisp cool neutrals */
+/* EYEPEK professional brand palette: confident navy blue, clean whites and restrained amber accents */
 @theme {
-  --color-blue-50: #e5edf4;
-  --color-blue-100: #d2e0e9;
-  --color-blue-200: #b4cbd8;
-  --color-blue-300: #91b5c7;
-  --color-blue-400: #6092aa;
-  --color-blue-500: #3e718b;
-  --color-blue-600: #315b73;
-  --color-blue-700: #29495d;
-  --color-blue-800: #20394b;
-  --color-blue-900: #192f40;
-  --color-blue-950: #102536;
+  --color-blue-50: #f0f6fc;
+  --color-blue-100: #dceaf7;
+  --color-blue-200: #bfd7ee;
+  --color-blue-300: #91b9df;
+  --color-blue-400: #5d96c8;
+  --color-blue-500: #3475ad;
+  --color-blue-600: #245f94;
+  --color-blue-700: #1d4d79;
+  --color-blue-800: #193f63;
+  --color-blue-900: #153653;
+  --color-blue-950: #102a43;
 
-  --color-orange-50: #fff7ed;
-  --color-orange-100: #ffedd5;
-  --color-orange-200: #fed7aa;
-  --color-orange-300: #fdba74;
-  --color-orange-400: #fb923c;
-  --color-orange-500: #f97316;
-  --color-orange-600: #ea580c;
-  --color-orange-700: #c2410c;
-  --color-orange-800: #9a3412;
-  --color-orange-900: #7c2d12;
-  --color-orange-950: #431407;
+  --color-orange-50: #fff9ed;
+  --color-orange-100: #fff0d2;
+  --color-orange-200: #ffdda0;
+  --color-orange-300: #f8c36e;
+  --color-orange-400: #efa83f;
+  --color-orange-500: #df8b1d;
+  --color-orange-600: #bd6c12;
+  --color-orange-700: #96500f;
+  --color-orange-800: #783f12;
+  --color-orange-900: #633513;
+  --color-orange-950: #391b08;
 
-  --color-red-50: #fff7ed;
-  --color-red-100: #ffedd5;
-  --color-red-200: #fed7aa;
-  --color-red-300: #fdba74;
-  --color-red-400: #fb923c;
-  --color-red-500: #f97316;
-  --color-red-600: #ea580c;
-  --color-red-700: #c2410c;
-  --color-red-800: #9a3412;
-  --color-red-900: #7c2d12;
-  --color-red-950: #431407;
+  /* Keep legacy red utility classes aligned with EYEPEK's amber accent */
+  --color-red-50: #fff9ed;
+  --color-red-100: #fff0d2;
+  --color-red-200: #ffdda0;
+  --color-red-300: #f8c36e;
+  --color-red-400: #efa83f;
+  --color-red-500: #df8b1d;
+  --color-red-600: #bd6c12;
+  --color-red-700: #96500f;
+  --color-red-800: #783f12;
+  --color-red-900: #633513;
+  --color-red-950: #391b08;
 }
-
