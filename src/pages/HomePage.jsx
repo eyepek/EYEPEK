@@ -468,27 +468,6 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='faq' className='bg-[#f5f9ff]'>
-      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
-        <p className='text-sm font-bold uppercase tracking-[0.2em] text-[#2864d7]'>{t("Quick answers","आम सवालों के जवाब")}</p>
-        <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>{t("Frequently asked questions","अक्सर पूछे जाने वाले सवाल")}</h2>
-        <div className='mt-6 grid gap-3 md:grid-cols-2'>
-          {[
-            [t('How can I get course and fee details?', 'कोर्स और फीस की जानकारी कैसे मिलेगी?'), t('Call EYEPEK College on 7004374250 to confirm current course availability and fees.', 'मौजूदा कोर्स और फीस की पुष्टि के लिए EYEPEK College को 7004374250 पर कॉल करें।')],
-            [t('How do I ask about admission?', 'प्रवेश के बारे में कैसे पूछूँ?'), t('Call the admissions team or send an enquiry through the contact page.', 'प्रवेश टीम को कॉल करें या संपर्क पेज से सवाल भेजें।')],
-            [t('What does admission guidance cover?', 'प्रवेश मार्गदर्शन में क्या शामिल है?'), t('Get guidance on course and college options, eligibility questions, application steps and documents. The institution makes the final admission decision.', 'कोर्स और कॉलेज विकल्प, पात्रता, आवेदन के चरण और दस्तावेज़ों पर मार्गदर्शन पाएँ। प्रवेश का अंतिम निर्णय संस्थान करता है।')],
-            [t('Can I ask about a course not listed here?', 'क्या सूची में न होने वाले कोर्स के बारे में पूछ सकता हूँ?'), t('Yes. Add the course you are interested in to the enquiry form and ask our team.', 'हाँ। पूछताछ फ़ॉर्म में अपने कोर्स का नाम लिखें और हमारी टीम से पूछें।')],
-            [t('What should I share when I enquire?', 'पूछताछ करते समय क्या जानकारी दें?'), t('Your name, phone number, course of interest and questions are a good start.', 'अपना नाम, फ़ोन नंबर, रुचि का कोर्स और सवाल साझा करें।')],
-          ].map(([question, answer]) => (
-            <details key={question} className='group rounded-xl border border-slate-200 bg-[#f4f7fb] p-6 open:border-blue-200 open:shadow-sm'>
-              <summary className='cursor-pointer list-none pr-8 font-bold text-blue-950 marker:hidden'>{question}<span className='float-right text-xl text-orange-600 transition group-open:rotate-45' aria-hidden='true'>+</span></summary>
-              <p className='mt-4 leading-7 text-slate-600'>{answer}</p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <section id='admissions' className='bg-white text-slate-800'>
       <div className='mx-auto max-w-7xl px-5 py-10 sm:px-8 md:px-10 md:py-12'>
         <div className='mb-6 flex flex-col gap-4 border-b border-slate-300/70 pb-5 lg:flex-row lg:items-end lg:justify-between'>
@@ -529,6 +508,32 @@ const HomePage = () => {
         <div className='mt-5 flex flex-col gap-2 rounded-xl border border-[#cbd6e2] bg-[#dfe8f1] px-4 py-3 sm:flex-row sm:items-center sm:justify-between'>
           <p className='text-xs leading-5 text-slate-600'>{t('Course availability, fees and admission requirements should be confirmed with the relevant institution.','कोर्स की उपलब्धता, फीस और प्रवेश की शर्तें संबंधित संस्थान से जाँचें।')}</p>
           <a href='tel:7004374250' className='shrink-0 text-xs font-extrabold text-[#173f70] hover:text-orange-600'>{t('Call 7004374250','7004374250 पर कॉल करें')}</a>
+        </div>
+      </div>
+    </section>
+
+    <section id='faq' className='bg-white'>
+      <div className='mx-auto max-w-7xl px-5 py-8 sm:px-8 md:px-10 md:py-10'>
+        <div className='mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between'>
+          <div>
+            <p className='text-xs font-bold uppercase tracking-[0.16em] text-[#2864d7]'>{t("Quick answers","आम सवालों के जवाब")}</p>
+            <h2 className='mt-1 text-2xl font-extrabold tracking-tight text-[#183f78] sm:text-3xl'>{t("Frequently asked questions","अक्सर पूछे जाने वाले सवाल")}</h2>
+          </div>
+          <a href='/contact' className='text-sm font-bold text-[#2864d7] hover:underline'>{t("Still have questions? Contact us","और सवाल हैं? संपर्क करें")} →</a>
+        </div>
+        <div className='grid gap-2 md:grid-cols-2'>
+          {[
+            [t('How can I get course and fee details?', 'कोर्स और फीस की जानकारी कैसे मिलेगी?'), t('Call EYEPEK College on 7004374250 to confirm current course availability and fees.', 'मौजूदा कोर्स और फीस की पुष्टि के लिए EYEPEK College को 7004374250 पर कॉल करें।')],
+            [t('How do I ask about admission?', 'प्रवेश के बारे में कैसे पूछूँ?'), t('Call the admissions team or send an enquiry through the contact page.', 'प्रवेश टीम को कॉल करें या संपर्क पेज से सवाल भेजें।')],
+            [t('What does admission guidance cover?', 'प्रवेश मार्गदर्शन में क्या शामिल है?'), t('Get guidance on course and college options, eligibility questions, application steps and documents. The institution makes the final admission decision.', 'कोर्स और कॉलेज विकल्प, पात्रता, आवेदन के चरण और दस्तावेज़ों पर मार्गदर्शन पाएँ। प्रवेश का अंतिम निर्णय संस्थान करता है।')],
+            [t('Can I ask about a course not listed here?', 'क्या सूची में न होने वाले कोर्स के बारे में पूछ सकता हूँ?'), t('Yes. Add the course you are interested in to the enquiry form and ask our team.', 'हाँ। पूछताछ फ़ॉर्म में अपने कोर्स का नाम लिखें और हमारी टीम से पूछें।')],
+            [t('What should I share when I enquire?', 'पूछताछ करते समय क्या जानकारी दें?'), t('Your name, phone number, course of interest and questions are a good start.', 'अपना नाम, फ़ोन नंबर, रुचि का कोर्स और सवाल साझा करें।')],
+          ].map(([question, answer]) => (
+            <details key={question} className='group rounded-lg border border-blue-100 bg-[#f8fbff] px-4 py-3 transition hover:border-blue-200 open:bg-white'>
+              <summary className='cursor-pointer list-none pr-7 text-sm font-semibold leading-6 text-[#183f78] marker:hidden'>{question}<span className='float-right text-lg font-medium text-[#df8914] transition group-open:rotate-45' aria-hidden='true'>+</span></summary>
+              <p className='mt-2 border-t border-blue-50 pt-2 text-sm leading-6 text-slate-600'>{answer}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
