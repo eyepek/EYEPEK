@@ -94,7 +94,7 @@ const HomePage = () => {
   const hi = language === 'hi';
   const t = (english, hindi) => hi ? hindi : english;
   return (
-  <main className='bg-[#f4f7fb] text-slate-900'>
+  <main className='bg-white text-slate-900'>
     <section className='relative overflow-hidden bg-gradient-to-br from-white via-[#f5f9ff] to-[#eaf2ff]'>
       <div className='pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#dceaff] blur-3xl' aria-hidden='true' />
       <div className='mx-auto grid min-h-[560px] max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:px-10 md:py-20'>
@@ -188,11 +188,11 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='learning' className='overflow-hidden bg-gradient-to-br from-[#e5edf5] via-[#f4f7fb] to-[#ffedda]'>
+    <section id='learning' className='overflow-hidden bg-white'>
       <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
         <div className='grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end'>
           <div>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>{t("Guidance that moves education forward","शिक्षा में आगे बढ़ने का मार्गदर्शन")}</p>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-[#2864d7]'>{t("Guidance that moves education forward","शिक्षा में आगे बढ़ने का मार्गदर्शन")}</p>
             <h2 className='mt-3 text-3xl font-extrabold leading-tight text-blue-950 md:text-4xl'>{t("Supporting students. Strengthening institutions.","छात्रों को सहयोग, संस्थानों को मज़बूती।")}</h2>
           </div>
           <p className='max-w-2xl text-lg leading-8 text-slate-600'>
@@ -219,13 +219,13 @@ const HomePage = () => {
           </div>
           <div className='flex shrink-0 flex-wrap gap-3'>
             <a href='/course-finder' className='inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 font-bold text-white transition hover:bg-orange-600'>{t('Find a course', 'कोर्स खोजें')} <FaArrowRight aria-hidden='true' /></a>
-            <a href='/guides' className='inline-flex items-center justify-center rounded-xl border border-blue-200 px-5 py-3 font-bold text-blue-900 transition hover:bg-[#e7eff7]'>{t("Read student guides","छात्र मार्गदर्शिकाएँ पढ़ें")}</a>
+            <a href='/guides' className='inline-flex items-center justify-center rounded-xl border border-blue-200 px-5 py-3 font-bold text-blue-900 transition hover:bg-[#f5f9ff]'>{t("Read student guides","छात्र मार्गदर्शिकाएँ पढ़ें")}</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id='student-support' className='relative overflow-hidden bg-gradient-to-br from-[#e5edf5] via-[#f4f7fb] to-[#ffedda]'>
+    <section id='student-support' className='relative overflow-hidden bg-white'>
       <div className='pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-200/25 blur-3xl' aria-hidden='true' />
       <div className='pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl' aria-hidden='true' />
       <div className='relative mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
@@ -245,14 +245,14 @@ const HomePage = () => {
         <div className='mt-8 grid gap-6 md:grid-cols-2'>
           {serviceCategories.map((item) => (
             <article key={item.slug} className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 border-t-4 ${item.color} bg-[#f4f7fb]/95 shadow-sm shadow-blue-950/5 transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl hover:shadow-blue-950/10`}>
-              <div className='relative h-48 overflow-hidden bg-[#e7eff7] sm:h-56'>
+              <div className='relative h-48 overflow-hidden bg-[#f5f9ff] sm:h-56'>
                 <img src={item.image} alt={item.imageAlt} loading='lazy' className='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
                 <div className='absolute inset-0 bg-gradient-to-t from-blue-950/55 via-transparent to-transparent' />
                 <span className='absolute bottom-3 left-4 rounded-full border border-white/70 bg-[#f4f7fb]/95 px-3 py-1 text-xs font-extrabold tracking-[0.12em] text-blue-950 shadow-sm'>{item.number}</span>
               </div>
               <div className='flex flex-1 flex-col p-6'>
                 <div className='flex items-center justify-between gap-3'>
-                  <div className='flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e7eff7] text-xl text-blue-800 ring-1 ring-blue-100 transition group-hover:bg-[#fff0df] group-hover:text-orange-600'>
+                  <div className='flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f5f9ff] text-xl text-blue-800 ring-1 ring-blue-100 transition group-hover:bg-[#fff0df] group-hover:text-orange-600'>
                     {item.slug === 'education' ? <FaGraduationCap aria-hidden='true' /> : item.slug === 'business-support' ? <FaUniversity aria-hidden='true' /> : item.slug === 'it-support' ? <FaTools aria-hidden='true' /> : <FaFileAlt aria-hidden='true' />}
                   </div>
                   <span className='rounded-full border border-orange-100 bg-[#fff0df] px-3 py-1 text-xs font-bold text-orange-700'>{t(item.label, item.labelHi)}</span>
@@ -262,7 +262,7 @@ const HomePage = () => {
                 <ul className='mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-2'>
                   {item.includes.map((service, index) => <li key={service} className='flex items-start gap-2'><span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500' aria-hidden='true' />{t(service, item.includesHi[index])}</li>)}
                 </ul>
-                <a href={`/services/${item.slug}`} className='mt-6 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-[#e7eff7] px-4 py-3 font-bold text-blue-900 transition hover:border-orange-200 hover:bg-[#fff0df] group-hover:text-orange-700'>
+                <a href={`/services/${item.slug}`} className='mt-6 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-[#f5f9ff] px-4 py-3 font-bold text-blue-900 transition hover:border-orange-200 hover:bg-[#fff0df] group-hover:text-orange-700'>
                   {t('View service details', 'सेवा की जानकारी देखें')} <FaArrowRight className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
                 </a>
               </div>
@@ -300,13 +300,13 @@ const HomePage = () => {
               <li>{t('4. Apply to the institution and follow its instructions.', '4. संस्थान में आवेदन करें और उसके निर्देशों का पालन करें।')}</li>
             </ol>
           </article>
-          <article className='rounded-2xl border border-blue-100 bg-[#e7eff7] p-6'>
+          <article className='rounded-2xl border border-blue-100 bg-[#f5f9ff] p-6'>
             <span className='text-xs font-black uppercase tracking-widest text-blue-700'>{t('For colleges', 'कॉलेजों के लिए')}</span>
             <h3 className='mt-2 text-xl font-extrabold text-blue-950'>{t('Affiliation & AICTE', 'संबद्धता और AICTE')}</h3>
             <p className='mt-3 leading-7 text-slate-700'>{t('University affiliation is a formal relationship that lets a college offer specified courses under that university’s rules. AICTE approval is a separate requirement where regulations apply; one does not automatically replace the other.', 'विश्वविद्यालय संबद्धता एक औपचारिक संबंध है, जिसके तहत कॉलेज उस विश्वविद्यालय के नियमों के अनुसार तय कोर्स चलाता है। जहाँ नियम लागू हों, AICTE की मंज़ूरी अलग आवश्यकता है; एक प्रक्रिया दूसरी की जगह अपने-आप नहीं लेती।')}</p>
             <p className='mt-3 leading-7 text-slate-700'>{t('EYEPEK can help institutions understand the process, organise records and prepare questions for the university or regulator. The relevant authority reviews applications and makes all approval decisions.', 'EYEPEK संस्थानों को प्रक्रिया समझने, रिकॉर्ड व्यवस्थित करने और विश्वविद्यालय या नियामक से पूछे जाने वाले सवाल तैयार करने में मदद कर सकता है। आवेदन की जाँच और मंज़ूरी का निर्णय संबंधित प्राधिकरण करता है।')}</p>
           </article>
-          <article className='rounded-2xl border border-slate-200 bg-[#e8eef5] p-6'>
+          <article className='rounded-2xl border border-slate-200 bg-[#f5f9ff] p-6'>
             <span className='text-xs font-black uppercase tracking-widest text-slate-600'>{t('For every application', 'हर आवेदन के लिए')}</span>
             <h3 className='mt-2 text-xl font-extrabold text-blue-950'>{t('Document support', 'दस्तावेज़ सहायता')}</h3>
             <p className='mt-3 leading-7 text-slate-700'>{t('A checklist helps you prepare; it does not mean every item is required everywhere. Student applications may ask for identity proof, photos, marksheets or certificates. College applications may need institutional records. Requirements vary by course, college, university and year.', 'चेकलिस्ट तैयारी में मदद करती है; इसका मतलब यह नहीं कि हर दस्तावेज़ हर जगह ज़रूरी होगा। छात्र आवेदन में पहचान-पत्र, फोटो, अंकपत्र या प्रमाणपत्र माँगे जा सकते हैं। कॉलेज आवेदन में संस्थान के रिकॉर्ड लग सकते हैं। ज़रूरतें कोर्स, कॉलेज, विश्वविद्यालय और वर्ष के अनुसार बदलती हैं।')}</p>
@@ -316,7 +316,7 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='about' className='relative isolate overflow-hidden bg-gradient-to-br from-white via-[#e5edf5] to-[#ffedda]'>
+    <section id='about' className='relative isolate overflow-hidden bg-white'>
       <div className='pointer-events-none absolute -right-24 -top-16 -z-10 h-80 w-80 rounded-full bg-orange-100/70 blur-3xl' aria-hidden='true' />
       <div className='pointer-events-none absolute -bottom-24 -left-20 -z-10 h-80 w-80 rounded-full bg-blue-100/80 blur-3xl' aria-hidden='true' />
       <div className='mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20'>
@@ -353,7 +353,7 @@ const HomePage = () => {
                 </div>
               </article>
               <article className='flex gap-4 rounded-2xl border border-blue-200 bg-[#f4f7fb] p-4 shadow-md shadow-blue-950/5'>
-                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#e7eff7] text-xl text-blue-800'><FaUniversity aria-hidden='true' /></span>
+                <span className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f5f9ff] text-xl text-blue-800'><FaUniversity aria-hidden='true' /></span>
                 <div>
                   <h3 className='font-extrabold text-blue-950'>{t('College Affiliation & AICTE Documentation', 'कॉलेज संबद्धता और AICTE दस्तावेज़ सहायता')}</h3>
                   <p className='mt-1 text-sm leading-6 text-slate-600'>{t('Process guidance, document organisation, compliance paperwork, and renewal support for colleges.', 'कॉलेजों के लिए प्रक्रिया समझना, रिकॉर्ड व्यवस्थित करना, अनुपालन के कागज़ात और नवीनीकरण सहायता।')}</p>
@@ -368,7 +368,7 @@ const HomePage = () => {
 
             <div className='mt-8 flex flex-wrap items-center gap-3'>
               <a href='#admissions' className='inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:-translate-y-0.5 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200'>{t('Admission support', 'प्रवेश सहायता')} <FaArrowRight aria-hidden='true' /></a>
-              <a href='/services/business-support' className='inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-[#f4f7fb] px-6 py-3.5 font-bold text-blue-900 transition hover:bg-[#e7eff7]'>{t('College support', 'कॉलेज सहायता')} <FaArrowRight aria-hidden='true' /></a>
+              <a href='/services/business-support' className='inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-[#f4f7fb] px-6 py-3.5 font-bold text-blue-900 transition hover:bg-[#f5f9ff]'>{t('College support', 'कॉलेज सहायता')} <FaArrowRight aria-hidden='true' /></a>
             </div>
             <p className='mt-5 text-xs leading-5 text-slate-500'>{t('EYEPEK provides process and documentation guidance. Admissions, affiliation, AICTE decisions, and approvals are made by the relevant institution or authority.', 'EYEPEK प्रक्रिया और दस्तावेज़ों में मार्गदर्शन देता है। प्रवेश, संबद्धता, AICTE और मंज़ूरी के निर्णय संबंधित संस्थान या प्राधिकरण लेते हैं।')}</p>
           </div>
@@ -376,7 +376,7 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='campus' className='overflow-hidden bg-[#e8eef5]'>
+    <section id='campus' className='overflow-hidden bg-[#f5f9ff]'>
       <div className='mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20'>
         <div className='grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14'>
           <div>
@@ -453,7 +453,7 @@ const HomePage = () => {
             <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-900 group-hover:text-orange-600'>{t('Explore IT services', 'IT सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></span>
           </a>
         </div>
-        <div className='mt-8 rounded-2xl border border-blue-100 bg-[#e7eff7] p-6 md:flex md:items-center md:justify-between md:gap-8'>
+        <div className='mt-8 rounded-2xl border border-blue-100 bg-[#f5f9ff] p-6 md:flex md:items-center md:justify-between md:gap-8'>
           <div>
             <p className='text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('Free information resources', 'मुफ़्त जानकारी')}</p>
             <h3 className='mt-2 text-xl font-black text-blue-950'>{t('Prepare before you apply or enquire.', 'आवेदन या पूछताछ से पहले तैयारी करें।')}</h3>
@@ -468,9 +468,9 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='faq' className='bg-[#e8eef5]'>
+    <section id='faq' className='bg-[#f5f9ff]'>
       <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
-        <p className='text-sm font-bold uppercase tracking-[0.2em] text-red-600'>{t("Quick answers","आम सवालों के जवाब")}</p>
+        <p className='text-sm font-bold uppercase tracking-[0.2em] text-[#2864d7]'>{t("Quick answers","आम सवालों के जवाब")}</p>
         <h2 className='mt-3 text-3xl font-extrabold text-blue-950 md:text-5xl'>{t("Frequently asked questions","अक्सर पूछे जाने वाले सवाल")}</h2>
         <div className='mt-6 grid gap-3 md:grid-cols-2'>
           {[
@@ -489,7 +489,7 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='admissions' className='bg-gradient-to-br from-[#eaf1f8] via-[#f4f6f8] to-[#e8edf4] text-slate-800'>
+    <section id='admissions' className='bg-white text-slate-800'>
       <div className='mx-auto max-w-7xl px-5 py-10 sm:px-8 md:px-10 md:py-12'>
         <div className='mb-6 flex flex-col gap-4 border-b border-slate-300/70 pb-5 lg:flex-row lg:items-end lg:justify-between'>
           <div className='max-w-3xl'>
