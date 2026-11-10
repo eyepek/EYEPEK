@@ -8,16 +8,16 @@ const Footer = () => {
   const exploreLinks = [
     { label: 'About EYEPEK', labelHi: 'EYEPEK के बारे में', href: '/#about' },
     { label: 'Guidance & Support', labelHi: 'मार्गदर्शन और सहायता', href: '/#learning' },
-    { label: 'Student & Education Services', labelHi: 'छात्र और शिक्षा सेवाएँ', to: '/services/education' },
-    { label: 'College & Institution Support', labelHi: 'कॉलेज और संस्थान सहायता', to: '/services/business-support' },
-    { label: 'IT Solutions', labelHi: 'आईटी समाधान', to: '/services/it-support' },
+    { label: 'Student & Education Services', labelHi: 'छात्र और शिक्षा सेवाएँ', href: '/services/education' },
+    { label: 'College & Institution Support', labelHi: 'कॉलेज और संस्थान सहायता', href: '/services/business-support' },
+    { label: 'IT Solutions', labelHi: 'आईटी समाधान', href: '/services/it-support' },
     { label: 'All Services', labelHi: 'सभी सेवाएँ', href: '/#student-support' },
     { label: 'Student Journey', labelHi: 'छात्र यात्रा', href: '/#campus' },
     { label: 'Admission, Affiliation & Documents Guide', labelHi: 'प्रवेश, संबद्धता और दस्तावेज़ मार्गदर्शन', href: '/#support-guide' },
     { label: 'Admissions', labelHi: 'प्रवेश', href: '/#admissions' },
-    { label: 'Free Admission Checklist', labelHi: 'निःशुल्क प्रवेश चेकलिस्ट', to: '/admission-checklist' },
-    { label: 'Course & Career Finder', labelHi: 'कोर्स और करियर खोजें', to: '/course-finder' },
-    { label: 'Helpful Guides', labelHi: 'उपयोगी गाइड', to: '/guides' },
+    { label: 'Free Admission Checklist', labelHi: 'निःशुल्क प्रवेश चेकलिस्ट', href: '/admission-checklist' },
+    { label: 'Course & Career Finder', labelHi: 'कोर्स और करियर खोजें', href: '/course-finder' },
+    { label: 'Helpful Guides', labelHi: 'उपयोगी गाइड', href: '/guides' },
     { label: 'Privacy Policy', labelHi: 'गोपनीयता नीति', href: '/privacy-policy.html' },
   ];
 
@@ -51,11 +51,7 @@ const Footer = () => {
           <ul className='mt-5 grid grid-cols-1 gap-x-5 gap-y-3 text-sm text-slate-300 sm:grid-cols-2 md:grid-cols-1'>
             {exploreLinks.map((item) => (
               <li key={item.label}>
-                {item.to ? (
-                  <Link to={item.to} className='transition-colors hover:text-orange-300'>{t(item.label, item.labelHi)}</Link>
-                ) : (
-                  <a href={item.href} className='transition-colors hover:text-orange-300'>{t(item.label, item.labelHi)}</a>
-                )}
+                <a href={item.href} className='transition-colors hover:text-orange-300'>{t(item.label, item.labelHi)}</a>
               </li>
             ))}
           </ul>
