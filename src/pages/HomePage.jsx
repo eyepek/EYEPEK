@@ -534,55 +534,43 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='admissions' className='bg-gradient-to-b from-[#f4f8ff] via-white to-[#edf4ff] text-slate-900'>
+    <section id='admissions' className='bg-[#f7f8fa] text-slate-800'>
       <div className='mx-auto max-w-7xl px-5 py-14 sm:px-8 md:px-10 md:py-20'>
-        <div className='overflow-hidden rounded-[2rem] bg-gradient-to-r from-blue-950 via-[#123d78] to-blue-800 p-6 text-white shadow-xl shadow-blue-950/10 sm:p-8 md:p-10'>
-          <div className='grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end'>
-            <div className='max-w-3xl'>
-              <p className='inline-flex items-center gap-2 rounded-full border border-orange-200/30 bg-orange-300/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-orange-200'>
-                <span className='h-2 w-2 rounded-full bg-orange-400' /> {t("Explore your study options","पढ़ाई के विकल्प जानें")}
-              </p>
-              <h2 className='mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl'>{t("Find the course that moves you forward.","आगे बढ़ाने वाला कोर्स खोजें।")}</h2>
-              <p className='mt-4 max-w-2xl text-sm leading-7 text-blue-100 sm:text-base sm:leading-8'>{t('Explore popular programmes and contact our team for guidance on course fit, eligibility questions, admission steps and required documents.', 'लोकप्रिय कोर्स देखें और उपयुक्तता, पात्रता संबंधी सवाल, प्रवेश प्रक्रिया व दस्तावेज़ों के लिए हमारी टीम से मार्गदर्शन लें।')}</p>
-            </div>
-            <div className='flex flex-wrap gap-3 lg:max-w-[250px]'>
-              <a href='/contact' className='inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-orange-400'>{t('Get course guidance', 'कोर्स मार्गदर्शन पाएँ')} <span className='ml-2' aria-hidden='true'>→</span></a>
-              <a href='https://wa.me/917004374250?text=Namaste%20EYEPEK%2C%20mujhe%20course%20aur%20admission%20ki%20jaankari%20chahiye.' target='_blank' rel='noreferrer' className='inline-flex items-center justify-center rounded-xl border border-white/35 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/15'>{t('Ask on WhatsApp', 'WhatsApp पर पूछें')}</a>
-            </div>
+        <div className='mb-9 flex flex-col gap-6 border-b border-slate-200 pb-8 lg:flex-row lg:items-end lg:justify-between'>
+          <div className='max-w-3xl'>
+            <p className='text-xs font-extrabold uppercase tracking-[0.22em] text-[#d97706]'>{t('EYEPEK · EDUCATION GUIDANCE','EYEPEK · शिक्षा मार्गदर्शन')}</p>
+            <h2 className='mt-3 text-3xl font-extrabold leading-tight tracking-tight text-[#142b4a] sm:text-4xl md:text-[2.8rem]'>{t('Choose a course. Plan your future.','कोर्स चुनें। अपना भविष्य बनाएँ।')}</h2>
+            <p className='mt-3 max-w-2xl text-base leading-7 text-slate-600'>{t('Explore popular programmes and get clear guidance on eligibility, admission steps and documents.','लोकप्रिय कोर्स देखें और पात्रता, प्रवेश प्रक्रिया तथा दस्तावेज़ों की स्पष्ट जानकारी पाएँ।')}</p>
+          </div>
+          <div className='flex shrink-0 flex-wrap gap-3'>
+            <a href='/contact' className='inline-flex items-center justify-center gap-2 rounded-lg bg-[#173f70] px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#102f56]'>{t('Get course guidance','कोर्स मार्गदर्शन पाएँ')} <FaArrowRight aria-hidden='true' /></a>
+            <a href='https://wa.me/917004374250?text=Namaste%20EYEPEK%2C%20mujhe%20course%20aur%20admission%20ki%20jaankari%20chahiye.' target='_blank' rel='noreferrer' className='inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-[#173f70] transition hover:border-[#173f70] hover:bg-slate-50'>{t('WhatsApp us','WhatsApp करें')}</a>
           </div>
         </div>
-        <div className='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5'>
-          {courses.map((course, index) => <a key={course} href={`/contact?course=${encodeURIComponent(course)}`} aria-label={t(`Enquire about ${course}`, `${course} के बारे में पूछें`)} className='group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-blue-100 bg-white p-5 shadow-[0_8px_28px_rgba(15,45,90,0.06)] transition duration-200 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_16px_36px_rgba(15,45,90,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 sm:p-6'>
+        <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+          {courses.map((course, index) => <a key={course} href={`/contact?course=${encodeURIComponent(course)}`} aria-label={t(`Enquire about ${course}`, `${course} के बारे में पूछें`)} className='group relative flex min-h-[245px] flex-col rounded-xl border border-[#e1e6ed] bg-white p-6 shadow-[0_2px_12px_rgba(20,43,74,0.04)] transition duration-200 hover:-translate-y-1 hover:border-[#9db7d3] hover:shadow-[0_12px_28px_rgba(20,43,74,0.10)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d97706]'>
             <div className='flex items-center justify-between'>
-              <span className='inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-sm font-black text-blue-800 ring-1 ring-blue-100'><FaGraduationCap aria-hidden='true' /></span>
-              <span className='rounded-full bg-slate-50 px-3 py-1 text-xs font-bold tracking-widest text-slate-400'>0{index + 1}</span>
+              <span className='inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#edf3f9] text-[#173f70]'><FaGraduationCap size={21} aria-hidden='true' /></span>
+              <span className='text-xs font-bold tabular-nums tracking-[0.16em] text-slate-400'>{String(index + 1).padStart(2,'0')}</span>
             </div>
-            <h3 className='mt-5 text-2xl font-black tracking-tight text-blue-950 sm:text-3xl'>{course}</h3>
-            <p className='mt-2 min-h-[60px] text-sm leading-6 text-slate-600'>{t(courseDescriptions[course]?.[0] || 'Course details vary by institution.', courseDescriptions[course]?.[1] || 'कोर्स का विवरण संस्थान के अनुसार अलग हो सकता है।')}</p>
-            <div className='mt-4 border-t border-slate-100 pt-3'>
-              <p className='text-xs leading-5 text-slate-500'>{t('Check current eligibility, duration, fees and document list with the college.', 'मौजूदा पात्रता, अवधि, फीस और दस्तावेज़ सूची कॉलेज से पूछें।')}</p>
-              <p className='mt-3 inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-orange-600 transition group-hover:text-blue-800'>{t('View course details', 'कोर्स की जानकारी लें')} <FaArrowRight aria-hidden='true' /></p>
+            <h3 className='mt-5 text-[1.7rem] font-extrabold tracking-tight text-[#142b4a]'>{course}</h3>
+            <p className='mt-2 flex-1 text-sm leading-6 text-slate-600'>{t(courseDescriptions[course]?.[0] || 'Course details vary by institution.', courseDescriptions[course]?.[1] || 'कोर्स का विवरण संस्थान के अनुसार अलग हो सकता है।')}</p>
+            <div className='mt-5 flex items-center justify-between border-t border-slate-100 pt-4'>
+              <span className='text-xs font-semibold text-slate-500'>{t('Course information','कोर्स की जानकारी')}</span>
+              <span className='inline-flex items-center gap-2 text-sm font-bold text-[#d97706] transition group-hover:gap-3 group-hover:text-[#173f70]'>{t('Enquire','पूछें')} <FaArrowRight aria-hidden='true' /></span>
             </div>
-            <span className='absolute bottom-0 left-0 h-1 w-0 bg-orange-500 transition-all duration-300 group-hover:w-full' />
+            <span className='absolute bottom-0 left-6 right-6 h-[2px] scale-x-0 bg-[#d97706] transition-transform duration-300 group-hover:scale-x-100' />
           </a>)}
-          <a href='/contact?course=Other' className='group flex min-h-[260px] flex-col items-center justify-center rounded-2xl border border-dashed border-blue-300 bg-gradient-to-br from-blue-50 to-[#e5efff] p-6 text-center transition hover:border-orange-300 hover:from-orange-50 hover:to-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400'>
-            <span className='flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-900 text-2xl font-bold text-white shadow-lg shadow-blue-900/15 transition group-hover:rotate-6 group-hover:bg-orange-500'>+</span>
-            <p className='mt-4 text-xl font-extrabold text-blue-950'>{t("And more","और भी")}</p>
-            <p className='mt-2 text-sm text-slate-600'>{t("Tell us which course you're looking for","अपने पसंदीदा कोर्स के बारे में पूछें")}</p>
-            <span className='mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-orange-600'>{t("Ask our team","हमारी टीम से पूछें")} <FaArrowRight aria-hidden='true' /></span>
+          <a href='/contact?course=Other' className='flex min-h-[245px] flex-col items-center justify-center rounded-xl border border-dashed border-[#b8c6d6] bg-[#eef2f6] p-6 text-center transition hover:border-[#d97706] hover:bg-[#fffaf2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d97706]'>
+            <span className='flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl font-medium text-[#173f70] shadow-sm'>+</span>
+            <p className='mt-4 text-xl font-extrabold text-[#142b4a]'>{t('Looking for another course?','कोई दूसरा कोर्स चाहिए?')}</p>
+            <p className='mt-2 text-sm text-slate-600'>{t('Tell our team what you have in mind.','हमें बताएँ कि आप कौन-सा कोर्स चाहते हैं।')}</p>
+            <span className='mt-4 text-sm font-bold text-[#d97706]'>{t('Ask our team','हमारी टीम से पूछें')} →</span>
           </a>
         </div>
-        <div className='mt-8 rounded-2xl border border-blue-100 bg-white p-5 shadow-sm sm:p-6'>
-          <h3 className='text-lg font-extrabold text-blue-950'>{t('Clear information. Honest guidance.','स्पष्ट जानकारी। ईमानदार मार्गदर्शन।')}</h3>
-          <div className='mt-4 grid gap-5 sm:grid-cols-3'>
-            <div><p className='font-bold text-blue-800'>{t('English & Hindi','अंग्रेज़ी और हिंदी')}</p><p className='mt-1 text-sm leading-6 text-slate-600'>{t('Choose the language that works for you.','अपनी सुविधा की भाषा चुनें।')}</p></div>
-            <div><p className='font-bold text-blue-800'>{t('Clear next steps','अगले कदम साफ़')}</p><p className='mt-1 text-sm leading-6 text-slate-600'>{t('Know what to ask and which documents to check.','जानें कि क्या पूछना है और कौन-से दस्तावेज़ जाँचने हैं।')}</p></div>
-            <div><p className='font-bold text-blue-800'>{t('Honest guidance','ईमानदार मार्गदर्शन')}</p><p className='mt-1 text-sm leading-6 text-slate-600'>{t('The college and relevant authority decide admissions and approvals.','प्रवेश और मंज़ूरी का निर्णय कॉलेज और संबंधित प्राधिकरण लेते हैं।')}</p></div>
-          </div>
-        </div>
-        <div className='mt-6 flex flex-col gap-3 border-t border-blue-100 pt-5 sm:flex-row sm:items-center sm:justify-between'>
-          <p className='text-sm leading-6 text-slate-500'>{t("Course availability and admission details should be confirmed with the relevant institution.","कोर्स की उपलब्धता और प्रवेश की जानकारी संबंधित संस्थान से ज़रूर जाँचें।")}</p>
-          <a href='tel:7004374250' className='font-extrabold text-blue-800 transition hover:text-orange-600'>{t("Call 7004374250","7004374250 पर कॉल करें")}</a>
+        <div className='mt-8 flex flex-col gap-3 rounded-xl border border-[#e1e6ed] bg-white px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6'>
+          <p className='text-sm leading-6 text-slate-600'>{t('Course availability, fees and admission requirements should be confirmed with the relevant institution.','कोर्स की उपलब्धता, फीस और प्रवेश की शर्तें संबंधित संस्थान से ज़रूर जाँचें।')}</p>
+          <a href='tel:7004374250' className='shrink-0 text-sm font-extrabold text-[#173f70] hover:text-[#d97706]'>{t('Call 7004374250','7004374250 पर कॉल करें')}</a>
         </div>
       </div>
     </section>
