@@ -150,85 +150,58 @@ const HomePage = () => {
     </section>
 
 
-    <section id="national-services" className="bg-[#f4f7fb] px-6 py-16 md:px-10 md:py-20">
+    <section id="national-services" className="bg-white px-5 py-16 sm:px-8 md:px-10 md:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 px-7 py-9 text-white shadow-xl shadow-blue-950/10 md:px-12 md:py-12">
-          <div className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-orange-400/15 blur-3xl" />
-          <div className="relative grid items-center gap-9 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-            <div className="max-w-2xl">
-              <p className="inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-400/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em] text-orange-200">
-                <span className="h-2 w-2 rounded-full bg-orange-400" /> {t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}
-              </p>
-              <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight md:text-5xl">{t("Education & Technology. One Trusted Partner.", "शिक्षा और तकनीक के लिए आपका भरोसेमंद साथी।")}</h2>
-              <p className="mt-5 max-w-xl text-base leading-8 text-blue-100 md:text-lg">{t("Your partner for college affiliation and institutional documentation, student counselling and admission guidance, AICTE-related process support, and professional IT solutions. EYEPEK brings the right guidance and services together in one place.", "कॉलेज संबद्धता और संस्थागत दस्तावेज़, विद्यार्थियों की काउंसलिंग व प्रवेश मार्गदर्शन, AICTE से जुड़ी प्रक्रिया में सहायता और प्रोफेशनल IT सेवाओं के लिए EYEPEK आपका सहयोगी है।")}</p>
-              <div className="mt-7 grid max-w-2xl grid-cols-1 gap-3 text-sm font-bold sm:grid-cols-2">
-                <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-[#f4f7fb]/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">01</span>{t("College Affiliation", "कॉलेज संबद्धता")}</span>
-                <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-[#f4f7fb]/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">02</span>{t("Student Counselling", "विद्यार्थी काउंसलिंग")}</span>
-                <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-[#f4f7fb]/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">03</span>{t("AICTE Documentation Support", "AICTE दस्तावेज़ सहायता")}</span>
-                <span className="flex items-center gap-3 rounded-xl border border-white/15 bg-[#f4f7fb]/10 px-4 py-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-400/20 text-orange-200">04</span>{t("IT & Technical Services", "IT और तकनीकी सेवाएँ")}</span>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400">{t("Get in touch", "संपर्क करें")} <FaArrowRight aria-hidden="true" /></a>
-                <a href="#student-support" className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-6 py-3.5 font-bold text-white transition hover:bg-[#f4f7fb]/10">{t("Explore services", "सेवाएँ देखें")}</a>
-              </div>
-            </div>
-            <div className="relative min-h-[250px] overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/20 sm:min-h-[330px]">
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=85"
-                alt={t("A team working together with computers in a modern workspace", "आधुनिक कार्यस्थल में कंप्यूटर के साथ मिलकर काम करती टीम")}
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/85 via-blue-950/10 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5">
-                <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-200">{t("Learn • Connect • Get support", "सीखें • जुड़ें • सहायता पाएँ")}</p>
-                <p className="mt-2 text-xl font-black md:text-2xl">{t("Move forward with EYEPEK.", "EYEPEK के साथ आगे बढ़ें।")}</p>
-              </div>
-            </div>
-          </div>
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+          <p className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-700">
+            <span className="h-2 w-2 rounded-full bg-[#f5a623]" /> {t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}
+          </p>
+          <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight text-[#183f78] sm:text-4xl md:text-5xl">
+            {t("Education & Technology. One Trusted Partner.", "शिक्षा और तकनीक के लिए आपका भरोसेमंद साथी।")}
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+            {t("From student guidance and college documentation to practical IT solutions, get the support you need in one place.", "विद्यार्थी मार्गदर्शन और कॉलेज दस्तावेज़ों से लेकर IT सेवाओं तक, अपनी ज़रूरत की सहायता एक ही जगह पाएँ।")}
+          </p>
         </div>
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <article className="group overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-[#e5edf5] to-[#f4f7fb] shadow-lg shadow-blue-950/5">
-            <div className="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85" alt={t("Students collaborating on a campus", "कैंपस में साथ पढ़ते विद्यार्थी")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/75 to-transparent" />
-              <p className="absolute bottom-5 left-6 rounded-full border border-white/30 bg-[#f4f7fb]/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur">{t("Division 01", "विभाग 01")}</p>
+
+        <div className="grid items-stretch gap-6 lg:grid-cols-2">
+          <article className="group overflow-hidden rounded-3xl border border-blue-100 bg-[#f7faff] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div className="relative h-56 overflow-hidden sm:h-64">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85" alt={t("Students learning together on campus", "कैंपस में साथ पढ़ते विद्यार्थी")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#102a43]/65 via-transparent to-transparent" />
+              <span className="absolute bottom-5 left-6 rounded-full bg-white/95 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[#2454b8]">{t("Division 01 · Education", "विभाग 01 · शिक्षा")}</span>
             </div>
-            <div className="p-7 md:p-9">
-              <h3 className="text-2xl font-black text-blue-950 md:text-3xl">{t("EYEPEK Education Services", "EYEPEK Education Services")}</h3>
+            <div className="p-6 sm:p-8">
+              <h3 className="text-2xl font-black text-[#183f78] sm:text-3xl">{t("EYEPEK Education Services", "EYEPEK Education Services")}</h3>
               <p className="mt-3 leading-7 text-slate-600">{t("Practical guidance and organised documentation support for students, colleges and educational institutions.", "छात्रों, कॉलेजों और शैक्षणिक संस्थानों के लिए व्यावहारिक मार्गदर्शन और व्यवस्थित दस्तावेज़ सहायता।")}</p>
-              <ul className="mt-6 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
-                {[t("Course & admission guidance", "कोर्स और प्रवेश मार्गदर्शन"), t("College affiliation documentation", "कॉलेज संबद्धता दस्तावेज़"), t("Compliance & renewal support", "अनुपालन और नवीनीकरण सहायता"), t("Institutional website support", "संस्थान की वेबसाइट सहायता")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
+              <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
+                {[t("Course & admission guidance", "कोर्स और प्रवेश मार्गदर्शन"), t("College affiliation documentation", "कॉलेज संबद्धता दस्तावेज़"), t("Compliance & renewal support", "अनुपालन और नवीनीकरण सहायता"), t("Institutional documentation", "संस्थान के दस्तावेज़")].map(item => <li key={item} className="flex items-start gap-2"><span className="mt-0.5 font-black text-[#df8914]">✓</span>{item}</li>)}
               </ul>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="/services/education" className="inline-flex items-center gap-2 rounded-xl bg-blue-950 px-5 py-3 font-bold text-white transition hover:bg-blue-800">{t("Student Guidance", "छात्र मार्गदर्शन")} <FaArrowRight aria-hidden="true" /></a>
-                <a href="/services/business-support" className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-[#f4f7fb] px-5 py-3 font-bold text-blue-950 transition hover:bg-[#e7eff7]">{t("Institution Support", "संस्थान सहायता")} <FaArrowRight aria-hidden="true" /></a>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a href="/services/education" className="inline-flex items-center gap-2 rounded-xl bg-[#2864d7] px-5 py-3 font-bold text-white transition hover:bg-[#1e4fae]">{t("Student Guidance", "छात्र मार्गदर्शन")} <FaArrowRight aria-hidden="true" /></a>
+                <a href="/services/business-support" className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-5 py-3 font-bold text-[#2454b8] transition hover:bg-blue-50">{t("Institution Support", "संस्थान सहायता")} <FaArrowRight aria-hidden="true" /></a>
               </div>
             </div>
           </article>
-          <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-[#e8eef5] to-[#f4f7fb] shadow-lg shadow-blue-950/5">
-            <div className="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85" alt={t("IT hardware and circuit board close-up", "IT हार्डवेयर और सर्किट बोर्ड")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/75 to-transparent" />
-              <p className="absolute bottom-5 left-6 rounded-full border border-white/30 bg-[#f4f7fb]/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur">{t("Division 02", "विभाग 02")}</p>
+
+          <article className="group overflow-hidden rounded-3xl border border-blue-100 bg-[#f7faff] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div className="relative h-56 overflow-hidden sm:h-64">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85" alt={t("Computer hardware and technology close-up", "कंप्यूटर हार्डवेयर और तकनीक")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#102a43]/65 via-transparent to-transparent" />
+              <span className="absolute bottom-5 left-6 rounded-full bg-white/95 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[#2454b8]">{t("Division 02 · Technology", "विभाग 02 · तकनीक")}</span>
             </div>
-            <div className="p-7 md:p-9">
-              <h3 className="text-2xl font-black text-blue-950 md:text-3xl">{t("EYEPEK IT Solutions", "EYEPEK IT Solutions")}</h3>
-              <p className="mt-3 leading-7 text-slate-600">{t("Technology assistance for individuals, offices, institutions and small businesses, delivered remotely or through verified local partners where available.", "व्यक्तियों, कार्यालयों, संस्थानों और छोटे व्यवसायों के लिए तकनीकी सहायता—ऑनलाइन या उपलब्ध सत्यापित स्थानीय पार्टनर के माध्यम से।")}</p>
-              <ul className="mt-6 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
-                {[t("Computer & laptop support", "कंप्यूटर और लैपटॉप सहायता"), t("Software & Windows setup", "सॉफ्टवेयर और Windows सेटअप"), t("Networking, printer & CCTV", "नेटवर्किंग, प्रिंटर और CCTV"), t("Websites, remote support & AMC", "वेबसाइट, रिमोट सहायता और AMC")].map(item => <li key={item} className="flex gap-2"><span className="text-orange-600">✓</span>{item}</li>)}
+            <div className="p-6 sm:p-8">
+              <h3 className="text-2xl font-black text-[#183f78] sm:text-3xl">{t("EYEPEK IT & Technical Services", "EYEPEK IT और तकनीकी सेवाएँ")}</h3>
+              <p className="mt-3 leading-7 text-slate-600">{t("Reliable technical assistance for homes, students, offices and growing businesses.", "घरों, विद्यार्थियों, कार्यालयों और व्यवसायों के लिए भरोसेमंद तकनीकी सहायता।")}</p>
+              <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
+                {[t("Computer & laptop support", "कंप्यूटर और लैपटॉप सहायता"), t("Software & printer setup", "सॉफ्टवेयर और प्रिंटर सेटअप"), t("Networking & CCTV", "नेटवर्किंग और CCTV"), t("Remote & on-site assistance", "रिमोट और ऑन-साइट सहायता")].map(item => <li key={item} className="flex items-start gap-2"><span className="mt-0.5 font-black text-[#df8914]">✓</span>{item}</li>)}
               </ul>
-              <a href="/services/it-support" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-bold text-white transition hover:bg-orange-400">{t("Explore IT Solutions", "IT सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a href="/services/it-support" className="inline-flex items-center gap-2 rounded-xl bg-[#2864d7] px-5 py-3 font-bold text-white transition hover:bg-[#1e4fae]">{t("Explore IT Services", "IT सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
+                <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-5 py-3 font-bold text-[#2454b8] transition hover:bg-blue-50">{t("Contact Us", "संपर्क करें")} <FaArrowRight aria-hidden="true" /></a>
+              </div>
             </div>
           </article>
-        </div>
-        <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-blue-950 p-6 text-white md:flex-row md:items-center md:justify-between md:p-8">
-          <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-300">{t("Serving enquiries from across India", "भारत भर से पूछताछ आमंत्रित है")}</p>
-            <h3 className="mt-2 text-xl font-bold md:text-2xl">{t("Tell us what you need. We will help you plan the next step.", "अपनी जरूरत बताएँ। हम अगला कदम तय करने में मदद करेंगे।")}</h3>
-            <p className="mt-2 text-sm leading-6 text-blue-100">{t("Service availability depends on the type of work and location. We confirm this before accepting a booking.", "सेवा की उपलब्धता काम और स्थान पर निर्भर करेगी। बुकिंग स्वीकार करने से पहले इसकी पुष्टि की जाएगी।")}</p>
-          </div>
-          <a href="/contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#f4f7fb] px-6 py-3.5 font-bold text-blue-950 transition hover:bg-orange-100">{t("Send an enquiry", "पूछताछ भेजें")} <FaArrowRight aria-hidden="true" /></a>
         </div>
       </div>
     </section>
