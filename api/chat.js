@@ -18,13 +18,13 @@ export default async function handler(req, res) {
 
   // Answer exact EYEPEK contact questions directly from verified website details.
   const normalizedQuestion = question.toLowerCase().normalize('NFKC');
-  const asksPhone = /\\b(phone|mobile|number|contact number|call|whatsapp)\\b|फोन|मोबाइल|नंबर|सम्पर्क|संपर्क|व्हाट्स.?ऐप|कॉल/.test(normalizedQuestion);
-  const asksEmail = /\\b(email|e mail|mail id)\\b|ईमेल|मेल आईडी/.test(normalizedQuestion);
+  const asksPhone = /\b(phone|mobile|number|contact number|call|whatsapp)\b|फोन|मोबाइल|नंबर|सम्पर्क|संपर्क|व्हाट्स.?ऐप|कॉल/.test(normalizedQuestion);
+  const asksEmail = /\b(email|e mail|mail id)\b|ईमेल|मेल आईडी/.test(normalizedQuestion);
   if (asksPhone || asksEmail) {
     const details = [];
     if (asksPhone) details.push(language === 'Hindi' ? 'EYEPEK का फोन/WhatsApp नंबर: +91 70043 74250' : 'EYEPEK phone/WhatsApp: +91 70043 74250');
     if (asksEmail) details.push(language === 'Hindi' ? 'EYEPEK ईमेल: info.eyepek@gmail.com' : 'EYEPEK email: info.eyepek@gmail.com');
-    return res.status(200).json({ reply: details.join('\\n') + (language === 'Hindi' ? '\\nआप इस नंबर पर कॉल या WhatsApp कर सकते हैं।' : '\\nYou can call or WhatsApp this number.') });
+    return res.status(200).json({ reply: details.join('\n') + (language === 'Hindi' ? '\\nआप इस नंबर पर कॉल या WhatsApp कर सकते हैं।' : '\\nYou can call or WhatsApp this number.') });
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
