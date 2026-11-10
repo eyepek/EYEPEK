@@ -95,60 +95,42 @@ const HomePage = () => {
   const t = (english, hindi) => hi ? hindi : english;
   return (
   <main className='bg-[#f4f7fb] text-slate-900'>
-    <section className='relative isolate overflow-hidden bg-blue-950 text-white'>
-      <img
-        className='absolute inset-0 -z-20 h-full w-full object-cover object-center'
-        src='/images/students-campus.jpg'
-        alt='Students studying together outdoors in a campus setting (illustrative photo)'
-      />
-      <div className='absolute inset-0 -z-10 bg-gradient-to-br from-blue-950/95 via-blue-950/90 to-slate-950/80' />
-      <div className='mx-auto grid min-h-[620px] max-w-7xl items-center gap-8 px-5 py-12 sm:px-8 md:min-h-[650px] md:grid-cols-[1.05fr_0.95fr] md:gap-10 md:px-10 md:py-14'>
-        <div className='max-w-2xl'>
-          <p className='mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-200 backdrop-blur-sm sm:text-sm'>
-            <span className='h-2 w-2 rounded-full bg-orange-400' /> EYEPEK
+    <section className='relative overflow-hidden bg-gradient-to-br from-white via-[#f5f9ff] to-[#eaf2ff]'>
+      <div className='pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#dceaff] blur-3xl' aria-hidden='true' />
+      <div className='mx-auto grid min-h-[560px] max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:px-10 md:py-20'>
+        <div className='relative z-10 max-w-2xl'>
+          <p className='mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#2864d7] shadow-sm sm:text-sm'>
+            <span className='h-2 w-2 rounded-full bg-[#f5a623]' /> {t('Education • College Support • Technology', 'शिक्षा • कॉलेज सहायता • तकनीक')}
           </p>
-          <h1 className='max-w-[650px] text-[2.65rem] font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.35rem] xl:text-[3.65rem]'>
-            {hi ? <>छात्रों को आगे बढ़ाएँ।<br />कॉलेजों को सहयोग दें।<br />हर कदम आसान बनाएँ।</> : <>Empowering <span className='text-orange-300'>Students.</span><br />Supporting Colleges.<br />Simplifying Every Step.</>}
+          <h1 className='max-w-[680px] text-[2.55rem] font-black leading-[1.08] tracking-tight text-[#183f78] sm:text-5xl lg:text-[3.55rem]'>
+            {hi ? <>छात्रों को सही दिशा।<br /><span className='text-[#2864d7]'>कॉलेजों को भरोसेमंद</span> सहयोग।</> : <>Empowering <span className='text-[#2864d7]'>Students.</span><br />Supporting Colleges.</>}
           </h1>
-          <p className='mt-5 max-w-xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8'>
-            {t('Your trusted support partner for course and admission guidance, college affiliation documentation, and practical technology and business services. Explore your options, understand the process, and get clear support at every step.', 'कोर्स और प्रवेश मार्गदर्शन, कॉलेज संबद्धता के दस्तावेज़ तथा तकनीकी और व्यवसाय सेवाओं के लिए EYEPEK आपका सहयोगी है। विकल्प समझें और हर कदम पर साफ़ सहायता पाएँ।')}
+          <p className='mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8'>
+            {t('Your support partner for course and admission guidance, college affiliation documentation and practical IT services. Get clear information and move forward with confidence.', 'कोर्स और प्रवेश मार्गदर्शन, कॉलेज संबद्धता के दस्तावेज़ और IT सेवाओं के लिए आपका सहयोगी। सही जानकारी पाएँ और आत्मविश्वास से आगे बढ़ें।')}
           </p>
           <div className='mt-7 flex flex-wrap gap-3'>
-            <a href='#admissions' className='rounded-xl bg-orange-500 px-6 py-3 font-bold text-white shadow-lg shadow-orange-950/25 transition hover:bg-orange-400'>{t('Explore Education Services', 'शिक्षा सेवाएँ देखें')} <span aria-hidden='true'>→</span></a>
-            <a href='/contact' className='rounded-xl border border-white/60 bg-white/5 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-blue-950'>{t("Send an enquiry","सवाल पूछें")}</a>
+            <a href='/services/education' className='inline-flex items-center gap-2 rounded-xl bg-[#2864d7] px-6 py-3.5 font-bold text-white shadow-lg shadow-blue-900/15 transition hover:-translate-y-0.5 hover:bg-[#1e4fae]'>{t('Explore Education Services', 'शिक्षा सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></a>
+            <a href='/contact' className='inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3.5 font-bold text-[#2454b8] transition hover:border-[#2864d7] hover:bg-blue-50'>{t('Send an enquiry', 'पूछताछ करें')}</a>
           </div>
-          <div className='mt-8 flex flex-wrap gap-2 border-t border-white/20 pt-5 text-xs font-semibold text-blue-50 sm:text-sm'>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-2'>{t("Admissions & Documents","प्रवेश और दस्तावेज़")}</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-2'>{t("College Affiliation","कॉलेज संबद्धता")}</span>
-            <span className='rounded-full border border-white/20 bg-white/10 px-3 py-2'>{t("AICTE-Related Guidance","AICTE प्रक्रिया मार्गदर्शन")}</span>
+          <div className='mt-8 flex flex-wrap gap-2 border-t border-blue-100 pt-5 text-xs font-semibold text-slate-600 sm:text-sm'>
+            {[t('Admission Guidance', 'प्रवेश मार्गदर्शन'), t('College Affiliation', 'कॉलेज संबद्धता'), t('AICTE Documentation', 'AICTE दस्तावेज़')].map(item => <span key={item} className='rounded-full border border-blue-100 bg-white px-3 py-2'>{item}</span>)}
           </div>
         </div>
-        <aside className='relative mx-auto w-full max-w-xl md:max-w-none'>
-          <div className='relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-slate-900/95 via-blue-950/95 to-blue-900/95 p-5 shadow-2xl shadow-black/30 sm:p-7'>
-            <div className='absolute -right-12 -top-12 h-40 w-40 rounded-full bg-orange-500/20 blur-3xl' aria-hidden='true' />
-            <p className='relative text-xs font-extrabold uppercase tracking-[0.2em] text-orange-300'>{t("How EYEPEK helps","EYEPEK कैसे मदद करता है")}</p>
-            <h2 className='relative mt-3 max-w-md text-2xl font-extrabold leading-tight text-white sm:text-3xl'>{t("The right guidance for your next step","आपके अगले कदम के लिए सही मार्गदर्शन")}</h2>
-            <div className='relative mt-6 space-y-3'>
-              {[
-                ['01', t('For students', 'छात्रों के लिए'), t('Course selection, eligibility, admission steps and career guidance', 'कोर्स चयन, पात्रता, प्रवेश प्रक्रिया और करियर मार्गदर्शन')],
-                ['02', t('For institutions', 'संस्थानों के लिए'), t('Affiliation process guidance and organised documentation support', 'संबद्धता प्रक्रिया और व्यवस्थित दस्तावेज़ सहायता')],
-                ['03', t('For organisations', 'संगठनों के लिए'), t('Compliance paperwork, renewals and practical technology support', 'अनुपालन कागज़ात, नवीनीकरण और तकनीकी सहायता')],
-              ].map(([number, title, description]) => (
-                <div key={number} className='flex gap-3 rounded-2xl border border-white/10 bg-white/[0.07] p-3.5 sm:gap-4 sm:p-4'>
-                  <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-500 font-black text-white'>{number}</span>
-                  <div className='min-w-0'>
-                    <h3 className='font-bold text-white'>{title}</h3>
-                    <p className='mt-1 text-sm leading-6 text-blue-100'>{description}</p>
-                  </div>
-                </div>
-              ))}
+        <div className='relative mx-auto w-full max-w-xl'>
+          <div className='absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-[#dceaff] to-[#fff0d2]' aria-hidden='true' />
+          <div className='relative overflow-hidden rounded-[1.7rem] border border-white bg-white p-2 shadow-2xl shadow-blue-900/10'>
+            <img src='/images/students-campus.jpg' alt={t('Students learning together on a campus', 'कैंपस में साथ पढ़ते विद्यार्थी')} className='h-[300px] w-full rounded-[1.25rem] object-cover sm:h-[390px]' />
+            <div className='absolute inset-x-2 bottom-2 rounded-b-[1.2rem] bg-gradient-to-t from-[#102a43]/90 via-[#102a43]/55 to-transparent px-6 pb-6 pt-16 text-white'>
+              <p className='text-xs font-extrabold uppercase tracking-[0.18em] text-[#ffd078]'>{t('Learn • Connect • Grow', 'सीखें • जुड़ें • आगे बढ़ें')}</p>
+              <p className='mt-2 text-xl font-black sm:text-2xl'>{t('Move forward with EYEPEK.', 'EYEPEK के साथ आगे बढ़ें।')}</p>
             </div>
-            <a href='#student-support' className='relative mt-5 inline-flex items-center gap-2 font-bold text-orange-300 transition hover:text-white'>{t('Browse all services', 'सभी सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></a>
           </div>
-        </aside>
+          <div className='relative mx-auto mt-4 grid max-w-lg grid-cols-3 gap-2 sm:absolute sm:-bottom-7 sm:-left-8 sm:mt-0 sm:w-[calc(100%+2rem)]'>
+            {[['01',t('Students','विद्यार्थी')],['02',t('Colleges','कॉलेज')],['03',t('Technology','तकनीक')]].map(([n,label]) => <div key={n} className='rounded-xl border border-blue-100 bg-white px-3 py-3 text-center shadow-lg shadow-blue-900/5'><span className='block text-xs font-extrabold text-[#f5a623]'>{n}</span><span className='mt-1 block text-xs font-bold text-[#183f78] sm:text-sm'>{label}</span></div>)}
+          </div>
+        </div>
       </div>
     </section>
-
 
     <section id="national-services" className="bg-white px-5 py-16 sm:px-8 md:px-10 md:py-20">
       <div className="mx-auto max-w-7xl">
