@@ -421,11 +421,11 @@ const HomePage = () => {
             <h2 className='mt-3 text-3xl font-black leading-tight text-blue-950 md:text-5xl'>{t('Practical services. Clear guidance. Your next step starts here.', 'उपयोगी सेवाएँ। स्पष्ट मार्गदर्शन। आपका अगला कदम यहीं से।')}</h2>
             <p className='mt-4 max-w-2xl text-base leading-8 text-slate-600'>{t('Whether you are a student, college representative or business owner, explore the support you need and contact our team for a clear discussion about your requirements.', 'आप विद्यार्थी हों, कॉलेज प्रतिनिधि हों या व्यवसाय से जुड़े हों—अपनी ज़रूरत के अनुसार सेवा चुनें और हमारी टीम से बात करें।')}</p>
           </div>
-          <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-blue-950 px-6 py-3.5 font-bold text-white transition hover:bg-blue-800'>{t('Discuss your requirement', 'अपनी ज़रूरत बताएँ')} <FaArrowRight aria-hidden='true' /></a>
+          <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#2864d7] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e4fae]'>{t('Discuss your requirement', 'अपनी ज़रूरत बताएँ')} <FaArrowRight aria-hidden='true' /></a>
         </div>
         <div className='mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4'>
           <a href='/services/business-support' className='group rounded-2xl border border-blue-100 bg-gradient-to-br from-[#e5edf5] to-[#f4f7fb] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl'>
-            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-blue-950 text-xl text-white'><FaUniversity aria-hidden='true' /></span>
+            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-[#2864d7] text-xl text-white'><FaUniversity aria-hidden='true' /></span>
             <p className='mt-5 text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('For institutions', 'संस्थानों के लिए')}</p>
             <h3 className='mt-2 text-xl font-black text-blue-950'>{t('College Affiliation', 'कॉलेज संबद्धता')}</h3>
             <p className='mt-3 text-sm leading-6 text-slate-600'>{t('Affiliation process guidance, university documentation, compliance records and renewal support.', 'संबद्धता प्रक्रिया, विश्वविद्यालय के दस्तावेज़, अनुपालन रिकॉर्ड और नवीनीकरण में मार्गदर्शन।')}</p>
@@ -446,7 +446,7 @@ const HomePage = () => {
             <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-900 group-hover:text-orange-600'>{t('Explore documentation support', 'दस्तावेज़ सहायता देखें')} <FaArrowRight aria-hidden='true' /></span>
           </a>
           <a href='/services/it-support' className='group rounded-2xl border border-orange-100 bg-gradient-to-br from-[#fff0df] to-[#f4f7fb] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl'>
-            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-xl text-white'><FaTools aria-hidden='true' /></span>
+            <span className='flex h-12 w-12 items-center justify-center rounded-xl bg-[#2864d7] text-xl text-white'><FaTools aria-hidden='true' /></span>
             <p className='mt-5 text-xs font-extrabold uppercase tracking-widest text-orange-600'>{t('For homes & offices', 'घर और कार्यालयों के लिए')}</p>
             <h3 className='mt-2 text-xl font-black text-blue-950'>{t('IT & Technical Services', 'IT और तकनीकी सेवाएँ')}</h3>
             <p className='mt-3 text-sm leading-6 text-slate-600'>{t('Computer troubleshooting, software installation, printer support, networking, CCTV and remote assistance.', 'कंप्यूटर समस्या समाधान, सॉफ्टवेयर इंस्टॉलेशन, प्रिंटर, नेटवर्किंग, CCTV और रिमोट सहायता।')}</p>
