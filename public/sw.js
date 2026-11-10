@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eyepek-college-v1'
+const CACHE_NAME = 'eyepek-college-v2'
 const APP_SHELL = [
   '/',
   '/index.html',
