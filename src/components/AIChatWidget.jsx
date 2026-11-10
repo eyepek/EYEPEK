@@ -130,21 +130,31 @@ export default function AIChatWidget() {
     <div className='fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-3 sm:bottom-6 sm:right-6'>
       {open && (
         <section className='flex h-[min(76vh,560px)] w-[min(94vw,390px)] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-blue-950/30' aria-label={t('EYEPEK guide', 'EYEPEK जानकारी सहायक')}>
-          <header className='flex items-center justify-between bg-blue-950 px-4 py-4 text-white'>
-            <div>
-              <p className='text-xs font-bold uppercase tracking-[0.16em] text-orange-300'>{t('EYEPEK GUIDE', 'EYEPEK जानकारी')}</p>
-              <h2 className='mt-1 text-lg font-extrabold'>{t('How can I help?', 'मैं कैसे मदद करूँ?')}</h2>
-              <p className='mt-0.5 text-xs text-blue-100'>{t('Quick answers · No sign-in needed', 'तुरंत जानकारी · लॉगिन की ज़रूरत नहीं')}</p>
+          <header className='relative flex items-center justify-between overflow-hidden bg-gradient-to-r from-[#102d50] via-[#174878] to-[#21618a] px-4 py-4 text-white'>
+            <div className='absolute -right-8 -top-10 h-28 w-28 rounded-full bg-orange-400/20 blur-2xl' aria-hidden='true' />
+            <div className='relative flex items-center gap-3'>
+              <span className='flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-orange-300'><FaComments size={20} aria-hidden='true' /></span>
+              <div>
+                <p className='text-[11px] font-extrabold uppercase tracking-[0.2em] text-orange-300'>{t('EYEPEK GUIDE', 'EYEPEK जानकारी')}</p>
+                <h2 className='mt-0.5 text-lg font-extrabold'>{t('How can I help?', 'मैं कैसे मदद करूँ?')}</h2>
+                <p className='mt-0.5 text-[11px] text-blue-100'>{t('Quick answers · No sign-in needed', 'तुरंत जानकारी · लॉगिन की ज़रूरत नहीं')}</p>
+              </div>
             </div>
-            <button type='button' onClick={() => setOpen(false)} className='rounded-full p-2 text-blue-100 transition hover:bg-white/10 hover:text-white' aria-label={t('Close chat', 'चैट बंद करें')}><FaTimes aria-hidden='true' /></button>
+            <button type='button' onClick={() => setOpen(false)} className='relative rounded-full p-2 text-blue-100 transition hover:bg-white/10 hover:text-white' aria-label={t('Close chat', 'चैट बंद करें')}><FaTimes aria-hidden='true' /></button>
           </header>
           <div className='flex-1 space-y-3 overflow-y-auto bg-slate-50 px-4 py-4' role='log' aria-live='polite'>
             {messages.length === 0 && (
-              <div className='rounded-xl border border-blue-100 bg-white p-4 shadow-sm'>
-                <p className='font-bold text-blue-950'>{t('Namaste! Choose a topic or type your question.', 'नमस्ते! कोई विषय चुनें या अपना सवाल लिखें।')}</p>
-                <p className='mt-2 text-sm leading-6 text-slate-600'>{t('I can share quick information about EYEPEK services. College rules, fees and availability can change, so please confirm current details with the college.', 'मैं EYEPEK की सेवाओं की सामान्य जानकारी दे सकता हूँ। कॉलेज के नियम, फीस और उपलब्धता बदल सकते हैं—मौजूदा जानकारी कॉलेज से पक्की करें।')}</p>
-                <div className='mt-4 flex flex-wrap gap-2'>
-                  {suggestions.map(([label, prompt]) => <button key={label} type='button' onClick={() => sendMessage(prompt)} className='rounded-full border border-blue-200 bg-blue-50 px-3 py-2 text-left text-xs font-semibold text-blue-900 transition hover:border-orange-400 hover:bg-orange-50'>{label}</button>)}
+              <div className='overflow-hidden rounded-2xl border border-[#d9e4ef] bg-white shadow-sm'>
+                <div className='bg-gradient-to-r from-[#e7f0fa] via-[#f1f5fa] to-[#fff0df] px-4 py-4'>
+                  <p className='text-base font-extrabold text-[#173858]'>{t('Namaste! How can we help you today?', 'नमस्ते! आज हम आपकी कैसे मदद कर सकते हैं?')}</p>
+                  <p className='mt-1.5 text-xs leading-5 text-slate-600'>{t('Choose a topic below or type your question. Get quick guidance about EYEPEK services.', 'नीचे कोई विषय चुनें या अपना सवाल लिखें। EYEPEK की सेवाओं के बारे में तुरंत जानकारी पाएँ।')}</p>
+                </div>
+                <div className='px-4 py-3'>
+                  <p className='mb-2.5 text-[10px] font-extrabold uppercase tracking-[0.16em] text-slate-500'>{t('Explore a topic','विषय चुनें')}</p>
+                  <div className='grid grid-cols-2 gap-2'>
+                    {suggestions.map(([label, prompt], index) => <button key={label} type='button' onClick={() => sendMessage(prompt)} className='group flex min-h-11 items-center justify-between gap-2 rounded-xl border border-[#dce5ef] bg-[#f7f9fc] px-3 py-2.5 text-left text-xs font-bold text-[#173858] transition hover:border-orange-300 hover:bg-[#fff7ed] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300'><span>{label}</span><span className='text-orange-600 transition group-hover:translate-x-0.5'>↗</span></button>)}
+                  </div>
+                  <p className='mt-3 rounded-lg bg-[#f3f6f9] px-3 py-2 text-[10px] leading-4 text-slate-500'>{t('Course rules, fees and availability may change. Please confirm current details with the college.', 'कोर्स के नियम, फीस और उपलब्धता बदल सकती है। मौजूदा जानकारी कॉलेज से पक्की करें।')}</p>
                 </div>
               </div>
             )}
