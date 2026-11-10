@@ -1,41 +1,41 @@
 @import "tailwindcss";
 
-/* EYEPEK professional brand palette: confident navy blue, clean whites and restrained amber accents */
+/* EYEPEK bright professional palette: clean whites, confident royal blue and warm amber */
 @theme {
-  --color-blue-50: #f0f6fc;
-  --color-blue-100: #dceaf7;
-  --color-blue-200: #bfd7ee;
-  --color-blue-300: #91b9df;
-  --color-blue-400: #5d96c8;
-  --color-blue-500: #3475ad;
-  --color-blue-600: #245f94;
-  --color-blue-700: #1d4d79;
-  --color-blue-800: #193f63;
-  --color-blue-900: #153653;
-  --color-blue-950: #102a43;
+  --color-blue-50: #f5f9ff;
+  --color-blue-100: #eaf2ff;
+  --color-blue-200: #d5e5ff;
+  --color-blue-300: #b5d1ff;
+  --color-blue-400: #8ab5ff;
+  --color-blue-500: #6098f5;
+  --color-blue-600: #3b7ce8;
+  --color-blue-700: #2864d7;
+  --color-blue-800: #2454b8;
+  --color-blue-900: #234b98;
+  --color-blue-950: #1e4080;
 
-  --color-orange-50: #fff9ed;
-  --color-orange-100: #fff0d2;
-  --color-orange-200: #ffdda0;
-  --color-orange-300: #f8c36e;
-  --color-orange-400: #efa83f;
-  --color-orange-500: #df8b1d;
-  --color-orange-600: #bd6c12;
-  --color-orange-700: #96500f;
-  --color-orange-800: #783f12;
-  --color-orange-900: #633513;
-  --color-orange-950: #391b08;
+  --color-orange-50: #fffbf2;
+  --color-orange-100: #fff3d9;
+  --color-orange-200: #ffe4ad;
+  --color-orange-300: #ffd078;
+  --color-orange-400: #ffb84d;
+  --color-orange-500: #f5a623;
+  --color-orange-600: #df8914;
+  --color-orange-700: #b96a12;
+  --color-orange-800: #925216;
+  --color-orange-900: #784416;
+  --color-orange-950: #45240b;
 
-  /* Keep legacy red utility classes aligned with EYEPEK's amber accent */
-  --color-red-50: #fff9ed;
-  --color-red-100: #fff0d2;
-  --color-red-200: #ffdda0;
-  --color-red-300: #f8c36e;
-  --color-red-400: #efa83f;
-  --color-red-500: #df8b1d;
-  --color-red-600: #bd6c12;
-  --color-red-700: #96500f;
-  --color-red-800: #783f12;
-  --color-red-900: #633513;
-  --color-red-950: #391b08;
+  /* Legacy red utility classes follow the same warm amber accent */
+  --color-red-50: #fffbf2;
+  --color-red-100: #fff3d9;
+  --color-red-200: #ffe4ad;
+  --color-red-300: #ffd078;
+  --color-red-400: #ffb84d;
+  --color-red-500: #f5a623;
+  --color-red-600: #df8914;
+  --color-red-700: #b96a12;
+  --color-red-800: #925216;
+  --color-red-900: #784416;
+  --color-red-950: #45240b;
 }
