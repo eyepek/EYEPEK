@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     const details = [];
     if (asksPhone) details.push(language === 'Hindi' ? 'EYEPEK का फोन/WhatsApp नंबर: +91 70043 74250' : 'EYEPEK phone/WhatsApp: +91 70043 74250');
     if (asksEmail) details.push(language === 'Hindi' ? 'EYEPEK ईमेल: info.eyepek@gmail.com' : 'EYEPEK email: info.eyepek@gmail.com');
-    return res.status(200).json({ reply: details.join('\n') + (language === 'Hindi' ? '\\nआप इस नंबर पर कॉल या WhatsApp कर सकते हैं।' : '\\nYou can call or WhatsApp this number.') });
+    return res.status(200).json({ reply: details.join('\n') + (language === 'Hindi' ? '\nआप इस नंबर पर कॉल या WhatsApp कर सकते हैं।' : '\nYou can call or WhatsApp this number.') });
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
