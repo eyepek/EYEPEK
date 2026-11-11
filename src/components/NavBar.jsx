@@ -53,11 +53,11 @@ const NavBar = () => {
               <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'en' ? 'bg-blue-800 text-white' : 'text-blue-700 hover:text-orange-700'}`}>EN</button>
               <button type='button' onClick={() => setLanguage('hi')} aria-pressed={language === 'hi'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'hi' ? 'bg-white text-blue-950' : 'text-blue-100 hover:text-white'}`}>हिंदी</button>
             </div>
-            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-700 transition hover:text-orange-600'>
+            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-red-600 transition hover:text-red-700'>
               <FaYoutube aria-hidden='true' className='h-4 w-4' /><span className='hidden sm:inline'>{t('YouTube', 'यूट्यूब')}</span>
             </a>
-            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-100 transition hover:text-orange-300'>
-              <FaFacebookF aria-hidden='true' className='h-3.5 w-3.5' /><span className='hidden sm:inline'>{t('Facebook', 'फेसबुक')}</span>
+            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-700 transition hover:text-blue-900'>
+              <span className='inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#1877F2] text-white'><FaFacebookF aria-hidden='true' className='h-3 w-3' /></span><span className='hidden sm:inline'>{t('Facebook', 'फेसबुक')}</span>
             </a>
             <a href='tel:7004374250' className='text-[11px] font-bold text-orange-700 transition hover:text-blue-950'>{t('Call: 7004374250', 'कॉल: 7004374250')}</a>
           </div>
