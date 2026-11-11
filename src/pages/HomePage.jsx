@@ -176,7 +176,16 @@ const HomePage = () => {
               <h3 className="text-2xl font-black text-[#183f78] sm:text-3xl">{t("EYEPEK IT & Technical Services", "EYEPEK IT और तकनीकी सेवाएँ")}</h3>
               <p className="mt-3 leading-7 text-slate-600">{t("Reliable technical assistance for homes, students, offices and growing businesses.", "घरों, विद्यार्थियों, कार्यालयों और व्यवसायों के लिए भरोसेमंद तकनीकी सहायता।")}</p>
               <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
-                {[t("Computer & laptop support", "कंप्यूटर और लैपटॉप सहायता"), t("Software & printer setup", "सॉफ्टवेयर और प्रिंटर सेटअप"), t("Networking & CCTV", "नेटवर्किंग और CCTV"), t("Remote & on-site assistance", "रिमोट और ऑन-साइट सहायता")].map(item => <li key={item} className="flex items-start gap-2"><span className="mt-0.5 font-black text-[#df8914]">✓</span>{item}</li>)}
+                {[
+                  t("Computer & laptop support", "कंप्यूटर और लैपटॉप सहायता"),
+                  t("Software & printer setup", "सॉफ्टवेयर और प्रिंटर सेटअप"),
+                  t("Networking & CCTV", "नेटवर्किंग और CCTV"),
+                  t("Remote & on-site assistance", "रिमोट और ऑन-साइट सहायता"),
+                  t("Website design & development", "वेबसाइट डिजाइन और डेवलपमेंट"),
+                  t("Mobile app development", "मोबाइल ऐप डेवलपमेंट"),
+                  t("Internet service provider (ISP) solutions", "इंटरनेट सेवा प्रदाता (ISP) समाधान"),
+                  t("Database design & management", "डेटाबेस डिजाइन और मैनेजमेंट")
+                ].map(item => <li key={item} className="flex items-start gap-2"><span className="mt-0.5 font-black text-[#df8914]">✓</span>{item}</li>)}
               </ul>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a href="/services/it-support" className="inline-flex items-center gap-2 rounded-xl bg-[#2864d7] px-5 py-3 font-bold text-white transition hover:bg-[#1e4fae]">{t("Explore IT Services", "IT सेवाएँ देखें")} <FaArrowRight aria-hidden="true" /></a>
