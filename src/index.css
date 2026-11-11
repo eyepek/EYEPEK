@@ -115,3 +115,44 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Larger, darker and more comfortable typography across the whole website */
+@layer base {
+  body {
+    font-size: 17px;
+    color: #10243e;
+    font-weight: 450;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #102b4e;
+    font-weight: 750;
+  }
+
+  p, li, label {
+    color: #263b55;
+  }
+
+  input, select, textarea {
+    color: #172b45;
+    font-size: 1rem;
+  }
+}
+
+/* Gently enlarge common Tailwind text sizes without changing page layout */
+.text-xs { font-size: 0.82rem !important; }
+.text-sm { font-size: 0.96rem !important; }
+.text-base { font-size: 1.08rem !important; }
+.text-lg { font-size: 1.18rem !important; }
+
+/* Improve contrast for muted text on light sections */
+.text-slate-400 { color: #64748b !important; }
+.text-slate-500 { color: #475569 !important; }
+.text-slate-600 { color: #334155 !important; }
+.text-slate-700 { color: #1e293b !important; }
+
+@media (max-width: 640px) {
+  body { font-size: 16.5px; }
+  .text-xs { font-size: 0.8rem !important; }
+  .text-sm { font-size: 0.94rem !important; }
+}
