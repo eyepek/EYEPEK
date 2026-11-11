@@ -168,15 +168,16 @@ const ServiceDetailPage = () => {
 
   return (
     <main className="min-h-[70vh] bg-gradient-to-br from-blue-50 via-white to-orange-50/60 text-slate-900">
-      <section className="relative overflow-hidden bg-blue-950 text-white">
-        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
-          <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-200">{t("EYEPEK · Services","EYEPEK · सेवाएँ")}</p>
-          <h1 className="mt-6 max-w-4xl text-4xl font-black leading-tight sm:text-5xl md:text-6xl">{content.title}</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-blue-100">{content.intro}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 font-bold text-white transition hover:bg-orange-400">Enquire now <FaArrowRight aria-hidden="true" /></Link>
-            <a href="tel:+917004374250" className="inline-flex items-center gap-2 rounded-xl border border-white/40 px-6 py-3.5 font-bold text-white transition hover:bg-white hover:text-blue-950"><FaPhoneAlt aria-hidden="true" /> Call 7004374250</a>
+      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#102b4e] via-[#17457f] to-[#2864a8] text-white">
+        <div className="absolute -right-24 -top-28 h-80 w-80 rounded-full bg-orange-400/20 blur-3xl" aria-hidden="true" />
+        <div className="absolute -bottom-36 left-1/3 h-72 w-72 rounded-full bg-blue-300/10 blur-3xl" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-5 py-12 sm:px-8 md:px-10 md:py-16">
+          <p className="inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-200">{t("EYEPEK · Services","EYEPEK · सेवाएँ")}</p>
+          <h1 className="mt-5 max-w-4xl text-3xl font-extrabold leading-[1.12] text-white sm:text-4xl md:text-5xl">{content.title}</h1>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-blue-50 sm:text-lg">{content.intro}</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#f5a623] px-6 py-3 font-bold text-[#102b4e] shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[#ffb84d]">Enquire now <FaArrowRight aria-hidden="true" /></Link>
+            <a href="tel:+917004374250" className="inline-flex items-center gap-2 rounded-xl border border-white/45 bg-white/5 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-blue-950"><FaPhoneAlt aria-hidden="true" /> Call 7004374250</a>
           </div>
         </div>
       </section>
