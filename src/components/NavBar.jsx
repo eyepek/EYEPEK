@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IoMdMenu } from 'react-icons/io';
-import { FaFacebookF, FaYoutube, FaChevronDown, FaGraduationCap, FaUserTie, FaBookOpen, FaLaptopCode, FaClipboardCheck, FaRoute, FaBullseye, FaRegCalendarCheck, FaBriefcase } from 'react-icons/fa';
+import { FaFacebookF, FaYoutube, FaChevronDown, FaGraduationCap, FaUserTie, FaBookOpen, FaLaptopCode, FaClipboardCheck, FaRoute, FaBullseye, FaRegCalendarCheck, FaBriefcase, FaPhone } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import InstallAppButton from './InstallAppButton';
 import { useLanguage } from '../LanguageContext';
@@ -46,20 +46,22 @@ const NavBar = () => {
   return (
     <header className='sticky top-0 z-50 bg-white shadow-sm'>
       <div className='border-b border-[#244a78] bg-[#123b72] px-4 text-white sm:px-6 md:px-10'>
-        <div className='mx-auto flex min-h-9 max-w-7xl items-center justify-between gap-3'>
-          <p className='hidden text-xs font-semibold tracking-wide text-blue-50 sm:block'>{t('Your Partner in Education & Institutional Support', 'शिक्षा और संस्थागत सहयोग का भरोसेमंद साथी')}</p>
-          <div className='ml-auto flex items-center gap-2.5 sm:gap-4'>
+        <div className='mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 py-2 sm:flex-row sm:justify-between sm:gap-3'>
+          <p className='text-center text-[11px] font-semibold tracking-wide text-blue-50 sm:text-xs'>{t('Your Partner in Education & Institutional Support', 'शिक्षा और संस्थागत सहयोग का भरोसेमंद साथी')}</p>
+          <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-4'>
             <div className='inline-flex items-center rounded-full border border-white/30 bg-white/10 p-0.5' aria-label={t('Choose language', 'भाषा चुनें')}>
-              <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'en' ? 'bg-white text-[#123b72]' : 'text-blue-700 hover:text-orange-700'}`}>EN</button>
-              <button type='button' onClick={() => setLanguage('hi')} aria-pressed={language === 'hi'} className={`rounded-full px-2 py-1 text-[10px] font-bold transition ${language === 'hi' ? 'bg-white text-[#123b72]' : 'text-blue-100 hover:text-white'}`}>हिंदी</button>
+              <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2.5 py-1.5 text-xs font-bold transition ${language === 'en' ? 'bg-white text-[#123b72]' : 'text-blue-100 hover:text-white'}`}>EN</button>
+              <button type='button' onClick={() => setLanguage('hi')} aria-pressed={language === 'hi'} className={`rounded-full px-2.5 py-1.5 text-xs font-bold transition ${language === 'hi' ? 'bg-white text-[#123b72]' : 'text-blue-100 hover:text-white'}`}>हिंदी</button>
             </div>
-            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-white transition hover:text-[#ffb84d]'>
-              <FaYoutube aria-hidden='true' className='h-4 w-4 text-[#ff3b30]' /><span className='hidden sm:inline'>{t('YouTube', 'यूट्यूब')}</span>
+            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-xs font-semibold text-white transition hover:text-[#ffb84d]'>
+              <FaYoutube aria-hidden='true' className='h-[18px] w-[18px] text-[#ff3b30]' /><span>{t('YouTube', 'यूट्यूब')}</span>
             </a>
-            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-[11px] font-semibold text-white transition hover:text-[#dbeafe]'>
-              <span className='inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#1877F2] text-white'><FaFacebookF aria-hidden='true' className='h-3 w-3' /></span><span className='hidden sm:inline'>{t('Facebook', 'फेसबुक')}</span>
+            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-xs font-semibold text-white transition hover:text-[#dbeafe]'>
+              <span className='inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#1877F2] text-white'><FaFacebookF aria-hidden='true' className='h-3.5 w-3.5' /></span><span>{t('Facebook', 'फेसबुक')}</span>
             </a>
-            <a href='tel:7004374250' className='text-[11px] font-bold text-orange-700 transition hover:text-blue-950'>{t('Call: 7004374250', 'कॉल: 7004374250')}</a>
+            <a href='tel:7004374250' className='inline-flex items-center gap-2 rounded-full bg-[#f28c28] px-4 py-2 text-sm font-extrabold text-[#123b72] shadow-md shadow-black/10 transition hover:bg-[#ffb84d]'>
+              <FaPhone aria-hidden='true' className='h-3.5 w-3.5' />{t('Call: 7004374250', 'कॉल: 7004374250')}
+            </a>
           </div>
         </div>
       </div>
