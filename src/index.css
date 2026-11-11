@@ -38,6 +38,7 @@
   --color-red-800: #925216;
   --color-red-900: #784416;
   --color-red-950: #45240b;
+}
 
 /* EYEPEK — consistent, readable visual system */
 @layer base {
