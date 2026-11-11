@@ -132,21 +132,21 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id="national-services" className="bg-white px-5 py-16 sm:px-8 md:px-10 md:py-20">
+    <section id="national-services" className="bg-white px-5 py-8 sm:px-8 md:px-10 md:py-10">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+        <div className="mx-auto mb-6 max-w-3xl text-center md:mb-8">
           <p className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-700">
             <span className="h-2 w-2 rounded-full bg-[#f5a623]" /> {t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}
           </p>
-          <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight text-[#183f78] sm:text-4xl md:text-5xl">
+          <h2 className="mt-3 text-2xl font-black leading-tight tracking-tight text-[#183f78] sm:text-3xl md:mt-4 md:text-4xl">
             {t("Education & Technology. One Trusted Partner.", "शिक्षा और तकनीक के लिए आपका भरोसेमंद साथी।")}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base md:mt-3 md:leading-7">
             {t("From student guidance and college documentation to practical IT solutions, get the support you need in one place.", "विद्यार्थी मार्गदर्शन और कॉलेज दस्तावेज़ों से लेकर IT सेवाओं तक, अपनी ज़रूरत की सहायता एक ही जगह पाएँ।")}
           </p>
         </div>
 
-        <div className="grid items-stretch gap-6 lg:grid-cols-2">
+        <div className="grid items-stretch gap-4 md:gap-5 lg:grid-cols-2">
           <article className="group overflow-hidden rounded-3xl border border-blue-100 bg-[#f7faff] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div className="relative h-56 overflow-hidden sm:h-64">
               <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85" alt={t("Students learning together on campus", "कैंपस में साथ पढ़ते विद्यार्थी")} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
