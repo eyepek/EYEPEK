@@ -157,7 +157,14 @@ const HomePage = () => {
               <h3 className="text-2xl font-black text-[#183f78] sm:text-3xl">{t("EYEPEK Education Services", "EYEPEK Education Services")}</h3>
               <p className="mt-3 leading-7 text-slate-600">{t("Practical guidance and organised documentation support for students, colleges and educational institutions.", "छात्रों, कॉलेजों और शैक्षणिक संस्थानों के लिए व्यावहारिक मार्गदर्शन और व्यवस्थित दस्तावेज़ सहायता।")}</p>
               <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-700 sm:grid-cols-2">
-                {[t("Course & admission guidance", "कोर्स और प्रवेश मार्गदर्शन"), t("College affiliation documentation", "कॉलेज संबद्धता दस्तावेज़"), t("Compliance & renewal support", "अनुपालन और नवीनीकरण सहायता"), t("Institutional documentation", "संस्थान के दस्तावेज़")].map(item => <li key={item} className="flex items-start gap-2"><span className="mt-0.5 font-black text-[#df8914]">✓</span>{item}</li>)}
+                {[
+                  t("Course & admission guidance", "कोर्स और प्रवेश मार्गदर्शन"),
+                  t("College affiliation documentation", "कॉलेज संबद्धता दस्तावेज़"),
+                  t("Compliance & renewal support", "अनुपालन और नवीनीकरण सहायता"),
+                  t("Institutional documentation", "संस्थान के दस्तावेज़"),
+                  t("AICTE approval & documentation support", "AICTE अनुमोदन और दस्तावेज़ सहायता"),
+                  t("State university affiliation & coordination support", "राज्य विश्वविद्यालय संबद्धता और समन्वय सहायता")
+                ].map(item => <li key={item} className="flex items-start gap-2"><span className="mt-0.5 font-black text-[#df8914]">✓</span>{item}</li>)}
               </ul>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a href="/services/education" className="inline-flex items-center gap-2 rounded-xl bg-[#2864d7] px-5 py-3 font-bold text-white transition hover:bg-[#1e4fae]">{t("Student Guidance", "छात्र मार्गदर्शन")} <FaArrowRight aria-hidden="true" /></a>
