@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoMdMenu } from 'react-icons/io';
 import { FaFacebookF, FaYoutube, FaChevronDown, FaGraduationCap, FaUserTie, FaBookOpen, FaLaptopCode, FaClipboardCheck, FaRoute, FaBullseye, FaRegCalendarCheck, FaBriefcase, FaPhone } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -32,7 +32,7 @@ const journeyLinks = [
 
 const NavBar = () => {
   const { language, setLanguage, t } = useLanguage();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);\n  const [isScrolled, setIsScrolled] = useState(false);\n  useEffect(() => {\n    const onScroll = () => setIsScrolled(window.scrollY > 40);\n    onScroll();\n    window.addEventListener('scroll', onScroll, { passive: true });\n    return () => window.removeEventListener('scroll', onScroll);\n  }, []);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [guidanceOpen, setGuidanceOpen] = useState(false);
   const [journeyOpen, setJourneyOpen] = useState(false);
@@ -45,7 +45,7 @@ const NavBar = () => {
 
   return (
     <header className='sticky top-0 z-50 bg-white shadow-sm'>
-      <div className='border-b border-[#244a78] bg-[#123b72] px-4 text-white sm:px-6 md:px-10'>
+      <div className={`${isScrolled ? 'hidden' : 'block'} border-b border-[#244a78] bg-[#123b72] px-4 text-white sm:px-6 md:px-10`}>
         <div className='mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 py-2 sm:flex-row sm:justify-between sm:gap-3'>
           <p className='text-center text-xs font-semibold tracking-wide text-blue-50 sm:text-sm'>{t('Your Partner in Education & Institutional Support', 'शिक्षा और संस्थागत सहयोग का भरोसेमंद साथी')}</p>
           <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-5'>
@@ -65,14 +65,14 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <div className='mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6 md:px-10 md:py-4 lg:gap-5'>
+      <div className='mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-1.5 sm:px-6 md:px-10 md:py-2.5 lg:gap-5'>
         <Link to='/' onClick={closeMenu} aria-label='EYEPEK home' className='shrink-0'>
-          <img src='/images/eyepek-logo.svg' alt='EYEPEK' className='block h-auto w-[150px] sm:w-[185px] md:w-[220px]' />
+          <img src='/images/eyepek-logo.svg' alt='EYEPEK' className='block h-auto w-[138px] sm:w-[165px] md:w-[185px]' />
         </Link>
         <button type='button' aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-controls='primary-navigation' aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-blue-950 shadow-sm transition hover:border-orange-300 hover:bg-orange-50 lg:hidden'>
           <IoMdMenu className='h-7 w-7' />
         </button>
-        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full max-h-[calc(100dvh-105px)] w-full flex-col gap-1 overflow-y-auto border-t border-slate-100 bg-white px-4 py-4 font-semibold text-blue-950 shadow-xl sm:px-6 lg:max-h-none lg:overflow-visible lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:justify-end lg:gap-2.5 xl:gap-3 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none`}>
+        <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full max-h-[calc(100dvh-76px)] w-full flex-col gap-1 overflow-y-auto border-t border-slate-100 bg-white px-4 py-4 font-semibold text-blue-950 shadow-xl sm:px-6 lg:max-h-none lg:overflow-visible lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:justify-end lg:gap-2.5 xl:gap-3 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none`}>
           <Link to='/' onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-3.5 lg:py-3 lg:text-[15px] lg:font-semibold lg:whitespace-nowrap lg:rounded-lg lg:hover:bg-blue-50'>{t('Home', 'होम')}</Link>
           <a href='/#about' onClick={closeMenu} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-3.5 lg:py-3 lg:text-[15px] lg:font-semibold lg:whitespace-nowrap lg:rounded-lg lg:hover:bg-blue-50'>{t('About', 'हमारे बारे में')}</a>
           <div className='relative w-full lg:w-auto'>
