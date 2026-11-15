@@ -58,7 +58,7 @@ const Footer = () => {
           <h3 className='text-base font-bold tracking-wide text-white'>{t('Contact EYEPEK', 'EYEPEK से संपर्क करें')}</h3>
           <p className='mt-5 text-sm leading-6 text-slate-300'>{t('Course, admission, institutional documentation and IT support.', 'कोर्स, प्रवेश, संस्थागत दस्तावेज़ और आईटी सहायता।')}</p>
           <a href='tel:+917004374250' className='mt-4 inline-flex items-center gap-2 text-lg font-bold text-orange-300 transition hover:text-white'>+91 70043 74250</a>
-          <a href='mailto:info@eyepek.com' className='mt-2 block break-all text-sm text-slate-300 transition hover:text-orange-300'>info@eyepek.com</a>
+          <a href='mailto:info.eyepek@gmail.com' className='mt-2 block break-all text-sm text-slate-300 transition hover:text-orange-300'>info.eyepek@gmail.com</a>
           <a href='https://wa.me/917004374250' target='_blank' rel='noreferrer' className='mt-5 inline-flex items-center justify-center rounded-lg bg-orange-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-orange-950/30 transition hover:bg-orange-600'>
             {t('Message us on WhatsApp', 'WhatsApp पर संदेश भेजें')} <span aria-hidden='true' className='ml-2'>→</span>
           </a>
