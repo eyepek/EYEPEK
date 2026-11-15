@@ -19,8 +19,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className='bg-[#071a33] text-white'>
-      <div className='mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-6 md:grid-cols-[1.25fr_1fr_0.85fr] md:gap-14 md:px-10 md:py-20'>
+    <footer className='bg-slate-950 text-white'>
+      <div className='mx-auto grid max-w-7xl gap-9 px-5 py-12 sm:px-6 md:grid-cols-[1.25fr_1fr_0.85fr] md:gap-12 md:px-10 md:py-16'>
         <div>
           <Link to='/' aria-label='EYEPEK home' className='inline-flex rounded-lg bg-white p-2'>
             <img src='/images/eyepek-logo.svg' alt='EYEPEK' className='block h-auto w-[190px] sm:w-[210px]' />
