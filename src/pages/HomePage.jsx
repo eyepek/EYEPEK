@@ -363,7 +363,7 @@ const HomePage = () => {
       </div>
     </section>
 
-    <section id='why-eyepek' className='bg-white px-5 py-16 sm:px-8 md:px-10 md:py-20'>
+    <section id='about' className='bg-white px-5 py-16 sm:px-8 md:px-10 md:py-20'>
       <div className='mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center'>
         <div>
           <p className='text-xs font-extrabold uppercase tracking-[0.18em] text-orange-600'>{t('A clear way forward','आगे बढ़ने का स्पष्ट रास्ता')}</p>
