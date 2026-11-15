@@ -95,38 +95,45 @@ const HomePage = () => {
   const t = (english, hindi) => hi ? hindi : english;
   return (
   <main className='bg-white text-slate-900'>
-    <section className='relative overflow-hidden bg-gradient-to-br from-[#0b1f3a] via-[#123b72] to-[#1d4ed8]'>
-      <div className='pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-blue-400/30 blur-3xl' aria-hidden='true' />
-      <div className='mx-auto grid min-h-[520px] max-w-7xl items-center gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:px-10 md:py-16'>
+    <section className='relative isolate overflow-hidden bg-[#071a33] text-white'>
+      <div className='absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_18%,rgba(59,130,246,0.32),transparent_32%),radial-gradient(circle_at_12%_90%,rgba(245,166,35,0.16),transparent_28%),linear-gradient(125deg,#071a33_0%,#102f59_55%,#174b88_100%)]' />
+      <div className='absolute -right-24 top-10 -z-10 h-80 w-80 rounded-full border border-white/10' />
+      <div className='absolute -right-10 top-24 -z-10 h-52 w-52 rounded-full border border-white/10' />
+      <div className='mx-auto grid min-h-[590px] max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 md:grid-cols-[1.02fr_0.98fr] md:px-10 md:py-20 lg:gap-16'>
         <div className='relative z-10 max-w-2xl'>
-          <p className='mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white shadow-sm backdrop-blur sm:text-sm'>
-            <span className='h-2 w-2 rounded-full bg-[#f5a623]' /> {t('Education • College Support • Technology', 'शिक्षा • कॉलेज सहायता • तकनीक')}
-          </p>
-          <h1 className='max-w-[680px] text-[2.35rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.55rem]'>
-            {hi ? <>छात्रों को सही दिशा।<br /><span className='text-[#ffb84d]'>कॉलेजों को भरोसेमंद</span> सहयोग।</> : <>Empowering <span className='text-[#ffb84d]'>Students.</span><br />Supporting Colleges.</>}
-          </h1>
-          <p className='mt-4 max-w-xl text-base leading-7 text-blue-50 sm:text-lg sm:leading-8'>
-            {t('Your support partner for course and admission guidance, college affiliation documentation and practical IT services. Get clear information and move forward with confidence.', 'कोर्स और प्रवेश मार्गदर्शन, कॉलेज संबद्धता के दस्तावेज़ और IT सेवाओं के लिए आपका सहयोगी। सही जानकारी पाएँ और आत्मविश्वास से आगे बढ़ें।')}
-          </p>
-          <div className='mt-6 flex flex-wrap gap-3'>
-            <a href='/services/education' className='inline-flex items-center gap-2 rounded-xl bg-[#f28c28] px-6 py-3.5 font-bold text-[#172554] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#ffb84d]'>{t('Explore Education Services', 'शिक्षा सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></a>
-            <a href='/contact' className='inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3.5 font-bold text-[#2454b8] transition hover:border-[#2864d7] hover:bg-blue-50'>{t('Send an enquiry', 'पूछताछ करें')}</a>
+          <div className='mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/25 bg-white/[0.07] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-100 shadow-lg shadow-black/10 backdrop-blur'>
+            <span className='h-2 w-2 rounded-full bg-[#ffb84d] shadow-[0_0_12px_rgba(255,184,77,0.9)]' />
+            {t('Education · Institutional Support · Technology', 'शिक्षा · संस्थागत सहयोग · तकनीक')}
           </div>
-          <div className='mt-7 flex flex-wrap gap-2 border-t border-white/20 pt-5 text-xs font-semibold text-blue-50 sm:text-sm'>
-            {[t('Admission Guidance', 'प्रवेश मार्गदर्शन'), t('College Affiliation', 'कॉलेज संबद्धता'), t('AICTE Documentation', 'AICTE दस्तावेज़')].map(item => <span key={item} className='rounded-full border border-white/20 bg-white/10 px-3 py-2 text-white backdrop-blur'>{item}</span>)}
+          <h1 className='max-w-[720px] text-[2.65rem] font-extrabold leading-[1.06] tracking-[-0.045em] text-white sm:text-5xl lg:text-[4.15rem]'>
+            {hi ? <>शिक्षा और तकनीक में <span className='text-[#ffb84d]'>आपका भरोसेमंद</span> सहयोगी।</> : <>Clarity for your <span className='text-[#ffb84d]'>next step.</span><br />Support for your bigger goals.</>}
+          </h1>
+          <p className='mt-6 max-w-xl text-base leading-8 text-blue-100 sm:text-lg'>
+            {t('EYEPEK brings student guidance, institutional documentation support and dependable technology services together — with clear communication and practical next steps.', 'EYEPEK विद्यार्थी मार्गदर्शन, संस्थागत दस्तावेज़ सहायता और भरोसेमंद तकनीकी सेवाएँ एक साथ उपलब्ध कराता है—स्पष्ट जानकारी और व्यावहारिक अगले कदमों के साथ।')}
+          </p>
+          <div className='mt-8 flex flex-wrap gap-3'>
+            <a href='/services/education' className='inline-flex min-h-13 items-center justify-center gap-3 rounded-xl bg-[#f5a623] px-6 py-4 text-sm font-extrabold text-[#10233e] shadow-xl shadow-orange-950/25 transition hover:-translate-y-0.5 hover:bg-[#ffc15c] sm:text-base'>{t('Explore our services', 'हमारी सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></a>
+            <a href='/contact' className='inline-flex min-h-13 items-center justify-center gap-3 rounded-xl border border-white/30 bg-white/[0.06] px-6 py-4 text-sm font-bold text-white backdrop-blur transition hover:border-white/60 hover:bg-white/10 sm:text-base'>{t('Talk to EYEPEK', 'EYEPEK से बात करें')}</a>
+          </div>
+          <div className='mt-9 grid max-w-xl grid-cols-3 border-t border-white/15 pt-6'>
+            {[[t('Students', 'विद्यार्थी'),t('Guidance', 'मार्गदर्शन')],[t('Institutions', 'संस्थान'),t('Documentation', 'दस्तावेज़')],[t('Homes & offices', 'घर और दफ़्तर'),t('IT support', 'IT सहायता')]].map(([top,bottom],i) => <div key={top} className={i===1?'border-x border-white/15 px-3 sm:px-5':'px-1 sm:px-3'}><span className='block text-sm font-extrabold text-white sm:text-base'>{top}</span><span className='mt-1 block text-xs text-blue-200 sm:text-sm'>{bottom}</span></div>)}
           </div>
         </div>
-        <div className='relative mx-auto w-full max-w-xl'>
-          <div className='absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-[#2864d7] to-[#f28c28]' aria-hidden='true' />
-          <div className='relative overflow-hidden rounded-[1.7rem] border border-white bg-white p-2 shadow-2xl shadow-blue-900/10'>
-            <img src='/images/students-campus.jpg' alt={t('Students learning together on a campus', 'कैंपस में साथ पढ़ते विद्यार्थी')} className='h-[300px] w-full rounded-[1.25rem] object-cover sm:h-[390px]' />
-            <div className='absolute inset-x-2 bottom-2 rounded-b-[1.2rem] bg-gradient-to-t from-[#102a43]/90 via-[#102a43]/55 to-transparent px-6 pb-6 pt-16 text-white'>
-              <p className='text-xs font-extrabold uppercase tracking-[0.18em] text-[#ffd078]'>{t('Learn • Connect • Grow', 'सीखें • जुड़ें • आगे बढ़ें')}</p>
-              <p className='mt-2 text-xl font-black sm:text-2xl'>{t('Move forward with EYEPEK.', 'EYEPEK के साथ आगे बढ़ें।')}</p>
+        <div className='relative mx-auto w-full max-w-xl md:pl-3'>
+          <div className='absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#f5a623]/70 via-blue-500/60 to-cyan-300/50 opacity-80 blur-xl' aria-hidden='true' />
+          <div className='relative rounded-[1.8rem] border border-white/20 bg-white/10 p-2 shadow-2xl shadow-black/30 backdrop-blur-sm'>
+            <div className='relative overflow-hidden rounded-[1.35rem]'>
+              <img src='/images/students-campus.jpg' alt={t('Students learning together on a campus', 'कैंपस में साथ पढ़ते विद्यार्थी')} className='h-[330px] w-full object-cover sm:h-[440px]' />
+              <div className='absolute inset-0 bg-gradient-to-t from-[#071a33]/90 via-[#071a33]/10 to-transparent' />
+              <div className='absolute inset-x-0 bottom-0 p-6 sm:p-8'>
+                <p className='text-xs font-extrabold uppercase tracking-[0.2em] text-[#ffca76]'>{t('Learn · Connect · Grow', 'सीखें · जुड़ें · आगे बढ़ें')}</p>
+                <p className='mt-2 max-w-sm text-2xl font-extrabold leading-tight text-white sm:text-3xl'>{t('One partner for your education and technology needs.', 'शिक्षा और तकनीक की ज़रूरतों के लिए एक भरोसेमंद साथी।')}</p>
+              </div>
             </div>
           </div>
-          <div className='relative mx-auto mt-4 grid max-w-lg grid-cols-3 gap-2 sm:absolute sm:-bottom-7 sm:-left-8 sm:mt-0 sm:w-[calc(100%+2rem)]'>
-            {[['01',t('Students','विद्यार्थी')],['02',t('Colleges','कॉलेज')],['03',t('Technology','तकनीक')]].map(([n,label]) => <div key={n} className='rounded-xl border border-blue-100 bg-white px-3 py-3 text-center shadow-lg shadow-blue-900/5'><span className='block text-xs font-extrabold text-[#f5a623]'>{n}</span><span className='mt-1 block text-xs font-bold text-[#183f78] sm:text-sm'>{label}</span></div>)}
+          <div className='relative mx-auto mt-4 grid max-w-md grid-cols-2 gap-3 sm:absolute sm:-bottom-7 sm:-left-8 sm:mt-0 sm:w-[calc(100%+1rem)] sm:max-w-none'>
+            <div className='rounded-xl border border-white/20 bg-[#102b4e]/95 p-4 shadow-xl backdrop-blur'><span className='block text-[11px] font-extrabold uppercase tracking-[0.15em] text-[#ffbd59]'>{t('Education division', 'शिक्षा विभाग')}</span><span className='mt-1 block text-sm font-bold text-white'>{t('Student & college support', 'विद्यार्थी और कॉलेज सहायता')}</span></div>
+            <div className='rounded-xl border border-white/20 bg-[#102b4e]/95 p-4 shadow-xl backdrop-blur'><span className='block text-[11px] font-extrabold uppercase tracking-[0.15em] text-[#ffbd59]'>{t('Technology division', 'तकनीकी विभाग')}</span><span className='mt-1 block text-sm font-bold text-white'>{t('IT & digital solutions', 'IT और डिजिटल समाधान')}</span></div>
           </div>
         </div>
       </div>
@@ -134,14 +141,16 @@ const HomePage = () => {
 
     <section id="national-services" className="relative overflow-hidden bg-[#f3f7fc] px-5 py-12 sm:px-8 md:px-10 md:py-16">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex flex-col gap-4 border-b border-blue-100 pb-6 text-left md:mb-10 md:flex-row md:items-end md:justify-between md:gap-8 md:pb-8">
-          <p className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-700">
-            <span className="h-2 w-2 rounded-full bg-[#f5a623]" /> {t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}
-          </p>
-          <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight tracking-tight text-[#183f78] sm:text-4xl md:mt-3 md:text-[2.7rem]">
-            {t("Education & Technology. One Trusted Partner.", "शिक्षा और तकनीक के लिए आपका भरोसेमंद साथी।")}
-          </h2>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 sm:text-base md:mt-3 md:leading-7">
+        <div className="mb-10 grid gap-4 border-b border-blue-100 pb-7 text-left lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-10">
+          <div>
+            <p className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-700">
+              <span className="h-2 w-2 rounded-full bg-[#f5a623]" /> {t("One platform. Two specialist divisions.", "एक प्लेटफॉर्म। दो विशेषज्ञ विभाग।")}
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-black leading-tight tracking-tight text-[#183f78] sm:text-4xl md:text-[2.7rem]">
+              {t("Education & Technology. One Trusted Partner.", "शिक्षा और तकनीक के लिए आपका भरोसेमंद साथी।")}
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-slate-600 sm:text-base lg:justify-self-end">
             {t("From student guidance and college documentation to practical IT solutions, get the support you need in one place.", "विद्यार्थी मार्गदर्शन और कॉलेज दस्तावेज़ों से लेकर IT सेवाओं तक, अपनी ज़रूरत की सहायता एक ही जगह पाएँ।")}
           </p>
         </div>
