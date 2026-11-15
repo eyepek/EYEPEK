@@ -308,35 +308,108 @@ const HomePage = () => {
     </section>
 
 
-    <section id='support-guide' className='bg-[#f4f7fb]'>
-      <div className='mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16'>
-        <p className='text-sm font-extrabold uppercase tracking-[0.18em] text-orange-700'>{t('A simple guide', 'आसान भाषा में समझें')}</p>
-        <h2 className='mt-3 max-w-4xl text-3xl font-extrabold text-blue-950 md:text-4xl'>{t('What do admission, affiliation and document support mean?', 'प्रवेश, संबद्धता और दस्तावेज़ सहायता का क्या मतलब है?')}</h2>
-        <p className='mt-3 max-w-3xl leading-7 text-slate-600'>{t('See what EYEPEK can help you understand—and what the college or authority decides.', 'जानें कि EYEPEK आपको क्या समझने में मदद कर सकता है और कॉलेज या प्राधिकरण का निर्णय क्या होता है।')}</p>
-        <div className='mt-8 grid gap-5 lg:grid-cols-3'>
-          <article className='rounded-2xl border border-orange-100 bg-[#fff0df] p-6'>
-            <span className='text-xs font-black uppercase tracking-widest text-orange-700'>{t('For students', 'छात्रों के लिए')}</span>
-            <h3 className='mt-2 text-xl font-extrabold text-blue-950'>{t('Admission guidance', 'प्रवेश मार्गदर्शन')}</h3>
-            <p className='mt-3 leading-7 text-slate-700'>{t('Admission means applying to a course at a college. We can help you compare course options, understand what to ask about eligibility, fees and dates, and prepare a document checklist. The college confirms availability and makes the admission decision.', 'प्रवेश का मतलब कॉलेज के किसी कोर्स में आवेदन करना है। हम कोर्स विकल्प समझने, पात्रता, फीस और तारीखों के बारे में पूछने वाले सवाल तैयार करने और दस्तावेज़ों की सूची बनाने में मदद कर सकते हैं। कोर्स की उपलब्धता और प्रवेश का निर्णय कॉलेज तय करता है।')}</p>
-            <ol className='mt-4 space-y-2 text-sm leading-6 text-slate-700'>
-              <li>{t('1. Choose a course and shortlist colleges.', '1. कोर्स चुनें और कॉलेजों की सूची बनाएँ।')}</li>
-              <li>{t('2. Confirm eligibility, fees and deadlines with the college.', '2. पात्रता, फीस और आखिरी तारीख कॉलेज से पक्की करें।')}</li>
-              <li>{t('3. Prepare documents using the college checklist.', '3. कॉलेज की सूची के अनुसार दस्तावेज़ तैयार करें।')}</li>
-              <li>{t('4. Apply to the institution and follow its instructions.', '4. संस्थान में आवेदन करें और उसके निर्देशों का पालन करें।')}</li>
-            </ol>
+    <section id='support-guide' className='relative overflow-hidden bg-[#f3f7fc]'>
+      <div className='pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-blue-100/70 blur-3xl' aria-hidden='true' />
+      <div className='pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-orange-100/70 blur-3xl' aria-hidden='true' />
+      <div className='relative mx-auto max-w-7xl px-5 py-14 sm:px-8 md:px-10 md:py-20'>
+        <div className='mx-auto max-w-3xl text-center'>
+          <span className='inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-800 shadow-sm'>
+            <span className='h-2 w-2 rounded-full bg-[#f5a623]' aria-hidden='true' />
+            {t('A clear guide from EYEPEK', 'EYEPEK की ओर से आसान मार्गदर्शन')}
+          </span>
+          <h2 className='mt-5 text-3xl font-black leading-tight tracking-tight text-[#123b72] sm:text-4xl md:text-[2.75rem]'>
+            {t('Understand the process. Prepare with confidence.', 'प्रक्रिया समझें। आत्मविश्वास से तैयारी करें।')}
+          </h2>
+          <p className='mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg'>
+            {t('Straightforward information about student admissions, college affiliation and application documents—so you know what to prepare and who makes the final decision.', 'छात्र प्रवेश, कॉलेज संबद्धता और आवेदन के दस्तावेज़ों की स्पष्ट जानकारी—ताकि आप जान सकें कि क्या तैयारी करनी है और अंतिम निर्णय कौन लेता है।')}
+          </p>
+        </div>
+
+        <div className='mt-10 grid items-stretch gap-5 lg:grid-cols-3 lg:gap-6'>
+          <article className='group relative flex h-full flex-col overflow-hidden rounded-3xl border border-orange-100 bg-white shadow-[0_14px_45px_rgba(20,55,100,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(20,55,100,0.13)]'>
+            <div className='h-1.5 w-full bg-gradient-to-r from-orange-400 to-amber-300' />
+            <div className='flex flex-1 flex-col p-6 sm:p-7'>
+              <div className='flex items-start justify-between gap-4'>
+                <span className='inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 text-2xl text-orange-600 ring-1 ring-orange-100'><FaGraduationCap aria-hidden='true' /></span>
+                <span className='rounded-full bg-orange-50 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.14em] text-orange-700'>{t('For students', 'छात्रों के लिए')}</span>
+              </div>
+              <p className='mt-6 text-xs font-extrabold uppercase tracking-[0.16em] text-orange-600'>01 / {t('Student support', 'छात्र सहायता')}</p>
+              <h3 className='mt-2 text-2xl font-black leading-tight text-[#123b72]'>{t('Admission guidance', 'प्रवेश मार्गदर्शन')}</h3>
+              <p className='mt-4 text-[15px] leading-7 text-slate-600'>
+                {t('Make informed choices before applying. EYEPEK helps you compare course and college options, understand eligibility questions, check what to ask about fees and dates, and prepare a document checklist. The college confirms seat availability and makes the admission decision.', 'आवेदन से पहले सोच-समझकर विकल्प चुनें। EYEPEK कोर्स और कॉलेज के विकल्पों की तुलना, पात्रता से जुड़े सवाल समझने, फीस और तारीखों की जानकारी लेने तथा दस्तावेज़ों की चेकलिस्ट बनाने में मदद करता है। सीट की उपलब्धता और प्रवेश का अंतिम निर्णय कॉलेज करता है।')}
+              </p>
+              <div className='mt-6 rounded-2xl bg-[#fff8ef] p-4'>
+                <p className='text-sm font-extrabold text-[#8a4b0b]'>{t('Your admission roadmap', 'प्रवेश की तैयारी के चरण')}</p>
+                <ol className='mt-3 space-y-3 text-sm leading-6 text-slate-700'>
+                  <li className='flex gap-3'><span className='flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-black text-orange-700 ring-1 ring-orange-200'>1</span>{t('Choose a course and shortlist suitable colleges.', 'कोर्स चुनें और उपयुक्त कॉलेजों की सूची बनाएँ।')}</li>
+                  <li className='flex gap-3'><span className='flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-black text-orange-700 ring-1 ring-orange-200'>2</span>{t('Confirm eligibility, fees and deadlines with the college.', 'पात्रता, फीस और अंतिम तारीख कॉलेज से पक्की करें।')}</li>
+                  <li className='flex gap-3'><span className='flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-black text-orange-700 ring-1 ring-orange-200'>3</span>{t('Prepare documents using the latest college checklist.', 'कॉलेज की नवीनतम चेकलिस्ट के अनुसार दस्तावेज़ तैयार करें।')}</li>
+                  <li className='flex gap-3'><span className='flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-black text-orange-700 ring-1 ring-orange-200'>4</span>{t('Submit your application and follow the institution’s instructions.', 'आवेदन जमा करें और संस्थान के निर्देशों का पालन करें।')}</li>
+                </ol>
+              </div>
+              <a href='/services/education' className='mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-[#173f70] transition group-hover:text-orange-700'>{t('Explore student guidance', 'छात्र मार्गदर्शन देखें')} <FaArrowRight aria-hidden='true' /></a>
+            </div>
           </article>
-          <article className='rounded-2xl border border-blue-100 bg-[#f5f9ff] p-6'>
-            <span className='text-xs font-black uppercase tracking-widest text-blue-700'>{t('For colleges', 'कॉलेजों के लिए')}</span>
-            <h3 className='mt-2 text-xl font-extrabold text-blue-950'>{t('Affiliation & AICTE', 'संबद्धता और AICTE')}</h3>
-            <p className='mt-3 leading-7 text-slate-700'>{t('University affiliation is a formal relationship that lets a college offer specified courses under that university’s rules. AICTE approval is a separate requirement where regulations apply; one does not automatically replace the other.', 'विश्वविद्यालय संबद्धता एक औपचारिक संबंध है, जिसके तहत कॉलेज उस विश्वविद्यालय के नियमों के अनुसार तय कोर्स चलाता है। जहाँ नियम लागू हों, AICTE की मंज़ूरी अलग आवश्यकता है; एक प्रक्रिया दूसरी की जगह अपने-आप नहीं लेती।')}</p>
-            <p className='mt-3 leading-7 text-slate-700'>{t('EYEPEK can help institutions understand the process, organise records and prepare questions for the university or regulator. The relevant authority reviews applications and makes all approval decisions.', 'EYEPEK संस्थानों को प्रक्रिया समझने, रिकॉर्ड व्यवस्थित करने और विश्वविद्यालय या नियामक से पूछे जाने वाले सवाल तैयार करने में मदद कर सकता है। आवेदन की जाँच और मंज़ूरी का निर्णय संबंधित प्राधिकरण करता है।')}</p>
+
+          <article className='group relative flex h-full flex-col overflow-hidden rounded-3xl border border-blue-100 bg-white shadow-[0_14px_45px_rgba(20,55,100,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(20,55,100,0.13)]'>
+            <div className='h-1.5 w-full bg-gradient-to-r from-blue-700 to-cyan-500' />
+            <div className='flex flex-1 flex-col p-6 sm:p-7'>
+              <div className='flex items-start justify-between gap-4'>
+                <span className='inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-2xl text-blue-800 ring-1 ring-blue-100'><FaUniversity aria-hidden='true' /></span>
+                <span className='rounded-full bg-blue-50 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.14em] text-blue-800'>{t('For colleges', 'कॉलेजों के लिए')}</span>
+              </div>
+              <p className='mt-6 text-xs font-extrabold uppercase tracking-[0.16em] text-blue-700'>02 / {t('Institutional support', 'संस्थागत सहायता')}</p>
+              <h3 className='mt-2 text-2xl font-black leading-tight text-[#123b72]'>{t('Affiliation & AICTE support', 'संबद्धता और AICTE सहायता')}</h3>
+              <p className='mt-4 text-[15px] leading-7 text-slate-600'>
+                {t('University affiliation is the formal relationship that allows a college to offer specified courses under a university’s rules. AICTE approval is a separate regulatory requirement wherever applicable; affiliation and AICTE approval are not interchangeable.', 'विश्वविद्यालय संबद्धता वह औपचारिक व्यवस्था है जिसके तहत कॉलेज विश्वविद्यालय के नियमों के अनुसार निर्धारित कोर्स चला सकता है। जहाँ लागू हो, AICTE की मंज़ूरी एक अलग नियामक आवश्यकता है; संबद्धता और AICTE मंज़ूरी एक-दूसरे का विकल्प नहीं हैं।')}
+              </p>
+              <div className='mt-6 rounded-2xl bg-[#f2f7ff] p-4'>
+                <p className='text-sm font-extrabold text-blue-900'>{t('How EYEPEK can assist', 'EYEPEK किस तरह सहायता कर सकता है')}</p>
+                <ul className='mt-3 space-y-3 text-sm leading-6 text-slate-700'>
+                  {[t('Understand the applicable process and requirements.', 'लागू प्रक्रिया और आवश्यकताओं को समझना।'),t('Organise institutional records and supporting documents.', 'संस्थान के रिकॉर्ड और सहायक दस्तावेज़ व्यवस्थित करना।'),t('Prepare questions and information for the university or regulator.', 'विश्वविद्यालय या नियामक के लिए सवाल और जानकारी तैयार करना।'),t('Plan documentation for compliance and renewal activities.', 'अनुपालन और नवीनीकरण के दस्तावेज़ों की तैयारी करना।')].map((item)=><li key={item} className='flex gap-3'><span className='mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-xs font-black text-blue-700 ring-1 ring-blue-200'>✓</span>{item}</li>)}
+                </ul>
+              </div>
+              <p className='mt-5 rounded-xl border-l-4 border-blue-600 bg-blue-50/70 px-4 py-3 text-sm font-semibold leading-6 text-blue-950'>
+                {t('The concerned university or regulatory authority independently reviews applications and makes every approval decision.', 'आवेदन की जाँच और सभी मंज़ूरी का निर्णय संबंधित विश्वविद्यालय या नियामक प्राधिकरण स्वतंत्र रूप से करता है।')}
+              </p>
+              <a href='/services/business-support' className='mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-[#173f70] transition group-hover:text-blue-700'>{t('Explore college support', 'कॉलेज सहायता देखें')} <FaArrowRight aria-hidden='true' /></a>
+            </div>
           </article>
-          <article className='rounded-2xl border border-slate-200 bg-[#f5f9ff] p-6'>
-            <span className='text-xs font-black uppercase tracking-widest text-slate-600'>{t('For every application', 'हर आवेदन के लिए')}</span>
-            <h3 className='mt-2 text-xl font-extrabold text-blue-950'>{t('Document support', 'दस्तावेज़ सहायता')}</h3>
-            <p className='mt-3 leading-7 text-slate-700'>{t('A checklist helps you prepare; it does not mean every item is required everywhere. Student applications may ask for identity proof, photos, marksheets or certificates. College applications may need institutional records. Requirements vary by course, college, university and year.', 'चेकलिस्ट तैयारी में मदद करती है; इसका मतलब यह नहीं कि हर दस्तावेज़ हर जगह ज़रूरी होगा। छात्र आवेदन में पहचान-पत्र, फोटो, अंकपत्र या प्रमाणपत्र माँगे जा सकते हैं। कॉलेज आवेदन में संस्थान के रिकॉर्ड लग सकते हैं। ज़रूरतें कोर्स, कॉलेज, विश्वविद्यालय और वर्ष के अनुसार बदलती हैं।')}</p>
-            <p className='mt-3 font-semibold leading-7 text-blue-950'>{t('Always check the latest list from the institution or authority before submitting documents.', 'दस्तावेज़ जमा करने से पहले संस्थान या प्राधिकरण की नवीनतम सूची ज़रूर देखें।')}</p>
+
+          <article className='group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_14px_45px_rgba(20,55,100,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(20,55,100,0.13)]'>
+            <div className='h-1.5 w-full bg-gradient-to-r from-slate-500 to-blue-400' />
+            <div className='flex flex-1 flex-col p-6 sm:p-7'>
+              <div className='flex items-start justify-between gap-4'>
+                <span className='inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-2xl text-slate-700 ring-1 ring-slate-200'><FaFileAlt aria-hidden='true' /></span>
+                <span className='rounded-full bg-slate-100 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.14em] text-slate-700'>{t('For every application', 'हर आवेदन के लिए')}</span>
+              </div>
+              <p className='mt-6 text-xs font-extrabold uppercase tracking-[0.16em] text-slate-600'>03 / {t('Application readiness', 'आवेदन की तैयारी')}</p>
+              <h3 className='mt-2 text-2xl font-black leading-tight text-[#123b72]'>{t('Document support', 'दस्तावेज़ सहायता')}</h3>
+              <p className='mt-4 text-[15px] leading-7 text-slate-600'>
+                {t('A checklist is a preparation guide—not a universal list of compulsory documents. Student applications may ask for identity proof, photographs, marksheets or certificates. Institutional applications may require official records, faculty details or other supporting documents.', 'चेकलिस्ट तैयारी के लिए मार्गदर्शिका है—यह हर जगह लागू होने वाले अनिवार्य दस्तावेज़ों की सूची नहीं है। छात्र आवेदन में पहचान-पत्र, फोटो, अंकपत्र या प्रमाणपत्र माँगे जा सकते हैं। संस्थागत आवेदन में आधिकारिक रिकॉर्ड, फैकल्टी विवरण या अन्य सहायक दस्तावेज़ आवश्यक हो सकते हैं।')}
+              </p>
+              <div className='mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4'>
+                <p className='text-sm font-extrabold text-slate-800'>{t('Requirements can vary by', 'आवश्यकताएँ अलग हो सकती हैं')}</p>
+                <div className='mt-3 flex flex-wrap gap-2'>
+                  {[t('Course', 'कोर्स'),t('College', 'कॉलेज'),t('University', 'विश्वविद्यालय'),t('Authority', 'प्राधिकरण'),t('Academic year', 'शैक्षणिक वर्ष')].map(item=><span key={item} className='rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700'>{item}</span>)}
+                </div>
+              </div>
+              <p className='mt-5 rounded-xl border-l-4 border-orange-500 bg-orange-50 px-4 py-3 text-sm font-bold leading-6 text-[#713f12]'>
+                {t('Before submitting, always verify the latest document list and instructions with the institution or relevant authority.', 'दस्तावेज़ जमा करने से पहले संस्थान या संबंधित प्राधिकरण से नवीनतम सूची और निर्देशों की पुष्टि अवश्य करें।')}
+              </p>
+              <a href='/admission-checklist' className='mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-[#173f70] transition group-hover:text-orange-700'>{t('View admission checklist', 'प्रवेश चेकलिस्ट देखें')} <FaArrowRight aria-hidden='true' /></a>
+            </div>
           </article>
+        </div>
+        <div className='mt-8 flex flex-col gap-4 rounded-2xl border border-blue-100 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:px-7'>
+          <div className='flex items-start gap-3'>
+            <span className='mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-800'><FaFileAlt aria-hidden='true' /></span>
+            <div>
+              <p className='font-extrabold text-[#123b72]'>{t('Need help with your next step?', 'अगले कदम में सहायता चाहिए?')}</p>
+              <p className='mt-1 text-sm leading-6 text-slate-600'>{t('Tell EYEPEK what you are applying for. Our team can help you understand the process and organise your preparation.', 'EYEPEK को बताएँ कि आप किसके लिए आवेदन कर रहे हैं। हमारी टीम प्रक्रिया समझने और तैयारी व्यवस्थित करने में मदद कर सकती है।')}</p>
+            </div>
+          </div>
+          <a href='/contact' className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#173f70] px-5 py-3 font-bold text-white shadow-sm transition hover:bg-[#0f2f56]'>{t('Contact EYEPEK', 'EYEPEK से संपर्क करें')} <FaArrowRight aria-hidden='true' /></a>
         </div>
       </div>
     </section>
