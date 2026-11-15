@@ -21,6 +21,8 @@ const servicePages = {
   },
   'it-support': {
     title: 'IT & Computer Support Services',
+    processTitle: 'How an IT support request works',
+    process: ['Describe the device, problem and when it started.', 'Share the device model, operating system and any error message if available.', 'EYEPEK discusses remote troubleshooting or a site visit, subject to availability.', 'Confirm the scope, estimated charges and data-backup steps before work begins.'],
     metaTitle: 'IT & Computer Support Services | EYEPEK',
     description: 'EYEPEK IT support includes computer troubleshooting, software and operating system installation, printer support, Wi-Fi, networking, CCTV, and maintenance assistance.',
     intro: 'Practical technical support for home users, students, offices, and small businesses.',
@@ -37,6 +39,8 @@ const servicePages = {
   },
   'home-services': {
     title: 'Home Maintenance Services',
+    processTitle: 'How a home service request works',
+    process: ['Choose the type of work: plumbing, electrical, installation or maintenance.', 'Share your area, a short description and photos if useful.', 'Confirm technician availability, visit arrangements and materials required.', 'Review the estimate and agree the work details before scheduling.'],
     metaTitle: 'Home Maintenance Services | EYEPEK',
     description: 'Ask EYEPEK about home maintenance support, plumbing, electrician work, fan and light fitting, appliance installation, AC support, and CCTV setup.',
     intro: 'Get help coordinating everyday home maintenance and installation needs.',
