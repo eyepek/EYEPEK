@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FaArrowRight, FaCheckCircle, FaPhoneAlt } from 'react-icons/fa';
+import { FaArrowRight, FaCheckCircle, FaPhoneAlt, FaLaptopCode, FaDesktop, FaNetworkWired, FaUniversity, FaFileAlt, FaClipboardCheck, FaCode } from 'react-icons/fa';
 import { useLanguage } from '../LanguageContext';
 
 const servicePages = {
@@ -146,7 +146,7 @@ const ServiceDetailPage = () => {
         name: 'EYEPEK',
         url: 'https://www.eyepek.com/',
         telephone: '+91-7004374250',
-        email: 'Info.eyepek@gmail.com',
+        email: 'info@eyepek.com',
       },
       areaServed: { '@type': 'Country', name: 'India' },
     });
@@ -217,7 +217,7 @@ const ServiceDetailPage = () => {
           <p className="mt-3 leading-7 text-slate-600">{t("Tell us what you need. Our team can help you understand the next step and confirm availability.","अपनी ज़रूरत बताएँ। हमारी टीम अगला कदम समझने और उपलब्धता की पुष्टि करने में मदद करेगी।")}</p>
           <a href="tel:+917004374250" className="mt-6 block rounded-xl bg-blue-950 px-5 py-3.5 text-center font-bold text-white transition hover:bg-blue-800">{t("Call +91 70043 74250","+91 70043 74250 पर कॉल करें")}</a>
           <a href="https://wa.me/917004374250" className="mt-3 block rounded-xl border border-green-200 bg-green-50 px-5 py-3.5 text-center font-bold text-green-800 transition hover:bg-green-100">{t("WhatsApp EYEPEK","EYEPEK को WhatsApp करें")}</a>
-          <a href="mailto:Info.eyepek@gmail.com" className="mt-3 block break-words rounded-xl border border-slate-200 px-5 py-3.5 text-center font-bold text-blue-900 transition hover:bg-blue-50">Info.eyepek@gmail.com</a>
+          <a href="mailto:info@eyepek.com" className="mt-3 block break-words rounded-xl border border-slate-200 px-5 py-3.5 text-center font-bold text-blue-900 transition hover:bg-blue-50">info@eyepek.com</a>
           <Link to="/#student-support" className="mt-6 inline-flex items-center gap-2 font-bold text-blue-900 hover:text-orange-600">View all services <FaArrowRight aria-hidden="true" /></Link>
         </aside>
       </section>
