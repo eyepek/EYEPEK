@@ -156,3 +156,66 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Final site-wide polish: consistent rhythm, contrast and responsive readability */
+body {
+  color: #263b55;
+  background: #ffffff;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+main > section[id] {
+  padding-top: clamp(3rem, 5vw, 4.25rem);
+  padding-bottom: clamp(3rem, 5vw, 4.25rem);
+  scroll-margin-top: 7rem;
+}
+
+main > section[id] h2 {
+  color: #153b70;
+  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.55rem);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+}
+
+main > section[id] h3 {
+  color: #173d70;
+  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+main > section[id] p {
+  color: #43546b;
+  line-height: 1.75;
+}
+
+main > section[id] a:not([class*='bg-']) {
+  text-underline-offset: 3px;
+}
+
+main > section[id] article,
+main > section[id] aside {
+  border-radius: 1.25rem;
+}
+
+footer {
+  color: #e8eef7;
+}
+
+footer a {
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 15.5px; }
+  main > section[id] {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+  main > section[id] h2 {
+    font-size: clamp(1.65rem, 7vw, 2rem);
+  }
+}
