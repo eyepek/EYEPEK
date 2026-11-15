@@ -12,8 +12,12 @@ import AdmissionChecklist from './pages/AdmissionChecklist'
 import CourseFinder from './pages/CourseFinder'
 import { LanguageProvider } from './LanguageContext'
 import AIChatWidget from './components/AIChatWidget'
+import { useLocation } from 'react-router-dom'
+import LearningPlatform from './pages/LearningPlatform'
 
 const App = () => {
+  const location = useLocation()
+  if (location.pathname.startsWith('/learning')) return <LearningPlatform />
   return (
     <LanguageProvider>
     <div>
