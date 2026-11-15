@@ -32,7 +32,14 @@ const journeyLinks = [
 
 const NavBar = () => {
   const { language, setLanguage, t } = useLanguage();
-  const [isOpen, setIsOpen] = useState(false);\n  const [isScrolled, setIsScrolled] = useState(false);\n  useEffect(() => {\n    const onScroll = () => setIsScrolled(window.scrollY > 40);\n    onScroll();\n    window.addEventListener('scroll', onScroll, { passive: true });\n    return () => window.removeEventListener('scroll', onScroll);\n  }, []);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [guidanceOpen, setGuidanceOpen] = useState(false);
   const [journeyOpen, setJourneyOpen] = useState(false);
