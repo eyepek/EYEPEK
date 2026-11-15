@@ -97,22 +97,22 @@ const HomePage = () => {
   <main className='bg-white text-slate-900'>
     <section className='relative overflow-hidden bg-gradient-to-br from-[#0b1f3a] via-[#123b72] to-[#1d4ed8]'>
       <div className='pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-blue-400/30 blur-3xl' aria-hidden='true' />
-      <div className='mx-auto grid min-h-[560px] max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:px-10 md:py-20'>
+      <div className='mx-auto grid min-h-[520px] max-w-7xl items-center gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:px-10 md:py-16'>
         <div className='relative z-10 max-w-2xl'>
           <p className='mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white shadow-sm backdrop-blur sm:text-sm'>
             <span className='h-2 w-2 rounded-full bg-[#f5a623]' /> {t('Education • College Support • Technology', 'शिक्षा • कॉलेज सहायता • तकनीक')}
           </p>
-          <h1 className='max-w-[680px] text-[2.55rem] font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]'>
-            {hi ? <>छात्रों को सही दिशा।<br /><span className='text-[#2864d7]'>कॉलेजों को भरोसेमंद</span> सहयोग।</> : <>Empowering <span className='text-[#ffb84d]'>Students.</span><br />Supporting Colleges.</>}
+          <h1 className='max-w-[680px] text-[2.35rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.55rem]'>
+            {hi ? <>छात्रों को सही दिशा।<br /><span className='text-[#ffb84d]'>कॉलेजों को भरोसेमंद</span> सहयोग।</> : <>Empowering <span className='text-[#ffb84d]'>Students.</span><br />Supporting Colleges.</>}
           </h1>
-          <p className='mt-5 max-w-xl text-base leading-7 text-blue-50/90 sm:text-lg sm:leading-8'>
+          <p className='mt-4 max-w-xl text-base leading-7 text-blue-50 sm:text-lg sm:leading-8'>
             {t('Your support partner for course and admission guidance, college affiliation documentation and practical IT services. Get clear information and move forward with confidence.', 'कोर्स और प्रवेश मार्गदर्शन, कॉलेज संबद्धता के दस्तावेज़ और IT सेवाओं के लिए आपका सहयोगी। सही जानकारी पाएँ और आत्मविश्वास से आगे बढ़ें।')}
           </p>
-          <div className='mt-7 flex flex-wrap gap-3'>
+          <div className='mt-6 flex flex-wrap gap-3'>
             <a href='/services/education' className='inline-flex items-center gap-2 rounded-xl bg-[#f28c28] px-6 py-3.5 font-bold text-[#172554] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#ffb84d]'>{t('Explore Education Services', 'शिक्षा सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></a>
             <a href='/contact' className='inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3.5 font-bold text-[#2454b8] transition hover:border-[#2864d7] hover:bg-blue-50'>{t('Send an enquiry', 'पूछताछ करें')}</a>
           </div>
-          <div className='mt-8 flex flex-wrap gap-2 border-t border-white/20 pt-5 text-xs font-semibold text-blue-50 sm:text-sm'>
+          <div className='mt-7 flex flex-wrap gap-2 border-t border-white/20 pt-5 text-xs font-semibold text-blue-50 sm:text-sm'>
             {[t('Admission Guidance', 'प्रवेश मार्गदर्शन'), t('College Affiliation', 'कॉलेज संबद्धता'), t('AICTE Documentation', 'AICTE दस्तावेज़')].map(item => <span key={item} className='rounded-full border border-white/20 bg-white/10 px-3 py-2 text-white backdrop-blur'>{item}</span>)}
           </div>
         </div>
