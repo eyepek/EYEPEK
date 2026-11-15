@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUniversity, FaFileAlt, FaGraduationCap, FaTools, FaArrowRight } from 'react-icons/fa';
+import { FaUniversity, FaFileAlt, FaGraduationCap, FaTools, FaArrowRight, FaUserGraduate, FaBuilding, FaLaptop, FaClipboardList, FaComments, FaCheckCircle } from 'react-icons/fa';
 import { courses } from '../courses';
 import { useLanguage } from '../LanguageContext';
 
@@ -106,7 +106,7 @@ const HomePage = () => {
             {t('Education · Institutional Support · Technology', 'शिक्षा · संस्थागत सहयोग · तकनीक')}
           </div>
           <h1 className='max-w-[720px] text-[2.65rem] font-extrabold leading-[1.06] tracking-[-0.045em] text-white sm:text-5xl lg:text-[4.15rem]'>
-            {hi ? <>शिक्षा और तकनीक में <span className='text-[#ffb84d]'>आपका भरोसेमंद</span> सहयोगी।</> : <>Clarity for your <span className='text-[#ffb84d]'>next step.</span><br />Support for your bigger goals.</>}
+            {hi ? <>प्रवेश मार्गदर्शन, कॉलेज संबद्धता और <span className='text-[#ffb84d]'>प्रैक्टिकल IT समाधान</span> — सब एक ही जगह।</> : <>Admission Guidance, <span className='text-[#ffb84d]'>College Affiliation</span> & Practical IT Solutions — All in One Place.</>}
           </h1>
           <p className='mt-6 max-w-xl text-base leading-8 text-blue-100 sm:text-lg'>
             {t('EYEPEK brings student guidance, institutional documentation support and dependable technology services together — with clear communication and practical next steps.', 'EYEPEK विद्यार्थी मार्गदर्शन, संस्थागत दस्तावेज़ सहायता और भरोसेमंद तकनीकी सेवाएँ एक साथ उपलब्ध कराता है—स्पष्ट जानकारी और व्यावहारिक अगले कदमों के साथ।')}
@@ -136,6 +136,39 @@ const HomePage = () => {
             <div className='rounded-xl border border-white/20 bg-[#102b4e]/95 p-4 shadow-xl backdrop-blur'><span className='block text-[11px] font-extrabold uppercase tracking-[0.15em] text-[#ffbd59]'>{t('Technology division', 'तकनीकी विभाग')}</span><span className='mt-1 block text-sm font-bold text-white'>{t('IT & digital solutions', 'IT और डिजिटल समाधान')}</span></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id='audience' className='relative z-10 bg-white px-5 py-10 sm:px-8 md:px-10 md:py-14'>
+      <div className='mx-auto max-w-7xl'>
+        <div className='text-center'>
+          <p className='text-xs font-extrabold uppercase tracking-[0.18em] text-orange-600'>{t('Choose your path','अपनी ज़रूरत चुनें')}</p>
+          <h2 className='mt-2 text-2xl font-black text-[#183f78] sm:text-3xl'>{t('How Can We Help You?','हम आपकी कैसे मदद कर सकते हैं?')}</h2>
+          <p className='mt-2 text-sm text-slate-600'>{t('Go straight to the support you are looking for.','अपनी ज़रूरत की सहायता सीधे चुनें।')}</p>
+        </div>
+        <div className='mt-7 grid gap-4 md:grid-cols-3'>
+          <a href='/course-finder' className='group flex items-center gap-4 rounded-2xl border border-orange-100 bg-[#fffaf4] p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg'>
+            <span className='flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange-100 text-2xl text-orange-700'><FaUserGraduate /></span>
+            <span className='min-w-0'><strong className='block text-lg font-extrabold text-[#183f78]'>{t('I am a Student','मैं विद्यार्थी हूँ')}</strong><span className='mt-1 block text-sm text-slate-600'>{t('Course Finder & Admission Checklist','कोर्स फाइंडर और प्रवेश चेकलिस्ट')}</span><span className='mt-2 inline-flex items-center gap-2 text-sm font-bold text-orange-700'>{t('Explore courses','कोर्स देखें')} <FaArrowRight /></span></span>
+          </a>
+          <a href='/services/business-support' className='group flex items-center gap-4 rounded-2xl border border-blue-100 bg-[#f5f9ff] p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg'>
+            <span className='flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-100 text-2xl text-blue-800'><FaBuilding /></span>
+            <span className='min-w-0'><strong className='block text-lg font-extrabold text-[#183f78]'>{t('I represent a College','मैं कॉलेज का प्रतिनिधित्व करता हूँ')}</strong><span className='mt-1 block text-sm text-slate-600'>{t('College Affiliation & AICTE Support','कॉलेज संबद्धता और AICTE सहायता')}</span><span className='mt-2 inline-flex items-center gap-2 text-sm font-bold text-blue-800'>{t('Institution support','संस्थान सहायता')} <FaArrowRight /></span></span>
+          </a>
+          <a href='/services/it-support' className='group flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg'>
+            <span className='flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-slate-200 text-2xl text-slate-800'><FaLaptop /></span>
+            <span className='min-w-0'><strong className='block text-lg font-extrabold text-[#183f78]'>{t('I need IT Support','मुझे IT सहायता चाहिए')}</strong><span className='mt-1 block text-sm text-slate-600'>{t('Computer, Network & Technical Services','कंप्यूटर, नेटवर्क और तकनीकी सेवाएँ')}</span><span className='mt-2 inline-flex items-center gap-2 text-sm font-bold text-blue-800'>{t('Get IT support','IT सहायता पाएँ')} <FaArrowRight /></span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id='how-it-works' className='bg-[#f3f7fc] px-5 py-9 sm:px-8 md:px-10'>
+      <div className='mx-auto max-w-7xl'>
+        <div className='mb-6 text-center'><p className='text-xs font-extrabold uppercase tracking-[0.18em] text-orange-600'>{t('A simple process','आसान प्रक्रिया')}</p><h2 className='mt-2 text-2xl font-black text-[#183f78]'>{t('How It Works','काम कैसे होता है')}</h2></div>
+        <div className='grid gap-3 md:grid-cols-3'>
+          {[[FaComments,t('Tell Us Your Need','अपनी ज़रूरत बताएँ'),t('Share your question or service requirement.','अपना सवाल या सेवा की ज़रूरत साझा करें।')],[FaClipboardList,t('Get Free Consultation & Checklist','निःशुल्क सलाह और चेकलिस्ट पाएँ'),t('Understand the next steps and documents to prepare.','अगले कदम और तैयार किए जाने वाले दस्तावेज़ समझें।')],[FaCheckCircle,t('Complete Documentation / Setup','दस्तावेज़ या सेटअप पूरा करें'),t('Proceed with the relevant institution or technical service.','संबंधित संस्थान या तकनीकी सेवा के साथ आगे बढ़ें।')]].map(([Icon,title,desc],i)=><div key={title} className='flex items-center gap-4 rounded-xl border border-blue-100 bg-white p-4'><span className='flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-800'><Icon /></span><span><strong className='block text-sm font-extrabold text-[#183f78]'>{i+1}. {title}</strong><span className='mt-1 block text-xs leading-5 text-slate-600'>{desc}</span></span></div>)}
+        </div>
+        <p className='mt-4 text-center text-xs text-slate-500'>{t('Consultation and checklists are informational; official decisions, approvals, fees and service availability are confirmed by the relevant institution or provider.','सलाह और चेकलिस्ट जानकारी के लिए हैं; आधिकारिक निर्णय, मंज़ूरी, फीस और सेवा उपलब्धता संबंधित संस्थान या प्रदाता से पक्की करें।')}</p>
       </div>
     </section>
 
