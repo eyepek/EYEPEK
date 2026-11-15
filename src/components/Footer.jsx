@@ -7,23 +7,20 @@ const Footer = () => {
 
   const exploreLinks = [
     { label: 'About EYEPEK', labelHi: 'EYEPEK के बारे में', href: '/#about' },
-    { label: 'Guidance & Support', labelHi: 'मार्गदर्शन और सहायता', href: '/#learning' },
-    { label: 'Student & Education Services', labelHi: 'छात्र और शिक्षा सेवाएँ', href: '/services/education' },
-    { label: 'College & Institution Support', labelHi: 'कॉलेज और संस्थान सहायता', href: '/services/business-support' },
-    { label: 'IT Solutions', labelHi: 'आईटी समाधान', href: '/services/it-support' },
-    { label: 'All Services', labelHi: 'सभी सेवाएँ', href: '/#student-support' },
-    { label: 'Student Journey', labelHi: 'छात्र यात्रा', href: '/#campus' },
-    { label: 'Admission, Affiliation & Documents Guide', labelHi: 'प्रवेश, संबद्धता और दस्तावेज़ मार्गदर्शन', href: '/#support-guide' },
-    { label: 'Admissions', labelHi: 'प्रवेश', href: '/#admissions' },
-    { label: 'Free Admission Checklist', labelHi: 'निःशुल्क प्रवेश चेकलिस्ट', href: '/admission-checklist' },
-    { label: 'Course & Career Finder', labelHi: 'कोर्स और करियर खोजें', href: '/course-finder' },
+    { label: 'Education Services', labelHi: 'शिक्षा सेवाएँ', href: '/services/education' },
+    { label: 'College & AICTE Support', labelHi: 'कॉलेज और AICTE सहायता', href: '/services/business-support' },
+    { label: 'IT & Technical Services', labelHi: 'आईटी और तकनीकी सेवाएँ', href: '/services/it-support' },
+    { label: 'Home Services', labelHi: 'घरेलू सेवाएँ', href: '/services/home-services' },
+    { label: 'Admission Checklist', labelHi: 'प्रवेश चेकलिस्ट', href: '/admission-checklist' },
+    { label: 'Course Finder', labelHi: 'कोर्स खोजें', href: '/course-finder' },
     { label: 'Helpful Guides', labelHi: 'उपयोगी गाइड', href: '/guides' },
+    { label: 'Contact EYEPEK', labelHi: 'EYEPEK से संपर्क करें', href: '/contact' },
     { label: 'Privacy Policy', labelHi: 'गोपनीयता नीति', href: '/privacy-policy.html' },
   ];
 
   return (
     <footer className='bg-slate-950 text-white'>
-      <div className='mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 md:grid-cols-[1.25fr_1fr_0.85fr] md:gap-12 md:px-10 md:py-14'>
+      <div className='mx-auto grid max-w-7xl gap-9 px-5 py-12 sm:px-6 md:grid-cols-[1.25fr_1fr_0.85fr] md:gap-12 md:px-10 md:py-16'>
         <div>
           <Link to='/' aria-label='EYEPEK home' className='inline-flex rounded-lg bg-white p-2'>
             <img src='/images/eyepek-logo.svg' alt='EYEPEK' className='block h-auto w-[190px] sm:w-[210px]' />
