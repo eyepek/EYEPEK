@@ -122,7 +122,7 @@ const NavBar = () => {
               <a href='/#admissions' onClick={closeMenu} className='flex items-center justify-between border-t border-slate-100 px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-50'>{t('Contact EYEPEK', 'EYEPEK से संपर्क करें')} <span aria-hidden='true'>→</span></a>
             </div>
           </div>
-          <a href='/contact' onClick={closeMenu} className='mt-2 w-full rounded-xl border border-orange-500 bg-orange-500 px-5 py-3 text-center text-sm font-extrabold text-white shadow-lg shadow-orange-500/30 transition duration-200 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 lg:mt-0 lg:ml-2 lg:w-auto lg:px-5 lg:py-2.5'>{t('Contact Us', 'संपर्क करें')}</a>
+          <a href='/#admissions' onClick={closeMenu} className='mt-2 w-full rounded-xl border border-orange-500 bg-orange-500 px-5 py-3 text-center text-sm font-extrabold text-white shadow-lg shadow-orange-500/30 transition duration-200 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 lg:mt-0 lg:ml-2 lg:w-auto lg:px-5 lg:py-2.5'>{t('Admission', 'प्रवेश')}</a>
           <div className='pt-2 lg:hidden xl:block [&_a]:w-full [&_a]:justify-center'><InstallAppButton /></div>
         </nav>
       </div>
