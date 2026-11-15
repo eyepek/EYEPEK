@@ -182,7 +182,7 @@ const guides = {
     ],
     note: 'EYEPEK offers printer setup, troubleshooting and related computer support. Keep the printer model and any displayed error code ready when you contact the team.',
     related: '/services/it-support',
-  },,
+  },
 
   'bihar-college-admission-checklist': {
     category: 'Bihar Admissions',
