@@ -13,13 +13,13 @@ export default function ContactUs() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const enquiry = [
-      hi ? 'EYEPEK College प्रवेश पूछताछ' : 'EYEPEK College admission enquiry',
+      hi ? 'EYEPEK Support से प्रवेश संबंधी पूछताछ' : 'EYEPEK Support enquiry',
       `Name: ${form.name}`,
       `Phone: ${form.phone}`,
       `${hi ? 'रुचि का कोर्स' : 'Course of interest'}: ${form.course || (hi ? 'नहीं बताया' : 'Not specified')}`,
       `${hi ? 'संदेश' : 'Message'}: ${form.message || (hi ? 'नहीं है' : 'None')}`,
     ].join('\n');
-    const url = `mailto:info.eyepek@gmail.com?subject=${encodeURIComponent(hi ? 'EYEPEK College प्रवेश पूछताछ' : 'EYEPEK College admission enquiry')}&body=${encodeURIComponent(enquiry)}`;
+    const url = `mailto:info.eyepek@gmail.com?subject=${encodeURIComponent(hi ? 'EYEPEK Support से प्रवेश संबंधी पूछताछ' : 'EYEPEK Support enquiry')}&body=${encodeURIComponent(enquiry)}`;
     setEmailUrl(url);
     setStatus(hi ? 'आपकी पूछताछ ईमेल ऐप में तैयार है। info.eyepek@gmail.com पर भेजने के लिए वहाँ Send दबाएँ।' : 'Your enquiry is ready in your email app. Press Send there to email info.eyepek@gmail.com.');
     window.location.href = url;
@@ -41,15 +41,15 @@ export default function ContactUs() {
       <div className='mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr]'>
         <section className='rounded-2xl bg-blue-950 p-8 text-white md:p-10'>
           <p className='text-sm font-bold uppercase tracking-[0.2em] text-orange-300'>{t("Admissions & enquiries","प्रवेश और पूछताछ")}</p>
-          <h1 className='mt-4 text-3xl font-extrabold md:text-4xl'>{t("Take the next step with EYEPEK College.","EYEPEK College के साथ अगला कदम बढ़ाएँ।")}</h1>
+          <h1 className='mt-4 text-3xl font-extrabold md:text-4xl'>{t("Take the next step with the EYEPEK Team.","EYEPEK Team के साथ अगला कदम बढ़ाएँ।")}</h1>
           <p className='mt-5 leading-7 text-blue-100'>{t("Tell us what you are looking for. Our team can guide you on course availability and admission details.","अपनी ज़रूरत बताएँ। हमारी टीम कोर्स की उपलब्धता और प्रवेश की जानकारी समझने में मदद करेगी।")}</p>
           <a className='mt-8 inline-flex rounded-md bg-orange-500 px-6 py-3 font-bold text-white hover:bg-orange-400' href='tel:7004374250'>{t("Call 7004374250","7004374250 पर कॉल करें")}</a>
-          <p className='mt-6 text-sm text-blue-100'>{t("Course and fee details are available from the college admissions team.","कोर्स और फीस की जानकारी कॉलेज की प्रवेश टीम से लें।")}</p>
+          <p className='mt-6 text-sm text-blue-100'>{t("Our team can help you understand course information and identify what to confirm directly with the relevant institution.","हमारी टीम कोर्स की जानकारी समझने और संबंधित संस्थान से किन बातों की पुष्टि करनी है, यह जानने में मदद कर सकती है।")}</p>
         </section>
 
         <section className='rounded-2xl bg-white p-8 shadow-sm md:p-10'>
           <h2 className='text-2xl font-bold text-blue-950'>{t("Send an enquiry","पूछताछ भेजें")}</h2>
-          <p className='mt-2 text-slate-600'>{t("Fill this in to prepare an email to the EYEPEK College team.","EYEPEK College टीम को ईमेल तैयार करने के लिए यह फ़ॉर्म भरें।")}</p>
+          <p className='mt-2 text-slate-600'>{t("Fill this in to prepare an email to the EYEPEK Support Team.","EYEPEK Support Team को ईमेल तैयार करने के लिए यह फ़ॉर्म भरें।")}</p>
           <form className='mt-7 space-y-5' onSubmit={handleSubmit}>
             <div className='grid gap-5 sm:grid-cols-2'>
               <label className='block text-sm font-semibold text-slate-700'>{t("Your name","आपका नाम")}
