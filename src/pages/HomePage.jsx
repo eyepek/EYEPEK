@@ -105,7 +105,7 @@ const HomePage = () => {
             <span className='h-2 w-2 rounded-full bg-[#ffb84d] shadow-[0_0_12px_rgba(255,184,77,0.9)]' />
             {t('Education · Institutional Support · Technology', 'शिक्षा · संस्थागत सहयोग · तकनीक')}
           </div>
-          <h1 className='max-w-[720px] text-[2.65rem] font-extrabold leading-[1.06] tracking-[-0.045em] text-white sm:text-5xl lg:text-[4.15rem]'>
+          <h1 className='max-w-[650px] text-[2.15rem] font-extrabold leading-[1.12] tracking-[-0.03em] text-white sm:text-[2.5rem] lg:text-[2.8rem]'>
             {hi ? <>प्रवेश मार्गदर्शन, कॉलेज संबद्धता और <span className='text-[#ffb84d]'>प्रैक्टिकल IT समाधान</span> — सब एक ही जगह।</> : <>Admission Guidance, <span className='text-[#ffb84d]'>College Affiliation</span> & Practical IT Solutions — All in One Place.</>}
           </h1>
           <p className='mt-6 max-w-xl text-base leading-8 text-blue-100 sm:text-lg'>
@@ -400,7 +400,7 @@ const HomePage = () => {
         </div>
         <div className='grid gap-2 md:grid-cols-2'>
           {[
-            [t('How can I get course and fee details?', 'कोर्स और फीस की जानकारी कैसे मिलेगी?'), t('Call EYEPEK College on 7004374250 to confirm current course availability and fees.', 'मौजूदा कोर्स और फीस की पुष्टि के लिए EYEPEK College को 7004374250 पर कॉल करें।')],
+            [t('How can I get course and fee details?', 'कोर्स और फीस की जानकारी कैसे मिलेगी?'), t('Call the EYEPEK Support Team on 7004374250 for guidance on course information and where to confirm current availability and fees.', 'कोर्स की जानकारी और मौजूदा उपलब्धता व फीस की पुष्टि के सही तरीके के लिए EYEPEK Support Team को 7004374250 पर कॉल करें।')],
             [t('How do I ask about admission?', 'प्रवेश के बारे में कैसे पूछूँ?'), t('Call the admissions team or send an enquiry through the contact page.', 'प्रवेश टीम को कॉल करें या संपर्क पेज से सवाल भेजें।')],
             [t('What does admission guidance cover?', 'प्रवेश मार्गदर्शन में क्या शामिल है?'), t('Get guidance on course and college options, eligibility questions, application steps and documents. The institution makes the final admission decision.', 'कोर्स और कॉलेज विकल्प, पात्रता, आवेदन के चरण और दस्तावेज़ों पर मार्गदर्शन पाएँ। प्रवेश का अंतिम निर्णय संस्थान करता है।')],
             [t('Can I ask about a course not listed here?', 'क्या सूची में न होने वाले कोर्स के बारे में पूछ सकता हूँ?'), t('Yes. Add the course you are interested in to the enquiry form and ask our team.', 'हाँ। पूछताछ फ़ॉर्म में अपने कोर्स का नाम लिखें और हमारी टीम से पूछें।')],
