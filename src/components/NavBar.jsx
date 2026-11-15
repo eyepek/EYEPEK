@@ -47,19 +47,19 @@ const NavBar = () => {
     <header className='sticky top-0 z-50 bg-white shadow-sm'>
       <div className='border-b border-[#244a78] bg-[#123b72] px-4 text-white sm:px-6 md:px-10'>
         <div className='mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 py-2 sm:flex-row sm:justify-between sm:gap-3'>
-          <p className='text-center text-[11px] font-semibold tracking-wide text-blue-50 sm:text-xs'>{t('Your Partner in Education & Institutional Support', 'शिक्षा और संस्थागत सहयोग का भरोसेमंद साथी')}</p>
-          <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-4'>
+          <p className='text-center text-xs font-semibold tracking-wide text-blue-50 sm:text-sm'>{t('Your Partner in Education & Institutional Support', 'शिक्षा और संस्थागत सहयोग का भरोसेमंद साथी')}</p>
+          <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-5'>
             <div className='inline-flex items-center rounded-full border border-white/30 bg-white/10 p-0.5' aria-label={t('Choose language', 'भाषा चुनें')}>
               <button type='button' onClick={() => setLanguage('en')} aria-pressed={language === 'en'} className={`rounded-full px-2.5 py-1.5 text-xs font-bold transition ${language === 'en' ? 'bg-white text-[#123b72]' : 'text-blue-100 hover:text-white'}`}>EN</button>
               <button type='button' onClick={() => setLanguage('hi')} aria-pressed={language === 'hi'} className={`rounded-full px-2.5 py-1.5 text-xs font-bold transition ${language === 'hi' ? 'bg-white text-[#123b72]' : 'text-blue-100 hover:text-white'}`}>हिंदी</button>
             </div>
-            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-xs font-semibold text-white transition hover:text-[#ffb84d]'>
+            <a href='https://www.youtube.com/@eyepek' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on YouTube (opens in a new tab)' className='inline-flex items-center gap-1.5 text-sm font-semibold text-white transition hover:text-[#ffb84d]'>
               <FaYoutube aria-hidden='true' className='h-[18px] w-[18px] text-[#ff3b30]' /><span>{t('YouTube', 'यूट्यूब')}</span>
             </a>
-            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-xs font-semibold text-white transition hover:text-[#dbeafe]'>
+            <a href='https://www.facebook.com/share/1E6U716f8p/' target='_blank' rel='noreferrer' aria-label='Visit EYEPEK on Facebook (opens in a new tab)' className='inline-flex items-center gap-1.5 text-sm font-semibold text-white transition hover:text-[#dbeafe]'>
               <span className='inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#1877F2] text-white'><FaFacebookF aria-hidden='true' className='h-3.5 w-3.5' /></span><span>{t('Facebook', 'फेसबुक')}</span>
             </a>
-            <a href='tel:7004374250' className='inline-flex items-center gap-2 rounded-full bg-[#f28c28] px-4 py-2 text-sm font-extrabold text-[#123b72] shadow-md shadow-black/10 transition hover:bg-[#ffb84d]'>
+            <a href='tel:7004374250' className='inline-flex items-center gap-2 rounded-full bg-[#f28c28] px-4 py-2.5 text-sm font-extrabold text-[#123b72] shadow-md shadow-black/10 transition hover:bg-[#ffb84d]'>
               <FaPhone aria-hidden='true' className='h-3.5 w-3.5' />{t('Call: 7004374250', 'कॉल: 7004374250')}
             </a>
           </div>
@@ -74,7 +74,7 @@ const NavBar = () => {
         </button>
         <nav id='primary-navigation' className={`${isOpen ? 'flex' : 'hidden'} absolute left-0 top-full max-h-[calc(100dvh-105px)] w-full flex-col gap-1 overflow-y-auto border-t border-slate-100 bg-white px-4 py-4 font-semibold text-blue-950 shadow-xl sm:px-6 lg:max-h-none lg:overflow-visible lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:justify-end lg:gap-2.5 xl:gap-3 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none`}>
           <Link to='/' onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-3.5 lg:py-3 lg:text-[15px] lg:font-semibold lg:whitespace-nowrap lg:rounded-lg lg:hover:bg-blue-50'>{t('Home', 'होम')}</Link>
-          <a href='/#about' onClick={closeMenu} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-2.5 lg:py-2 lg:hover:bg-blue-100'>{t('About', 'हमारे बारे में')}</a>
+          <a href='/#about' onClick={closeMenu} className='rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 lg:border-0 lg:bg-transparent lg:px-3.5 lg:py-3 lg:text-[15px] lg:font-semibold lg:whitespace-nowrap lg:rounded-lg lg:hover:bg-blue-50'>{t('About', 'हमारे बारे में')}</a>
           <div className='relative w-full lg:w-auto'>
             <button type='button' onClick={() => { setGuidanceOpen(!guidanceOpen); setServicesOpen(false); setJourneyOpen(false); }} aria-expanded={guidanceOpen} aria-controls='guidance-dropdown' className='inline-flex w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-[#f3f7fb] px-4 py-3 text-left text-sm font-bold text-blue-950 transition hover:border-orange-300 hover:bg-[#fff4e8] hover:text-orange-700 lg:w-auto lg:border-0 lg:bg-transparent lg:px-3.5 lg:py-3 lg:text-[15px] lg:font-semibold lg:whitespace-nowrap lg:rounded-lg lg:hover:bg-blue-50'>
               {t('Admission Help', 'प्रवेश सहायता')} <FaChevronDown aria-hidden='true' className={`h-3 w-3 transition-transform ${guidanceOpen ? 'rotate-180' : ''}`} />
