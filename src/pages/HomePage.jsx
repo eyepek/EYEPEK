@@ -290,6 +290,56 @@ const HomePage = () => {
       </div>
     </section>
 
+    <section id='service-roadmap' className='bg-[#f7faff] px-5 py-16 sm:px-8 md:px-10 md:py-20'>
+      <div className='mx-auto max-w-7xl'>
+        <div className='mx-auto max-w-3xl text-center'>
+          <p className='text-xs font-extrabold uppercase tracking-[0.18em] text-orange-600'>{t('Explore the EYEPEK experience','EYEPEK की सेवाओं को समझें')}</p>
+          <h2 className='mt-3 text-3xl font-black leading-tight text-[#183f78] sm:text-4xl'>{t('The right guidance, from the first question to the next step.','पहले सवाल से अगले कदम तक, सही मार्गदर्शन।')}</h2>
+          <p className='mt-4 text-base leading-8 text-slate-600'>{t('Different needs require different kinds of support. Explore how EYEPEK helps students, educational institutions, homes and businesses understand their options and organise the work ahead.','हर ज़रूरत के लिए अलग तरह की सहायता चाहिए। जानें कि EYEPEK विद्यार्थियों, शैक्षणिक संस्थानों, घरों और व्यवसायों को विकल्प समझने और आगे का काम व्यवस्थित करने में कैसे मदद करता है।')}</p>
+        </div>
+        <div className='mt-10 grid gap-5 md:grid-cols-2'>
+          {[
+            {n:'01',title:t('For students and learners','विद्यार्थियों और सीखने वालों के लिए'),body:t('Choosing a course can raise many questions: which programme fits your goals, what eligibility applies, what documents may be needed, and where should you confirm fees or dates? EYEPEK helps you organise those questions and understand the admission journey before you approach the institution.', 'कोर्स चुनते समय कई सवाल होते हैं: कौन-सा प्रोग्राम आपके लक्ष्य के अनुकूल है, पात्रता क्या है, कौन-से दस्तावेज़ चाहिए और फीस या तारीख की पुष्टि कहाँ करें? EYEPEK इन सवालों को व्यवस्थित करने और संस्थान से संपर्क करने से पहले प्रवेश प्रक्रिया समझने में मदद करता है।'),items:[t('Course and career direction','कोर्स और करियर दिशा'),t('Admission steps and document checklist','प्रवेश चरण और दस्तावेज़ चेकलिस्ट'),t('Questions to ask a college before applying','आवेदन से पहले कॉलेज से पूछने वाले सवाल')],href:'/services/education',cta:t('Explore student guidance','विद्यार्थी मार्गदर्शन देखें'),tone:'border-orange-200 bg-orange-50/70'},
+            {n:'02',title:t('For colleges and educational institutions','कॉलेजों और शैक्षणिक संस्थानों के लिए'),body:t('Institutional work often involves several records, timelines and authorities. EYEPEK supports the organisation of affiliation-related information, AICTE-related paperwork where applicable, compliance records and renewal documentation. The relevant university or regulator always determines its current requirements and makes the final decision.', 'संस्थागत कार्यों में कई रिकॉर्ड, समय-सीमाएँ और प्राधिकरण शामिल हो सकते हैं। EYEPEK संबद्धता संबंधी जानकारी, जहाँ लागू हो AICTE से जुड़े कागज़ात, अनुपालन रिकॉर्ड और नवीनीकरण दस्तावेज़ व्यवस्थित करने में सहायता करता है। वर्तमान नियम और अंतिम निर्णय संबंधित विश्वविद्यालय या नियामक प्राधिकरण का होता है।'),items:[t('Affiliation process and record organisation','संबद्धता प्रक्रिया और रिकॉर्ड व्यवस्था'),t('Compliance and renewal documentation','अनुपालन और नवीनीकरण दस्तावेज़'),t('Institutional checklists and coordination preparation','संस्थागत चेकलिस्ट और समन्वय की तैयारी')],href:'/services/business-support',cta:t('Explore institution support','संस्थान सहायता देखें'),tone:'border-blue-200 bg-blue-50/70'},
+            {n:'03',title:t('For homes, offices and small businesses','घरों, दफ्तरों और छोटे व्यवसायों के लिए'),body:t('Technology problems can interrupt study, work and daily routines. EYEPEK can help you describe the issue, understand the support required and enquire about computer, laptop, software, printer, network, CCTV and maintenance assistance. The exact service, visit and price are confirmed before work is arranged.', 'तकनीकी समस्याएँ पढ़ाई, काम और रोज़मर्रा की दिनचर्या को प्रभावित कर सकती हैं। EYEPEK समस्या समझने और कंप्यूटर, लैपटॉप, सॉफ्टवेयर, प्रिंटर, नेटवर्क, CCTV तथा रखरखाव सहायता के बारे में पूछताछ करने में मदद करता है। काम तय करने से पहले सेवा, विज़िट और कीमत की पुष्टि की जाती है।'),items:[t('Computer and laptop troubleshooting','कंप्यूटर और लैपटॉप समस्या समाधान'),t('Printer, software and network setup','प्रिंटर, सॉफ्टवेयर और नेटवर्क सेटअप'),t('CCTV and maintenance enquiries','CCTV और रखरखाव संबंधी पूछताछ')],href:'/services/it-support',cta:t('Explore IT support','IT सहायता देखें'),tone:'border-slate-200 bg-white'},
+            {n:'04',title:t('For everyday home maintenance','रोज़मर्रा के घरेलू रखरखाव के लिए'),body:t('Small installation and repair needs deserve clear communication too. You can enquire about plumbing, electrician work, fan and light fitting, appliance installation, AC-related support and home CCTV. Availability can depend on your location and the technician schedule, so confirm the details with the team first.', 'छोटे इंस्टॉलेशन और मरम्मत के कामों में भी स्पष्ट जानकारी ज़रूरी है। आप प्लंबिंग, इलेक्ट्रीशियन, पंखा और लाइट फिटिंग, उपकरण इंस्टॉलेशन, AC सहायता और होम CCTV के बारे में पूछ सकते हैं। उपलब्धता आपके स्थान और तकनीशियन के समय पर निर्भर कर सकती है, इसलिए पहले टीम से पुष्टि करें।'),items:[t('Plumbing and electrical enquiries','प्लंबिंग और इलेक्ट्रिकल संबंधी पूछताछ'),t('Fan, light and appliance installation','पंखा, लाइट और उपकरण इंस्टॉलेशन'),t('AC and home security setup enquiries','AC और होम सिक्योरिटी सेटअप पूछताछ')],href:'/services/home-services',cta:t('Explore home services','घरेलू सेवाएँ देखें'),tone:'border-amber-200 bg-amber-50/70'}
+          ].map(card => <article key={card.n} className={`rounded-3xl border p-7 shadow-sm sm:p-8 ${card.tone}`}>
+            <div className='flex items-center justify-between'><span className='text-xs font-black tracking-[0.2em] text-orange-700'>{t('SUPPORT AREA','सहायता क्षेत्र')} {card.n}</span><span className='h-10 w-10 rounded-full border border-current/15 bg-white/70 text-center text-sm font-black leading-10 text-[#183f78]'>{card.n}</span></div>
+            <h3 className='mt-4 text-2xl font-extrabold leading-tight text-[#183f78]'>{card.title}</h3>
+            <p className='mt-4 text-sm leading-7 text-slate-700'>{card.body}</p>
+            <ul className='mt-5 space-y-2'>{card.items.map(item=><li key={item} className='flex gap-2 text-sm font-semibold text-slate-700'><FaCheckCircle className='mt-0.5 shrink-0 text-orange-600'/>{item}</li>)}</ul>
+            <a href={card.href} className='mt-6 inline-flex items-center gap-2 rounded-xl bg-[#183f78] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#2454b8]'>{card.cta}<FaArrowRight/></a>
+          </article>)}
+        </div>
+      </div>
+    </section>
+
+    <section id='why-eyepek' className='bg-white px-5 py-16 sm:px-8 md:px-10 md:py-20'>
+      <div className='mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center'>
+        <div>
+          <p className='text-xs font-extrabold uppercase tracking-[0.18em] text-orange-600'>{t('A clear way forward','आगे बढ़ने का स्पष्ट रास्ता')}</p>
+          <h2 className='mt-3 text-3xl font-black leading-tight text-[#183f78] sm:text-4xl'>{t('Why people come to EYEPEK','लोग EYEPEK से क्यों जुड़ते हैं')}</h2>
+          <p className='mt-5 text-base leading-8 text-slate-600'>{t('When information is scattered, it is difficult to know what to do next. We aim to make the first conversation easier: understand the requirement, organise the questions, explain the practical steps and help you connect with the appropriate institution or service.','जब जानकारी अलग-अलग जगह बिखरी हो, तो अगला कदम समझना मुश्किल हो सकता है। हमारा उद्देश्य पहली बातचीत को आसान बनाना है: ज़रूरत समझना, सवाल व्यवस्थित करना, व्यावहारिक चरण बताना और आपको संबंधित संस्थान या सेवा से जुड़ने में मदद करना।')}</p>
+          <a href='/contact' className='mt-7 inline-flex items-center gap-2 rounded-xl bg-[#f5a623] px-6 py-3.5 font-extrabold text-[#102b4e] transition hover:bg-[#ffc15c]'>{t('Start a conversation','बातचीत शुरू करें')}<FaArrowRight/></a>
+        </div>
+        <div className='grid gap-4 sm:grid-cols-2'>
+          {[
+            [FaComments,t('Clear communication','स्पष्ट बातचीत'),t('We begin by understanding your actual question or requirement.','हम आपकी वास्तविक ज़रूरत या सवाल को समझने से शुरुआत करते हैं।')],
+            [FaClipboardList,t('Organised information','व्यवस्थित जानकारी'),t('We help break a large task into documents, questions and manageable steps.','हम बड़े काम को दस्तावेज़ों, सवालों और आसान चरणों में बाँटने में मदद करते हैं।')],
+            [FaUniversity,t('Institution-aware guidance','संस्थान के अनुसार मार्गदर्शन'),t('We encourage you to verify current rules, eligibility, fees and decisions with the responsible institution.','हम संबंधित संस्थान से वर्तमान नियम, पात्रता, फीस और निर्णय की पुष्टि करने की सलाह देते हैं।')],
+            [FaTools,t('Practical support','व्यावहारिक सहायता'),t('From education queries to technical service enquiries, we focus on useful next actions.','शिक्षा संबंधी सवालों से लेकर तकनीकी सेवाओं तक, हम उपयोगी अगले कदमों पर ध्यान देते हैं।')]
+          ].map(([Icon,title,desc])=><div key={title} className='rounded-2xl border border-blue-100 bg-[#f8fbff] p-6'><span className='flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-xl text-[#2454b8]'><Icon/></span><h3 className='mt-4 text-lg font-extrabold text-[#183f78]'>{title}</h3><p className='mt-2 text-sm leading-7 text-slate-600'>{desc}</p></div>)}
+        </div>
+      </div>
+    </section>
+
+    <section id='your-next-step' className='bg-[#102b4e] px-5 py-14 text-white sm:px-8 md:px-10 md:py-16'>
+      <div className='mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr_auto] md:items-center'>
+        <div><p className='text-xs font-extrabold uppercase tracking-[0.18em] text-[#ffbd59]'>{t('Ready when you are','जब आप तैयार हों')}</p><h2 className='mt-3 text-3xl font-black leading-tight sm:text-4xl'>{t('Tell us what you are trying to achieve.','हमें बताएँ कि आप क्या करना चाहते हैं।')}</h2><p className='mt-4 max-w-3xl text-sm leading-7 text-blue-100 sm:text-base'>{t('Share your course interest, institution requirement or technical issue. Our team will help you understand the enquiry process and the next practical step.','अपनी कोर्स रुचि, संस्थान की ज़रूरत या तकनीकी समस्या साझा करें। हमारी टीम पूछताछ की प्रक्रिया और अगले व्यावहारिक कदम को समझने में मदद करेगी।')}</p></div>
+        <div className='flex flex-wrap gap-3'><a href='/contact' className='rounded-xl bg-[#f5a623] px-6 py-4 font-extrabold text-[#102b4e] transition hover:bg-[#ffc15c]'>{t('Contact EYEPEK','EYEPEK से संपर्क करें')}</a><a href='https://wa.me/917004374250' target='_blank' rel='noreferrer' className='rounded-xl border border-white/30 px-6 py-4 font-bold text-white transition hover:bg-white/10'>{t('WhatsApp us','WhatsApp करें')}</a></div>
+      </div>
+    </section>
+
     <section id='faq' className='bg-white'>
       <div className='mx-auto max-w-7xl px-5 py-8 sm:px-8 md:px-10 md:py-10'>
         <div className='mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between'>
