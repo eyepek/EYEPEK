@@ -13,7 +13,6 @@
   --color-blue-800: #2454b8;
   --color-blue-900: #234b98;
   --color-blue-950: #1e4080;
-
   --color-orange-50: #fffbf2;
   --color-orange-100: #fff3d9;
   --color-orange-200: #ffe4ad;
@@ -25,8 +24,6 @@
   --color-orange-800: #925216;
   --color-orange-900: #784416;
   --color-orange-950: #45240b;
-
-  /* Legacy red utility classes follow the same warm amber accent */
   --color-red-50: #fffbf2;
   --color-red-100: #fff3d9;
   --color-red-200: #ffe4ad;
@@ -40,11 +37,10 @@
   --color-red-950: #45240b;
 }
 
-/* EYEPEK — consistent, readable visual system */
 @layer base {
   :root {
     font-family: 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: #172b45;
+    color: #263b55;
     background: #ffffff;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -60,19 +56,24 @@
   body {
     margin: 0;
     min-width: 320px;
+    min-height: 100%;
     background: #ffffff;
     color: #263b55;
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.65;
     font-weight: 400;
+  }
+
+  #root {
+    min-height: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Manrope', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
     color: #102b4e;
     font-weight: 800;
-    line-height: 1.18;
-    letter-spacing: -0.035em;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
     text-wrap: balance;
   }
 
@@ -107,43 +108,23 @@
     scroll-margin-top: 6rem;
   }
 
-  main > section:not(:first-child) {
-    border-top: 1px solid #e8eef6;
+  footer {
+    color: #e8eef7;
   }
 
-  main > section h2 {
-    line-height: 1.14;
-  }
-
-  main > section p {
-    line-height: 1.75;
-  }
-
-  main > section a,
-  main > section button {
-    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-  }
-
-  /* Keep content columns aligned and avoid overly wide reading lines. */
-  main > section .max-w-7xl {
-    width: 100%;
-  }
-
-  main > section .max-w-2xl,
-  main > section .max-w-3xl {
-    margin-left: auto;
-    margin-right: auto;
+  footer a {
+    text-underline-offset: 3px;
   }
 }
 
 @media (max-width: 640px) {
   body {
-    font-size: 16px;
-    line-height: 1.68;
+    font-size: 15.5px;
+    line-height: 1.65;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -154,94 +135,5 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-  }
-}
-
-/* Final site-wide polish: consistent rhythm, contrast and responsive readability */
-body {
-  color: #263b55;
-  background: #ffffff;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-main > section[id] {
-  padding-top: clamp(3rem, 5vw, 4.25rem);
-  padding-bottom: clamp(3rem, 5vw, 4.25rem);
-  scroll-margin-top: 7rem;
-}
-
-main > section[id] h2 {
-  color: #153b70;
-  font-family: 'Manrope', 'DM Sans', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.55rem);
-  font-weight: 800;
-  line-height: 1.16;
-  letter-spacing: -0.035em;
-}
-
-main > section[id] h3 {
-  color: #173d70;
-  font-family: 'Manrope', 'DM Sans', sans-serif;
-  font-weight: 750;
-  line-height: 1.25;
-}
-
-main > section[id] p {
-  color: #43546b;
-  line-height: 1.75;
-}
-
-main > section[id] a:not([class*='bg-']) {
-  text-underline-offset: 3px;
-}
-
-main > section[id] article,
-main > section[id] aside {
-  border-radius: 1.25rem;
-}
-
-footer {
-  color: #e8eef7;
-}
-
-footer a {
-  text-underline-offset: 3px;
-}
-
-@media (max-width: 640px) {
-  body { font-size: 15.5px; }
-  main > section[id] {
-    padding-top: 2.75rem;
-    padding-bottom: 2.75rem;
-  }
-  main > section[id] h2 {
-    font-size: clamp(1.65rem, 7vw, 2rem);
-  }
-}
-
-
-/* Reliable font loading and readable EYEPEK typography */
-@layer base {
-  html, body, #root {
-    min-height: 100%;
-  }
-  body {
-    font-family: 'DM Sans', Arial, sans-serif;
-    color: #263b55;
-    background: #ffffff;
-    font-size: 16px;
-    line-height: 1.7;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', Arial, sans-serif;
-    color: #102b4e;
-    font-weight: 800;
-  }
-  p, li {
-    color: inherit;
-  }
-  button, a {
-    -webkit-tap-highlight-color: transparent;
   }
 }
