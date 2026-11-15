@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import Footer from './components/Footer'
 import ContactUs from './pages/ContactUs'
 import Profile from './pages/Profile'
+import About from './pages/About'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 import GuidePage from './pages/GuidePage'
 import AdmissionChecklist from './pages/AdmissionChecklist'
@@ -22,6 +23,7 @@ const App = () => {
       <Route path='/' element={<HomePage/>}/>
       <Route path='/contact' element={<ContactUs/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      <Route path='/about' element={<About/>}/>
       <Route path='/services/:serviceSlug' element={<ServiceDetailPage/>}/>
       <Route path='/guides' element={<GuidePage/>}/>
       <Route path='/guides/:guideSlug' element={<GuidePage/>}/>
