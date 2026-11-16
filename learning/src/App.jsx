@@ -201,10 +201,10 @@ export default function App() {
             <label style={labelStyle}>Email address</label>
             <input required type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" style={inputStyle}/>
             <label style={labelStyle}>Password</label>
-            <input required type="password" minLength={mode==='register'?8:1} maxLength={128} autoComplete={mode==='login'?'current-password':'new-password'} value={password} onChange={e=>setPassword(e.target.value)} placeholder={mode==='register'?'At least 8 characters':'Enter your password'} style={inputStyle}/>
+            <input required type="password" minLength={mode==='register'?8:1} maxLength={128} autoComplete={mode==='register'?'new-password':'current-password'} value={password} onChange={e=>setPassword(e.target.value)} placeholder={mode==='register'?'At least 8 characters':'Enter your password'} style={inputStyle}/>
             {error && <div role="alert" style={{color:'#b42318',background:'#fff2f0',padding:11,borderRadius:8,fontSize:12,display:'flex',gap:8}}><AlertCircle size={16}/>{error}</div>}
             {message && <div style={{color:'#176b48',background:'#effaf4',padding:11,borderRadius:8,fontSize:12}}>{message}</div>}
-            <button disabled={busy} type="submit" style={{...submitStyle,opacity:busy?.7:1}}>{busy?<Loader2 size={17} className="spin"/>:mode==='login'?<LogIn size={17}/>:<UserPlus size={17}/>} {busy?'Please wait…':mode==='login'?'Sign in':'Create account'}</button>
+            <button disabled={busy} type="submit" style={{...submitStyle,opacity:busy?.7:1}}>{busy?<Loader2 size={17} className="spin"/>:mode==='admin-login'?<ShieldCheck size={17}/>:mode==='login'?<LogIn size={17}/>:<UserPlus size={17}/>} {busy?'Please wait…':mode==='register'?'Create account':mode==='admin-login'?'Admin sign in':'Sign in'}</button>
             {mode==='register' && <p style={{fontSize:11,color:'#8292a8',lineHeight:1.6,margin:0}}>Tutor and institution accounts require administrator approval before access is activated. Student accounts are activated after registration.</p>}
           </form>
         </section>
