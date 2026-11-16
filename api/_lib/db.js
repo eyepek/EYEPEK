@@ -8,12 +8,14 @@ export function getDb() {
 
   if (!pool) {
     const u = new URL(uri);
+    const database = decodeURIComponent(u.pathname.replace(/^\//, ''));
+
     pool = mysql.createPool({
       host: u.hostname,
       port: Number(u.port || 3306),
       user: decodeURIComponent(u.username),
       password: decodeURIComponent(u.password),
-      database: decodeURIComponent(u.pathname.replace(/^\\//, '')),
+      database,
       waitForConnections: true,
       connectionLimit: 2,
       queueLimit: 0,
