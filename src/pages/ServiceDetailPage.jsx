@@ -19,6 +19,27 @@ const servicePages = {
     ],
     note: 'Course availability, eligibility, fees, admissions, affiliation, and approvals must be confirmed with the relevant institution or authority. EYEPEK does not guarantee admission or official approval.',
   },
+  'online-tutoring': {
+    title: 'Online Tutoring Services',
+    processTitle: 'How online tutoring works',
+    process: [
+      'Open EYEPEK Learning and register as a student, or contact our team to ask about tutoring.',
+      'Share your class or course, subject, learning goals and preferred session times.',
+      'Our team can confirm whether a suitable tutor and time slot are currently available.',
+      'Agree the session format, schedule and fees before any tutoring is arranged.',
+    ],
+    metaTitle: 'Online Tutoring Services & Online Tutors | EYEPEK',
+    description: 'EYEPEK is developing an online tutoring network for school, college, computer and programming learning. Contact our team to enquire about current tutor availability and tutor onboarding.',
+    intro: 'Explore subject-focused online tutoring support and ask EYEPEK about suitable tutor options.',
+    services: [
+      'Online tutoring enquiries for school and college subjects',
+      'Computer, programming and practical digital-skills learning',
+      'One-to-one subject support, subject to tutor availability',
+      'Concept clarification, assignment guidance and exam preparation support',
+      'Tutor registration and teaching-profile submission through EYEPEK Learning',
+    ],
+    note: 'Tutor discovery, session booking and live-classroom features are still in development. Current tutor availability, session arrangements and fees must be confirmed with EYEPEK. Tutor accounts are subject to profile review.',
+  },
   'it-support': {
     title: 'IT & Computer Support Services',
     processTitle: 'How an IT support request works',
@@ -71,7 +92,16 @@ const servicePages = {
   },
 };
 
-const serviceHindi = {
+const serviceHindi = { 'online-tutoring': {
+  title:'ऑनलाइन ट्यूटर और ट्यूशन सेवाएँ', metaTitle:'ऑनलाइन ट्यूटर और ट्यूशन सेवाएँ | EYEPEK',
+  description:'स्कूल, कॉलेज, कंप्यूटर और प्रोग्रामिंग की पढ़ाई के लिए ऑनलाइन ट्यूटरिंग सहायता और ट्यूटर पंजीकरण की जानकारी।',
+  intro:'विषय-आधारित ऑनलाइन पढ़ाई और ट्यूटर से जुड़ने के लिए EYEPEK से जानकारी पाएँ।',
+  processTitle:'ऑनलाइन ट्यूटरिंग कैसे शुरू करें',
+  process:['EYEPEK Learning खोलें और Student के रूप में रजिस्टर करें या ट्यूटरिंग के बारे में टीम से पूछें।','अपनी कक्षा या कोर्स, विषय, सीखने का लक्ष्य और पसंदीदा समय बताएँ।','हमारी टीम मौजूदा ट्यूटर उपलब्धता और उपयुक्त समय की पुष्टि करने में मदद कर सकती है।','सेशन तय करने से पहले उसका तरीका, समय और फीस पक्की करें।'],
+  services:['स्कूल और कॉलेज के विषयों के लिए ऑनलाइन ट्यूटरिंग पूछताछ','कंप्यूटर, प्रोग्रामिंग और व्यावहारिक डिजिटल कौशल सीखना','ट्यूटर की उपलब्धता के अनुसार एक-से-एक विषय सहायता','कॉन्सेप्ट समझने, असाइनमेंट और परीक्षा की तैयारी में मार्गदर्शन','EYEPEK Learning के माध्यम से ट्यूटर पंजीकरण और शिक्षण प्रोफाइल जमा करना'],
+  note:'ट्यूटर खोज, सेशन बुकिंग और लाइव क्लासरूम की सुविधाएँ अभी विकास में हैं। मौजूदा ट्यूटर उपलब्धता, सेशन और फीस की पुष्टि EYEPEK से करें। ट्यूटर अकाउंट प्रोफाइल समीक्षा के अधीन हैं।',
+ },
+
  education: {
   title:'प्रवेश और छात्र दस्तावेज़ सहायता', metaTitle:'प्रवेश मार्गदर्शन और दस्तावेज़ सहायता | EYEPEK',
   description:'EYEPEK कोर्स विकल्प समझने, कॉलेज में प्रवेश के चरण जानने, पात्रता संबंधी सवाल तैयार करने और दस्तावेज़ व्यवस्थित करने में मदद करता है।',
@@ -182,6 +212,7 @@ const ServiceDetailPage = () => {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#f5a623] px-6 py-3 font-bold text-[#102b4e] shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[#ffb84d]">Enquire now <FaArrowRight aria-hidden="true" /></Link>
             <a href="tel:+917004374250" className="inline-flex items-center gap-2 rounded-xl border border-white/45 bg-white/5 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-blue-950"><FaPhoneAlt aria-hidden="true" /> Call 7004374250</a>
+            {serviceSlug === 'online-tutoring' && <Link to="/learning" className="inline-flex items-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-blue-950">{t("Open EYEPEK Learning","EYEPEK Learning खोलें")} <FaArrowRight aria-hidden="true" /></Link>}
           </div>
         </div>
       </section>

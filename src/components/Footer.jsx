@@ -8,6 +8,7 @@ const Footer = () => {
   const exploreLinks = [
     { label: 'About EYEPEK', labelHi: 'EYEPEK के बारे में', href: '/#about' },
     { label: 'Education Services', labelHi: 'शिक्षा सेवाएँ', href: '/services/education' },
+    { label: 'Online Tutoring', labelHi: 'ऑनलाइन ट्यूटरिंग', href: '/services/online-tutoring' },
     { label: 'College & AICTE Support', labelHi: 'कॉलेज और AICTE सहायता', href: '/services/business-support' },
     { label: 'IT & Technical Services', labelHi: 'आईटी और तकनीकी सेवाएँ', href: '/services/it-support' },
     { label: 'Home Services', labelHi: 'घरेलू सेवाएँ', href: '/services/home-services' },

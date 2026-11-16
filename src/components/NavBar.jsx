@@ -7,6 +7,7 @@ import { useLanguage } from '../LanguageContext';
 
 const serviceLinks = [
   { label: 'Education Services', labelHi: 'शिक्षा सेवाएँ', to: '/services/education' },
+  { label: 'Online Tutoring', labelHi: 'ऑनलाइन ट्यूटरिंग', to: '/services/online-tutoring' },
   { label: 'IT & Computer Support', labelHi: 'आईटी और कंप्यूटर सहायता', to: '/services/it-support' },
   { label: 'Home Services', labelHi: 'घरेलू सेवाएँ', to: '/services/home-services' },
   { label: 'Business & Institution Support', labelHi: 'कॉलेज और संस्थान सहायता', to: '/services/business-support' },
