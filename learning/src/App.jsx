@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import AdminDashboard from './AdminDashboard.jsx';
 import { BookOpen, GraduationCap, Building2, ShieldCheck, LogIn, UserPlus, LogOut, Loader2, LockKeyhole, Mail, User, AlertCircle, CheckCircle2, Users, Check, X, RefreshCw } from 'lucide-react';
 
 const roles = [
@@ -50,6 +51,7 @@ export default function App() {
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Request failed. Please try again.');
+      if (mode === 'admin-login' && data.user.role !== 'admin') throw new Error('This email does not have administrator access.');
       localStorage.setItem('eyepek_learning_token', data.token);
       setToken(data.token); setUser(data.user);
       setMessage(data.user.status === 'pending' ? 'Your account has been created and is awaiting approval.' : 'You are signed in.');
@@ -116,6 +118,8 @@ export default function App() {
   const selectedRole = roles.find(r => r.id === (user?.role || role)) || roles[0];
   const Icon = selectedRole.icon;
 
+  if (user?.role === 'admin') return <AdminDashboard user={user} token={token} onLogout={logout} />;
+
   if (user) return (
     <div className="learning-app shell">
       <aside className="sidebar">
@@ -179,10 +183,11 @@ export default function App() {
         <section style={{padding:'clamp(25px,5vw,52px)'}}>
           <div style={{display:'flex',gap:8,marginBottom:28}}>
             <button onClick={()=>{setMode('login');setError('');setMessage('')}} style={tabStyle(mode==='login')}> <LogIn size={15}/> Sign in</button>
-            <button onClick={()=>{setMode('register');setError('');setMessage('')}} style={tabStyle(mode==='register')}><UserPlus size={15}/> Create account</button>
+            <button onClick={()=>{setMode('admin-login');setError('');setMessage('')}} style={tabStyle(mode==='admin-login')}><ShieldCheck size={15}/> Admin</button>
+            <button onClick={()=>{setMode('register');setError('');setMessage('')}} style={tabStyle(mode==='register')}><UserPlus size={15}/> Register</button>
           </div>
-          <h2 style={{fontFamily:'Manrope',fontSize:25,color:'#17365d',margin:'0 0 8px'}}>{mode==='login'?'Welcome back':'Create your account'}</h2>
-          <p style={{fontSize:13,color:'#71839b',margin:'0 0 24px'}}>{mode==='login'?'Sign in to continue to your workspace.':'Choose your account type to get started.'}</p>
+          <h2 style={{fontFamily:'Manrope',fontSize:25,color:'#17365d',margin:'0 0 8px'}}>{mode==='register'?'Create your account':mode==='admin-login'?'Administrator sign in':'Welcome back'}</h2>
+          <p style={{fontSize:13,color:'#71839b',margin:'0 0 24px'}}>{mode==='register'?'Choose your account type to get started.':mode==='admin-login'?'Sign in with the authorized EYEPEK administrator account.':'Sign in to continue to your workspace.'}</p>
           <form onSubmit={submit} style={{display:'grid',gap:14}}>
             {mode==='register' && <>
               <label style={labelStyle}>Account type</label>
