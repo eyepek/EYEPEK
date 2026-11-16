@@ -1,8 +1,11 @@
 import mysql from 'mysql2/promise';
+
 let pool;
+
 export function getDb() {
   const uri = process.env.DATABASE_URL;
   if (!uri) throw new Error('DATABASE_URL is not configured');
+
   if (!pool) {
     const u = new URL(uri);
     pool = mysql.createPool({
@@ -10,12 +13,14 @@ export function getDb() {
       port: Number(u.port || 3306),
       user: decodeURIComponent(u.username),
       password: decodeURIComponent(u.password),
-      database: u.pathname.replace(/^\\//, ''),
+      database: decodeURIComponent(u.pathname.replace(/^\\//, '')),
       waitForConnections: true,
-      connectionLimit: 5,
+      connectionLimit: 2,
       queueLimit: 0,
-      ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : undefined
+      // Enzonic requires TLS for every MySQL connection.
+      ssl: process.env.DB_SSL === 'true' ? {} : undefined
     });
   }
+
   return pool;
 }
