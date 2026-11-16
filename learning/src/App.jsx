@@ -21,6 +21,9 @@ export default function App() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const [tutorProfile, setTutorProfile] = useState({ headline: '', bio: '', hourlyRate: 0, approvalStatus: 'pending' });
+  const [profileBusy, setProfileBusy] = useState(false);
+  const [profileMessage, setProfileMessage] = useState('');
 
   useEffect(() => {
     if (!token) return;
@@ -51,6 +54,28 @@ export default function App() {
     finally { setBusy(false); }
   }
 
+  useEffect(() => {
+    if (!token || user?.role !== 'tutor') return;
+    fetch(API + '/tutor/profile', { headers: { Authorization: 'Bearer ' + token } })
+      .then(async r => { const data = await r.json(); if (!r.ok) throw new Error(data.error || 'Could not load tutor profile'); return data; })
+      .then(data => setTutorProfile(data.profile))
+      .catch(err => setProfileMessage(err.message));
+  }, [token, user?.role]);
+
+  async function saveTutorProfile(e) {
+    e.preventDefault(); setProfileBusy(true); setProfileMessage('');
+    try {
+      const response = await fetch(API + '/tutor/profile', {
+        method: 'PUT', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify(tutorProfile)
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Could not save profile');
+      setProfileMessage('Tutor profile saved successfully.');
+    } catch (err) { setProfileMessage(err.message || 'Could not save profile'); }
+    finally { setProfileBusy(false); }
+  }
+
   function logout() {
     localStorage.removeItem('eyepek_learning_token');
     setToken(''); setUser(null); setMode('login'); setPassword(''); setMessage('You have been signed out.');
@@ -78,7 +103,23 @@ export default function App() {
           <article className="module-card"><div className="module-icon"><Mail size={20}/></div><h3>{user.email}</h3><p>Email address</p></article>
           <article className="module-card"><div className="module-icon"><ShieldCheck size={20}/></div><h3>{user.status === 'active' ? 'Active' : 'Pending approval'}</h3><p>Account status</p></article>
         </section>
-        <div className="section-title"><div><span className="eyebrow">PLATFORM ROADMAP</span><h2>Learning tools</h2></div></div>
+        {user.role === 'tutor' && <>
+          <div className="section-title"><div><span className="eyebrow">TUTOR WORKSPACE</span><h2>Your teaching profile</h2></div></div>
+          <form onSubmit={saveTutorProfile} className="module-card" style={{minHeight:0,display:'grid',gap:12,maxWidth:850}}>
+            <label style={labelStyle}>Professional headline</label>
+            <input maxLength={180} value={tutorProfile.headline} onChange={e=>setTutorProfile(p=>({...p,headline:e.target.value}))} placeholder="e.g. Mathematics tutor | 5 years of experience" style={inputStyle}/>
+            <label style={labelStyle}>About your teaching</label>
+            <textarea maxLength={5000} rows={5} value={tutorProfile.bio} onChange={e=>setTutorProfile(p=>({...p,bio:e.target.value}))} placeholder="Describe your qualifications, teaching approach and experience" style={{...inputStyle,resize:'vertical'}}/>
+            <label style={labelStyle}>Hourly rate (INR)</label>
+            <input type="number" min="0" max="100000" step="1" value={tutorProfile.hourlyRate} onChange={e=>setTutorProfile(p=>({...p,hourlyRate:e.target.value}))} style={inputStyle}/>
+            <div style={{display:'flex',alignItems:'center',gap:12,flexWrap:'wrap'}}>
+              <button type="submit" disabled={profileBusy} className="book-btn" style={{fontSize:11,padding:'11px 16px'}}>{profileBusy?'Saving…':'Save teaching profile'}</button>
+              <span style={{fontSize:11,color:'#71839b'}}>Approval status: {tutorProfile.approvalStatus}</span>
+            </div>
+            {profileMessage && <p role="status" style={{fontSize:12,color:profileMessage.includes('successfully')?'#176b48':'#b42318',margin:0}}>{profileMessage}</p>}
+          </form>
+        </>}
+                <div className="section-title"><div><span className="eyebrow">PLATFORM ROADMAP</span><h2>Learning tools</h2></div></div>
         <section className="module-grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))'}}>
           {['Tutor discovery & profiles','Session booking & timetable','Live classroom','Assignments & progress','Institution management','Payments & reports'].map((name,i)=><article className="module-card" key={name}><div className="module-icon">{i===2?<LockKeyhole size={20}/>:<BookOpen size={20}/>}</div><h3>{name}</h3><p>Module is not live yet. It will appear here when connected.</p><span className="tutor-tag">In development</span></article>)}
         </section>
