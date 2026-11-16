@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BookOpen, GraduationCap, Building2, ShieldCheck, LogIn, UserPlus, LogOut, Loader2, LockKeyhole, Mail, User, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { BookOpen, GraduationCap, Building2, ShieldCheck, LogIn, UserPlus, LogOut, Loader2, LockKeyhole, Mail, User, AlertCircle, CheckCircle2, Users, Check, X, RefreshCw } from 'lucide-react';
 
 const roles = [
   { id: 'student', label: 'Student', icon: GraduationCap, note: 'Find tutors and manage your learning.' },
@@ -24,6 +24,10 @@ export default function App() {
   const [tutorProfile, setTutorProfile] = useState({ headline: '', bio: '', hourlyRate: 0, approvalStatus: 'pending' });
   const [profileBusy, setProfileBusy] = useState(false);
   const [profileMessage, setProfileMessage] = useState('');
+  const [pendingUsers, setPendingUsers] = useState([]);
+  const [adminBusy, setAdminBusy] = useState(false);
+  const [adminError, setAdminError] = useState('');
+  const [adminMessage, setAdminMessage] = useState('');
 
   useEffect(() => {
     if (!token) return;
@@ -62,6 +66,34 @@ export default function App() {
       .catch(err => setProfileMessage(err.message));
   }, [token, user?.role]);
 
+  useEffect(() => {
+    if (!token || user?.role !== 'admin') return;
+    loadPendingUsers();
+  }, [token, user?.role]);
+
+  async function loadPendingUsers() {
+    setAdminBusy(true); setAdminError('');
+    try {
+      const response = await fetch(API + '/admin/users', { headers: { Authorization: 'Bearer ' + token } });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Could not load pending accounts');
+      setPendingUsers(data.users || []);
+    } catch (err) { setAdminError(err.message || 'Could not load pending accounts'); }
+    finally { setAdminBusy(false); }
+  }
+
+  async function reviewAccount(userId, action) {
+    setAdminBusy(true); setAdminError(''); setAdminMessage('');
+    try {
+      const response = await fetch(API + '/admin/users', { method: 'PATCH', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ userId, action }) });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Could not update account');
+      setAdminMessage(action === 'approve' ? 'Account approved. The user can now sign in.' : 'Account rejected and suspended.');
+      await loadPendingUsers();
+    } catch (err) { setAdminError(err.message || 'Could not update account'); }
+    finally { setAdminBusy(false); }
+  }
+
   async function saveTutorProfile(e) {
     e.preventDefault(); setProfileBusy(true); setProfileMessage('');
     try {
@@ -97,6 +129,15 @@ export default function App() {
       <main className="main">
         <header className="topbar"><div><div className="crumb">EYEPEK LEARNING <span>/</span> {selectedRole.label.toUpperCase()}</div><h1>{selectedRole.label} dashboard</h1></div><div className="top-actions"><span className="preview-chip"><i/> Account connected</span><button className="book-btn" onClick={logout}><LogOut size={14}/> Sign out</button></div></header>
         <section className="hero"><div className="hero-copy"><span className="hero-kicker"><CheckCircle2 size={13}/> ACCOUNT CONNECTED</span><h2>Welcome, {user.fullName}.</h2><p>{selectedRole.note} Your account is securely connected to EYEPEK Learning.</p></div></section>
+        {user.role === 'admin' && <>
+          <div className="section-title"><div><span className="eyebrow">ADMINISTRATION</span><h2>Account approvals</h2></div><button className="book-btn" onClick={loadPendingUsers} disabled={adminBusy}><RefreshCw size={14}/> Refresh</button></div>
+          <section className="module-grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))'}}><article className="module-card"><div className="module-icon"><Users size={20}/></div><h3>{pendingUsers.length}</h3><p>Accounts awaiting review</p></article></section>
+          {adminError && <p role="alert" style={{color:'#b42318',fontSize:12}}>{adminError}</p>}
+          {adminMessage && <p role="status" style={{color:'#176b48',fontSize:12}}>{adminMessage}</p>}
+          {adminBusy && <p style={{color:'#71839b',fontSize:12}}>Loading account requests…</p>}
+          {!adminBusy && pendingUsers.length === 0 && <article className="module-card"><h3>All caught up</h3><p>There are no tutor or institution accounts waiting for approval.</p></article>}
+          {pendingUsers.map(account => <article className="module-card" key={account.id} style={{minHeight:0,marginBottom:12}}><div style={{display:'flex',justifyContent:'space-between',gap:12,flexWrap:'wrap',alignItems:'start'}}><div><span className="tutor-tag">{account.role}</span><h3 style={{marginTop:10}}>{account.fullName}</h3><p>{account.email}</p>{account.role === 'tutor' ? <><p>{account.headline || 'No professional headline provided'}</p><p>{account.bio || 'No teaching bio provided'}</p><p>Hourly rate: ₹{Math.round((Number(account.hourlyRatePaise)||0)/100)}</p></> : <p>Institution: {account.institutionName || 'Not provided'}</p>}<p>Registered: {new Date(account.createdAt).toLocaleString()}</p></div><div style={{display:'flex',gap:8,flexWrap:'wrap'}}><button className="book-btn" disabled={adminBusy} onClick={()=>reviewAccount(account.id,'approve')}><Check size={14}/> Approve</button><button className="book-btn" disabled={adminBusy} onClick={()=>reviewAccount(account.id,'reject')} style={{background:'#fff1f0',color:'#b42318'}}><X size={14}/> Reject</button></div></div></article>)}
+        </>}
         <div className="section-title"><div><span className="eyebrow">ACCOUNT DETAILS</span><h2>Your profile</h2></div></div>
         <section className="module-grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))'}}>
           <article className="module-card"><div className="module-icon"><User size={20}/></div><h3>{user.fullName}</h3><p>Full name</p></article>
