@@ -139,7 +139,7 @@ export default async function handler(req, res) {
     if (req.method === 'POST' && resource === 'subjects') {
       const name = String(req.body?.name || '').trim();
       if (name.length < 2 || name.length > 120) return json(res, 400, { error: 'Subject name must be 2–120 characters' });
-      const slug = name.toLowerCase().normalize('NFKD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,140);
+      const slug = name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,140);
       await db.execute('INSERT INTO learning_subjects(name,slug,is_active) VALUES(?,?,TRUE)', [name, slug]);
       return json(res, 201, { ok: true, message: 'Subject added' });
     }
@@ -211,7 +211,7 @@ export default async function handler(req, res) {
         }
         if (classroomUrl !== undefined) {
           const url = String(classroomUrl || '').trim();
-          if (url && !/^https:\\/\\//i.test(url)) return json(res, 400, { error: 'Classroom link must start with https://' });
+          if (url && !/^https:\/\//i.test(url)) return json(res, 400, { error: 'Classroom link must start with https://' });
           if (url.length > 500) return json(res, 400, { error: 'Classroom link is too long' });
           updates.push('classroom_url=?'); values.push(url || null);
         }
@@ -229,7 +229,7 @@ export default async function handler(req, res) {
       for (const key of Object.keys(values)) {
         if (!allowed.includes(key)) return json(res, 400, { error: 'Unsupported setting: '+key });
         const value = String(values[key]).trim();
-        if (key === 'support_email' && value && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value)) return json(res, 400, { error: 'Enter a valid support email' });
+        if (key === 'support_email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return json(res, 400, { error: 'Enter a valid support email' });
         if (key === 'platform_fee_percent' && (!Number.isFinite(Number(value)) || Number(value)<0 || Number(value)>50)) return json(res, 400, { error: 'Platform fee must be between 0 and 50' });
         if (['maintenance_mode','student_registration_enabled','tutor_registration_enabled','institution_registration_enabled'].includes(key) && !['true','false'].includes(value)) return json(res, 400, { error: 'Invalid true/false setting' });
         await db.execute(
