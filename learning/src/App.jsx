@@ -1,7 +1,133 @@
-import React, { useMemo, useState } from 'react';
-import { BookOpen, GraduationCap, Users, Building2, ShieldCheck, Search, CalendarDays, Video, ClipboardList, Wallet, BarChart3, Clock3, Menu, X, ArrowRight, Star, CheckCircle2, PlayCircle, ChevronRight, Sparkles, Globe2 } from 'lucide-react';
-const roles=[{id:'student',label:'Student',icon:GraduationCap,desc:'Find your tutor and learn with confidence.'},{id:'tutor',label:'Tutor',icon:BookOpen,desc:'Teach learners and manage your classes.'},{id:'institution',label:'Institution',icon:Building2,desc:'Coordinate your students, tutors and classes.'},{id:'admin',label:'Admin',icon:ShieldCheck,desc:'Manage the EYEPEK learning platform.'}];
-const modules={student:[['Find a tutor','Search tutor profiles by subject and availability.',Search],['Book a session','Request one-to-one lessons or group learning.',CalendarDays],['Live classroom','Enter your scheduled online classroom.',Video],['Assignments','Submit work and review tutor feedback.',ClipboardList]],tutor:[['Availability','Set weekly teaching hours and time slots.',Clock3],['Session bookings','Review requests and manage your calendar.',CalendarDays],['Live teaching room','Launch your online classroom and tools.',Video],['Student progress','Track goals, notes and assignments.',BarChart3]],institution:[['Student management','Organise student accounts, groups and enrolments.',Users],['Tutor management','Manage tutor profiles and subject allocations.',GraduationCap],['Class timetable','Plan group classes and recurring lessons.',CalendarDays],['Institution reports','Review attendance and learning activity.',BarChart3]],admin:[['Approvals','Review tutor and institution registration requests.',CheckCircle2],['Subjects & categories','Manage subjects and learning categories.',BookOpen],['Sessions & payments','Monitor bookings, transactions and refunds.',Wallet],['Platform analytics','Review usage, revenue and operations.',BarChart3]]};
-const demoTutors=[{name:'Aarav Sharma',subject:'Mathematics',rating:'4.9',rate:'₹450/hr',initials:'AS',color:'blue',tag:'Top tutor'},{name:'Priya Verma',subject:'English & Communication',rating:'4.8',rate:'₹400/hr',initials:'PV',color:'peach',tag:'Popular'},{name:'Rahul Khan',subject:'Programming · Python',rating:'5.0',rate:'₹600/hr',initials:'RK',color:'lavender',tag:'Expert'}];
-function App(){const[role,setRole]=useState('student'),[active,setActive]=useState('Overview'),[query,setQuery]=useState(''),[mobile,setMobile]=useState(false),[notice,setNotice]=useState('');const current=roles.find(r=>r.id===role);const filtered=useMemo(()=>demoTutors.filter(t=>(t.name+' '+t.subject).toLowerCase().includes(query.toLowerCase())),[query]);const navItems=['Overview',...(role==='student'?['Find Tutors','My Sessions','Assignments']:role==='tutor'?['Availability','Bookings','My Students']:role==='institution'?['Students','Tutors','Timetable','Reports']:['Approvals','Subjects','Sessions & Payments','Analytics'])];const changeRole=id=>{setRole(id);setActive('Overview');setMobile(false)};const action=label=>setNotice(label+' will be connected to the secure EYEPEK service in a later release.');const metrics=role==='student'?[['Upcoming sessions','02'],['Completed lessons','12'],['Assignments due','03'],['Learning hours','18h']]:role==='tutor'?[['New requests','04'],['Today’s classes','03'],['Active learners','18'],['Teaching hours','26h']]:role==='institution'?[['Students','240'],['Tutors','18'],['Scheduled classes','32'],['Reports ready','06']]:[['Pending approvals','08'],['Active accounts','1,284'],['Sessions this month','436'],['Payment reviews','05']];return <div className="learning-app shell"><aside className={mobile?'sidebar open':'sidebar'}><div className="brand"><div className="brand-mark">E<span>+</span></div><div><b>EYEPEK</b><small>LEARNING</small></div><button className="close-menu" onClick={()=>setMobile(false)}><X size={18}/></button></div><div className="side-caption">YOUR WORKSPACE</div><div className="role-list">{roles.map(r=><button key={r.id} onClick={()=>changeRole(r.id)} className={role===r.id?'role active':'role'}><r.icon size={17}/>{r.label}<ChevronRight size={14}/></button>)}</div><div className="side-caption nav-caption">MENU</div><nav>{navItems.map((n,i)=><button key={n} onClick={()=>setActive(n)} className={active===n?'nav-link selected':'nav-link'}><span className="nav-dot">{i===0?'⌂':i===1?'◈':'◇'}</span>{n}</button>)}</nav><div className="sidebar-bottom"><div className="help-card"><Sparkles size={17}/><b>Learning support</b><p>Need help getting started?</p><button onClick={()=>action('Support centre')}>Visit help centre <ArrowRight size={13}/></button></div><div className="online"><i/> Secure workspace preview</div></div></aside>{mobile&&<div className="scrim" onClick={()=>setMobile(false)}/>}<main className="main"><header className="topbar"><div className="top-left"><button className="menu-btn" onClick={()=>setMobile(true)}><Menu/></button><div><div className="crumb">EYEPEK LEARNING <span>/</span> {current.label.toUpperCase()}</div><h1>{active==='Overview'?current.label+' dashboard':active}</h1></div></div><div className="top-actions"><span className="preview-chip"><i/> Preview mode</span><div className="user-avatar">EL</div></div></header><section className="hero"><div className="hero-copy"><span className="hero-kicker"><Sparkles size={13}/> LEARN • TEACH • GROW</span><h2>{role==='student'?'Your next big idea starts here.':role==='tutor'?'Make every lesson count.':role==='institution'?'Bring your learning community together.':'A smarter way to manage learning.'}</h2><p>{current.desc} Connect with the right people, organise learning and make progress.</p><div className="hero-actions"><button className="primary-btn" onClick={()=>action(role==='student'?'Tutor discovery':role==='tutor'?'Tutor workspace':role==='institution'?'Institution workspace':'Admin workspace')}>{role==='student'?'Explore tutors':'Open workspace'} <ArrowRight size={16}/></button><button className="ghost-btn" onClick={()=>action('Platform introduction')}><PlayCircle size={16}/> How it works</button></div></div><div className="hero-graphic"><div className="orbit orbit-one"/><div className="orbit orbit-two"/><div className="hero-book"><GraduationCap size={58}/></div><div className="float-card float-a"><Video size={17}/><span>Live learning</span></div><div className="float-card float-b"><Star size={16} fill="currentColor"/><span>Personalised support</span></div></div></section><div className="section-title"><div><span className="eyebrow">YOUR OVERVIEW</span><h2>Workspace at a glance</h2></div><span className="date-label"><CalendarDays size={15}/> Demo data</span></div><section className="stats">{metrics.map((s,i)=><div className="stat-card" key={s[0]}><div className={'stat-icon stat-'+i}>{i===0?<CalendarDays/>:i===1?<CheckCircle2/>:i===2?<ClipboardList/>:<Clock3/>}</div><div><small>{s[0]}</small><strong>{s[1]}</strong><span>Illustrative preview</span></div></div>)}</section><div className="section-title modules-title"><div><span className="eyebrow">QUICK ACCESS</span><h2>{role==='student'?'Your learning tools':role==='tutor'?'Teaching tools':role==='institution'?'Institution tools':'Platform controls'}</h2></div><button className="text-btn" onClick={()=>action('All modules')}>View all <ArrowRight size={15}/></button></div><section className="module-grid">{modules[role].map(([title,desc,Icon],i)=><article className="module-card" key={title}><div className="module-icon"><Icon size={20}/></div><span className="module-number">0{i+1}</span><h3>{title}</h3><p>{desc}</p><button onClick={()=>action(title)}>Open module <ArrowRight size={14}/></button></article>)}</section>{role==='student'&&<section className="tutor-section"><div className="section-title"><div><span className="eyebrow">DISCOVER EDUCATORS</span><h2>Meet your learning partners</h2></div><label className="search-box"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search tutors or subjects"/></label></div><div className="tutor-grid">{filtered.map(t=><article className="tutor-card" key={t.name}><div className={'tutor-avatar '+t.color}>{t.initials}</div><div className="tutor-info"><span className="tutor-tag">{t.tag}</span><h3>{t.name}</h3><p>{t.subject}</p><div className="tutor-meta"><span><Star size={13} fill="currentColor"/> {t.rating}</span><b>{t.rate}</b></div></div><button className="book-btn" onClick={()=>action('Booking with '+t.name)}>View profile <ArrowRight size={14}/></button></article>)}</div></section>}<footer><span>© {new Date().getFullYear()} EYEPEK Learning. All rights reserved.</span><span><Globe2 size={13}/> Online tutoring platform</span></footer></main>{notice&&<div className="toast"><span>{notice}</span><button onClick={()=>setNotice('')}><X size={16}/></button></div>}</div>}
-export default App;
+import React, { useEffect, useState } from 'react';
+import { BookOpen, GraduationCap, Building2, ShieldCheck, LogIn, UserPlus, LogOut, Loader2, LockKeyhole, Mail, User, AlertCircle, CheckCircle2 } from 'lucide-react';
+
+const roles = [
+  { id: 'student', label: 'Student', icon: GraduationCap, note: 'Find tutors and manage your learning.' },
+  { id: 'tutor', label: 'Tutor', icon: BookOpen, note: 'Apply to teach and manage learners.' },
+  { id: 'institution', label: 'Institution', icon: Building2, note: 'Register your institution.' }
+];
+
+const API = '/api/learning';
+
+export default function App() {
+  const [mode, setMode] = useState('login');
+  const [role, setRole] = useState('student');
+  const [fullName, setFullName] = useState('');
+  const [institutionName, setInstitutionName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(() => localStorage.getItem('eyepek_learning_token') || '');
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (!token) return;
+    fetch(API + '/me', { headers: { Authorization: 'Bearer ' + token } })
+      .then(async r => { const data = await r.json(); if (!r.ok) throw new Error(data.error || 'Session expired'); return data; })
+      .then(data => setUser(data.user))
+      .catch(() => { localStorage.removeItem('eyepek_learning_token'); setToken(''); setUser(null); });
+  }, [token]);
+
+  async function submit(e) {
+    e.preventDefault();
+    setBusy(true); setError(''); setMessage('');
+    try {
+      const endpoint = mode === 'register' ? '/register' : '/login';
+      const payload = mode === 'register'
+        ? { fullName, email, password, role, ...(role === 'institution' ? { institutionName } : {}) }
+        : { email, password };
+      const response = await fetch(API + endpoint, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Request failed. Please try again.');
+      localStorage.setItem('eyepek_learning_token', data.token);
+      setToken(data.token); setUser(data.user);
+      setMessage(data.user.status === 'pending' ? 'Your account has been created and is awaiting approval.' : 'You are signed in.');
+      setPassword('');
+    } catch (err) { setError(err.message || 'Something went wrong.'); }
+    finally { setBusy(false); }
+  }
+
+  function logout() {
+    localStorage.removeItem('eyepek_learning_token');
+    setToken(''); setUser(null); setMode('login'); setPassword(''); setMessage('You have been signed out.');
+  }
+
+  const selectedRole = roles.find(r => r.id === (user?.role || role)) || roles[0];
+  const Icon = selectedRole.icon;
+
+  if (user) return (
+    <div className="learning-app shell">
+      <aside className="sidebar">
+        <div className="brand"><div className="brand-mark">E<span>+</span></div><div><b>EYEPEK</b><small>LEARNING</small></div></div>
+        <div className="side-caption">YOUR WORKSPACE</div>
+        <div className="role-list"><div className="role active"><Icon size={17}/>{selectedRole.label}</div></div>
+        <div className="side-caption nav-caption">MENU</div>
+        <nav><div className="nav-link selected"><span className="nav-dot">⌂</span>Overview</div></nav>
+        <div className="sidebar-bottom"><div className="help-card"><BookOpen size={17}/><b>Learning support</b><p>More learning tools are being connected.</p></div><div className="online"><i/> Secure account session</div></div>
+      </aside>
+      <main className="main">
+        <header className="topbar"><div><div className="crumb">EYEPEK LEARNING <span>/</span> {selectedRole.label.toUpperCase()}</div><h1>{selectedRole.label} dashboard</h1></div><div className="top-actions"><span className="preview-chip"><i/> Account connected</span><button className="book-btn" onClick={logout}><LogOut size={14}/> Sign out</button></div></header>
+        <section className="hero"><div className="hero-copy"><span className="hero-kicker"><CheckCircle2 size={13}/> ACCOUNT CONNECTED</span><h2>Welcome, {user.fullName}.</h2><p>{selectedRole.note} Your account is securely connected to EYEPEK Learning.</p></div></section>
+        <div className="section-title"><div><span className="eyebrow">ACCOUNT DETAILS</span><h2>Your profile</h2></div></div>
+        <section className="module-grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))'}}>
+          <article className="module-card"><div className="module-icon"><User size={20}/></div><h3>{user.fullName}</h3><p>Full name</p></article>
+          <article className="module-card"><div className="module-icon"><Mail size={20}/></div><h3>{user.email}</h3><p>Email address</p></article>
+          <article className="module-card"><div className="module-icon"><ShieldCheck size={20}/></div><h3>{user.status === 'active' ? 'Active' : 'Pending approval'}</h3><p>Account status</p></article>
+        </section>
+        <div className="section-title"><div><span className="eyebrow">PLATFORM ROADMAP</span><h2>Learning tools</h2></div></div>
+        <section className="module-grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))'}}>
+          {['Tutor discovery & profiles','Session booking & timetable','Live classroom','Assignments & progress','Institution management','Payments & reports'].map((name,i)=><article className="module-card" key={name}><div className="module-icon">{i===2?<LockKeyhole size={20}/>:<BookOpen size={20}/>}</div><h3>{name}</h3><p>Module is not live yet. It will appear here when connected.</p><span className="tutor-tag">In development</span></article>)}
+        </section>
+        <footer><span>© {new Date().getFullYear()} EYEPEK Learning.</span><span>Secure learning workspace</span></footer>
+      </main>
+    </div>
+  );
+
+  return (
+    <div className="learning-app" style={{minHeight:'100vh',display:'grid',placeItems:'center',padding:'28px 16px',background:'linear-gradient(135deg,#edf4fc,#f8faff)'}}>
+      <div style={{width:'min(100%,980px)',display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,340px),1fr))',background:'#fff',borderRadius:22,overflow:'hidden',boxShadow:'0 24px 70px #12345d18',border:'1px solid #e7edf5'}}>
+        <section style={{background:'linear-gradient(145deg,#102e55,#1769d2)',color:'#fff',padding:'clamp(28px,5vw,54px)',display:'flex',flexDirection:'column',justifyContent:'space-between',minHeight:520}}>
+          <div><div className="brand" style={{padding:0,marginBottom:55}}><div className="brand-mark">E<span>+</span></div><div><b style={{color:'#fff'}}>EYEPEK</b><small>LEARNING</small></div></div><span className="hero-kicker"><GraduationCap size={14}/> LEARN • TEACH • GROW</span><h1 style={{fontFamily:'Manrope',fontSize:'clamp(30px,4vw,42px)',lineHeight:1.15,margin:'18px 0'}}>A better way to learn together.</h1><p style={{color:'#d4e5fa',fontSize:14,lineHeight:1.8}}>Connect learners, tutors and institutions in one learning workspace.</p></div>
+          <div style={{fontSize:12,color:'#c3d8f0'}}>Secure accounts • Role-based access • Online learning</div>
+        </section>
+        <section style={{padding:'clamp(25px,5vw,52px)'}}>
+          <div style={{display:'flex',gap:8,marginBottom:28}}>
+            <button onClick={()=>{setMode('login');setError('');setMessage('')}} style={tabStyle(mode==='login')}> <LogIn size={15}/> Sign in</button>
+            <button onClick={()=>{setMode('register');setError('');setMessage('')}} style={tabStyle(mode==='register')}><UserPlus size={15}/> Create account</button>
+          </div>
+          <h2 style={{fontFamily:'Manrope',fontSize:25,color:'#17365d',margin:'0 0 8px'}}>{mode==='login'?'Welcome back':'Create your account'}</h2>
+          <p style={{fontSize:13,color:'#71839b',margin:'0 0 24px'}}>{mode==='login'?'Sign in to continue to your workspace.':'Choose your account type to get started.'}</p>
+          <form onSubmit={submit} style={{display:'grid',gap:14}}>
+            {mode==='register' && <>
+              <label style={labelStyle}>Account type</label>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:7}}>
+                {roles.map(r=><button type="button" key={r.id} onClick={()=>setRole(r.id)} style={roleStyle(role===r.id)}><r.icon size={17}/><span>{r.label}</span></button>)}
+              </div>
+              <label style={labelStyle}>Full name</label>
+              <input required minLength={2} maxLength={120} value={fullName} onChange={e=>setFullName(e.target.value)} placeholder="Enter your full name" style={inputStyle}/>
+              {role==='institution' && <><label style={labelStyle}>Institution name</label><input required value={institutionName} onChange={e=>setInstitutionName(e.target.value)} placeholder="Enter institution name" style={inputStyle}/></>}
+            </>}
+            <label style={labelStyle}>Email address</label>
+            <input required type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" style={inputStyle}/>
+            <label style={labelStyle}>Password</label>
+            <input required type="password" minLength={mode==='register'?8:1} maxLength={128} autoComplete={mode==='login'?'current-password':'new-password'} value={password} onChange={e=>setPassword(e.target.value)} placeholder={mode==='register'?'At least 8 characters':'Enter your password'} style={inputStyle}/>
+            {error && <div role="alert" style={{color:'#b42318',background:'#fff2f0',padding:11,borderRadius:8,fontSize:12,display:'flex',gap:8}}><AlertCircle size={16}/>{error}</div>}
+            {message && <div style={{color:'#176b48',background:'#effaf4',padding:11,borderRadius:8,fontSize:12}}>{message}</div>}
+            <button disabled={busy} type="submit" style={{...submitStyle,opacity:busy?.7:1}}>{busy?<Loader2 size={17} className="spin"/>:mode==='login'?<LogIn size={17}/>:<UserPlus size={17}/>} {busy?'Please wait…':mode==='login'?'Sign in':'Create account'}</button>
+            {mode==='register' && <p style={{fontSize:11,color:'#8292a8',lineHeight:1.6,margin:0}}>Tutor and institution accounts require administrator approval before access is activated. Student accounts are activated after registration.</p>}
+          </form>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+const tabStyle = active => ({display:'flex',alignItems:'center',justifyContent:'center',gap:7,flex:1,padding:'11px 8px',borderRadius:9,border:active?'1px solid #1769d2':'1px solid #e7edf5',background:active?'#edf5ff':'#fff',color:active?'#1769d2':'#71839b',fontWeight:700,fontSize:12,cursor:'pointer'});
+const labelStyle = {fontSize:11,fontWeight:700,color:'#415875',marginBottom:-8};
+const inputStyle = {width:'100%',padding:'12px 13px',border:'1px solid #dce5f0',borderRadius:9,outlineColor:'#1769d2',fontSize:13,color:'#17365d',background:'#fff'};
+const roleStyle = active => ({display:'grid',justifyItems:'center',gap:7,padding:'12px 4px',borderRadius:9,border:active?'1px solid #1769d2':'1px solid #e7edf5',background:active?'#edf5ff':'#fff',color:active?'#1769d2':'#71839b',fontSize:10,fontWeight:700,cursor:'pointer'});
+const submitStyle = {width:'100%',display:'flex',alignItems:'center',justifyContent:'center',gap:9,padding:13,border:0,borderRadius:9,background:'#1769d2',color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',marginTop:5};
