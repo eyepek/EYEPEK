@@ -154,18 +154,24 @@ export default async function handler(req, res) {
         if (!target.length) return json(res, 404, { error: 'User not found' });
         if (target[0].role === 'admin' || id === admin.id) return json(res, 403, { error: 'Admin accounts cannot be changed here' });
         const [current] = await db.execute('SELECT status FROM learning_users WHERE id=? LIMIT 1',[id]);
-        await db.beginTransaction();
+        const connection = await db.getConnection();
         try {
-          await db.execute('UPDATE learning_users SET status=? WHERE id=?', [status,id]);
+          await connection.beginTransaction();
+          await connection.execute('UPDATE learning_users SET status=? WHERE id=?', [status,id]);
           if (target[0].role === 'tutor') {
-            if (status === 'active') await db.execute("UPDATE learning_tutor_profiles SET approval_status='approved' WHERE user_id=?",[id]);
-            else if (current[0]?.status === 'pending') await db.execute("UPDATE learning_tutor_profiles SET approval_status='rejected' WHERE user_id=?",[id]);
+            if (status === 'active') await connection.execute("UPDATE learning_tutor_profiles SET approval_status='approved' WHERE user_id=?",[id]);
+            else if (current[0]?.status === 'pending') await connection.execute("UPDATE learning_tutor_profiles SET approval_status='rejected' WHERE user_id=?",[id]);
           } else if (target[0].role === 'institution') {
-            if (status === 'active') await db.execute("UPDATE learning_institution_profiles SET approval_status='approved' WHERE user_id=?",[id]);
-            else if (current[0]?.status === 'pending') await db.execute("UPDATE learning_institution_profiles SET approval_status='rejected' WHERE user_id=?",[id]);
+            if (status === 'active') await connection.execute("UPDATE learning_institution_profiles SET approval_status='approved' WHERE user_id=?",[id]);
+            else if (current[0]?.status === 'pending') await connection.execute("UPDATE learning_institution_profiles SET approval_status='rejected' WHERE user_id=?",[id]);
           }
-          await db.commit();
-        } catch (error) { await db.rollback(); throw error; }
+          await connection.commit();
+        } catch (error) {
+          await connection.rollback();
+          throw error;
+        } finally {
+          connection.release();
+        }
         return json(res, 200, { ok: true });
       }
       if (resource === 'subjects') {

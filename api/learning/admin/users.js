@@ -44,18 +44,21 @@ export default async function handler(req, res) {
       if (target.status === 'suspended') return json(res, 409, { error: 'Suspended accounts cannot be approved here' });
       const nextStatus = action === 'approve' ? 'active' : 'suspended';
       const nextApproval = action === 'approve' ? 'approved' : 'rejected';
-      await db.beginTransaction();
+      const connection = await db.getConnection();
       try {
-        await db.execute('UPDATE learning_users SET status=? WHERE id=?', [nextStatus, userId]);
+        await connection.beginTransaction();
+        await connection.execute('UPDATE learning_users SET status=? WHERE id=?', [nextStatus, userId]);
         if (target.role === 'tutor') {
-          await db.execute('UPDATE learning_tutor_profiles SET approval_status=? WHERE user_id=?', [nextApproval, userId]);
+          await connection.execute('UPDATE learning_tutor_profiles SET approval_status=? WHERE user_id=?', [nextApproval, userId]);
         } else {
-          await db.execute('UPDATE learning_institution_profiles SET approval_status=? WHERE user_id=?', [nextApproval, userId]);
+          await connection.execute('UPDATE learning_institution_profiles SET approval_status=? WHERE user_id=?', [nextApproval, userId]);
         }
-        await db.commit();
+        await connection.commit();
       } catch (error) {
-        await db.rollback();
+        await connection.rollback();
         throw error;
+      } finally {
+        connection.release();
       }
       return json(res, 200, { ok: true, userId, status: nextStatus, approvalStatus: nextApproval });
     }
