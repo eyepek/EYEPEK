@@ -50,6 +50,15 @@ export default async function handler(req, res) {
         await connection.execute('UPDATE learning_users SET status=? WHERE id=?', [nextStatus, userId]);
         if (target.role === 'tutor') {
           await connection.execute('UPDATE learning_tutor_profiles SET approval_status=? WHERE user_id=?', [nextApproval, userId]);
+          if (action === 'approve') {
+            await connection.execute(
+              `INSERT INTO learning_tutor_permissions
+                (tutor_id,profile_management,course_management,course_publish,student_management,live_classes,booking_management,assignments,attendance,earnings,payout_request,updated_by)
+               VALUES (?,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,?)
+               ON DUPLICATE KEY UPDATE tutor_id=VALUES(tutor_id)`,
+              [userId, auth.id]
+            );
+          }
         } else {
           await connection.execute('UPDATE learning_institution_profiles SET approval_status=? WHERE user_id=?', [nextApproval, userId]);
         }
