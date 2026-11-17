@@ -80,7 +80,8 @@ export default function AdminDashboard({ user, token, onLogout }) {
   const loadResource = useCallback(async (tab = activeTab) => {
     setLoading(true); setError('');
     try {
-      if (tab === 'approvals') {
+      if (tab === 'analytics') { const data = await api('overview'); setOverview(data.stats); setRows([]); }
+      else if (tab === 'approvals') {
         const response = await fetch(ROOT + '/users', { headers: { Authorization: 'Bearer ' + token } });
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || 'Could not load approval requests');
