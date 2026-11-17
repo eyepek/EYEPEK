@@ -3,7 +3,7 @@ import {
   LayoutDashboard, Users, UserCheck, BookOpen, GraduationCap, CalendarDays,
   Video, ClipboardList, FileText, CreditCard, Settings, LogOut, RefreshCw,
   Check, X, Search, Plus, ShieldCheck, AlertTriangle, Save, ExternalLink,
-  Building2, Activity, Menu, ChevronRight
+  Building2, Activity, Menu, ChevronRight, Bell, Headphones, Tag, Star, ClipboardCheck, Award, Wallet, ScrollText, BarChart3
 } from 'lucide-react';
 
 const ROOT = '/api/learning/admin';
@@ -18,6 +18,15 @@ const navItems = [
   { id: 'assignments', label: 'Assignments', icon: ClipboardList, group: 'Academic' },
   { id: 'submissions', label: 'Submissions', icon: FileText, group: 'Academic' },
   { id: 'payments', label: 'Payments', icon: CreditCard, group: 'Finance' },
+  { id: 'payouts', label: 'Tutor payouts', icon: Wallet, group: 'Finance' },
+  { id: 'coupons', label: 'Coupons', icon: Tag, group: 'Finance' },
+  { id: 'analytics', label: 'Advanced analytics', icon: BarChart3, group: 'Workspace' },
+  { id: 'support', label: 'Support tickets', icon: Headphones, group: 'Operations' },
+  { id: 'announcements', label: 'Announcements', icon: Bell, group: 'Operations' },
+  { id: 'attendance', label: 'Attendance', icon: ClipboardCheck, group: 'Academic' },
+  { id: 'certificates', label: 'Certificates', icon: Award, group: 'Academic' },
+  { id: 'reviews', label: 'Reviews', icon: Star, group: 'Management' },
+  { id: 'audit', label: 'Activity logs', icon: ScrollText, group: 'System' },
   { id: 'settings', label: 'Platform settings', icon: Settings, group: 'System' }
 ];
 const defaults = {
@@ -37,6 +46,8 @@ export default function AdminDashboard({ user, token, onLogout }) {
   const [rows, setRows] = useState([]);
   const [settings, setSettings] = useState(defaults);
   const [newSubject, setNewSubject] = useState('');
+  const [announcement,setAnnouncement]=useState({title:'',message:'',audience:'all',status:'draft'});
+  const [coupon,setCoupon]=useState({code:'',discountType:'percent',discountValue:'10',maxUses:''});
   const [search, setSearch] = useState('');
   const [paymentFilter, setPaymentFilter] = useState('all');
   const [sessionLinks, setSessionLinks] = useState({});
@@ -164,6 +175,24 @@ export default function AdminDashboard({ user, token, onLogout }) {
     if (activeTab === 'submissions') return <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Student</th><th>Assignment</th><th>Submitted</th><th>Score</th><th>Feedback</th><th>File</th></tr></thead><tbody>{filtered.map(row => <tr key={row.id}><td>{row.studentName}</td><td>{row.assignmentTitle}</td><td>{date(row.submittedAt)}</td><td>{row.score ?? 'Not graded'}</td><td>{row.feedback || '—'}</td><td>{row.fileUrl ? <a href={row.fileUrl} target="_blank" rel="noreferrer">Open <ExternalLink size={12}/></a> : '—'}</td></tr>)}</tbody></table></div>;
 
     if (activeTab === 'payments') return <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Payment</th><th>Student</th><th>Provider</th><th>Amount</th><th>Status</th><th>Created</th></tr></thead><tbody>{filtered.map(row => <tr key={row.id}><td>#{row.id}<small>Booking #{row.bookingId}</small><small>Order: {row.orderId || '—'}</small><small>Payment: {row.paymentId || 'Pending gateway reference'}</small></td><td>{row.studentName}</td><td>{row.provider}</td><td><b>{money(row.amountPaise,row.currency || 'INR')}</b></td><td><span className={statusClass(row.status)}>{row.status}</span></td><td>{date(row.createdAt)}</td></tr>)}</tbody></table><p className="admin-footnote">Payment records are view-only here. Capture and refunds are processed only after verification in the payment gateway.</p></div>;
+    const genericColumns = {
+      support:[['Ticket','id'],['User','userName'],['Email','email'],['Subject','subject'],['Category','category'],['Status','status'],['Created','createdAt']],
+      announcements:[['Title','title'],['Audience','audience'],['Status','status'],['Published','publishedAt'],['Created by','createdBy']],
+      coupons:[['Code','code'],['Discount','discountValue'],['Type','discountType'],['Uses','usedCount'],['Max uses','maxUses'],['Active','isActive']],
+      reviews:[['Student','studentName'],['Tutor','tutorName'],['Rating','rating'],['Review','reviewText'],['Status','status']],
+      attendance:[['Session','sessionId'],['Participant','userName'],['Role','role'],['Joined','joinedAt'],['Left','leftAt'],['Attendance','attendanceStatus']],
+      certificates:[['Certificate','certificateCode'],['Student','studentName'],['Course','courseTitle'],['Issued','issuedAt'],['Status','status']],
+      payouts:[['Tutor','tutorName'],['Email','email'],['Amount','amountPaise'],['Currency','currency'],['Status','status'],['Requested','createdAt']],
+      audit:[['Admin','adminName'],['Action','action'],['Module','resource'],['Record ID','resourceId'],['IP','ipAddress'],['Time','createdAt']]
+    };
+    if(genericColumns[activeTab]) return <div className="admin-table-wrap"><table className="admin-table"><thead><tr>{genericColumns[activeTab].map(([label])=><th key={label}>{label}</th>)}<th>Action</th></tr></thead><tbody>{filtered.map(row=><tr key={row.id}>{genericColumns[activeTab].map(([label,key])=><td key={key}>{key==='amountPaise'?money(row[key],row.currency||'INR'):key==='isActive'?(row[key]?'Yes':'No'):key.toLowerCase().includes('at')?date(row[key]):String(row[key]??'—')}</td>)}<td>
+      {activeTab==='support' && <select className="admin-select" value={row.status} disabled={saving} onChange={e=>act('Ticket updated.',()=>api('support','PATCH',{id:row.id,status:e.target.value,adminReply:row.adminReply||''}))}><option value="open">Open</option><option value="in_progress">In progress</option><option value="resolved">Resolved</option><option value="closed">Closed</option></select>}
+      {activeTab==='announcements' && <select className="admin-select" value={row.status} disabled={saving} onChange={e=>changeStatus('announcements',row.id,e.target.value)}><option value="draft">Draft</option><option value="published">Published</option><option value="archived">Archived</option></select>}
+      {activeTab==='coupons' && <button className="admin-btn subtle" disabled={saving} onClick={()=>act('Coupon updated.',()=>api('coupons','PATCH',{id:row.id,isActive:!row.isActive}))}>{row.isActive?'Disable':'Enable'}</button>}
+      {activeTab==='reviews' && <select className="admin-select" value={row.status} disabled={saving} onChange={e=>changeStatus('reviews',row.id,e.target.value)}><option value="pending">Pending</option><option value="published">Published</option><option value="hidden">Hidden</option></select>}
+      {activeTab==='certificates' && row.status==='issued' && <button className="admin-btn danger" disabled={saving} onClick={()=>act('Certificate revoked.',()=>api('certificates','PATCH',{id:row.id,status:'revoked'}))}>Revoke</button>}
+      {activeTab==='payouts' && row.status==='requested' && <><button className="admin-btn subtle" disabled={saving} onClick={()=>changeStatus('payouts',row.id,'approved')}>Approve</button> <button className="admin-btn danger" disabled={saving} onClick={()=>changeStatus('payouts',row.id,'rejected')}>Reject</button></>}
+    </td></tr>)}</tbody></table></div>;
     return null;
   }
 
@@ -199,6 +228,8 @@ export default function AdminDashboard({ user, token, onLogout }) {
         <div className="admin-toolbar"><div><span>{activeTab.toUpperCase()} MANAGEMENT</span><p>Manage and review EYEPEK Learning records.</p></div><div className="admin-toolbar-actions">{activeTab === 'payments' && <select className="admin-select" value={paymentFilter} onChange={e=>setPaymentFilter(e.target.value)}><option value="all">All payment statuses</option><option value="paid">Paid</option><option value="created">Created / Pending</option><option value="failed">Failed</option><option value="refunded">Refunded</option></select>}<div className="admin-search"><Search size={15}/><input placeholder="Search records…" value={search} onChange={e=>setSearch(e.target.value)}/></div></div></div>
         {activeTab === 'payments' && <div className="admin-module-summary"><div><span>Total payments</span><b>{paymentTotals.count}</b></div><div><span>Successful</span><b>{paymentTotals.paid}</b></div><div><span>Collected amount</span><b>{money(paymentTotals.paidAmount)}</b></div><div><span>Failed / Refunded</span><b>{paymentTotals.failed + paymentTotals.refunded}</b></div></div>}
         {activeTab === 'sessions' && <div className="admin-module-summary"><div><span>Total sessions</span><b>{sessionTotals.total}</b></div><div><span>Live now</span><b>{sessionTotals.live}</b></div><div><span>Scheduled</span><b>{sessionTotals.scheduled}</b></div><div><span>Finished</span><b>{sessionTotals.finished}</b></div></div>}
+        {activeTab === 'announcements' && <form className="admin-add-form" onSubmit={async e=>{e.preventDefault();await act('Announcement created.',async()=>{await api('announcements','POST',announcement);setAnnouncement({title:'',message:'',audience:'all',status:'draft'});});}}><input placeholder="Announcement title" value={announcement.title} onChange={e=>setAnnouncement(p=>({...p,title:e.target.value}))}/><textarea placeholder="Write announcement..." value={announcement.message} onChange={e=>setAnnouncement(p=>({...p,message:e.target.value}))}/><select className="admin-select" value={announcement.audience} onChange={e=>setAnnouncement(p=>({...p,audience:e.target.value}))}><option value="all">All users</option><option value="student">Students</option><option value="tutor">Tutors</option><option value="institution">Institutions</option></select><select className="admin-select" value={announcement.status} onChange={e=>setAnnouncement(p=>({...p,status:e.target.value}))}><option value="draft">Save draft</option><option value="published">Publish now</option></select><button className="admin-btn primary" disabled={saving||announcement.title.trim().length<3||announcement.message.trim().length<3}><Plus size={15}/> Create announcement</button></form>}
+        {activeTab === 'coupons' && <form className="admin-add-form" onSubmit={async e=>{e.preventDefault();await act('Coupon created.',async()=>{await api('coupons','POST',coupon);setCoupon({code:'',discountType:'percent',discountValue:'10',maxUses:''});});}}><input placeholder="Coupon code" value={coupon.code} onChange={e=>setCoupon(p=>({...p,code:e.target.value.toUpperCase()}))}/><select className="admin-select" value={coupon.discountType} onChange={e=>setCoupon(p=>({...p,discountType:e.target.value}))}><option value="percent">Percentage</option><option value="fixed">Fixed amount (paise)</option></select><input type="number" min="1" placeholder="Discount value" value={coupon.discountValue} onChange={e=>setCoupon(p=>({...p,discountValue:e.target.value}))}/><input type="number" min="1" placeholder="Max uses (optional)" value={coupon.maxUses} onChange={e=>setCoupon(p=>({...p,maxUses:e.target.value}))}/><button className="admin-btn primary" disabled={saving||!coupon.code.trim()}><Plus size={15}/> Create coupon</button></form>}
         {activeTab === 'subjects' && <form className="admin-add-form" onSubmit={addSubject}><input value={newSubject} onChange={e=>setNewSubject(e.target.value)} maxLength={120} placeholder="Enter a new subject name"/><button className="admin-btn primary" disabled={saving || newSubject.trim().length<2}><Plus size={15}/> Add subject</button></form>}
         {activeTab === 'settings' ? <form className="admin-settings-grid" onSubmit={saveSettings}>
           <div className="admin-settings-card"><span>GENERAL</span><h3>Platform identity</h3><label>Platform name<input value={settings.platform_name} onChange={e=>setSettings(p=>({...p,platform_name:e.target.value}))}/></label><label>Support email<input type="email" value={settings.support_email} onChange={e=>setSettings(p=>({...p,support_email:e.target.value}))}/></label><label>Default currency<select value={settings.default_currency} onChange={e=>setSettings(p=>({...p,default_currency:e.target.value}))}><option value="INR">INR — Indian Rupee</option><option value="USD">USD — US Dollar</option><option value="EUR">EUR — Euro</option><option value="AED">AED — UAE Dirham</option></select></label></div>
