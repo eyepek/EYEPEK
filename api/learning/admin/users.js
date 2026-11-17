@@ -15,6 +15,30 @@ export default async function handler(req, res) {
     if (!admins.length) return json(res, 403, { error: 'Administrator access required' });
 
     if (req.method === 'GET') {
+      if (String(req.query?.view || '') === 'tutor-status') {
+        const [tutors] = await db.execute(
+          `SELECT u.id, u.full_name AS fullName, u.email, u.status AS accountStatus,
+                  u.created_at AS createdAt, tp.approval_status AS approvalStatus,
+                  td.tutor_code AS tutorId, td.qualification, td.experience_years AS experienceYears,
+                  td.subjects, td.languages,
+                  CASE
+                    WHEN u.status='pending' OR COALESCE(tp.approval_status,'pending')<>'approved' THEN 'Pending'
+                    WHEN EXISTS (
+                      SELECT 1 FROM learning_bookings b
+                      WHERE b.tutor_id=u.id AND b.status NOT IN ('cancelled','rejected')
+                    ) THEN 'Assigned'
+                    ELSE 'Approved'
+                  END AS tutorStatus,
+                  (SELECT COUNT(*) FROM learning_bookings b
+                   WHERE b.tutor_id=u.id AND b.status NOT IN ('cancelled','rejected')) AS activeAllocations
+           FROM learning_users u
+           LEFT JOIN learning_tutor_profiles tp ON tp.user_id=u.id
+           LEFT JOIN learning_tutor_details td ON td.user_id=u.id
+           WHERE u.role='tutor'
+           ORDER BY u.created_at DESC LIMIT 1000`
+        );
+        return json(res, 200, { ok: true, tutors });
+      }
       const [rows] = await db.execute(
         `SELECT u.id, u.full_name AS fullName, u.email, u.role, u.status, u.created_at AS createdAt,
                 tp.headline, tp.bio, tp.hourly_rate_paise AS hourlyRatePaise,
