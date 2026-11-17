@@ -9,7 +9,7 @@ const PERMISSIONS = [
 const DEFAULTS = {
   profile_management: true, course_management: true, course_publish: false,
   student_management: true, live_classes: true, booking_management: true,
-  assignments: true, attendance: true, earnings: true, payout_request: true
+  assignments: true, attendance: true, earnings: true, payout_request: false
 };
 const json = (res, status, body) => res.status(status).json(body);
 
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
                 COALESCE(p.assignments,1) AS assignments,
                 COALESCE(p.attendance,1) AS attendance,
                 COALESCE(p.earnings,1) AS earnings,
-                COALESCE(p.payout_request,1) AS payout_request
+                0 AS payout_request
          FROM learning_users u
          JOIN learning_tutor_profiles tp ON tp.user_id=u.id
          LEFT JOIN learning_tutor_permissions p ON p.tutor_id=u.id

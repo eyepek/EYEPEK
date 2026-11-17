@@ -106,10 +106,10 @@ const HomePage = () => {
             {t('Education · Online Tutoring · Institutional Support · Technology', 'शिक्षा · ऑनलाइन ट्यूटरिंग · संस्थागत सहयोग · तकनीक')}
           </div>
           <h1 className='max-w-[650px] text-[2.15rem] font-extrabold leading-[1.12] tracking-[-0.03em] text-white sm:text-[2.5rem] lg:text-[2.8rem]'>
-            {hi ? <>प्रवेश मार्गदर्शन, कॉलेज संबद्धता और <span className='text-[#ffb84d]'>प्रैक्टिकल IT समाधान</span> — सब एक ही जगह।</> : <>Admission Guidance, <span className='text-[#ffb84d]'>College Affiliation</span> & Practical IT Solutions — All in One Place.</>}
+            {hi ? <>प्रवेश मार्गदर्शन, <span className='text-[#ffb84d]'>ऑनलाइन ट्यूटरिंग, कॉलेज दस्तावेज़</span> और प्रोफेशनल IT समाधान — सब एक ही जगह।</> : <>Admission Guidance, <span className='text-[#ffb84d]'>Online Tutoring, College Documentation</span> & Professional IT Solutions — All in One Place.</>}
           </h1>
           <p className='mt-6 max-w-xl text-base leading-8 text-blue-100 sm:text-lg'>
-            {t('EYEPEK brings online tutoring enquiries, student guidance, institutional documentation support and dependable technology services together — with clear communication and practical next steps.', 'EYEPEK ऑनलाइन ट्यूटरिंग पूछताछ, विद्यार्थी मार्गदर्शन, संस्थागत दस्तावेज़ सहायता और भरोसेमंद तकनीकी सेवाएँ एक साथ उपलब्ध कराता है—स्पष्ट जानकारी और व्यावहारिक अगले कदमों के साथ।')}
+            {t('EYEPEK brings students, tutors and educational institutions together through online learning, admission guidance and institutional documentation support. We also provide reliable IT solutions, technical support and digital services to help individuals and organizations grow with confidence.', 'EYEPEK ऑनलाइन लर्निंग, प्रवेश मार्गदर्शन और संस्थागत दस्तावेज़ सहायता के माध्यम से विद्यार्थियों, ट्यूटरों और शैक्षणिक संस्थानों को जोड़ता है। हम व्यक्तियों और संस्थानों की प्रगति में मदद के लिए भरोसेमंद IT समाधान, तकनीकी सहायता और डिजिटल सेवाएँ भी प्रदान करते हैं।')}
           </p>
           <div className='mt-8 flex flex-wrap gap-3'>
             <a href='/services/education' className='inline-flex min-h-13 items-center justify-center gap-3 rounded-xl bg-[#f5a623] px-6 py-4 text-sm font-extrabold text-[#10233e] shadow-xl shadow-orange-950/25 transition hover:-translate-y-0.5 hover:bg-[#ffc15c] sm:text-base'>{t('Explore our services', 'हमारी सेवाएँ देखें')} <FaArrowRight aria-hidden='true' /></a>

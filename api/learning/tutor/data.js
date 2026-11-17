@@ -9,8 +9,7 @@ const resources = {
   bookings: 'booking_management',
   assignments: 'assignments',
   attendance: 'attendance',
-  earnings: 'earnings',
-  payouts: 'payout_request'
+  earnings: 'earnings'
 };
 
 export default async function handler(req, res) {
@@ -88,29 +87,11 @@ export default async function handler(req, res) {
         return json(res, 200, { ok: true, rows });
       }
       if (resource === 'earnings') {
-        const [rows] = await db.execute(
-          `SELECT COUNT(*) AS paidBookings,COALESCE(SUM(p.amount_paise),0) AS grossPaise
-           FROM learning_payments p JOIN learning_bookings b ON b.id=p.booking_id
-           WHERE b.tutor_id=? AND p.status='paid'`,
-          [tutor.id]
-        );
-        const [payouts] = await db.execute(
-          "SELECT COALESCE(SUM(amount_paise),0) AS requestedPaise FROM learning_tutor_payouts WHERE tutor_id=? AND status IN ('requested','approved','processing','paid')",
-          [tutor.id]
-        );
-        return json(res, 200, { ok: true, earnings: { ...(rows[0] || {}), requestedPaise: payouts[0]?.requestedPaise || 0 } });
-      }
-      if (resource === 'payouts') {
-        const [rows] = await db.execute(
-          'SELECT id,amount_paise AS amountPaise,currency,status,reference_note AS referenceNote,created_at AS createdAt FROM learning_tutor_payouts WHERE tutor_id=? ORDER BY created_at DESC',
-          [tutor.id]
-        );
-        return json(res, 200, { ok: true, rows });
+        return json(res, 200, { ok: true, earnings: { status: 'admin_review', message: 'Tutor compensation is calculated by EYEPEK Admin after verified sessions and approved assignment work. Student payments are collected by EYEPEK; tutors cannot request withdrawals.' } });
       }
     }
 
     if (req.method === 'POST') {
-      if (resource === 'payouts') return json(res, 403, { error: 'Tutor payout requests are disabled. EYEPEK Admin controls all tutor compensation and payouts.' });
       if (resource === 'courses') {
         const title = String(req.body?.title || '').trim();
         const description = String(req.body?.description || '').trim();
@@ -159,26 +140,6 @@ export default async function handler(req, res) {
           [sessionId,studentId,status,status]
         );
         return json(res, 200, { ok: true });
-      }
-      if (resource === 'payouts') {
-        const amount = Number(req.body?.amount);
-        if (!Number.isFinite(amount) || amount < 100 || amount > 1000000) return json(res, 400, { error: 'Minimum payout request is ₹100 and maximum is ₹10,00,000' });
-        const [earningsRows] = await db.execute(
-          "SELECT COALESCE(SUM(p.amount_paise),0) AS grossPaise FROM learning_payments p JOIN learning_bookings b ON b.id=p.booking_id WHERE b.tutor_id=? AND p.status='paid'",
-          [tutor.id]
-        );
-        const [payoutRows] = await db.execute(
-          "SELECT COALESCE(SUM(amount_paise),0) AS reservedPaise FROM learning_tutor_payouts WHERE tutor_id=? AND status IN ('requested','approved','processing','paid')",
-          [tutor.id]
-        );
-        const available = Number(earningsRows[0]?.grossPaise || 0) - Number(payoutRows[0]?.reservedPaise || 0);
-        const amountPaise = Math.round(amount * 100);
-        if (amountPaise > available) return json(res, 409, { error: 'Payout request exceeds your available paid earnings' });
-        const [result] = await db.execute(
-          "INSERT INTO learning_tutor_payouts (tutor_id,amount_paise,status) VALUES (?,?,'requested')",
-          [tutor.id,amountPaise]
-        );
-        return json(res, 201, { ok: true, id: result.insertId, message: 'Payout request submitted for admin review. No bank transfer has been made.' });
       }
     }
 
