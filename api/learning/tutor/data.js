@@ -88,7 +88,7 @@ export default async function handler(req, res) {
       }
       if (resource === 'earnings') {
         const month = String(req.query?.month || new Date().toISOString().slice(0,7));
-        if (!/^\\d{4}-(0[1-9]|1[0-2])$/.test(month)) return json(res,400,{error:'Month must use YYYY-MM format'});
+        if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(month)) return json(res,400,{error:'Month must use YYYY-MM format'});
         const [ledger] = await db.execute(
           `SELECT id,earning_type AS earningType,source_id AS sourceId,period_month AS periodMonth,
                   amount_paise AS amountPaise,status,admin_note AS adminNote,approved_at AS approvedAt,paid_at AS paidAt
