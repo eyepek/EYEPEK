@@ -10,6 +10,7 @@ const ROOT = '/api/learning/admin';
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, group: 'Workspace' },
   { id: 'approvals', label: 'Approval requests', icon: UserCheck, group: 'Workspace' },
+  { id: 'tutor-status', label: 'Tutor status & policy', icon: ShieldCheck, group: 'Management' },
   { id: 'users', label: 'User management', icon: Users, group: 'Management' },
   { id: 'tutor-permissions', label: 'Tutor permissions', icon: ShieldCheck, group: 'Management' },
   { id: 'subjects', label: 'Subjects', icon: BookOpen, group: 'Management' },
@@ -176,6 +177,33 @@ export default function AdminDashboard({ user, token, onLogout }) {
     if (loading) return <div className="admin-empty"><RefreshCw className="admin-spin" size={20}/> Loading records…</div>;
     if (error && !rows.length) return <div className="admin-empty admin-error"><AlertTriangle size={20}/>{error}</div>;
     if (!filtered.length) return <div className="admin-empty">No records found.</div>;
+
+    if (activeTab === 'tutor-status') return <div>
+      <div className="admin-module-summary">
+        <div><span>Pending</span><b>{rows.filter(r=>r.tutorStatus==='Pending').length}</b></div>
+        <div><span>Approved</span><b>{rows.filter(r=>r.tutorStatus==='Approved').length}</b></div>
+        <div><span>Assigned</span><b>{rows.filter(r=>r.tutorStatus==='Assigned').length}</b></div>
+        <div><span>Total tutors</span><b>{rows.length}</b></div>
+      </div>
+      <div className="admin-records">{filtered.map(row=><article className="admin-record" key={row.id}>
+        <div className="admin-record-main"><div className="admin-avatar">{String(row.fullName||'T').slice(0,1).toUpperCase()}</div><div>
+          <span className="admin-role">Tutor • {row.tutorId || 'Tutor ID pending'}</span><h3>{row.fullName}</h3>
+          <p>{row.email}</p><p>{row.qualification || 'Qualification not provided'} • {row.experienceYears ?? 0} years • {row.subjects || 'Subjects not provided'}</p>
+          <small>Active student/session allocations: {row.activeAllocations || 0} • Registered {date(row.createdAt)}</small>
+        </div></div>
+        <div className="admin-actions"><span className={statusClass(row.tutorStatus)}>{row.tutorStatus}</span></div>
+      </article>)}</div>
+      <section className="admin-settings-card" style={{marginTop:20}}>
+        <span>OFFICIAL PLATFORM POLICY</span><h3>EYEPEK Admin-Controlled Learning Model</h3>
+        <p><b>Pending:</b> Tutor registration is received. The Tutor cannot receive student/session allocations until Admin approval.</p>
+        <p><b>Approved:</b> EYEPEK Admin has verified and approved the Tutor. Approval does not give the Tutor authority to select students or set fees.</p>
+        <p><b>Assigned:</b> Admin has allocated at least one active student booking/session to the Tutor. Student-to-Tutor allocation is controlled only by EYEPEK Admin.</p>
+        <p><b>Student policy:</b> Registration is free. Paid live sessions and paid assignments require payment to EYEPEK before access starts. Students may search Tutor profiles by Tutor ID, but cannot choose or book a Tutor themselves.</p>
+        <p><b>Tutor policy:</b> Tutor signs in using Tutor ID and password. Tutor cannot collect student payments directly, set service fees, request withdrawals or independently assign students. Compensation is fixed and approved by Admin.</p>
+        <p><b>Admin control:</b> EYEPEK Admin controls Tutor approval, allocation, service fees, Tutor compensation, quality review, payment confirmation and payouts.</p>
+        <small>These status labels and policy details are visible in this protected Admin workspace only.</small>
+      </section>
+    </div>;
 
     if (activeTab === 'approvals') return <div className="admin-records">{filtered.map(row => <article className="admin-record" key={row.id}>
       <div className="admin-record-main"><div className="admin-avatar">{String(row.fullName || 'U').slice(0,1).toUpperCase()}</div><div><span className="admin-role">{row.role}</span><h3>{row.fullName}</h3><p>{row.email}</p><p>{row.role === 'tutor' ? (row.headline || 'Tutor profile awaiting review') : (row.institutionName || 'Institution profile awaiting review')}</p>{row.role === 'tutor' ? <p><b>{row.tutorId || 'Tutor ID pending'}</b> • {row.qualification || 'Qualification not provided'} • {row.experienceYears ?? 0} years • {row.subjects || 'Subjects not provided'}</p> : <p>{row.contactPerson || 'Contact person not provided'} • {row.institutionType || 'Type not provided'} • {row.institutionCity || 'City not provided'} • {row.website || 'Website not provided'}</p>}<small>Registered {date(row.createdAt)}</small></div></div>
