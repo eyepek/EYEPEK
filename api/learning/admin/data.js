@@ -2,7 +2,7 @@ import { getDb } from '../../_lib/db.js';
 import { requireUser } from '../../_lib/auth.js';
 
 const json = (res, status, body) => res.status(status).json(body);
-const allowedResources = new Set(['overview','users','subjects','courses','bookings','sessions','assignments','submissions','payments','settings']);
+const allowedResources = new Set(['overview','users','subjects','courses','bookings','sessions','assignments','submissions','payments','settings','support','announcements','coupons','reviews','attendance','certificates','payouts','audit']);
 
 async function requireAdmin(req, res) {
   const auth = requireUser(req, res);
@@ -48,6 +48,41 @@ export default async function handler(req, res) {
         });
       }
 
+      if (resource === 'support') {
+        const status=String(req.body?.status||'');
+        if(!['open','in_progress','resolved','closed'].includes(status)) return json(res,400,{error:'Invalid ticket status'});
+        await db.execute('UPDATE learning_support_tickets SET status=?,admin_reply=? WHERE id=?',[status,req.body?.adminReply==null?null:String(req.body.adminReply).slice(0,10000)||null,id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'announcements') {
+        const status=String(req.body?.status||'');
+        if(!['draft','published','archived'].includes(status)) return json(res,400,{error:'Invalid announcement status'});
+        await db.execute('UPDATE learning_announcements SET status=?,published_at=IF(?=\'published\',COALESCE(published_at,CURRENT_TIMESTAMP),published_at) WHERE id=?',[status,status,id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'coupons') {
+        if(typeof req.body?.isActive!=='boolean') return json(res,400,{error:'Coupon active state required'});
+        await db.execute('UPDATE learning_coupons SET is_active=? WHERE id=?',[req.body.isActive,id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'reviews') {
+        const status=String(req.body?.status||'');
+        if(!['pending','published','hidden'].includes(status)) return json(res,400,{error:'Invalid review status'});
+        await db.execute('UPDATE learning_reviews SET status=? WHERE id=?',[status,id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'certificates') {
+        if(String(req.body?.status||'')!=='revoked') return json(res,400,{error:'Only certificate revocation is supported'});
+        await db.execute('UPDATE learning_certificates SET status=' + "'revoked'" + ' WHERE id=?',[id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'payouts') {
+        const status=String(req.body?.status||'');
+        if(!['approved','rejected','processing','paid'].includes(status)) return json(res,400,{error:'Invalid payout status'});
+        if(status==='paid') return json(res,409,{error:'Mark paid only after completing the actual bank transfer and verifying its reference'});
+        await db.execute('UPDATE learning_tutor_payouts SET status=?,reviewed_by=? WHERE id=?',[status,admin.id,id]);
+        return json(res,200,{ok:true});
+      }
       if (resource === 'users') {
         const [rows] = await db.execute(
           `SELECT u.id,u.full_name AS fullName,u.email,u.role,u.status,u.created_at AS createdAt,
@@ -129,6 +164,38 @@ export default async function handler(req, res) {
         );
         return json(res, 200, { ok: true, rows });
       }
+      if (resource === 'support') {
+        const [rows] = await db.execute(`SELECT t.id,t.subject,t.message,t.category,t.status,t.admin_reply AS adminReply,t.created_at AS createdAt,u.full_name AS userName,u.email FROM learning_support_tickets t JOIN learning_users u ON u.id=t.user_id ORDER BY t.created_at DESC LIMIT 500`);
+        return json(res,200,{ok:true,rows});
+      }
+      if (resource === 'announcements') {
+        const [rows] = await db.execute(`SELECT a.id,a.title,a.message,a.audience,a.status,a.published_at AS publishedAt,a.created_at AS createdAt,u.full_name AS createdBy FROM learning_announcements a JOIN learning_users u ON u.id=a.created_by ORDER BY a.created_at DESC LIMIT 500`);
+        return json(res,200,{ok:true,rows});
+      }
+      if (resource === 'coupons') {
+        const [rows] = await db.execute('SELECT id,code,discount_type AS discountType,discount_value AS discountValue,max_uses AS maxUses,used_count AS usedCount,starts_at AS startsAt,expires_at AS expiresAt,is_active AS isActive,created_at AS createdAt FROM learning_coupons ORDER BY created_at DESC LIMIT 500');
+        return json(res,200,{ok:true,rows});
+      }
+      if (resource === 'reviews') {
+        const [rows] = await db.execute(`SELECT r.id,r.rating,r.review_text AS reviewText,r.status,r.created_at AS createdAt,s.full_name AS studentName,t.full_name AS tutorName FROM learning_reviews r JOIN learning_users s ON s.id=r.student_id JOIN learning_users t ON t.id=r.tutor_id ORDER BY r.created_at DESC LIMIT 500`);
+        return json(res,200,{ok:true,rows});
+      }
+      if (resource === 'attendance') {
+        const [rows] = await db.execute(`SELECT a.id,a.session_id AS sessionId,a.joined_at AS joinedAt,a.left_at AS leftAt,a.attendance_status AS attendanceStatus,u.full_name AS userName,u.role,s.status AS sessionStatus FROM learning_attendance a JOIN learning_users u ON u.id=a.user_id JOIN learning_sessions s ON s.id=a.session_id ORDER BY a.created_at DESC LIMIT 500`);
+        return json(res,200,{ok:true,rows});
+      }
+      if (resource === 'certificates') {
+        const [rows] = await db.execute(`SELECT c.id,c.certificate_code AS certificateCode,c.issued_at AS issuedAt,c.status,u.full_name AS studentName,co.title AS courseTitle FROM learning_certificates c JOIN learning_users u ON u.id=c.student_id JOIN learning_courses co ON co.id=c.course_id ORDER BY c.issued_at DESC LIMIT 500`);
+        return json(res,200,{ok:true,rows});
+      }
+      if (resource === 'payouts') {
+        const [rows] = await db.execute(`SELECT p.id,p.amount_paise AS amountPaise,p.currency,p.status,p.reference_note AS referenceNote,p.created_at AS createdAt,u.full_name AS tutorName,u.email FROM learning_tutor_payouts p JOIN learning_users u ON u.id=p.tutor_id ORDER BY p.created_at DESC LIMIT 500`);
+        return json(res,200,{ok:true,rows});
+      }
+      if (resource === 'audit') {
+        const [rows] = await db.execute(`SELECT a.id,a.action,a.resource,a.resource_id AS resourceId,a.ip_address AS ipAddress,a.created_at AS createdAt,u.full_name AS adminName FROM learning_admin_audit_logs a JOIN learning_users u ON u.id=a.admin_id ORDER BY a.created_at DESC LIMIT 500`);
+        return json(res,200,{ok:true,rows});
+      }
       if (resource === 'settings') {
         const [rows] = await db.execute('SELECT setting_key AS settingKey,setting_value AS settingValue FROM learning_platform_settings');
         const settings = Object.fromEntries(rows.map(r => [r.settingKey, r.settingValue]));
@@ -136,6 +203,19 @@ export default async function handler(req, res) {
       }
     }
 
+    if (req.method === 'POST' && resource === 'announcements') {
+      const title=String(req.body?.title||'').trim(), message=String(req.body?.message||'').trim(), audience=String(req.body?.audience||'all'), status=String(req.body?.status||'draft');
+      if(title.length<3||title.length>180||message.length<3) return json(res,400,{error:'Enter a valid title and message'});
+      if(!['all','student','tutor','institution'].includes(audience)||!['draft','published'].includes(status)) return json(res,400,{error:'Invalid announcement options'});
+      await db.execute('INSERT INTO learning_announcements(title,message,audience,status,created_by,published_at) VALUES(?,?,?,?,?,?)',[title,message,audience,status,admin.id,status==='published'?new Date():null]);
+      return json(res,201,{ok:true});
+    }
+    if (req.method === 'POST' && resource === 'coupons') {
+      const code=String(req.body?.code||'').trim().toUpperCase(), type=String(req.body?.discountType||'percent'), value=Number(req.body?.discountValue), maxUses=req.body?.maxUses===''||req.body?.maxUses==null?null:Number(req.body.maxUses);
+      if(!/^[A-Z0-9_-]{3,40}$/.test(code)||!['percent','fixed'].includes(type)||!Number.isSafeInteger(value)||value<1||(type==='percent'&&value>100)||(maxUses!==null&&(!Number.isSafeInteger(maxUses)||maxUses<1))) return json(res,400,{error:'Invalid coupon details'});
+      await db.execute('INSERT INTO learning_coupons(code,discount_type,discount_value,max_uses,created_by) VALUES(?,?,?,?,?)',[code,type,value,maxUses,admin.id]);
+      return json(res,201,{ok:true});
+    }
     if (req.method === 'POST' && resource === 'subjects') {
       const name = String(req.body?.name || '').trim();
       if (name.length < 2 || name.length > 120) return json(res, 400, { error: 'Subject name must be 2–120 characters' });
