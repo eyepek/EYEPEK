@@ -306,13 +306,17 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'PUT' && resource === 'settings') {
-      const allowed = ['platform_name','support_email','default_currency','platform_fee_percent','maintenance_mode','student_registration_enabled','tutor_registration_enabled','institution_registration_enabled'];
+      const allowed = ['platform_name','support_email','default_currency','platform_fee_percent','maintenance_mode','student_registration_enabled','tutor_registration_enabled','institution_registration_enabled','student_session_fee','tutor_session_compensation','tutor_assignment_compensation','session_duration_minutes','assignment_rules','payout_schedule'];
       const values = req.body?.settings || {};
       for (const key of Object.keys(values)) {
         if (!allowed.includes(key)) return json(res, 400, { error: 'Unsupported setting: '+key });
         const value = String(values[key]).trim();
         if (key === 'support_email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return json(res, 400, { error: 'Enter a valid support email' });
         if (key === 'platform_fee_percent' && (!Number.isFinite(Number(value)) || Number(value)<0 || Number(value)>50)) return json(res, 400, { error: 'Platform fee must be between 0 and 50' });
+        if (['student_session_fee','tutor_session_compensation','tutor_assignment_compensation'].includes(key) && (!Number.isFinite(Number(value)) || Number(value)<0 || Number(value)>1000000)) return json(res,400,{error:'Enter a valid rate in INR'});
+        if (key === 'session_duration_minutes' && (!Number.isInteger(Number(value)) || Number(value)<15 || Number(value)>240)) return json(res,400,{error:'Session duration must be 15–240 minutes'});
+        if (key === 'assignment_rules' && value.length > 2000) return json(res,400,{error:'Assignment rules are too long'});
+        if (key === 'payout_schedule' && value.length > 120) return json(res,400,{error:'Payout schedule is too long'});
         if (['maintenance_mode','student_registration_enabled','tutor_registration_enabled','institution_registration_enabled'].includes(key) && !['true','false'].includes(value)) return json(res, 400, { error: 'Invalid true/false setting' });
         await db.execute(
           'INSERT INTO learning_platform_settings(setting_key,setting_value,updated_by) VALUES(?,?,?) ON DUPLICATE KEY UPDATE setting_value=VALUES(setting_value),updated_by=VALUES(updated_by)',
