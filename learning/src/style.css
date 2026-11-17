@@ -127,3 +127,11 @@
 .admin-app .admin-add-form .admin-select{min-width:170px}
 .admin-app .admin-table td{vertical-align:middle}
 .admin-app .admin-table td .admin-btn{margin:2px}
+
+
+/* Admin tutor permission management */
+.admin-permission-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:18px}
+.admin-permission-item{display:flex;align-items:center;gap:9px;padding:11px 12px;border:1px solid #e5eaf1;border-radius:10px;background:#fff;font-size:13px;color:#24364b}
+.admin-permission-item input{width:16px;height:16px;accent-color:#2674c8;flex:0 0 auto}
+.admin-permission-item small{display:block;color:#71839b;font-size:10px}
+.admin-permission-item:has(input:disabled){opacity:.65}
