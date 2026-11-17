@@ -197,7 +197,7 @@ export default function AdminDashboard({ user, token, onLogout }) {
   function renderTable() {
     if (loading) return <div className="admin-empty"><RefreshCw className="admin-spin" size={20}/> Loading records…</div>;
     if (error && !rows.length) return <div className="admin-empty admin-error"><AlertTriangle size={20}/>{error}</div>;
-    if (!filtered.length) return <div className="admin-empty">No records found.</div>;
+    if (!filtered.length && !['tutor-status','tutor-assignments'].includes(activeTab)) return <div className="admin-empty">No records found.</div>;
 
     if (activeTab === 'tutor-assignments') return <div>
       <form className="admin-add-form" onSubmit={allocateTutor}>
