@@ -12,6 +12,7 @@ export default async function handler(req,res) {
   try {
     const email = String(req.body?.email || '').trim().toLowerCase();
     const password = req.body?.password;
+    const adminOnly = req.body?.adminOnly === true;
     if (!email || typeof password !== 'string') return json(res,400,{error:'Email and password are required'});
     const [rows] = await getDb().execute('SELECT id,full_name,email,password_hash,role,status FROM learning_users WHERE email=? LIMIT 1',[email]);
     if (!rows.length) return json(res,401,{error:'Invalid email or password'});
@@ -22,6 +23,8 @@ export default async function handler(req,res) {
     const stored = Buffer.from(storedHex,'hex');
     if (stored.length !== derived.length || !timingSafeEqual(stored,derived)) return json(res,401,{error:'Invalid email or password'});
     if (user.status !== 'active') return json(res,403,{error:'Your account is awaiting approval or is suspended'});
+    if (adminOnly && user.role !== 'admin') return json(res,403,{error:'Administrator access required'});
+    if (!adminOnly && user.role === 'admin') return json(res,403,{error:'Use the private administrator sign-in page'});
     const token = jwt.sign({sub:String(user.id),role:user.role},process.env.JWT_SECRET,{algorithm:'HS256',expiresIn:'7d'});
     return json(res,200,{ok:true,token,user:{id:user.id,fullName:user.full_name,email:user.email,role:user.role,status:user.status}});
   } catch (error) {
