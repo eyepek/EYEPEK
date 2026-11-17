@@ -10,11 +10,16 @@ export default async function handler(req,res) {
   if (req.method !== 'POST') { res.setHeader('Allow','POST'); return json(res,405,{error:'Method not allowed'}); }
   if (!process.env.JWT_SECRET) return json(res,503,{error:'Authentication is not configured'});
   try {
-    const email = String(req.body?.email || '').trim().toLowerCase();
+    const identifier = String(req.body?.identifier || req.body?.email || '').trim();
     const password = req.body?.password;
     const adminOnly = req.body?.adminOnly === true;
-    if (!email || typeof password !== 'string') return json(res,400,{error:'Email and password are required'});
-    const [rows] = await getDb().execute('SELECT id,full_name,email,password_hash,role,status FROM learning_users WHERE email=? LIMIT 1',[email]);
+    if (!identifier || typeof password !== 'string') return json(res,400,{error:'Enter your login ID/email and password'});
+    const isTutorId = /^EYtutor\\d{3,}$/i.test(identifier);
+    if (adminOnly && isTutorId) return json(res,400,{error:'Administrator must sign in using the registered email'});
+    const lookup = isTutorId
+      ? await getDb().execute(`SELECT u.id,u.full_name,u.email,u.password_hash,u.role,u.status FROM learning_users u JOIN learning_tutor_details td ON td.user_id=u.id WHERE UPPER(td.tutor_code)=UPPER(?) AND u.role='tutor' LIMIT 1`,[identifier])
+      : await getDb().execute('SELECT id,full_name,email,password_hash,role,status FROM learning_users WHERE email=? LIMIT 1',[identifier.toLowerCase()]);
+    const [rows] = lookup;
     if (!rows.length) return json(res,401,{error:'Invalid email or password'});
     const user = rows[0];
     const [salt,storedHex] = String(user.password_hash).split(':');
