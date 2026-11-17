@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     if (role === 'student') await db.execute('INSERT INTO learning_student_details(user_id,phone,city,grade_level,learning_goals) VALUES(?,?,?,?,?)',[result.insertId,cleanPhone||null,String(city||'').trim()||null,String(gradeLevel||'').trim()||null,String(learningGoals||'').trim()||null]);
     if (role === 'tutor') {
       await db.execute('INSERT INTO learning_tutor_profiles(user_id) VALUES(?)',[result.insertId]);
-      const tutorCode = 'EYE-TUTOR-' + String(result.insertId).padStart(5,'0');
+      const tutorCode = 'EYtutor' + String(result.insertId).padStart(3,'0');
       await db.execute('INSERT INTO learning_tutor_details(user_id,tutor_code,phone,city,qualification,experience_years,subjects,languages,teaching_mode) VALUES(?,?,?,?,?,?,?,?,?)',[result.insertId,tutorCode,cleanPhone||null,String(city||'').trim()||null,String(qualification||'').trim()||null,years,listValue(subjects)||null,listValue(languages)||null,['online','offline','both'].includes(teachingMode)?teachingMode:'online']);
     }
     if (role === 'institution') {

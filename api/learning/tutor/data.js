@@ -87,7 +87,25 @@ export default async function handler(req, res) {
         return json(res, 200, { ok: true, rows });
       }
       if (resource === 'earnings') {
-        return json(res, 200, { ok: true, earnings: { status: 'admin_review', message: 'Tutor compensation is calculated by EYEPEK Admin after verified sessions and approved assignment work. Student payments are collected by EYEPEK; tutors cannot request withdrawals.' } });
+        const month = String(req.query?.month || new Date().toISOString().slice(0,7));
+        if (!/^\\d{4}-(0[1-9]|1[0-2])$/.test(month)) return json(res,400,{error:'Month must use YYYY-MM format'});
+        const [ledger] = await db.execute(
+          `SELECT id,earning_type AS earningType,source_id AS sourceId,period_month AS periodMonth,
+                  amount_paise AS amountPaise,status,admin_note AS adminNote,approved_at AS approvedAt,paid_at AS paidAt
+           FROM learning_tutor_earning_ledger WHERE tutor_id=? AND period_month=?
+           ORDER BY created_at DESC`,[tutor.id,month]);
+        const [sessions] = await db.execute(
+          `SELECT s.id,s.started_at AS startedAt,s.ended_at AS endedAt,s.status,
+                  TIMESTAMPDIFF(MINUTE,s.started_at,s.ended_at) AS durationMinutes,
+                  u.full_name AS studentName
+           FROM learning_sessions s JOIN learning_bookings b ON b.id=s.booking_id
+           JOIN learning_users u ON u.id=b.student_id
+           WHERE b.tutor_id=? AND s.started_at IS NOT NULL
+             AND DATE_FORMAT(s.started_at,'%Y-%m')=? ORDER BY s.started_at DESC`,[tutor.id,month]);
+        const total = ledger.reduce((sum,x)=>sum+Number(x.amountPaise||0),0);
+        const approved = ledger.filter(x=>['approved','paid'].includes(x.status)).reduce((sum,x)=>sum+Number(x.amountPaise||0),0);
+        const paid = ledger.filter(x=>x.status==='paid').reduce((sum,x)=>sum+Number(x.amountPaise||0),0);
+        return json(res,200,{ok:true,month,summary:{totalPaise:total,approvedPaise:approved,paidPaise:paid,pendingPaise:total-approved,sessionCount:sessions.length,totalSessionMinutes:sessions.reduce((s,x)=>s+Number(x.durationMinutes||0),0),assignmentCount:ledger.filter(x=>x.earningType==='assignment').length},ledger,sessions});
       }
     }
 
