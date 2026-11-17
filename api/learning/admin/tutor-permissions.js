@@ -62,6 +62,7 @@ export default async function handler(req, res) {
       if (!Number.isSafeInteger(tutorId) || tutorId < 1 || !incoming || typeof incoming !== 'object' || Array.isArray(incoming)) {
         return json(res, 400, { error: 'A valid tutor and permission object are required' });
       }
+      if (incoming.payout_request !== false) return json(res, 400, { error: 'Tutor payout requests are disabled. Payouts are controlled only by EYEPEK Admin.' });
       for (const key of PERMISSIONS) {
         if (typeof incoming[key] !== 'boolean') return json(res, 400, { error: 'Every tutor permission must be true or false' });
       }
