@@ -1,28 +1,56 @@
 import { getDb } from '../../_lib/db.js';
 import { requireUser } from '../../_lib/auth.js';
 
-export default async function handler(req, res) {
-  const auth = requireUser(req, res);
-  if (!auth) return;
-  if (auth.role !== 'tutor') return res.status(403).json({ error: 'Tutor account required' });
+const TUTOR_PERMISSIONS = [
+  'profile_management', 'course_management', 'course_publish',
+  'student_management', 'live_classes', 'booking_management',
+  'assignments', 'attendance', 'earnings', 'payout_request'
+];
 
+// Reusable server-side guard for every Tutor API.
+// Import this function in a Tutor endpoint and pass its required permission key.
+export async function requireTutorPermission(req, res, permission) {
+  if (!TUTOR_PERMISSIONS.includes(permission)) {
+    res.status(500).json({ error: 'Invalid tutor permission configuration' });
+    return null;
+  }
+
+  const auth = requireUser(req, res);
+  if (!auth) return null;
+  if (auth.role !== 'tutor') {
+    res.status(403).json({ error: 'Tutor account required' });
+    return null;
+  }
+
+  const [rows] = await getDb().execute(
+    `SELECT u.status, tp.approval_status,
+            COALESCE(p.${permission}, ${permission === 'course_publish' ? 0 : 1}) AS permission_enabled
+     FROM learning_users u
+     JOIN learning_tutor_profiles tp ON tp.user_id=u.id
+     LEFT JOIN learning_tutor_permissions p ON p.tutor_id=u.id
+     WHERE u.id=? AND u.role='tutor' LIMIT 1`,
+    [auth.id]
+  );
+
+  const access = rows[0];
+  if (!access || access.status !== 'active' || access.approval_status !== 'approved') {
+    res.status(403).json({ error: 'An approved and active tutor account is required' });
+    return null;
+  }
+  if (!Boolean(access.permission_enabled)) {
+    res.status(403).json({
+      error: 'This feature permission is disabled. Contact the EYEPEK administrator.',
+      permission
+    });
+    return null;
+  }
+  return auth;
+}
+
+export default async function handler(req, res) {
   try {
-    const [accessRows] = await getDb().execute(
-      `SELECT u.status, tp.approval_status,
-              COALESCE(p.profile_management,1) AS profile_management
-       FROM learning_users u
-       JOIN learning_tutor_profiles tp ON tp.user_id=u.id
-       LEFT JOIN learning_tutor_permissions p ON p.tutor_id=u.id
-       WHERE u.id=? AND u.role='tutor' LIMIT 1`,
-      [auth.id]
-    );
-    const access = accessRows[0];
-    if (!access || access.status !== 'active' || access.approval_status !== 'approved') {
-      return res.status(403).json({ error: 'An approved and active tutor account is required' });
-    }
-    if (!Boolean(access.profile_management)) {
-      return res.status(403).json({ error: 'Your profile management permission is disabled. Contact the administrator.' });
-    }
+    const auth = await requireTutorPermission(req, res, 'profile_management');
+    if (!auth) return;
 
     if (req.method === 'GET') {
       const [rows] = await getDb().execute(
