@@ -33,8 +33,12 @@ export default async function handler(req, res) {
       if (resource === 'students') {
         const [rows] = await db.execute(
           `SELECT DISTINCT u.id,u.full_name AS fullName,u.email
+           FROM learning_student_tutor_assignments a JOIN learning_users u ON u.id=a.student_id
+           WHERE a.tutor_id=? AND a.status='active'
+           UNION
+           SELECT DISTINCT u.id,u.full_name AS fullName,u.email
            FROM learning_bookings b JOIN learning_users u ON u.id=b.student_id
-           WHERE b.tutor_id=? ORDER BY u.full_name`,
+           WHERE b.tutor_id=? ORDER BY fullName`,
           [tutor.id]
         );
         return json(res, 200, { ok: true, rows });
