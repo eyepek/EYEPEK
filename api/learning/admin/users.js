@@ -19,10 +19,15 @@ export default async function handler(req, res) {
         `SELECT u.id, u.full_name AS fullName, u.email, u.role, u.status, u.created_at AS createdAt,
                 tp.headline, tp.bio, tp.hourly_rate_paise AS hourlyRatePaise,
                 tp.approval_status AS approvalStatus, ip.institution_name AS institutionName,
+                td.tutor_code AS tutorId, td.qualification, td.experience_years AS experienceYears,
+                td.subjects, td.languages, td.teaching_mode AS teachingMode,
+                idt.contact_person AS contactPerson, idt.phone AS institutionPhone, idt.city AS institutionCity, idt.website AS institutionWebsite, idt.institution_type AS institutionType,
                 ip.approval_status AS institutionApprovalStatus
          FROM learning_users u
          LEFT JOIN learning_tutor_profiles tp ON tp.user_id=u.id
          LEFT JOIN learning_institution_profiles ip ON ip.user_id=u.id
+         LEFT JOIN learning_tutor_details td ON td.user_id=u.id
+         LEFT JOIN learning_institution_details idt ON idt.user_id=u.id
          WHERE u.role IN ('tutor','institution') AND u.status='pending'
          ORDER BY u.created_at ASC`
       );

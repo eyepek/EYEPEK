@@ -19,6 +19,10 @@ export default async function handler(req, res) {
     if (!['student','tutor','institution'].includes(role)) return json(res,400,{error:'Invalid account type'});
     if (role === 'institution' && String(institutionName || '').trim().length < 2) return json(res,400,{error:'Enter institution name'});
     const cleanPhone = String(phone || '').trim();
+    const years = Number(experienceYears || 0);
+    if (role === 'tutor' && (!Number.isInteger(years) || years < 0 || years > 60)) return json(res,400,{error:'Enter valid teaching experience'});
+    const [registrationSetting] = await getDb().execute('SELECT setting_value FROM learning_platform_settings WHERE setting_key=? LIMIT 1',[role+'_registration_enabled']);
+    if (registrationSetting.length && registrationSetting[0].setting_value === 'false') return json(res,403,{error:'Registration for this account type is currently closed by EYEPEK Admin.'});
     if (cleanPhone && !/^\+?[0-9\s()-]{7,20}$/.test(cleanPhone)) return json(res,400,{error:'Enter a valid phone number'});
     if (String(city || '').trim().length > 100) return json(res,400,{error:'City name is too long'});
     const listValue = value => Array.isArray(value) ? value.map(x=>String(x).trim()).filter(Boolean).slice(0,30).join(', ') : String(value || '').trim().slice(0,1000);
@@ -36,8 +40,6 @@ export default async function handler(req, res) {
     if (role === 'tutor') {
       await db.execute('INSERT INTO learning_tutor_profiles(user_id) VALUES(?)',[result.insertId]);
       const tutorCode = 'EYE-TUTOR-' + String(result.insertId).padStart(5,'0');
-      const years = Number(experienceYears || 0);
-      if (!Number.isInteger(years) || years < 0 || years > 60) return json(res,400,{error:'Enter valid teaching experience'});
       await db.execute('INSERT INTO learning_tutor_details(user_id,tutor_code,phone,city,qualification,experience_years,subjects,languages,teaching_mode) VALUES(?,?,?,?,?,?,?,?,?)',[result.insertId,tutorCode,cleanPhone||null,String(city||'').trim()||null,String(qualification||'').trim()||null,years,listValue(subjects)||null,listValue(languages)||null,['online','offline','both'].includes(teachingMode)?teachingMode:'online']);
     }
     if (role === 'institution') {
