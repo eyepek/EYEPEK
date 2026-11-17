@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AdminDashboard from './AdminDashboard.jsx';
+import TutorDashboard from './TutorDashboard.jsx';
 import { BookOpen, GraduationCap, Building2, ShieldCheck, LogIn, UserPlus, LogOut, Loader2, LockKeyhole, Mail, User, AlertCircle, CheckCircle2, Users, Check, X, RefreshCw } from 'lucide-react';
 
 const roles = [
@@ -119,6 +120,7 @@ export default function App() {
   const Icon = selectedRole.icon;
 
   if (user?.role === 'admin') return <AdminDashboard user={user} token={token} onLogout={logout} />;
+  if (user?.role === 'tutor') return <TutorDashboard user={user} token={token} onLogout={logout} />;
 
   if (user) return (
     <div className="learning-app shell">
