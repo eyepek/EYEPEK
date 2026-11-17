@@ -12,7 +12,7 @@ const roles = [
 const API = '/api/learning';
 
 export default function App() {
-  const [mode, setMode] = useState(() => window.location.pathname.replace(/\\/$/, '').endsWith('/admin-login') ? 'admin-login' : 'login');
+  const [mode, setMode] = useState(() => window.location.pathname.endsWith('/admin-login') ? 'admin-login' : 'login');
   const [role, setRole] = useState('student');
   const [fullName, setFullName] = useState('');
   const [institutionName, setInstitutionName] = useState('');
