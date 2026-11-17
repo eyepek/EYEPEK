@@ -14,7 +14,7 @@
       "has": [
         {
           "type": "host",
-          "value": "^(?:www\\\\.)?eyepek\\\\.com$"
+          "value": "^(?:www[.])?eyepek[.]com$"
         }
       ],
       "destination": "https://eyepek-eyepeks-projects.vercel.app/api/learning/:path*"
