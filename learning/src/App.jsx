@@ -165,7 +165,7 @@ export default function App() {
             <div style={{padding:12,borderRadius:10,background:'#edf5ff',color:'#17365d',fontSize:12}}><b>Tutor ID: {tutorProfile.tutorId || 'Assigned after database setup'}</b><br/>Qualification: {tutorProfile.qualification || '—'} • Experience: {tutorProfile.experienceYears || 0} years<br/>Subjects: {tutorProfile.subjects || '—'} • Teaching mode: {tutorProfile.teachingMode || 'online'}<br/><small>All student fees and tutor compensation rates are fixed by EYEPEK Admin.</small></div>
             <div style={{display:'flex',alignItems:'center',gap:12,flexWrap:'wrap'}}>
               <button type="submit" disabled={profileBusy} className="book-btn" style={{fontSize:11,padding:'11px 16px'}}>{profileBusy?'Saving…':'Save teaching profile'}</button>
-              <span style={{fontSize:11,color:'#71839b'}}>Approval status: {tutorProfile.approvalStatus}</span>
+              
             </div>
             {profileMessage && <p role="status" style={{fontSize:12,color:profileMessage.includes('successfully')?'#176b48':'#b42318',margin:0}}>{profileMessage}</p>}
           </form>
