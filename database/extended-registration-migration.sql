@@ -38,3 +38,8 @@ CREATE TABLE IF NOT EXISTS learning_institution_details (
  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
  CONSTRAINT fk_institution_details_user FOREIGN KEY(user_id) REFERENCES learning_users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Backfill stable codes for tutor accounts created before this migration.
+INSERT IGNORE INTO learning_tutor_details (user_id,tutor_code)
+SELECT id,CONCAT('EYE-TUTOR-',LPAD(id,5,'0'))
+FROM learning_users WHERE role='tutor';
