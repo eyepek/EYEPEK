@@ -1,9 +1,38 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 60
+    },
+    "api/**/*.js": {
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
+    {
+      "source": "/api/learning/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?:www\\\\.)?eyepek\\\\.com$"
+        }
+      ],
+      "destination": "https://eyepek-eyepeks-projects.vercel.app/api/learning/:path*"
+    },
     {
       "source": "/:path((?!api/).*)",
       "destination": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/learning/:path*",
+      "headers": [
+        {
+          "key": "x-vercel-enable-rewrite-caching",
+          "value": "0"
+        }
+      ]
     }
   ]
 }

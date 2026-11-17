@@ -8,7 +8,7 @@ export function getDb() {
 
   if (!pool) {
     const u = new URL(uri);
-    const database = decodeURIComponent(u.pathname.replace(/^\//, ''));
+    const database = decodeURIComponent(u.pathname.replace(/^\\//, ''));
 
     pool = mysql.createPool({
       host: u.hostname,
@@ -19,6 +19,13 @@ export function getDb() {
       waitForConnections: true,
       connectionLimit: 2,
       queueLimit: 0,
+      // Enzonic's free MySQL database can sleep after idle periods.
+      // Allow enough time for it to wake before treating the connection as failed.
+      connectTimeout: 30000,
+      enableKeepAlive: true,
+      keepAliveInitialDelay: 10000,
+      maxIdle: 1,
+      idleTimeout: 60000,
       // Enzonic requires TLS for every MySQL connection.
       ssl: process.env.DB_SSL === 'true' ? {} : undefined
     });
