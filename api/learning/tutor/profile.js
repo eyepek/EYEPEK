@@ -7,6 +7,23 @@ export default async function handler(req, res) {
   if (auth.role !== 'tutor') return res.status(403).json({ error: 'Tutor account required' });
 
   try {
+    const [accessRows] = await getDb().execute(
+      `SELECT u.status, tp.approval_status,
+              COALESCE(p.profile_management,1) AS profile_management
+       FROM learning_users u
+       JOIN learning_tutor_profiles tp ON tp.user_id=u.id
+       LEFT JOIN learning_tutor_permissions p ON p.tutor_id=u.id
+       WHERE u.id=? AND u.role='tutor' LIMIT 1`,
+      [auth.id]
+    );
+    const access = accessRows[0];
+    if (!access || access.status !== 'active' || access.approval_status !== 'approved') {
+      return res.status(403).json({ error: 'An approved and active tutor account is required' });
+    }
+    if (!Boolean(access.profile_management)) {
+      return res.status(403).json({ error: 'Your profile management permission is disabled. Contact the administrator.' });
+    }
+
     if (req.method === 'GET') {
       const [rows] = await getDb().execute(
         'SELECT headline, bio, hourly_rate_paise, approval_status FROM learning_tutor_profiles WHERE user_id=? LIMIT 1',
