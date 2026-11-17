@@ -12,7 +12,7 @@ export default async function handler(req,res){
     const name=String(req.query?.name||'').trim().slice(0,100);
     const where=["u.role='tutor'","u.status='active'","tp.approval_status='approved'"];
     const values=[];
-    if(code){where.push('td.tutor_code=?');values.push(code);}
+    if(code){where.push('UPPER(td.tutor_code)=?');values.push(code);}
     if(subject){where.push('(td.subjects LIKE ? OR tp.headline LIKE ?)');values.push('%'+subject+'%','%'+subject+'%');}
     if(name){where.push('(u.full_name LIKE ? OR tp.headline LIKE ?)');values.push('%'+name+'%','%'+name+'%');}
     const [rows]=await getDb().execute(
