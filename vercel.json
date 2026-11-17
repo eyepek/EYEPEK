@@ -8,31 +8,23 @@
       "maxDuration": 60
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/learning/:path*",
+      "src": "^/api/learning/(.*)$",
       "has": [
         {
           "type": "host",
           "value": "^(?:www[.])?eyepek[.]com$"
         }
       ],
-      "destination": "https://eyepek-eyepeks-projects.vercel.app/api/learning/:path*"
+      "dest": "https://eyepek-eyepeks-projects.vercel.app/api/learning/$1"
     },
     {
-      "source": "/:path((?!api/).*)",
-      "destination": "/"
-    }
-  ],
-  "headers": [
+      "handle": "filesystem"
+    },
     {
-      "source": "/api/learning/:path*",
-      "headers": [
-        {
-          "key": "x-vercel-enable-rewrite-caching",
-          "value": "0"
-        }
-      ]
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
