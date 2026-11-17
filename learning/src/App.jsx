@@ -26,7 +26,7 @@ export default function App() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
-  const [tutorProfile, setTutorProfile] = useState({ headline: '', bio: '', hourlyRate: 0, approvalStatus: 'pending' });
+  const [tutorProfile, setTutorProfile] = useState({ headline: '', bio: '', tutorId:'', qualification:'', experienceYears:0, subjects:'', languages:'', teachingMode:'online', city:'', approvalStatus: 'pending' });
   const [profileBusy, setProfileBusy] = useState(false);
   const [profileMessage, setProfileMessage] = useState('');
   const [pendingUsers, setPendingUsers] = useState([]);
@@ -162,8 +162,7 @@ export default function App() {
             <input maxLength={180} value={tutorProfile.headline} onChange={e=>setTutorProfile(p=>({...p,headline:e.target.value}))} placeholder="e.g. Mathematics tutor | 5 years of experience" style={inputStyle}/>
             <label style={labelStyle}>About your teaching</label>
             <textarea maxLength={5000} rows={5} value={tutorProfile.bio} onChange={e=>setTutorProfile(p=>({...p,bio:e.target.value}))} placeholder="Describe your qualifications, teaching approach and experience" style={{...inputStyle,resize:'vertical'}}/>
-            <label style={labelStyle}>Hourly rate (INR)</label>
-            <input type="number" min="0" max="100000" step="1" value={tutorProfile.hourlyRate} onChange={e=>setTutorProfile(p=>({...p,hourlyRate:e.target.value}))} style={inputStyle}/>
+            <div style={{padding:12,borderRadius:10,background:'#edf5ff',color:'#17365d',fontSize:12}}><b>Tutor ID: {tutorProfile.tutorId || 'Assigned after database setup'}</b><br/>Qualification: {tutorProfile.qualification || '—'} • Experience: {tutorProfile.experienceYears || 0} years<br/>Subjects: {tutorProfile.subjects || '—'} • Teaching mode: {tutorProfile.teachingMode || 'online'}<br/><small>All student fees and tutor compensation rates are fixed by EYEPEK Admin.</small></div>
             <div style={{display:'flex',alignItems:'center',gap:12,flexWrap:'wrap'}}>
               <button type="submit" disabled={profileBusy} className="book-btn" style={{fontSize:11,padding:'11px 16px'}}>{profileBusy?'Saving…':'Save teaching profile'}</button>
               <span style={{fontSize:11,color:'#71839b'}}>Approval status: {tutorProfile.approvalStatus}</span>

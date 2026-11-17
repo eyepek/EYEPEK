@@ -54,7 +54,7 @@ export default async function handler(req, res) {
 
     if (req.method === 'GET') {
       const [rows] = await getDb().execute(
-        'SELECT headline, bio, hourly_rate_paise, approval_status FROM learning_tutor_profiles WHERE user_id=? LIMIT 1',
+        `SELECT tp.headline,tp.bio,tp.approval_status,td.tutor_code,td.qualification,td.experience_years AS experienceYears,td.subjects,td.languages,td.teaching_mode AS teachingMode,td.city FROM learning_tutor_profiles tp LEFT JOIN learning_tutor_details td ON td.user_id=tp.user_id WHERE tp.user_id=? LIMIT 1`,
         [auth.id]
       );
       if (!rows.length) return res.status(404).json({ error: 'Tutor profile not found' });
@@ -64,7 +64,7 @@ export default async function handler(req, res) {
         profile: {
           headline: p.headline || '',
           bio: p.bio || '',
-          hourlyRate: Number(p.hourly_rate_paise || 0) / 100,
+          tutorId: p.tutor_code || '', qualification: p.qualification || '', experienceYears: Number(p.experienceYears || 0), subjects: p.subjects || '', languages: p.languages || '', teachingMode: p.teachingMode || 'online', city: p.city || '',
           approvalStatus: p.approval_status
         }
       });
@@ -73,15 +73,11 @@ export default async function handler(req, res) {
     if (req.method === 'PUT') {
       const headline = String(req.body?.headline || '').trim();
       const bio = String(req.body?.bio || '').trim();
-      const hourlyRate = Number(req.body?.hourlyRate || 0);
       if (headline.length > 180) return res.status(400).json({ error: 'Headline must be 180 characters or less' });
       if (bio.length > 5000) return res.status(400).json({ error: 'Bio must be 5000 characters or less' });
-      if (!Number.isFinite(hourlyRate) || hourlyRate < 0 || hourlyRate > 100000) {
-        return res.status(400).json({ error: 'Enter a valid hourly rate' });
-      }
       await getDb().execute(
-        'UPDATE learning_tutor_profiles SET headline=?, bio=?, hourly_rate_paise=? WHERE user_id=?',
-        [headline || null, bio || null, Math.round(hourlyRate * 100), auth.id]
+        'UPDATE learning_tutor_profiles SET headline=?, bio=? WHERE user_id=?',
+        [headline || null, bio || null, auth.id]
       );
       return res.status(200).json({ ok: true, message: 'Tutor profile saved' });
     }
