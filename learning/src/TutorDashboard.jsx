@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { BookOpen, Users, CalendarDays, Video, ClipboardList, ClipboardCheck, Wallet, LogOut, RefreshCw, Plus, Save, ExternalLink } from 'lucide-react';
+import { BookOpen, Users, CalendarDays, Video, ClipboardList, ClipboardCheck, LogOut, RefreshCw, Plus, Save, ExternalLink } from 'lucide-react';
 
 const API='/api/learning/tutor/data';
 const tabs=[
   ['courses','Courses'],['students','Students'],['bookings','Bookings'],['sessions','Live classes'],
-  ['assignments','Assignments'],['attendance','Attendance'],['earnings','Earnings'],['payouts','Payout requests']
+  ['assignments','Assignments'],['attendance','Attendance'],['earnings','Earnings & history']
 ];
 const money=(paise)=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format((Number(paise)||0)/100);
 const dt=v=>v?new Date(v).toLocaleString('en-IN'):'—';
@@ -14,7 +14,6 @@ export default function TutorDashboard({user,token,onLogout}){
   const [loading,setLoading]=useState(false),[saving,setSaving]=useState(false),[error,setError]=useState(''),[notice,setNotice]=useState('');
   const [course,setCourse]=useState({title:'',description:'',price:''});
   const [assignment,setAssignment]=useState({title:'',instructions:'',courseId:'',dueAt:''});
-  const [payout,setPayout]=useState('');
   const [attendance,setAttendance]=useState({sessionId:'',studentId:'',status:'present'});
   const [classLinks,setClassLinks]=useState({});
 
@@ -42,7 +41,6 @@ export default function TutorDashboard({user,token,onLogout}){
   }
   async function addCourse(e){e.preventDefault();await act('Course saved as draft.',async()=>{await request('courses','POST',course);setCourse({title:'',description:'',price:''});});}
   async function addAssignment(e){e.preventDefault();await act('Assignment created.',async()=>{await request('assignments','POST',assignment);setAssignment({title:'',instructions:'',courseId:'',dueAt:''});});}
-  async function requestPayout(e){e.preventDefault();await act('Payout request submitted for admin review.',async()=>{await request('payouts','POST',{amount:payout});setPayout('');});}
   async function markAttendance(e){e.preventDefault();await act('Attendance saved.',()=>request('attendance','POST',attendance));}
   async function update(resource,id,body){await act('Changes saved.',()=>request(resource,'PATCH',{id,...body}));}
 
@@ -62,8 +60,7 @@ export default function TutorDashboard({user,token,onLogout}){
       {tab==='sessions'&&<div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Student</th><th>Schedule</th><th>Classroom URL</th><th>Action</th></tr></thead><tbody>{rows.map(r=><tr key={r.id}><td>{r.studentName}</td><td>{dt(r.scheduledStart)}<small>{r.status}</small></td><td><input value={classLinks[r.id]??r.classroomUrl??''} onChange={e=>setClassLinks(p=>({...p,[r.id]:e.target.value}))} placeholder="https://..."/></td><td><button className="admin-btn primary" disabled={saving} onClick={()=>update('sessions',r.id,{classroomUrl:classLinks[r.id]??r.classroomUrl??''})}><Save size={13}/> Save link</button>{r.status==='scheduled'&&<button className="admin-link-btn" onClick={()=>update('sessions',r.id,{status:'live'})}>Start</button>}{r.status==='live'&&<button className="admin-link-btn" onClick={()=>update('sessions',r.id,{status:'finished'})}>Finish</button>}</td></tr>)}</tbody></table></div>}
       {tab==='assignments'&&<><form className="module-card" onSubmit={addAssignment} style={{display:'grid',gap:10,maxWidth:850,minHeight:0}}><h3>Create assignment</h3><input required placeholder="Assignment title" value={assignment.title} onChange={e=>setAssignment({...assignment,title:e.target.value})}/><textarea placeholder="Instructions" value={assignment.instructions} onChange={e=>setAssignment({...assignment,instructions:e.target.value})}/><input type="datetime-local" value={assignment.dueAt} onChange={e=>setAssignment({...assignment,dueAt:e.target.value||null})}/><button className="book-btn" disabled={saving}><Plus size={14}/> Create assignment</button></form><div className="module-grid">{rows.map(r=><article className="module-card" key={r.id}><h3>{r.title}</h3><p>{r.instructions}</p><small>Due: {dt(r.dueAt)} • Submissions: {r.submissionsCount}</small></article>)}</div></>}
       {tab==='attendance'&&<><form className="module-card" onSubmit={markAttendance} style={{display:'grid',gap:10,maxWidth:650,minHeight:0}}><h3>Record attendance</h3><input required type="number" min="1" placeholder="Session ID" value={attendance.sessionId} onChange={e=>setAttendance({...attendance,sessionId:e.target.value})}/><input required type="number" min="1" placeholder="Student ID" value={attendance.studentId} onChange={e=>setAttendance({...attendance,studentId:e.target.value})}/><select value={attendance.status} onChange={e=>setAttendance({...attendance,status:e.target.value})}><option value="present">Present</option><option value="late">Late</option><option value="absent">Absent</option></select><button className="book-btn" disabled={saving}><Save size={14}/> Save attendance</button></form><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Student</th><th>Session</th><th>Attendance</th><th>Joined</th></tr></thead><tbody>{rows.map(r=><tr key={r.id}><td>{r.studentName}</td><td>#{r.sessionId}</td><td>{r.attendanceStatus}</td><td>{dt(r.joinedAt)}</td></tr>)}</tbody></table></div></>}
-      {tab==='earnings'&&<div className="module-grid"><article className="module-card"><h3>{money(earnings?.grossPaise)}</h3><p>Gross paid earnings</p></article><article className="module-card"><h3>{earnings?.paidBookings||0}</h3><p>Paid bookings</p></article><article className="module-card"><h3>{money(earnings?.requestedPaise)}</h3><p>Reserved / requested payouts</p></article><article className="module-card"><h3>{money(Math.max(0,Number(earnings?.grossPaise||0)-Number(earnings?.requestedPaise||0)))}</h3><p>Estimated available balance</p></article></div>}
-      {tab==='payouts'&&<><form className="module-card" onSubmit={requestPayout} style={{display:'grid',gap:10,maxWidth:600,minHeight:0}}><h3>Request payout</h3><input required type="number" min="100" step="1" placeholder="Amount in INR" value={payout} onChange={e=>setPayout(e.target.value)}/><button className="book-btn" disabled={saving}><Wallet size={14}/> Submit payout request</button><small>Request goes to admin review. This does not initiate a bank transfer.</small></form><div className="module-grid">{rows.map(r=><article className="module-card" key={r.id}><h3>{money(r.amountPaise)}</h3><p>{r.status}</p><small>{dt(r.createdAt)}</small></article>)}</div></>}
+      {tab==='earnings'&&<article className="module-card" style={{maxWidth:850}}><h3>Earnings & payment history</h3><p>Your tutor compensation will be calculated by EYEPEK Admin using verified completed sessions and approved assignment work. Admin controls all rates and payout dates. Direct student payments and tutor withdrawal requests are not available.</p><span className="tutor-tag">Admin-controlled payments</span></article>}
       <footer><span>© {new Date().getFullYear()} EYEPEK Learning.</span><span>Tutor workspace</span></footer>
     </main>
   </div>;
