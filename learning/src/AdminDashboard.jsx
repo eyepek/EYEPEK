@@ -109,15 +109,15 @@ export default function AdminDashboard({ user, token, onLogout }) {
     else loadResource(activeTab);
   }, [activeTab, loadOverview, loadResource]);
 
-  async function refresh() {
-    setNotice('');
+  async function refresh({ clearNotice = true } = {}) {
+    if (clearNotice) setNotice('');
     if (activeTab === 'dashboard') await loadOverview();
     else await loadResource(activeTab);
   }
 
   async function act(label, task) {
     setSaving(true); setError(''); setNotice('');
-    try { await task(); setNotice(label); await refresh(); }
+    try { await task(); await refresh({ clearNotice: false }); setNotice(label); }
     catch (err) { setError(err.message || 'Action could not be completed'); }
     finally { setSaving(false); }
   }
