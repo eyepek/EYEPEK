@@ -11,6 +11,7 @@ const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, group: 'Workspace' },
   { id: 'approvals', label: 'Approval requests', icon: UserCheck, group: 'Workspace' },
   { id: 'users', label: 'User management', icon: Users, group: 'Management' },
+  { id: 'tutor-permissions', label: 'Tutor permissions', icon: ShieldCheck, group: 'Management' },
   { id: 'subjects', label: 'Subjects', icon: BookOpen, group: 'Management' },
   { id: 'courses', label: 'Courses', icon: GraduationCap, group: 'Management' },
   { id: 'bookings', label: 'Bookings', icon: CalendarDays, group: 'Operations' },
@@ -81,6 +82,12 @@ export default function AdminDashboard({ user, token, onLogout }) {
     setLoading(true); setError('');
     try {
       if (tab === 'analytics') { const data = await api('overview'); setOverview(data.stats); setRows([]); }
+      else if (tab === 'tutor-permissions') {
+        const response = await fetch(ROOT + '/tutor-permissions', { headers: { Authorization: 'Bearer ' + token } });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Could not load tutor permissions');
+        setRows(data.tutors || []);
+      }
       else if (tab === 'approvals') {
         const response = await fetch(ROOT + '/users', { headers: { Authorization: 'Bearer ' + token } });
         const data = await response.json();
@@ -146,6 +153,18 @@ export default function AdminDashboard({ user, token, onLogout }) {
     await act('Classroom link saved.', () => api('sessions', 'PATCH', { id, classroomUrl: sessionLinks[id] || '' }));
   }
 
+  async function saveTutorPermissions(tutorId, permissions) {
+    await act('Tutor permissions saved successfully.', async () => {
+      const response = await fetch(ROOT + '/tutor-permissions', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify({ tutorId, permissions })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Could not save tutor permissions');
+    });
+  }
+
   async function saveSettings(e) {
     e.preventDefault();
     await act('Platform settings saved.', () => api('settings', 'PUT', { settings }));
@@ -160,6 +179,8 @@ export default function AdminDashboard({ user, token, onLogout }) {
       <div className="admin-record-main"><div className="admin-avatar">{String(row.fullName || 'U').slice(0,1).toUpperCase()}</div><div><span className="admin-role">{row.role}</span><h3>{row.fullName}</h3><p>{row.email}</p><p>{row.role === 'tutor' ? (row.headline || 'Tutor profile awaiting review') : (row.institutionName || 'Institution profile awaiting review')}</p><small>Registered {date(row.createdAt)}</small></div></div>
       <div className="admin-actions"><button className="admin-btn primary" disabled={saving} onClick={() => approveUser(row.id, 'approve')}><Check size={14}/> Approve</button><button className="admin-btn danger" disabled={saving} onClick={() => approveUser(row.id, 'reject')}><X size={14}/> Reject</button></div>
     </article>)}</div>;
+
+    if (activeTab === 'tutor-permissions') return <div className="admin-records">{filtered.map(row => <article className="admin-record" key={row.id} style={{display:'block'}}><div className="admin-record-main"><div className="admin-avatar">{String(row.fullName || 'T').slice(0,1).toUpperCase()}</div><div><span className="admin-role">Tutor • {row.status} • {row.approvalStatus || 'not reviewed'}</span><h3>{row.fullName}</h3><p>{row.email}</p></div></div><div className="admin-permission-grid">{[['profile_management','Profile management'],['course_management','Course management'],['course_publish','Course publish'],['student_management','Student management'],['live_classes','Live classes'],['booking_management','Booking management'],['assignments','Assignments'],['attendance','Attendance'],['earnings','Earnings'],['payout_request','Payout request']].map(([key,label])=><label key={key} className="admin-permission-item"><input type="checkbox" checked={Boolean(row.permissions?.[key])} disabled={saving || row.status !== 'active' || row.approvalStatus !== 'approved'} onChange={e=>setRows(current=>current.map(item=>item.id===row.id?{...item,permissions:{...item.permissions,[key]:e.target.checked}}:item))}/><span>{label}{key==='course_publish' && <small>Keep OFF until Admin review is ready</small>}</span></label>)}</div><div className="admin-actions" style={{justifyContent:'flex-end',marginTop:14}}><button className="admin-btn primary" disabled={saving || row.status !== 'active' || row.approvalStatus !== 'approved'} onClick={()=>saveTutorPermissions(row.id,row.permissions)}><Save size={14}/> Save permissions</button></div>{(row.status !== 'active' || row.approvalStatus !== 'approved') && <p className="admin-footnote">Permissions can be configured after this tutor is approved and active.</p>}</article>)}</div>;
 
     if (activeTab === 'users') return <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>User</th><th>Role</th><th>Status</th><th>Joined</th><th>Action</th></tr></thead><tbody>{filtered.map(row => <tr key={row.id}><td><b>{row.fullName}</b><small>{row.email}</small></td><td>{row.role}</td><td><span className={statusClass(row.status)}>{row.status}</span></td><td>{date(row.createdAt)}</td><td>{row.role === 'admin' ? <span className="admin-muted">Protected</span> : <button className="admin-btn subtle" disabled={saving} onClick={() => act('User status updated.', () => api('users','PATCH',{id:row.id,status:row.status === 'active' ? 'suspended' : 'active'}))}>{row.status === 'active' ? 'Suspend' : 'Activate'}</button>}</td></tr>)}</tbody></table></div>;
 
