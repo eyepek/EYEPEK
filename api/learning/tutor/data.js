@@ -39,7 +39,7 @@ export default async function handler(req, res) {
            SELECT DISTINCT u.id,u.full_name AS fullName,u.email
            FROM learning_bookings b JOIN learning_users u ON u.id=b.student_id
            WHERE b.tutor_id=? ORDER BY fullName`,
-          [tutor.id]
+          [tutor.id,tutor.id]
         );
         return json(res, 200, { ok: true, rows });
       }
