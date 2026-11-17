@@ -111,3 +111,14 @@
  .admin-app .admin-stat-card>small{font-size:9px}
  .admin-app .admin-quick-card{font-size:11px;gap:8px}
 }
+
+
+/* Admin finance and live-class summaries */
+.admin-app .admin-toolbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.admin-app .admin-module-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 0 17px}
+.admin-app .admin-module-summary>div{display:grid;gap:7px;padding:17px 19px;background:#fff;border:1px solid #e3eaf3;border-radius:13px;box-shadow:0 4px 15px #12345d08}
+.admin-app .admin-module-summary span{font-size:12px;color:#7d8fa5;font-weight:600}
+.admin-app .admin-module-summary b{font:800 23px Manrope;color:#18385f}
+.admin-app .admin-inline-actions{flex-wrap:wrap;gap:10px}
+.admin-app .admin-inline-actions a.admin-link-btn{color:#167b50;text-decoration:none}
+@media(max-width:760px){.admin-app .admin-module-summary{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.admin-app .admin-module-summary>div{padding:13px}.admin-app .admin-module-summary b{font-size:20px}.admin-app .admin-toolbar-actions{width:100%}.admin-app .admin-toolbar-actions .admin-select{max-width:100%}}
