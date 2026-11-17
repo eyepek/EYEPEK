@@ -16,6 +16,7 @@ export default function App() {
   const [role, setRole] = useState('student');
   const [fullName, setFullName] = useState('');
   const [institutionName, setInstitutionName] = useState('');
+  const [registration, setRegistration] = useState({ phone:'', city:'', qualification:'', experienceYears:'', subjects:'', languages:'English, Hindi', teachingMode:'online', website:'', institutionType:'', contactPerson:'', gradeLevel:'', learningGoals:'' });
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -47,7 +48,7 @@ export default function App() {
     try {
       const endpoint = mode === 'register' ? '/register' : '/login';
       const payload = mode === 'register'
-        ? { fullName, email, password, role, ...(role === 'institution' ? { institutionName } : {}) }
+        ? { fullName, email, password, role, ...registration, ...(role === 'institution' ? { institutionName } : {}) }
         : { email, password, ...(mode === 'admin-login' ? { adminOnly: true } : {}) };
       const response = await fetch(API + endpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
@@ -199,7 +200,7 @@ export default function App() {
               </div>
               <label style={labelStyle}>Full name</label>
               <input required minLength={2} maxLength={120} value={fullName} onChange={e=>setFullName(e.target.value)} placeholder="Enter your full name" style={inputStyle}/>
-              {role==='institution' && <><label style={labelStyle}>Institution name</label><input required value={institutionName} onChange={e=>setInstitutionName(e.target.value)} placeholder="Enter institution name" style={inputStyle}/></>}
+              <label style={labelStyle}>Mobile number</label><input value={registration.phone} onChange={e=>setRegistration(p=>({...p,phone:e.target.value}))} placeholder="Mobile number (optional)" style={inputStyle}/><label style={labelStyle}>City</label><input value={registration.city} onChange={e=>setRegistration(p=>({...p,city:e.target.value}))} placeholder="Your city" style={inputStyle}/>{role==='student' && <><label style={labelStyle}>Class / Education level</label><input value={registration.gradeLevel} onChange={e=>setRegistration(p=>({...p,gradeLevel:e.target.value}))} placeholder="e.g. Class 12, Graduation" style={inputStyle}/><label style={labelStyle}>Learning goals</label><textarea value={registration.learningGoals} onChange={e=>setRegistration(p=>({...p,learningGoals:e.target.value}))} placeholder="What would you like to learn?" style={{...inputStyle,minHeight:80}}/></>}{role==='tutor' && <><label style={labelStyle}>Highest qualification</label><input value={registration.qualification} onChange={e=>setRegistration(p=>({...p,qualification:e.target.value}))} placeholder="e.g. MCA, M.Sc Mathematics" style={inputStyle}/><label style={labelStyle}>Teaching experience (years)</label><input type="number" min="0" max="60" value={registration.experienceYears} onChange={e=>setRegistration(p=>({...p,experienceYears:e.target.value}))} placeholder="Years of experience" style={inputStyle}/><label style={labelStyle}>Subjects you teach</label><input value={registration.subjects} onChange={e=>setRegistration(p=>({...p,subjects:e.target.value}))} placeholder="e.g. Mathematics, Python, Java" style={inputStyle}/><label style={labelStyle}>Languages</label><input value={registration.languages} onChange={e=>setRegistration(p=>({...p,languages:e.target.value}))} placeholder="English, Hindi" style={inputStyle}/><label style={labelStyle}>Teaching mode</label><select value={registration.teachingMode} onChange={e=>setRegistration(p=>({...p,teachingMode:e.target.value}))} style={inputStyle}><option value="online">Online</option><option value="offline">Offline</option><option value="both">Both</option></select></>}{role==='institution' && <><label style={labelStyle}>Institution name</label><input required value={institutionName} onChange={e=>setInstitutionName(e.target.value)} placeholder="Enter institution name" style={inputStyle}/></>}{role==='institution' && <><label style={labelStyle}>Contact person</label><input value={registration.contactPerson} onChange={e=>setRegistration(p=>({...p,contactPerson:e.target.value}))} placeholder="Principal / authorized contact" style={inputStyle}/><label style={labelStyle}>Institution type</label><input value={registration.institutionType} onChange={e=>setRegistration(p=>({...p,institutionType:e.target.value}))} placeholder="College, School, Coaching centre" style={inputStyle}/><label style={labelStyle}>Website</label><input type="url" value={registration.website} onChange={e=>setRegistration(p=>({...p,website:e.target.value}))} placeholder="https://example.com" style={inputStyle}/></>}
             </>}
             <label style={labelStyle}>Email address</label>
             <input required type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" style={inputStyle}/>
