@@ -90,7 +90,7 @@ export default async function handler(req, res) {
         const [rows] = await db.execute(
           `SELECT s.id,s.booking_id AS bookingId,s.classroom_url AS classroomUrl,s.started_at AS startedAt,
                   s.ended_at AS endedAt,s.status,s.created_at AS createdAt,
-                  st.full_name AS studentName,tu.full_name AS tutorName
+                  b.scheduled_start AS scheduledStart,st.full_name AS studentName,tu.full_name AS tutorName
            FROM learning_sessions s JOIN learning_bookings b ON b.id=s.booking_id
            JOIN learning_users st ON st.id=b.student_id JOIN learning_users tu ON tu.id=b.tutor_id
            ORDER BY s.created_at DESC LIMIT 500`
@@ -208,6 +208,8 @@ export default async function handler(req, res) {
         if (status !== undefined) {
           if (!['scheduled','live','finished','cancelled'].includes(status)) return json(res, 400, { error: 'Invalid session status' });
           updates.push('status=?'); values.push(status);
+          if (status === 'live') updates.push('started_at=COALESCE(started_at,CURRENT_TIMESTAMP)');
+          if (status === 'finished' || status === 'cancelled') updates.push('ended_at=COALESCE(ended_at,CURRENT_TIMESTAMP)');
         }
         if (classroomUrl !== undefined) {
           const url = String(classroomUrl || '').trim();
