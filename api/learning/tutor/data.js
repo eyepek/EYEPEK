@@ -110,6 +110,7 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
+      if (resource === 'payouts') return json(res, 403, { error: 'Tutor payout requests are disabled. EYEPEK Admin controls all tutor compensation and payouts.' });
       if (resource === 'courses') {
         const title = String(req.body?.title || '').trim();
         const description = String(req.body?.description || '').trim();
