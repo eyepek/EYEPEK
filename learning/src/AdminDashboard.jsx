@@ -11,6 +11,7 @@ const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, group: 'Workspace' },
   { id: 'approvals', label: 'Approval requests', icon: UserCheck, group: 'Workspace' },
   { id: 'tutor-status', label: 'Tutor status & policy', icon: ShieldCheck, group: 'Management' },
+  { id: 'tutor-assignments', label: 'Student–Tutor allocation', icon: Users, group: 'Management' },
   { id: 'users', label: 'User management', icon: Users, group: 'Management' },
   { id: 'tutor-permissions', label: 'Tutor permissions', icon: ShieldCheck, group: 'Management' },
   { id: 'subjects', label: 'Subjects', icon: BookOpen, group: 'Management' },
@@ -59,7 +60,7 @@ export default function AdminDashboard({ user, token, onLogout }) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
-  const [mobileMenu, setMobileMenu] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);\n  const [allocation, setAllocation] = useState({students:[],tutors:[],assignments:[]});\n  const [allocationForm, setAllocationForm] = useState({studentId:'',tutorId:'',adminNote:''});
 
   const api = useCallback(async (resource, method = 'GET', body) => {
     const response = await fetch(ROOT + '/data?resource=' + encodeURIComponent(resource), {
@@ -156,6 +157,26 @@ export default function AdminDashboard({ user, token, onLogout }) {
     await act('Classroom link saved.', () => api('sessions', 'PATCH', { id, classroomUrl: sessionLinks[id] || '' }));
   }
 
+  async function allocateTutor(e) {
+    e.preventDefault();
+    await act('Tutor assigned to Student.', async () => {
+      const response = await fetch(ROOT + '/tutor-assignments', {
+        method:'POST', headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},
+        body:JSON.stringify(allocationForm)
+      });
+      const data=await response.json();
+      if(!response.ok) throw new Error(data.error||'Could not assign Tutor');
+      setAllocationForm({studentId:'',tutorId:'',adminNote:''});
+    });
+  }
+
+  async function endTutorAllocation(id) {
+    await act('Tutor allocation ended.', async () => {
+      const response=await fetch(ROOT+'/tutor-assignments',{method:'PATCH',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({id})});
+      const data=await response.json();if(!response.ok)throw new Error(data.error||'Could not end allocation');
+    });
+  }
+
   async function saveTutorPermissions(tutorId, permissions) {
     await act('Tutor permissions saved successfully.', async () => {
       const response = await fetch(ROOT + '/tutor-permissions', {
@@ -177,6 +198,23 @@ export default function AdminDashboard({ user, token, onLogout }) {
     if (loading) return <div className="admin-empty"><RefreshCw className="admin-spin" size={20}/> Loading records…</div>;
     if (error && !rows.length) return <div className="admin-empty admin-error"><AlertTriangle size={20}/>{error}</div>;
     if (!filtered.length) return <div className="admin-empty">No records found.</div>;
+
+    if (activeTab === 'tutor-assignments') return <div>
+      <form className="admin-add-form" onSubmit={allocateTutor}>
+        <select className="admin-select" required value={allocationForm.studentId} onChange={e=>setAllocationForm(p=>({...p,studentId:e.target.value}))}>
+          <option value="">Select Student</option>{allocation.students.map(x=><option key={x.id} value={x.id}>{x.fullName} — {x.email}</option>)}
+        </select>
+        <select className="admin-select" required value={allocationForm.tutorId} onChange={e=>setAllocationForm(p=>({...p,tutorId:e.target.value}))}>
+          <option value="">Select approved Tutor</option>{allocation.tutors.map(x=><option key={x.id} value={x.id}>{x.tutorId} — {x.fullName} {x.subjects?'('+x.subjects+')':''}</option>)}
+        </select>
+        <input placeholder="Admin note (optional)" value={allocationForm.adminNote} onChange={e=>setAllocationForm(p=>({...p,adminNote:e.target.value}))}/>
+        <button className="admin-btn primary" disabled={saving||!allocationForm.studentId||!allocationForm.tutorId}><Plus size={15}/> Assign Tutor</button>
+      </form>
+      <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Student</th><th>Assigned Tutor</th><th>Assigned on</th><th>Status</th><th>Action</th></tr></thead><tbody>
+        {filtered.map(row=><tr key={row.id}><td>{row.studentName}</td><td><b>{row.tutorCode}</b><small>{row.tutorName}</small></td><td>{date(row.assignedAt)}</td><td><span className={statusClass(row.status)}>{row.status}</span></td><td>{row.status==='active'&&<button className="admin-btn danger" disabled={saving} onClick={()=>endTutorAllocation(row.id)}>End allocation</button>}</td></tr>)}
+      </tbody></table></div>
+      <p className="admin-footnote">Only active, Admin-approved Tutors can be assigned. Students cannot make or change Tutor allocations themselves.</p>
+    </div>;
 
     if (activeTab === 'tutor-status') return <div>
       <div className="admin-module-summary">
