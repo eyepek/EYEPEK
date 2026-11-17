@@ -8,3 +8,106 @@
 @media(max-width:1150px){.admin-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-quick-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-main{padding:22px}}
 @media(max-width:760px){.admin-app .admin-sidebar{transform:translateX(-105%);transition:transform .25s}.admin-app .admin-sidebar.open{transform:translateX(0)}.admin-scrim{display:block;position:fixed;inset:0;border:0;background:#081d35a8;z-index:29}.admin-main{margin:0;padding:16px 14px}.admin-mobile-menu{display:block}.admin-topbar{align-items:flex-start}.admin-topbar h1{font-size:18px}.admin-live,.admin-user-chip{display:none}.admin-welcome{padding:20px;min-height:130px}.admin-welcome h2{font-size:18px}.admin-welcome-icon{width:52px;height:52px}.admin-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-toolbar{align-items:flex-start;flex-direction:column}.admin-search,.admin-search input{width:100%}.admin-record{align-items:flex-start;flex-direction:column}.admin-settings-grid{grid-template-columns:1fr}.admin-settings-actions{grid-column:auto;align-items:flex-start;flex-direction:column}.admin-footer span:last-child{display:none}}
 @media(max-width:420px){.admin-stat-grid{grid-template-columns:1fr 1fr;gap:8px}.admin-stat-card{padding:10px;grid-template-columns:30px 1fr;column-gap:8px}.admin-stat-icon{width:30px;height:30px}.admin-stat-card>b{font-size:18px}.admin-quick-grid{grid-template-columns:1fr 1fr}.admin-add-form{flex-direction:column}.admin-user-chip{display:none}}
+
+
+/* Admin dashboard refresh: larger typography, clearer hierarchy and polished cards */
+.learning-app.admin-app{font-size:15px;background:linear-gradient(135deg,#f4f7fc 0%,#eef4fb 100%);color:#17365d}
+.admin-app .admin-sidebar{width:278px;padding:25px 17px 19px;background:linear-gradient(180deg,#0d2a4d 0%,#123b68 100%)}
+.admin-app .admin-main{margin-left:278px;padding:30px 38px 24px}
+.admin-app .admin-brand{gap:13px;padding-bottom:30px}
+.admin-app .admin-brand-mark{width:44px;height:44px;font-size:25px}
+.admin-app .admin-brand b{font-size:19px}
+.admin-app .admin-brand small{font-size:10px}
+.admin-app .admin-side-heading{font-size:11px}
+.admin-app .admin-nav-group>small{font-size:10px;padding:10px 12px}
+.admin-app .admin-nav-link{font-size:14px;padding:12px 13px;gap:12px;border-radius:10px}
+.admin-app .admin-nav-link svg{width:19px;height:19px}
+.admin-app .admin-secure{padding:14px}
+.admin-app .admin-secure b{font-size:12px}
+.admin-app .admin-secure small{font-size:11px}
+.admin-app .admin-logout{font-size:13px;padding:12px}
+.admin-app .admin-crumb{font-size:10px}
+.admin-app .admin-topbar{margin-bottom:28px}
+.admin-app .admin-topbar h1{font-size:30px}
+.admin-app .admin-live{font-size:12px}
+.admin-app .admin-user-chip{padding:7px 12px}
+.admin-app .admin-user-chip b{font-size:12px}
+.admin-app .admin-user-chip small{font-size:10px}
+.admin-app .admin-avatar.small{width:36px;height:36px;font-size:14px}
+.admin-app .admin-icon-btn{width:40px;height:40px;border-radius:10px}
+.admin-app .admin-content{max-width:1600px}
+.admin-app .admin-welcome{min-height:170px;padding:32px 36px;border-radius:20px;box-shadow:0 14px 36px #12345d18}
+.admin-app .admin-welcome>div:first-child>span,.admin-app .admin-section-head>div>span,.admin-app .admin-toolbar>div:first-child>span,.admin-app .admin-settings-card>span{font-size:10px;letter-spacing:1.8px}
+.admin-app .admin-welcome h2{font-size:29px;margin:12px 0 8px}
+.admin-app .admin-welcome p{font-size:15px;line-height:1.65}
+.admin-app .admin-welcome-icon{width:88px;height:88px;border-radius:26px}
+.admin-app .admin-section-head{margin:30px 0 16px}
+.admin-app .admin-section-head h2{font-size:21px}
+.admin-app .admin-stat-grid{gap:16px}
+.admin-app .admin-stat-card{padding:20px;grid-template-columns:46px 1fr;column-gap:13px;border-radius:16px;box-shadow:0 5px 18px #12345d0a;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.admin-app .admin-stat-card:not(:disabled):hover{transform:translateY(-3px);box-shadow:0 12px 26px #12345d14;border-color:#c9dbef}
+.admin-app .admin-stat-icon{width:46px;height:46px;border-radius:13px}
+.admin-app .admin-stat-label{font-size:12px}
+.admin-app .admin-stat-card>b{font-size:29px;margin:7px 0 2px}
+.admin-app .admin-stat-card>small{font-size:11px}
+.admin-app .admin-quick-grid{gap:13px}
+.admin-app .admin-quick-card{padding:16px;border-radius:13px;font-size:13px;gap:12px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.admin-app .admin-quick-card:hover{transform:translateY(-2px);border-color:#c8dbf0;box-shadow:0 8px 20px #12345d10}
+.admin-app .admin-quick-card>span{width:38px;height:38px;border-radius:11px}
+.admin-app .admin-notice-card{margin-top:22px;padding:17px 19px;border-radius:13px}
+.admin-app .admin-notice-card b{font-size:13px}
+.admin-app .admin-notice-card p{font-size:12px;line-height:1.7}
+.admin-app .admin-toolbar{margin-bottom:18px}
+.admin-app .admin-toolbar p{font-size:13px}
+.admin-app .admin-search{padding:11px 13px}
+.admin-app .admin-search input{font-size:13px;width:230px}
+.admin-app .admin-btn{padding:10px 14px;font-size:12px;border-radius:9px}
+.admin-app .admin-add-form{max-width:680px;padding:15px;border-radius:13px}
+.admin-app .admin-add-form input{font-size:13px;padding:12px}
+.admin-app .admin-record{padding:20px;border-radius:14px}
+.admin-app .admin-record h3{font-size:17px}
+.admin-app .admin-record p{font-size:13px;line-height:1.5}
+.admin-app .admin-record small,.admin-app .admin-role{font-size:11px}
+.admin-app .admin-table{min-width:800px}
+.admin-app .admin-table th{font-size:11px;padding:15px 16px}
+.admin-app .admin-table td{font-size:13px;padding:15px 16px}
+.admin-app .admin-table td b{font-size:14px}
+.admin-app .admin-table td small{font-size:11px}
+.admin-app .admin-status{font-size:11px;padding:5px 9px}
+.admin-app .admin-select{font-size:12px;padding:8px 10px}
+.admin-app .admin-link-btn,.admin-app .admin-muted{font-size:11px}
+.admin-app .admin-link-edit input{font-size:12px;padding:8px}
+.admin-app .admin-empty{font-size:13px}
+.admin-app .admin-alert,.admin-app .admin-warning{font-size:13px;padding:13px 15px}
+.admin-app .admin-settings-grid{gap:16px}
+.admin-app .admin-settings-card{padding:21px;border-radius:14px;gap:15px}
+.admin-app .admin-settings-card h3{font-size:17px}
+.admin-app .admin-settings-card label{font-size:12px}
+.admin-app .admin-settings-card label input,.admin-app .admin-settings-card label select{font-size:13px;padding:12px}
+.admin-app .admin-settings-actions p,.admin-app .admin-footnote{font-size:12px;line-height:1.65}
+.admin-app .admin-footer{font-size:11px}
+@media(max-width:1150px){.admin-app .admin-main{padding:24px}.admin-app .admin-stat-card>b{font-size:26px}}
+@media(max-width:760px){
+ .admin-app .admin-main{margin:0;padding:18px 15px}
+ .admin-app .admin-topbar h1{font-size:24px}
+ .admin-app .admin-welcome{padding:23px;min-height:145px}
+ .admin-app .admin-welcome h2{font-size:23px}
+ .admin-app .admin-welcome p{font-size:13px}
+ .admin-app .admin-section-head h2{font-size:19px}
+ .admin-app .admin-stat-card{padding:15px;grid-template-columns:38px 1fr}
+ .admin-app .admin-stat-icon{width:38px;height:38px}
+ .admin-app .admin-stat-label{font-size:11px}
+ .admin-app .admin-stat-card>b{font-size:23px}
+ .admin-app .admin-stat-card>small{font-size:10px}
+ .admin-app .admin-quick-card{font-size:12px;padding:13px}
+ .admin-app .admin-search,.admin-app .admin-search input{width:100%}
+}
+@media(max-width:420px){
+ .admin-app .admin-stat-grid{grid-template-columns:1fr 1fr;gap:9px}
+ .admin-app .admin-stat-card{padding:12px;grid-template-columns:32px 1fr;column-gap:9px}
+ .admin-app .admin-stat-icon{width:32px;height:32px}
+ .admin-app .admin-stat-card>b{font-size:20px}
+ .admin-app .admin-stat-label{font-size:10px}
+ .admin-app .admin-stat-card>small{font-size:9px}
+ .admin-app .admin-quick-card{font-size:11px;gap:8px}
+}
