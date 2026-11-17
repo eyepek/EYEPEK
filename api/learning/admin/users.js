@@ -26,11 +26,16 @@ export default async function handler(req, res) {
                     WHEN EXISTS (
                       SELECT 1 FROM learning_bookings b
                       WHERE b.tutor_id=u.id AND b.status NOT IN ('cancelled','rejected')
+                    ) OR EXISTS (
+                      SELECT 1 FROM learning_student_tutor_assignments a
+                      WHERE a.tutor_id=u.id AND a.status='active'
                     ) THEN 'Assigned'
                     ELSE 'Approved'
                   END AS tutorStatus,
-                  (SELECT COUNT(*) FROM learning_bookings b
-                   WHERE b.tutor_id=u.id AND b.status NOT IN ('cancelled','rejected')) AS activeAllocations
+                  ((SELECT COUNT(*) FROM learning_bookings b
+                   WHERE b.tutor_id=u.id AND b.status NOT IN ('cancelled','rejected')) +
+                   (SELECT COUNT(*) FROM learning_student_tutor_assignments a
+                   WHERE a.tutor_id=u.id AND a.status='active')) AS activeAllocations
            FROM learning_users u
            LEFT JOIN learning_tutor_profiles tp ON tp.user_id=u.id
            LEFT JOIN learning_tutor_details td ON td.user_id=u.id
