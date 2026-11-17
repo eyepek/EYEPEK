@@ -18,6 +18,7 @@ export default function App() {
   const [institutionName, setInstitutionName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(() => localStorage.getItem('eyepek_learning_token') || '');
   const [busy, setBusy] = useState(false);
@@ -42,6 +43,7 @@ export default function App() {
   async function submit(e) {
     e.preventDefault();
     setBusy(true); setError(''); setMessage('');
+    if (mode === 'register' && password !== confirmPassword) { setBusy(false); setError('Passwords do not match.'); return; }
     try {
       const endpoint = mode === 'register' ? '/register' : '/login';
       const payload = mode === 'register'
@@ -113,7 +115,7 @@ export default function App() {
 
   function logout() {
     localStorage.removeItem('eyepek_learning_token');
-    setToken(''); setUser(null); setMode('login'); setPassword(''); setMessage('You have been signed out.');
+    setToken(''); setUser(null); setMode('login'); setPassword(''); setConfirmPassword(''); setMessage('You have been signed out.');
   }
 
   const selectedRole = roles.find(r => r.id === (user?.role || role)) || roles[0];
@@ -203,6 +205,7 @@ export default function App() {
             <input required type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" style={inputStyle}/>
             <label style={labelStyle}>Password</label>
             <input required type="password" minLength={mode==='register'?8:1} maxLength={128} autoComplete={mode==='register'?'new-password':'current-password'} value={password} onChange={e=>setPassword(e.target.value)} placeholder={mode==='register'?'At least 8 characters':'Enter your password'} style={inputStyle}/>
+            {mode==='register' && <><label style={labelStyle}>Confirm password</label><input required type="password" minLength={8} maxLength={128} autoComplete="new-password" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} placeholder="Re-enter your password" style={inputStyle}/></>}
             {error && <div role="alert" style={{color:'#b42318',background:'#fff2f0',padding:11,borderRadius:8,fontSize:12,display:'flex',gap:8}}><AlertCircle size={16}/>{error}</div>}
             {message && <div style={{color:'#176b48',background:'#effaf4',padding:11,borderRadius:8,fontSize:12}}>{message}</div>}
             <button disabled={busy} type="submit" style={{...submitStyle,opacity:busy?.7:1}}>{busy?<Loader2 size={17} className="spin"/>:mode==='admin-login'?<ShieldCheck size={17}/>:mode==='login'?<LogIn size={17}/>:<UserPlus size={17}/>} {busy?'Please wait…':mode==='register'?'Create account':mode==='admin-login'?'Admin sign in':'Sign in'}</button>
