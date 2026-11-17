@@ -122,3 +122,8 @@
 .admin-app .admin-inline-actions{flex-wrap:wrap;gap:10px}
 .admin-app .admin-inline-actions a.admin-link-btn{color:#167b50;text-decoration:none}
 @media(max-width:760px){.admin-app .admin-module-summary{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.admin-app .admin-module-summary>div{padding:13px}.admin-app .admin-module-summary b{font-size:20px}.admin-app .admin-toolbar-actions{width:100%}.admin-app .admin-toolbar-actions .admin-select{max-width:100%}}
+
+.admin-app .admin-add-form textarea{width:100%;min-height:100px;border:1px solid #dce5ef;border-radius:9px;padding:12px;font:inherit;resize:vertical}
+.admin-app .admin-add-form .admin-select{min-width:170px}
+.admin-app .admin-table td{vertical-align:middle}
+.admin-app .admin-table td .admin-btn{margin:2px}
