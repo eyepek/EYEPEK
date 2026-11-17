@@ -12,7 +12,7 @@ const roles = [
 const API = '/api/learning';
 
 export default function App() {
-  const [mode, setMode] = useState('login');
+  const [mode, setMode] = useState(() => window.location.pathname.replace(/\\/$/, '').endsWith('/admin-login') ? 'admin-login' : 'login');
   const [role, setRole] = useState('student');
   const [fullName, setFullName] = useState('');
   const [institutionName, setInstitutionName] = useState('');
@@ -46,7 +46,7 @@ export default function App() {
       const endpoint = mode === 'register' ? '/register' : '/login';
       const payload = mode === 'register'
         ? { fullName, email, password, role, ...(role === 'institution' ? { institutionName } : {}) }
-        : { email, password };
+        : { email, password, ...(mode === 'admin-login' ? { adminOnly: true } : {}) };
       const response = await fetch(API + endpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
       });
@@ -184,12 +184,11 @@ export default function App() {
         </section>
         <section style={{padding:'clamp(25px,5vw,52px)'}}>
           <div style={{display:'flex',gap:8,marginBottom:28}}>
-            <button onClick={()=>{setMode('login');setError('');setMessage('')}} style={tabStyle(mode==='login')}> <LogIn size={15}/> Sign in</button>
-            <button onClick={()=>{setMode('admin-login');setError('');setMessage('')}} style={tabStyle(mode==='admin-login')}><ShieldCheck size={15}/> Admin</button>
-            <button onClick={()=>{setMode('register');setError('');setMessage('')}} style={tabStyle(mode==='register')}><UserPlus size={15}/> Register</button>
+            {mode !== 'admin-login' && <button onClick={()=>{setMode('login');setError('');setMessage('')}} style={tabStyle(mode==='login')}> <LogIn size={15}/> Sign in</button>}
+            {mode !== 'admin-login' && <button onClick={()=>{setMode('register');setError('');setMessage('')}} style={tabStyle(mode==='register')}><UserPlus size={15}/> Register</button>}
           </div>
-          <h2 style={{fontFamily:'Manrope',fontSize:25,color:'#17365d',margin:'0 0 8px'}}>{mode==='register'?'Create your account':mode==='admin-login'?'Administrator sign in':'Welcome back'}</h2>
-          <p style={{fontSize:13,color:'#71839b',margin:'0 0 24px'}}>{mode==='register'?'Choose your account type to get started.':mode==='admin-login'?'Sign in with the authorized EYEPEK administrator account.':'Sign in to continue to your workspace.'}</p>
+          <h2 style={{fontFamily:'Manrope',fontSize:25,color:'#17365d',margin:'0 0 8px'}}>{mode==='register'?'Create your account':mode==='admin-login'?'Private administrator sign in':'Welcome back'}</h2>
+          <p style={{fontSize:13,color:'#71839b',margin:'0 0 24px'}}>{mode==='register'?'Choose your account type to get started.':mode==='admin-login'?'Private administrator access.':'Sign in to continue to your workspace.'}</p>
           <form onSubmit={submit} style={{display:'grid',gap:14}}>
             {mode==='register' && <>
               <label style={labelStyle}>Account type</label>
