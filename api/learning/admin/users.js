@@ -54,7 +54,7 @@ export default async function handler(req, res) {
             await connection.execute(
               `INSERT INTO learning_tutor_permissions
                 (tutor_id,profile_management,course_management,course_publish,student_management,live_classes,booking_management,assignments,attendance,earnings,payout_request,updated_by)
-               VALUES (?,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,?)
+               VALUES (?,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,?)
                ON DUPLICATE KEY UPDATE tutor_id=VALUES(tutor_id)`,
               [userId, auth.id]
             );
