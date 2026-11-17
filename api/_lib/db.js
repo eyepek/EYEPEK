@@ -8,7 +8,7 @@ export function getDb() {
 
   if (!pool) {
     const u = new URL(uri);
-    const database = decodeURIComponent(u.pathname.replace(/^\\//, ''));
+    const database = decodeURIComponent(u.pathname.replace(/^\//, ''));
 
     pool = mysql.createPool({
       host: u.hostname,
