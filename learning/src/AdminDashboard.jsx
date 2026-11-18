@@ -60,7 +60,9 @@ export default function AdminDashboard({ user, token, onLogout }) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
-  const [mobileMenu, setMobileMenu] = useState(false);\n  const [allocation, setAllocation] = useState({students:[],tutors:[],assignments:[]});\n  const [allocationForm, setAllocationForm] = useState({studentId:'',tutorId:'',adminNote:''});
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [allocation, setAllocation] = useState({students:[],tutors:[],assignments:[]});
+  const [allocationForm, setAllocationForm] = useState({studentId:'',tutorId:'',adminNote:''});
 
   const api = useCallback(async (resource, method = 'GET', body) => {
     const response = await fetch(ROOT + '/data?resource=' + encodeURIComponent(resource), {
