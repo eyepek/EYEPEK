@@ -48,41 +48,6 @@ export default async function handler(req, res) {
         });
       }
 
-      if (resource === 'support') {
-        const status=String(req.body?.status||'');
-        if(!['open','in_progress','resolved','closed'].includes(status)) return json(res,400,{error:'Invalid ticket status'});
-        await db.execute('UPDATE learning_support_tickets SET status=?,admin_reply=? WHERE id=?',[status,req.body?.adminReply==null?null:String(req.body.adminReply).slice(0,10000)||null,id]);
-        return json(res,200,{ok:true});
-      }
-      if (resource === 'announcements') {
-        const status=String(req.body?.status||'');
-        if(!['draft','published','archived'].includes(status)) return json(res,400,{error:'Invalid announcement status'});
-        await db.execute('UPDATE learning_announcements SET status=?,published_at=IF(?=\'published\',COALESCE(published_at,CURRENT_TIMESTAMP),published_at) WHERE id=?',[status,status,id]);
-        return json(res,200,{ok:true});
-      }
-      if (resource === 'coupons') {
-        if(typeof req.body?.isActive!=='boolean') return json(res,400,{error:'Coupon active state required'});
-        await db.execute('UPDATE learning_coupons SET is_active=? WHERE id=?',[req.body.isActive,id]);
-        return json(res,200,{ok:true});
-      }
-      if (resource === 'reviews') {
-        const status=String(req.body?.status||'');
-        if(!['pending','published','hidden'].includes(status)) return json(res,400,{error:'Invalid review status'});
-        await db.execute('UPDATE learning_reviews SET status=? WHERE id=?',[status,id]);
-        return json(res,200,{ok:true});
-      }
-      if (resource === 'certificates') {
-        if(String(req.body?.status||'')!=='revoked') return json(res,400,{error:'Only certificate revocation is supported'});
-        await db.execute('UPDATE learning_certificates SET status=' + "'revoked'" + ' WHERE id=?',[id]);
-        return json(res,200,{ok:true});
-      }
-      if (resource === 'payouts') {
-        const status=String(req.body?.status||'');
-        if(!['approved','rejected','processing','paid'].includes(status)) return json(res,400,{error:'Invalid payout status'});
-        if(status==='paid') return json(res,409,{error:'Mark paid only after completing the actual bank transfer and verifying its reference'});
-        await db.execute('UPDATE learning_tutor_payouts SET status=?,reviewed_by=? WHERE id=?',[status,admin.id,id]);
-        return json(res,200,{ok:true});
-      }
       if (resource === 'users') {
         const [rows] = await db.execute(
           `SELECT u.id,u.full_name AS fullName,u.email,u.role,u.status,u.created_at AS createdAt,
@@ -227,6 +192,41 @@ export default async function handler(req, res) {
     if (req.method === 'PATCH') {
       const id = Number(req.body?.id);
       if (!Number.isSafeInteger(id) || id < 1) return json(res, 400, { error: 'A valid record id is required' });
+      if (resource === 'support') {
+        const status=String(req.body?.status||'');
+        if(!['open','in_progress','resolved','closed'].includes(status)) return json(res,400,{error:'Invalid ticket status'});
+        await db.execute('UPDATE learning_support_tickets SET status=?,admin_reply=? WHERE id=?',[status,req.body?.adminReply==null?null:String(req.body.adminReply).slice(0,10000)||null,id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'announcements') {
+        const status=String(req.body?.status||'');
+        if(!['draft','published','archived'].includes(status)) return json(res,400,{error:'Invalid announcement status'});
+        await db.execute("UPDATE learning_announcements SET status=?,published_at=IF(?='published',COALESCE(published_at,CURRENT_TIMESTAMP),published_at) WHERE id=?",[status,status,id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'coupons') {
+        if(typeof req.body?.isActive!=='boolean') return json(res,400,{error:'Coupon active state required'});
+        await db.execute('UPDATE learning_coupons SET is_active=? WHERE id=?',[req.body.isActive,id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'reviews') {
+        const status=String(req.body?.status||'');
+        if(!['pending','published','hidden'].includes(status)) return json(res,400,{error:'Invalid review status'});
+        await db.execute('UPDATE learning_reviews SET status=? WHERE id=?',[status,id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'certificates') {
+        if(String(req.body?.status||'')!=='revoked') return json(res,400,{error:'Only certificate revocation is supported'});
+        await db.execute("UPDATE learning_certificates SET status='revoked' WHERE id=?",[id]);
+        return json(res,200,{ok:true});
+      }
+      if (resource === 'payouts') {
+        const status=String(req.body?.status||'');
+        if(!['approved','rejected','processing','paid'].includes(status)) return json(res,400,{error:'Invalid payout status'});
+        if(status==='paid') return json(res,409,{error:'Mark paid only after completing the actual bank transfer and verifying its reference'});
+        await db.execute('UPDATE learning_tutor_payouts SET status=?,reviewed_by=? WHERE id=?',[status,admin.id,id]);
+        return json(res,200,{ok:true});
+      }
       if (resource === 'users') {
         const status = String(req.body?.status || '');
         if (!['active','suspended'].includes(status)) return json(res, 400, { error: 'Status must be active or suspended' });
